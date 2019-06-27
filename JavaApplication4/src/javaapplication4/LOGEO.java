@@ -45,6 +45,18 @@ public class LOGEO extends javax.swing.JFrame {
                 btnentrarActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(110, 280, 160, 30);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Usuario");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(50, 120, 110, 30);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Contraseña");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(50, 170, 110, 30);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Usuario");
@@ -58,6 +70,12 @@ public class LOGEO extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(160, 120, 160, 30);
+
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(160, 170, 160, 30);
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
