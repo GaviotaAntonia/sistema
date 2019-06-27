@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-06-2019 a las 18:09:55
+-- Tiempo de generación: 27-06-2019 a las 23:38:55
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -58,7 +58,11 @@ CREATE TABLE `alumno` (
 --
 
 CREATE TABLE `calendario` (
-  `id_calendario` int(11) NOT NULL
+  `id_calendario` int(11) NOT NULL,
+  `id_grupo` int(11) DEFAULT NULL,
+  `id_dia` int(11) DEFAULT NULL,
+  `id_materia` int(11) DEFAULT NULL,
+  `horario` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -69,14 +73,14 @@ CREATE TABLE `calendario` (
 
 CREATE TABLE `cede` (
   `id_cede` int(11) NOT NULL,
-  `nombrecede` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `id_colonia` int(11) NOT NULL,
-  `calle` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `numero` int(11) NOT NULL,
-  `codigopostal` int(11) NOT NULL,
-  `correo` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `id_director` int(11) NOT NULL,
-  `id_salones` int(11) NOT NULL
+  `nombrecede` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `id_colonia` int(11) DEFAULT NULL,
+  `calle` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `numero` int(11) DEFAULT NULL,
+  `codigo_postal` int(11) DEFAULT NULL,
+  `correo` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `id_director` int(11) DEFAULT NULL,
+  `id_salon` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -221,17 +225,6 @@ CREATE TABLE `mes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `salones`
---
-
-CREATE TABLE `salones` (
-  `id_salones` int(11) NOT NULL,
-  `salon` varchar(50) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `sexo`
 --
 
@@ -308,15 +301,19 @@ ALTER TABLE `alumno`
 -- Indices de la tabla `calendario`
 --
 ALTER TABLE `calendario`
-  ADD PRIMARY KEY (`id_calendario`);
+  ADD PRIMARY KEY (`id_calendario`),
+  ADD KEY `id_grupo` (`id_grupo`),
+  ADD KEY `id_dia` (`id_dia`),
+  ADD KEY `id_materia` (`id_materia`);
 
 --
 -- Indices de la tabla `cede`
 --
 ALTER TABLE `cede`
   ADD PRIMARY KEY (`id_cede`),
-  ADD KEY `id_colonia` (`id_colonia`,`id_director`,`id_salones`),
-  ADD KEY `id_salones` (`id_salones`);
+  ADD KEY `id_colonia` (`id_colonia`),
+  ADD KEY `id_director` (`id_director`),
+  ADD KEY `id_salon` (`id_salon`);
 
 --
 -- Indices de la tabla `colonia`
@@ -390,12 +387,6 @@ ALTER TABLE `mes`
   ADD PRIMARY KEY (`id_mes`);
 
 --
--- Indices de la tabla `salones`
---
-ALTER TABLE `salones`
-  ADD PRIMARY KEY (`id_salones`);
-
---
 -- Indices de la tabla `sexo`
 --
 ALTER TABLE `sexo`
@@ -434,18 +425,6 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `alumno`
   MODIFY `matricula` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `calendario`
---
-ALTER TABLE `calendario`
-  MODIFY `id_calendario` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `cede`
---
-ALTER TABLE `cede`
-  MODIFY `id_cede` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `colonia`
@@ -508,12 +487,6 @@ ALTER TABLE `mes`
   MODIFY `id_mes` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `salones`
---
-ALTER TABLE `salones`
-  MODIFY `id_salones` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `sexo`
 --
 ALTER TABLE `sexo`
@@ -553,7 +526,6 @@ ALTER TABLE `usuario`
 ALTER TABLE `alumno`
   ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`id_sexo`) REFERENCES `sexo` (`id_sexo`),
   ADD CONSTRAINT `alumno_ibfk_2` FOREIGN KEY (`id_status`) REFERENCES `status` (`id_status`),
-  ADD CONSTRAINT `alumno_ibfk_3` FOREIGN KEY (`id_salon`) REFERENCES `salones` (`id_salones`),
   ADD CONSTRAINT `alumno_ibfk_4` FOREIGN KEY (`id_grupo`) REFERENCES `grupo` (`id_grupo`),
   ADD CONSTRAINT `alumno_ibfk_5` FOREIGN KEY (`id_especial`) REFERENCES `especial` (`id_mad`),
   ADD CONSTRAINT `alumno_ibfk_6` FOREIGN KEY (`id_certificacion`) REFERENCES `tipo certificado` (`id_certificado`),
@@ -561,11 +533,20 @@ ALTER TABLE `alumno`
   ADD CONSTRAINT `alumno_ibfk_8` FOREIGN KEY (`id_horario`) REFERENCES `horario clase` (`id_horario`);
 
 --
+-- Filtros para la tabla `calendario`
+--
+ALTER TABLE `calendario`
+  ADD CONSTRAINT `calendario_ibfk_1` FOREIGN KEY (`id_grupo`) REFERENCES `grupo` (`id_grupo`),
+  ADD CONSTRAINT `calendario_ibfk_2` FOREIGN KEY (`id_dia`) REFERENCES `dia` (`id_dia`),
+  ADD CONSTRAINT `calendario_ibfk_3` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`);
+
+--
 -- Filtros para la tabla `cede`
 --
 ALTER TABLE `cede`
-  ADD CONSTRAINT `cede_ibfk_1` FOREIGN KEY (`id_salones`) REFERENCES `salones` (`id_salones`),
-  ADD CONSTRAINT `cede_ibfk_2` FOREIGN KEY (`id_colonia`) REFERENCES `colonia` (`id_colonia`);
+  ADD CONSTRAINT `cede_ibfk_1` FOREIGN KEY (`id_colonia`) REFERENCES `colonia` (`id_colonia`),
+  ADD CONSTRAINT `cede_ibfk_2` FOREIGN KEY (`id_director`) REFERENCES `director` (`id_director`),
+  ADD CONSTRAINT `cede_ibfk_3` FOREIGN KEY (`id_salon`) REFERENCES `salon` (`id_salon`);
 
 --
 -- Filtros para la tabla `colonia`
@@ -585,7 +566,6 @@ ALTER TABLE `director`
 --
 ALTER TABLE `docente`
   ADD CONSTRAINT `docente_ibfk_1` FOREIGN KEY (`id_sex`) REFERENCES `sexo` (`id_sexo`),
-  ADD CONSTRAINT `docente_ibfk_2` FOREIGN KEY (`id_salon`) REFERENCES `salones` (`id_salones`),
   ADD CONSTRAINT `docente_ibfk_3` FOREIGN KEY (`id_colonia`) REFERENCES `colonia` (`id_colonia`),
   ADD CONSTRAINT `docente_ibfk_4` FOREIGN KEY (`id_turno`) REFERENCES `turno docente` (`id_turno`);
 
