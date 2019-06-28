@@ -1,5 +1,9 @@
 package javaapplication4;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
+
 public class login extends javax.swing.JFrame {
 
     public login() {
@@ -7,6 +11,15 @@ public class login extends javax.swing.JFrame {
         this.setTitle("Logeo");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
+
+
+    }@Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
+
+
+        return retValue;
     }
 
 
@@ -21,6 +34,7 @@ public class login extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Usuario:");
@@ -97,6 +111,8 @@ public class login extends javax.swing.JFrame {
             menupri nuevo= new menupri();
             nuevo.setVisible(true);
             dispose();
+            
+            JOptionPane.showMessageDialog(this,"Haz entrado como usuario");
     }//GEN-LAST:event_btnabrirsesionActionPerformed
 
     private void btnabrirsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnabrirsesionMouseClicked

@@ -1,11 +1,23 @@
 package javaapplication4;
+
+import java.awt.Image;
+import java.awt.Toolkit;
+
 public class menupri extends javax.swing.JFrame {
     public menupri() {
         initComponents();
         this.setTitle("Menu principal");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
+    }@Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
+
+
+        return retValue;
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -39,6 +51,7 @@ public class menupri extends javax.swing.JFrame {
         menuayuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         btncerrarsesion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btncerrarsesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrarsesion.png"))); // NOI18N
