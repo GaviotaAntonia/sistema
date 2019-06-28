@@ -5,6 +5,9 @@ public class dia extends javax.swing.JFrame {
 
     public dia() {
         initComponents();
+        this.setTitle("Día");
+        this.setLocale(null);
+        this.setLocationRelativeTo(null);
     }
 
     /**
