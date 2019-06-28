@@ -297,7 +297,7 @@ public class turnodoc extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
-        // TODO add your handling code here:
+       nuevo(); // TODO add your handling code here:
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
@@ -348,7 +348,11 @@ public class turnodoc extends javax.swing.JFrame {
         usuario usu=new usuario();
         usu.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_menubuscarActionPerformed
-
+public void nuevo(){
+     jTextField1.setText("");    
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField1.requestFocusInWindow();}
     /**
      * @param args the command line arguments
      */

@@ -323,7 +323,7 @@ public class colonia extends javax.swing.JFrame {
     }//GEN-LAST:event_menubuscarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
-        // TODO add your handling code here:
+       nuevo(); // TODO add your handling code here:
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
@@ -334,7 +334,10 @@ public class colonia extends javax.swing.JFrame {
         menupri ni=new menupri();
         ni.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+public void nuevo(){
+     jTextField1.setText("");    
+        jTextField2.setText("");
+        jTextField1.requestFocusInWindow();}
     /**
      * @param args the command line arguments
      */
