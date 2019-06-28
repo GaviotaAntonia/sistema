@@ -8,6 +8,8 @@ public class LOGEO extends javax.swing.JFrame {
         this.setTitle("Logeo");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
+
+
     }
 
     @SuppressWarnings("unchecked")
