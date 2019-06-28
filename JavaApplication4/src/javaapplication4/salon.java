@@ -1,4 +1,8 @@
 package javaapplication4;
+
+import java.awt.Image;
+import java.awt.Toolkit;
+
 public class salon extends javax.swing.JFrame {
     public salon() {
         initComponents();
@@ -7,6 +11,15 @@ public class salon extends javax.swing.JFrame {
         this.setLocale(null);
         this.setLocationRelativeTo(null);
     }
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
+
+
+        return retValue;
+    }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -41,6 +54,7 @@ public class salon extends javax.swing.JFrame {
         textField1.setText("textField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setMaximumSize(new java.awt.Dimension(1800, 200));
         setPreferredSize(new java.awt.Dimension(600, 600));
 
