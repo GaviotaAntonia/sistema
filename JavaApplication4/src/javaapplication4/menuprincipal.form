@@ -20,7 +20,8 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Alumno"/>
+                <Property name="actionCommand" type="java.lang.String" value="alumnos"/>
+                <Property name="label" type="java.lang.String" value="Alumnos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>

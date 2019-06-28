@@ -49,7 +49,8 @@ public class menuprincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Comunidad escolar");
 
-        jMenuItem1.setText("Alumno");
+        jMenuItem1.setActionCommand("alumnos");
+        jMenuItem1.setLabel("Alumnos");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
