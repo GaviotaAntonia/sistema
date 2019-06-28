@@ -178,13 +178,39 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <Component id="btnalumno" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="276" max="32767" attributes="0"/>
+          </Group>
+=======
           <EmptySpace min="0" pref="939" max="32767" attributes="0"/>
+>>>>>>> fadb34d6b2bc9360258412a2409adcddab904adb
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+              <Component id="btnalumno" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="152" max="32767" attributes="0"/>
+          </Group>
+=======
           <EmptySpace min="0" pref="281" max="32767" attributes="0"/>
+>>>>>>> fadb34d6b2bc9360258412a2409adcddab904adb
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="btnalumno">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="alumno"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnalumnoActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
 </Form>
