@@ -66,6 +66,7 @@ public class tipocert extends javax.swing.JFrame {
         menuayuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         jPanel1.setBackground(java.awt.SystemColor.controlHighlight);
         jPanel1.setMaximumSize(new java.awt.Dimension(600, 600));

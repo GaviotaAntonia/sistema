@@ -66,6 +66,7 @@ public class estado extends javax.swing.JFrame {
         menuayuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setPreferredSize(new java.awt.Dimension(600, 600));
 
         jPanel1.setBackground(java.awt.SystemColor.controlHighlight);
