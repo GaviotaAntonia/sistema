@@ -16,7 +16,7 @@ public class menupri extends javax.swing.JFrame {
      */
     public menupri() {
         initComponents();
-        this.setTitle("Menu princiapal");
+        this.setTitle("Menu principal");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
     }
