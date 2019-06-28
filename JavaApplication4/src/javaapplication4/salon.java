@@ -1,9 +1,5 @@
 package javaapplication4;
 public class salon extends javax.swing.JFrame {
-
-    /**
-     * Creates new form salon
-     */
     public salon() {
         initComponents();
         
@@ -288,7 +284,7 @@ public class salon extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
-        // TODO add your handling code here:
+        nuevo();// TODO add your handling code here:
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void menuguardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuguardarMouseClicked
@@ -335,6 +331,10 @@ public class salon extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 
+public void nuevo(){
+     jTextField1.setText("");    
+        jTextField2.setText("");
+        jTextField1.requestFocusInWindow();}
     /**
      * @param args the command line arguments
      */
