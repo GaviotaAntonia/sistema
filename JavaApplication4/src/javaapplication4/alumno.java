@@ -1,4 +1,5 @@
-﻿package javaapplication4;
+package javaapplication4;
+
 public class alumno extends javax.swing.JFrame {
     public alumno() {
         initComponents();
