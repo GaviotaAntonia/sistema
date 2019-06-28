@@ -1,4 +1,8 @@
 package javaapplication4;
+
+import java.awt.Image;
+import java.awt.Toolkit;
+
 public class turnodoc extends javax.swing.JFrame {
     public turnodoc() {
         initComponents();
@@ -6,7 +10,14 @@ public class turnodoc extends javax.swing.JFrame {
         this.setLocale(null);
         this.setLocationRelativeTo(null);
     }
+   @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
 
+
+        return retValue;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

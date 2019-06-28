@@ -5,6 +5,9 @@
  */
 package javaapplication4;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Alejandro
@@ -20,7 +23,14 @@ public class estado extends javax.swing.JFrame {
         this.setLocale(null);
         this.setLocationRelativeTo(null);
     }
+   @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
 
+
+        return retValue;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

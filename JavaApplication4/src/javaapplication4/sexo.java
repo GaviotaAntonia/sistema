@@ -5,6 +5,9 @@
  */
 package javaapplication4;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Alejandro
@@ -19,6 +22,14 @@ public class sexo extends javax.swing.JFrame {
         this.setTitle("Sexo");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
+    }
+       @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
+
+
+        return retValue;
     }
 
     /**
