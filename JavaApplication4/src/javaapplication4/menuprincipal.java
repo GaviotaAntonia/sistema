@@ -1,4 +1,4 @@
-package javaapplication4;
+﻿package javaapplication4;
 public class menuprincipal extends javax.swing.JFrame {
 
     public menuprincipal() {
@@ -12,7 +12,6 @@ public class menuprincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<<<<<<< HEAD
         btnalumno = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -23,7 +22,6 @@ public class menuprincipal extends javax.swing.JFrame {
                 btnalumnoActionPerformed(evt);
             }
         });
-=======
         jMenu6 = new javax.swing.JMenu();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -151,13 +149,11 @@ public class menuprincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
->>>>>>> fadb34d6b2bc9360258412a2409adcddab904adb
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addComponent(btnalumno)
@@ -169,24 +165,22 @@ public class menuprincipal extends javax.swing.JFrame {
                 .addGap(125, 125, 125)
                 .addComponent(btnalumno)
                 .addContainerGap(152, Short.MAX_VALUE))
-=======
+
             .addGap(0, 939, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 281, Short.MAX_VALUE)
->>>>>>> fadb34d6b2bc9360258412a2409adcddab904adb
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
     private void btnalumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalumnoActionPerformed
         alumno alu =new alumno();
         alu.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnalumnoActionPerformed
-=======
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -202,7 +196,6 @@ public class menuprincipal extends javax.swing.JFrame {
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem8ActionPerformed
->>>>>>> fadb34d6b2bc9360258412a2409adcddab904adb
 
     /**
      * @param args the command line arguments
@@ -240,9 +233,9 @@ public class menuprincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
+
     private javax.swing.JButton btnalumno;
-=======
+
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -268,6 +261,5 @@ public class menuprincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
->>>>>>> fadb34d6b2bc9360258412a2409adcddab904adb
     // End of variables declaration//GEN-END:variables
 }
