@@ -27,117 +27,94 @@ public class mes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        btnsalir = new javax.swing.JButton();
-        label1 = new javax.swing.JLabel();
-        label2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
-        menuagregar = new javax.swing.JMenuItem();
+        menuguardar = new javax.swing.JMenuItem();
         menuconsulta = new javax.swing.JMenuItem();
-        menumodificacion = new javax.swing.JMenuItem();
+        menumodificar = new javax.swing.JMenuItem();
         menubuscar = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salida32.png"))); // NOI18N
-
-        label1.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
-        label1.setText("Nombre del usuario");
-
-        label2.setText("Numero del usuario");
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("MES");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel2.setText("ID MES");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel3.setText("jLabel3");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(299, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(label2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(59, 59, 59)
-                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(228, 228, 228))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(btnsalir))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addContainerGap(172, Short.MAX_VALUE))
-        );
-
         jMenu1.setText("Acciones");
 
-        menunuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/nuevo.png"))); // NOI18N
-        menunuevo.setText("Nueva");
+        menunuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limpiar.png"))); // NOI18N
+        menunuevo.setText("Nuevo");
+        menunuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menunuevoActionPerformed(evt);
+            }
+        });
         jMenu1.add(menunuevo);
 
-        menuagregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
-        menuagregar.setText("Agregar");
-        jMenu1.add(menuagregar);
+        menuguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
+        menuguardar.setText("Agregar");
+        menuguardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuguardarMouseClicked(evt);
+            }
+        });
+        menuguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuguardarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuguardar);
 
         menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
         menuconsulta.setText("Consulta");
+        menuconsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuconsultaMouseClicked(evt);
+            }
+        });
+        menuconsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuconsultaActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuconsulta);
 
-        menumodificacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
-        menumodificacion.setText("Modificar");
-        jMenu1.add(menumodificacion);
+        menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
+        menumodificar.setText("Modificar");
+        menumodificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menumodificarMouseClicked(evt);
+            }
+        });
+        menumodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menumodificarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menumodificar);
 
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
+        menubuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menubuscarMouseClicked(evt);
+            }
+        });
+        menubuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menubuscarActionPerformed(evt);
+            }
+        });
         jMenu1.add(menubuscar);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Ayuda");
+        jMenu6.setText("Ayuda");
 
         menuayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ayuda.png"))); // NOI18N
         menuayuda.setText("Ayuda");
-        jMenu2.add(menuayuda);
+        jMenu6.add(menuayuda);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
 
@@ -145,16 +122,62 @@ public class mes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 683, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 428, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void menunuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menunuevoActionPerformed
+        nuevo();        // TODO add your handling code here:
+    }//GEN-LAST:event_menunuevoActionPerformed
+
+    private void menuguardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuguardarMouseClicked
+        alumno nuevo=new alumno();
+        nuevo.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_menuguardarMouseClicked
+
+    private void menuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuguardarActionPerformed
+        alumno nuevo=new alumno();
+        nuevo.setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_menuguardarActionPerformed
+
+    private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
+        docente doc=new docente();
+        doc.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_menuconsultaMouseClicked
+
+    private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
+        docente doc=new docente();
+        doc.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_menuconsultaActionPerformed
+
+    private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
+        director dir= new director();
+        dir.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_menumodificarMouseClicked
+
+    private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
+        director di=new director();
+        di.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_menumodificarActionPerformed
+
+    private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked
+        usuario usu=new usuario();
+        usu.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_menubuscarMouseClicked
+
+    private void menubuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubuscarActionPerformed
+        usuario usu=new usuario();
+        usu.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_menubuscarActionPerformed
+        public void nuevo(){
+            
+        }
     /**
      * @param args the command line arguments
      */
@@ -191,21 +214,44 @@ public class mes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnsalir;
+    private javax.swing.JButton btnbuscar;
+    private javax.swing.JButton btnbuscar1;
+    private javax.swing.JButton btnconsulta;
+    private javax.swing.JButton btnconsulta1;
+    private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btneliminar1;
+    private javax.swing.JButton btngrabar;
+    private javax.swing.JButton btngrabar1;
+    private javax.swing.JButton btnmodificar;
+    private javax.swing.JButton btnmodificar1;
+    private javax.swing.JButton btnnuevo;
+    private javax.swing.JButton btnnuevo1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel label1;
-    private javax.swing.JLabel label2;
-    private javax.swing.JMenuItem menuagregar;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private java.awt.Label label1;
+    private java.awt.Label label2;
+    private java.awt.Label label3;
+    private java.awt.Label label4;
     private javax.swing.JMenuItem menuayuda;
     private javax.swing.JMenuItem menubuscar;
     private javax.swing.JMenuItem menuconsulta;
-    private javax.swing.JMenuItem menumodificacion;
+    private javax.swing.JMenuItem menuguardar;
+    private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
     // End of variables declaration//GEN-END:variables
 }
