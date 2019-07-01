@@ -373,7 +373,7 @@ consultar();      // TODO add your handling code here:
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        // TODO add your handling code here:
+modificar();        // TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -489,6 +489,37 @@ catch(Exception e2){
      
         
         }
+}
+        public void modificar(){
+
+      try{ 
+          Class.forName("com.mysql.jdbc.Driver");
+      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+      Connection con; PreparedStatement stmt;  
+             con = DriverManager.getConnection (cadena);
+      String id_mes = jTextField1.getText();
+      String mes= jTextField2.getText();
+ 
+      String sql= " update mes set ";
+           sql += "mes= " +"\""+ mes + "\"" + " where id_mes =" +id_mes+ " ; ";
+           
+    
+      JOptionPane.showMessageDialog (null, sql);
+      stmt = con.prepareStatement(sql);
+      int sw = stmt.executeUpdate();
+      if (sw!=0) { 
+          JOptionPane.showMessageDialog (null, "Registro modificado");
+      }
+     }
+      catch(ClassNotFoundException e){
+          JOptionPane.showMessageDialog (null, e); 
+      }
+    catch (SQLException e1) {
+        JOptionPane.showMessageDialog (null, e1);
+    }
+      catch (Exception e2) {
+          JOptionPane.showMessageDialog (null, e2);
+      }
 }
     /**
      * @param args the command line arguments

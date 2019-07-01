@@ -420,6 +420,37 @@ catch(Exception e2){
     JOptionPane.showMessageDialog(null, e2);
 }
  }
+public void modificar(){
+
+      try{ 
+          Class.forName("com.mysql.jdbc.Driver");
+      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+      Connection con; PreparedStatement stmt;  
+             con = DriverManager.getConnection (cadena);
+      String id_giro = jTextField1.getText();
+      String giro= jTextField2.getText();
+ 
+      String sql= " update giroempre set ";
+           sql += "giroempre= " +"\""+ giro + "\"" + " where id_giro =" +id_giro+ " ; ";
+           
+    
+      JOptionPane.showMessageDialog (null, sql);
+      stmt = con.prepareStatement(sql);
+      int sw = stmt.executeUpdate();
+      if (sw!=0) { 
+          JOptionPane.showMessageDialog (null, "Registro modificado");
+      }
+     }
+      catch(ClassNotFoundException e){
+          JOptionPane.showMessageDialog (null, e); 
+      }
+    catch (SQLException e1) {
+        JOptionPane.showMessageDialog (null, e1);
+    }
+      catch (Exception e2) {
+          JOptionPane.showMessageDialog (null, e2);
+      }
+}
     /**
      * @param args the command line arguments
      */
