@@ -3,6 +3,11 @@ package javaapplication4;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class dia extends javax.swing.JFrame {
 
@@ -83,6 +88,11 @@ public class dia extends javax.swing.JFrame {
 
         btngrabar.setBackground(new java.awt.Color(255, 255, 255));
         btngrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
+        btngrabar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngrabarActionPerformed(evt);
+            }
+        });
 
         btnmodificar.setBackground(new java.awt.Color(255, 255, 255));
         btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
@@ -131,20 +141,24 @@ public class dia extends javax.swing.JFrame {
                                 .addGap(13, 13, 13)))
                         .addGap(20, 20, 20))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(55, 55, 55)
+
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addComponent(jLabel1)))
                         .addGap(71, 71, 71)))
+
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +185,7 @@ public class dia extends javax.swing.JFrame {
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(55, 55, 55)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -195,7 +209,7 @@ public class dia extends javax.swing.JFrame {
                         .addComponent(btnbuscar)
                         .addGap(18, 18, 18)
                         .addComponent(btngrabar)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Acciones");
@@ -296,43 +310,35 @@ public class dia extends javax.swing.JFrame {
     }//GEN-LAST:event_menunuevoActionPerformed
 
     private void menuguardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuguardarMouseClicked
-        alumno nuevo=new alumno();
-        nuevo.setVisible(true);// TODO add your handling code here:
+    grabar();// TODO add your handling code here:
     }//GEN-LAST:event_menuguardarMouseClicked
 
     private void menuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuguardarActionPerformed
-        alumno nuevo=new alumno();
-        nuevo.setVisible(true); // TODO add your handling code here:
+      grabar(); // TODO add your handling code here:
     }//GEN-LAST:event_menuguardarActionPerformed
 
     private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
-        docente doc=new docente();
-        doc.setVisible(true);// TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_menuconsultaMouseClicked
 
     private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-        docente doc=new docente();
-        doc.setVisible(true);        // TODO add your handling code here:
+              // TODO add your handling code here:
     }//GEN-LAST:event_menuconsultaActionPerformed
 
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
-        director dir= new director();
-        dir.setVisible(true);        // TODO add your handling code here:
+           // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarMouseClicked
 
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
-        director di=new director();
-        di.setVisible(true);        // TODO add your handling code here:
+          // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarActionPerformed
 
     private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked
-        usuario usu=new usuario();
-        usu.setVisible(true);// TODO add your handling code here:
+   // TODO add your handling code here:
     }//GEN-LAST:event_menubuscarMouseClicked
 
     private void menubuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubuscarActionPerformed
-        usuario usu=new usuario();
-        usu.setVisible(true);// TODO add your handling code here:
+     // TODO add your handling code here:
     }//GEN-LAST:event_menubuscarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
@@ -349,11 +355,43 @@ public class dia extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
+ grabar();        // TODO add your handling code here:
+    }//GEN-LAST:event_btngrabarActionPerformed
+
     public void nuevo(){
         jTextField1.setText("");
         jTextField2.setText("");
         jTextField1.requestFocusInWindow();
     }
+    public void grabar(){
+    
+try{
+    Class.forName("com.mysql.jdbc.Driver");
+    String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+    Connection con =DriverManager.getConnection(cadena);
+    PreparedStatement stmt=null;
+    String id_dia=jTextField1.getText();
+    String dia=jTextField2.getText();
+    
+    String sql="insert into dia values(";
+    sql+=id_dia+","+"\""+dia+"\")";
+    stmt=con.prepareStatement(sql);
+    int sw=stmt.executeUpdate();
+    if(sw!=0){ JOptionPane.showMessageDialog(null,"Registro de alta con exito!");
+    nuevo();
+    }
+}
+catch(ClassNotFoundException e){
+    JOptionPane.showMessageDialog(null, e);
+}
+catch(SQLException e1){
+    JOptionPane.showMessageDialog(null, e1);
+}
+catch(Exception e2){
+    JOptionPane.showMessageDialog(null, e2);
+}
+ }
     /**
      * @param args the command line arguments
      */
