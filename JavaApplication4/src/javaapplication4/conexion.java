@@ -15,7 +15,6 @@ public class conexion {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
-            System.out.println("conexion exitosa");
             JOptionPane.showMessageDialog(null,"conexion exitosa");
         } 
         catch (ClassNotFoundException| SQLException e) 
