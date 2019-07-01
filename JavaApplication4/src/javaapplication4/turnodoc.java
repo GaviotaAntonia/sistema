@@ -51,9 +51,8 @@ public class turnodoc extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
-        setPreferredSize(new java.awt.Dimension(600, 600));
 
-        jPanel1.setBackground(java.awt.SystemColor.controlHighlight);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1800, 720));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
