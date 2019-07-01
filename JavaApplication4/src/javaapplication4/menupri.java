@@ -441,7 +441,9 @@ public class menupri extends javax.swing.JFrame {
     }//GEN-LAST:event_menusexoActionPerformed
 
     private void menustatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menustatusActionPerformed
-
+        status sta=new status();
+        sta.setVisible(true);
+        dispose();
     }//GEN-LAST:event_menustatusActionPerformed
 
     private void menuticeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuticeActionPerformed
