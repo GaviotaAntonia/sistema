@@ -358,7 +358,8 @@ public class dia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        // TODO add your handling code here:
+modificar();
+// TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -474,6 +475,37 @@ public class dia extends javax.swing.JFrame {
         if (sw==0) {
               JOptionPane.showMessageDialog(null, "***no existe el registro*** ");
         }
+}
+    public void modificar(){
+
+      try{ 
+          Class.forName("com.mysql.jdbc.Driver");
+      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+      Connection con; PreparedStatement stmt;  
+             con = DriverManager.getConnection (cadena);
+      String id_dia = jTextField1.getText();
+      String dia= jTextField2.getText();
+ 
+      String sql= " update dia set ";
+           sql += "dia= " +"\""+ dia + "\"" + " where id_dia =" +id_dia+ " ; ";
+           
+    
+      JOptionPane.showMessageDialog (null, sql);
+      stmt = con.prepareStatement(sql);
+      int sw = stmt.executeUpdate();
+      if (sw!=0) { 
+          JOptionPane.showMessageDialog (null, "Registro modificado");
+      }
+     }
+      catch(ClassNotFoundException e){
+          JOptionPane.showMessageDialog (null, e); 
+      }
+    catch (SQLException e1) {
+        JOptionPane.showMessageDialog (null, e1);
+    }
+      catch (Exception e2) {
+          JOptionPane.showMessageDialog (null, e2);
+      }
 }
     /**
      * @param args the command line arguments
