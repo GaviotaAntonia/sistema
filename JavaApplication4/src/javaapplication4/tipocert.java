@@ -203,7 +203,7 @@ public class tipocert extends javax.swing.JFrame {
                         .addComponent(btnbuscar)
                         .addGap(18, 18, 18)
                         .addComponent(btngrabar)))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Acciones");

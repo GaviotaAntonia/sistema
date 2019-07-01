@@ -204,7 +204,7 @@ public class sexo extends javax.swing.JFrame {
                         .addComponent(btnbuscar)
                         .addGap(18, 18, 18)
                         .addComponent(btngrabar)))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Acciones");
