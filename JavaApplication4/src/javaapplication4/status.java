@@ -413,6 +413,7 @@ public void borrar(){
       int sw = stmt.executeUpdate();
       if (sw!=0) { 
           JOptionPane.showMessageDialog (null, "Registro borrado");
+          nuevo();
       }
      }
     catch(ClassNotFoundException e)
