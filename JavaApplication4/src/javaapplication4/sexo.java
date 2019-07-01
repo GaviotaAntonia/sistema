@@ -333,7 +333,7 @@ public class sexo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-modificar();        // TODO add your handling code here:
+    modificar();        // TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -351,7 +351,7 @@ public class mes extends javax.swing.JFrame {
     }//GEN-LAST:event_menumodificarMouseClicked
 
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
-     // TODO add your handling code here:
+modificar();     // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarActionPerformed
 
     private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked
