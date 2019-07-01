@@ -7,6 +7,11 @@ package javaapplication4;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -91,6 +96,11 @@ public class tipocert extends javax.swing.JFrame {
 
         btngrabar.setBackground(new java.awt.Color(255, 255, 255));
         btngrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
+        btngrabar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngrabarActionPerformed(evt);
+            }
+        });
 
         btnmodificar.setBackground(new java.awt.Color(255, 255, 255));
         btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
@@ -305,8 +315,7 @@ public class tipocert extends javax.swing.JFrame {
     }//GEN-LAST:event_menuguardarMouseClicked
 
     private void menuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuguardarActionPerformed
-        alumno nuevo=new alumno();
-        nuevo.setVisible(true); // TODO add your handling code here:
+        grabar();
     }//GEN-LAST:event_menuguardarActionPerformed
 
     private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
@@ -356,13 +365,44 @@ public class tipocert extends javax.swing.JFrame {
     private void menunuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menunuevoActionPerformed
        nuevo(); // TODO add your handling code here:
     }//GEN-LAST:event_menunuevoActionPerformed
+
+    private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
+        grabar();
+    }//GEN-LAST:event_btngrabarActionPerformed
 public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
         jTextField1.requestFocusInWindow();}
-    /**
-     * @param args the command line arguments
-     */
+
+public void grabar(){
+    
+try{
+    Class.forName("com.mysql.jdbc.Driver");
+    String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+    Connection con =DriverManager.getConnection(cadena);
+    PreparedStatement stmt=null;
+    String id_certificado=jTextField1.getText();
+    String nombre=jTextField2.getText();
+    
+    String sql="insert into tipo_certificado values(";
+    sql+=id_certificado+","+"\""+nombre+"\")";
+    stmt=con.prepareStatement(sql);
+    int sw=stmt.executeUpdate();
+    if(sw!=0){ JOptionPane.showMessageDialog(null,"Registro de alta con exito!");
+    nuevo();
+    }
+}
+catch(ClassNotFoundException e){
+    JOptionPane.showMessageDialog(null, e);
+}
+catch(SQLException e1){
+    JOptionPane.showMessageDialog(null, e1);
+}
+catch(Exception e2){
+    JOptionPane.showMessageDialog(null, e2);
+}
+ }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
