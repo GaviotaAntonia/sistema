@@ -1,5 +1,4 @@
 package javaapplication4;
-
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
@@ -148,7 +147,8 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnabrirsesionMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      // TODO add your handling code here:
+        conexion con=new conexion();
+        con.conexion();      // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
