@@ -97,6 +97,11 @@ public class grupo extends javax.swing.JFrame {
 
         btnbuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
@@ -351,13 +356,16 @@ public class grupo extends javax.swing.JFrame {
     }//GEN-LAST:event_menunuevoActionPerformed
 
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
-
     grabar();        // TODO add your handling code here:
     }//GEN-LAST:event_btngrabarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-  borrar();        // TODO add your handling code here:
+    borrar();        // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        consultar();
+    }//GEN-LAST:event_btnbuscarActionPerformed
     public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
@@ -392,6 +400,7 @@ catch(Exception e2){
     JOptionPane.showMessageDialog(null, e2);
 }
  }
+
     public void borrar(){
     try{ 
           Class.forName("com.mysql.jdbc.Driver");
@@ -420,8 +429,10 @@ catch(Exception e2){
           JOptionPane.showMessageDialog (null, e2);
       }
     }
+
     public void consultar(){
     int sw=0;
+
         try{
          Class.forName("com.mysql.jdbc.Driver");
          String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
@@ -432,6 +443,25 @@ catch(Exception e2){
          String  id_grupo=jTextField1.getText();
          String sql=" select * from grupo " 
               + "where id_grupo = " + id_grupo+";";
+
+           stmt=con.prepareStatement(sql);
+          //System.out.println(sql);
+           
+           tabla=stmt.executeQuery();
+           
+           while (tabla.next()) // 
+           {
+               
+               sw=1;
+               jTextField2.setText(tabla.getString(2));
+           }
+         
+           
+           }catch(ClassNotFoundException e){
+           JOptionPane.showMessageDialog(null, e);
+           }
+           catch(SQLException e1){
+           JOptionPane.showMessageDialog(null, e1);
            stmt=con.prepareStatement(sql);
           //System.out.println(sql);
           tabla=stmt.executeQuery(); 
@@ -458,6 +488,7 @@ catch(Exception e2){
         
         }
 }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
