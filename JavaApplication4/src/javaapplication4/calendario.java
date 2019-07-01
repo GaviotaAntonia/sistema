@@ -16,6 +16,9 @@ public class calendario extends javax.swing.JFrame {
      */
     public calendario() {
         initComponents();
+        this.setTitle("Calendario");
+        this.setLocale(null);
+        this.setLocationRelativeTo(null);
     }
 
     /**

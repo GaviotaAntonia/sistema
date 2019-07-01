@@ -318,6 +318,9 @@
               <Image iconType="3" name="/iconos/salida32.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="java.awt.Label" name="label3">
           <Properties>

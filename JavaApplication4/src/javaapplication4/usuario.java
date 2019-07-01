@@ -16,7 +16,7 @@ public class usuario extends javax.swing.JFrame {
      */
     public usuario() {
         initComponents();
-        this.setTitle("Logeo");
+        this.setTitle("Usuario");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
     }
@@ -88,6 +88,11 @@ public class usuario extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salida32.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         label3.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
         label3.setText("nombre del usuario");
@@ -354,6 +359,10 @@ public class usuario extends javax.swing.JFrame {
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
         nuevo();// TODO add your handling code here:
     }//GEN-LAST:event_btnnuevoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
         public void nuevo(){
         jTextField1.setText("");
         jTextField2.setText("");
