@@ -1,4 +1,8 @@
 package javaapplication4;
+
+import java.awt.Image;
+import java.awt.Toolkit;
+
 public class director extends javax.swing.JFrame {
 
     public director() {
@@ -6,6 +10,16 @@ public class director extends javax.swing.JFrame {
         this.setTitle("Director");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
+    }
+    
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
+
+
+        return retValue;
+    
     }
 
  
@@ -59,6 +73,8 @@ public class director extends javax.swing.JFrame {
         menuayuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setIconImage(getIconImage());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel1.setText("Matricula");
