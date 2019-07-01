@@ -371,7 +371,6 @@ public class grupo extends javax.swing.JFrame {
         jTextField2.setText("");
         jTextField1.requestFocusInWindow();
     }
-
     public void grabar(){
 
     
@@ -401,7 +400,7 @@ catch(Exception e2){
     JOptionPane.showMessageDialog(null, e2);
 }
  }
-    
+
     public void borrar(){
     try{ 
           Class.forName("com.mysql.jdbc.Driver");
@@ -430,10 +429,10 @@ catch(Exception e2){
           JOptionPane.showMessageDialog (null, e2);
       }
     }
-    
+
     public void consultar(){
-int sw=0;
-        
+    int sw=0;
+
         try{
          Class.forName("com.mysql.jdbc.Driver");
          String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
@@ -444,7 +443,7 @@ int sw=0;
          String  id_grupo=jTextField1.getText();
          String sql=" select * from grupo " 
               + "where id_grupo = " + id_grupo+";";
-      
+
            stmt=con.prepareStatement(sql);
           //System.out.println(sql);
            
@@ -463,6 +462,21 @@ int sw=0;
            }
            catch(SQLException e1){
            JOptionPane.showMessageDialog(null, e1);
+           stmt=con.prepareStatement(sql);
+          //System.out.println(sql);
+          tabla=stmt.executeQuery(); 
+           while (tabla.next()) // 
+           {
+               sw=1;
+               jTextField2.setText(tabla.getString(2));
+           }   
+        }
+        catch(ClassNotFoundException e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        catch(SQLException e1){
+            JOptionPane.showMessageDialog(null, e1);
            }
           catch(Exception e2){
           JOptionPane.showMessageDialog(null, e2);
