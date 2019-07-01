@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -59,6 +60,7 @@ public class dia extends javax.swing.JFrame {
         menuconsulta = new javax.swing.JMenuItem();
         menumodificar = new javax.swing.JMenuItem();
         menubuscar = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
 
@@ -104,6 +106,11 @@ public class dia extends javax.swing.JFrame {
 
         btnbuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
@@ -280,6 +287,10 @@ public class dia extends javax.swing.JFrame {
         });
         jMenu1.add(menubuscar);
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        jMenuItem1.setText("Eliminar");
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         jMenu6.setText("Ayuda");
@@ -364,6 +375,10 @@ public class dia extends javax.swing.JFrame {
     borrar();        // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarActionPerformed
 
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+       consultar(); // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
     public void nuevo(){
         jTextField1.setText("");
         jTextField2.setText("");
@@ -425,6 +440,41 @@ public class dia extends javax.swing.JFrame {
           JOptionPane.showMessageDialog (null, e2);
       }
     }
+    public void consultar(){
+    int sw=0;
+        try{
+         Class.forName("com.mysql.jdbc.Driver");
+         String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+         Connection con;//conecta los datos a la base de datos.
+         java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
+         ResultSet tabla;
+         con= DriverManager.getConnection(cadena);
+         String  id_dia=jTextField1.getText();
+         String sql=" select * from dia " 
+              + "where id_dia = " + id_dia+";";
+           stmt=con.prepareStatement(sql);
+          //System.out.println(sql);
+          tabla=stmt.executeQuery(); 
+           while (tabla.next()) // 
+           {
+               sw=1;
+               jTextField2.setText(tabla.getString(2));
+           }   
+        }
+        catch(ClassNotFoundException e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        catch(SQLException e1){
+            JOptionPane.showMessageDialog(null, e1);
+           }
+          catch(Exception e2){
+          JOptionPane.showMessageDialog(null, e2);
+          }
+        if (sw==0) {
+              JOptionPane.showMessageDialog(null, "***no existe el registro*** ");
+        }
+}
     /**
      * @param args the command line arguments
      */
@@ -474,6 +524,7 @@ public class dia extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -64,6 +65,7 @@ public class sexo extends javax.swing.JFrame {
         menuconsulta = new javax.swing.JMenuItem();
         menumodificar = new javax.swing.JMenuItem();
         menubuscar = new javax.swing.JMenuItem();
+        menueliminar = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
 
@@ -109,6 +111,12 @@ public class sexo extends javax.swing.JFrame {
 
         btnbuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
+        btnbuscar.setText("buscar o consultar");
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
@@ -176,10 +184,13 @@ public class sexo extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnconsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnbuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnconsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(1, 1, 1)))
                 .addGap(48, 48, 48))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,9 +210,7 @@ public class sexo extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnbuscar)
-                            .addComponent(btngrabar))))
+                        .addComponent(btngrabar)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -220,7 +229,9 @@ public class sexo extends javax.swing.JFrame {
                             .addGap(23, 23, 23)
                             .addComponent(btnconsulta))
                         .addComponent(btnmodificar)))
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnbuscar)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Acciones");
@@ -284,6 +295,10 @@ public class sexo extends javax.swing.JFrame {
             }
         });
         jMenu1.add(menubuscar);
+
+        menueliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        menueliminar.setText("Eliminar");
+        jMenu1.add(menueliminar);
 
         jMenuBar1.add(jMenu1);
 
@@ -366,6 +381,10 @@ public class sexo extends javax.swing.JFrame {
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
      borrar();        // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+     consultar();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscarActionPerformed
 public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
@@ -427,6 +446,49 @@ public void borrar(){
           JOptionPane.showMessageDialog (null, e2);
       }
     }
+public void consultar(){
+int sw=0;
+        
+        try{
+         Class.forName("com.mysql.jdbc.Driver");
+         String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+         Connection con;//conecta los datos a la base de datos.
+         java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
+         ResultSet tabla;
+         con= DriverManager.getConnection(cadena);
+         String  id_sexo=jTextField1.getText();
+         String sql=" select * from sexo " 
+              + "where id_sexo = " + id_sexo+";";
+      
+           stmt=con.prepareStatement(sql);
+          //System.out.println(sql);
+           
+           tabla=stmt.executeQuery();
+           
+           while (tabla.next()) // 
+           {
+               
+               sw=1;
+               jTextField2.setText(tabla.getString(2));
+           }
+         
+           
+           }catch(ClassNotFoundException e){
+           JOptionPane.showMessageDialog(null, e);
+           }
+           catch(SQLException e1){
+           JOptionPane.showMessageDialog(null, e1);
+           }
+          catch(Exception e2){
+          JOptionPane.showMessageDialog(null, e2);
+          }
+        if (sw==0) {
+              JOptionPane.showMessageDialog(null, "***no existe el registro*** ");
+              
+     
+        
+        }
+}
     /**
      * @param args the command line arguments
      */
@@ -484,6 +546,7 @@ public void borrar(){
     private javax.swing.JMenuItem menuayuda;
     private javax.swing.JMenuItem menubuscar;
     private javax.swing.JMenuItem menuconsulta;
+    private javax.swing.JMenuItem menueliminar;
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;

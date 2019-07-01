@@ -70,6 +70,7 @@ public class mes extends javax.swing.JFrame {
         menuconsulta = new javax.swing.JMenuItem();
         menumodificar = new javax.swing.JMenuItem();
         menubuscar = new javax.swing.JMenuItem();
+        menueliminar = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
 
@@ -126,6 +127,11 @@ public class mes extends javax.swing.JFrame {
 
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Id_mes:");
 
@@ -284,6 +290,10 @@ public class mes extends javax.swing.JFrame {
         });
         jMenu1.add(menubuscar);
 
+        menueliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        menueliminar.setText("Eliminar");
+        jMenu1.add(menueliminar);
+
         jMenuBar1.add(jMenu1);
 
         jMenu6.setText("Ayuda");
@@ -367,6 +377,10 @@ public class mes extends javax.swing.JFrame {
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
      grabar();   // TODO add your handling code here:
     }//GEN-LAST:event_btngrabarActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+     borrar();   // TODO add your handling code here:
+    }//GEN-LAST:event_btneliminarActionPerformed
         public void nuevo(){
             jTextField1.setText("");
             jTextField2.setText("");
@@ -400,6 +414,34 @@ catch(Exception e2){
     JOptionPane.showMessageDialog(null, e2);
 }
  }
+        public void borrar(){
+    try{ 
+          Class.forName("com.mysql.jdbc.Driver");
+      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+      Connection con; PreparedStatement stmt;
+             con = DriverManager.getConnection (cadena);
+     String sql= " delete from mes where id_mes=";
+      sql += "\"" + jTextField1.getText() + "\";"; 
+      JOptionPane.showMessageDialog (null, sql);
+      stmt = con.prepareStatement(sql);
+      int sw = stmt.executeUpdate();
+      if (sw!=0) { 
+          JOptionPane.showMessageDialog (null, "Registro borrado");
+      }
+     }
+    catch(ClassNotFoundException e)
+    {  
+        JOptionPane.showMessageDialog (null, e);
+    }
+    catch (SQLException e1)
+    { 
+        JOptionPane.showMessageDialog (null, e1); 
+    }
+      catch (Exception e2)
+      {
+          JOptionPane.showMessageDialog (null, e2);
+      }
+    }
     /**
      * @param args the command line arguments
      */
@@ -457,6 +499,7 @@ catch(Exception e2){
     private javax.swing.JMenuItem menuayuda;
     private javax.swing.JMenuItem menubuscar;
     private javax.swing.JMenuItem menuconsulta;
+    private javax.swing.JMenuItem menueliminar;
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
