@@ -430,65 +430,6 @@ catch(Exception e2){
       }
     }
 
-    public void consultar(){
-    int sw=0;
-
-        try{
-         Class.forName("com.mysql.jdbc.Driver");
-         String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
-         Connection con;//conecta los datos a la base de datos.
-         java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
-         ResultSet tabla;
-         con= DriverManager.getConnection(cadena);
-         String  id_grupo=jTextField1.getText();
-         String sql=" select * from grupo " 
-              + "where id_grupo = " + id_grupo+";";
-
-           stmt=con.prepareStatement(sql);
-          //System.out.println(sql);
-           
-           tabla=stmt.executeQuery();
-           
-           while (tabla.next()) // 
-           {
-               
-               sw=1;
-               jTextField2.setText(tabla.getString(2));
-           }
-         
-           
-           }catch(ClassNotFoundException e){
-           JOptionPane.showMessageDialog(null, e);
-           }
-           catch(SQLException e1){
-           JOptionPane.showMessageDialog(null, e1);
-           stmt=con.prepareStatement(sql);
-          //System.out.println(sql);
-          tabla=stmt.executeQuery(); 
-           while (tabla.next()) // 
-           {
-               sw=1;
-               jTextField2.setText(tabla.getString(2));
-           }   
-        }
-        catch(ClassNotFoundException e)
-        {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        catch(SQLException e1){
-            JOptionPane.showMessageDialog(null, e1);
-           }
-          catch(Exception e2){
-          JOptionPane.showMessageDialog(null, e2);
-          }
-        if (sw==0) {
-              JOptionPane.showMessageDialog(null, "***no existe el registro*** ");
-              
-     
-        
-        }
-}
-
     public void modificar(){
 
       try{ 
@@ -520,7 +461,44 @@ catch(Exception e2){
           JOptionPane.showMessageDialog (null, e2);
       }
 }
-
+    public void consultar(){
+    int sw=0;
+        try{
+         Class.forName("com.mysql.jdbc.Driver");
+         String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+         Connection con;//conecta los datos a la base de datos.
+         java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
+         ResultSet tabla;
+         con= DriverManager.getConnection(cadena);
+         String  id_grupo=jTextField1.getText();
+         String sql=" select * from grupo " 
+              + "where id_grupo = " + id_grupo+";";
+           stmt=con.prepareStatement(sql);
+          //System.out.println(sql);
+          tabla=stmt.executeQuery(); 
+           while (tabla.next()) // 
+           {
+               sw=1;
+               jTextField2.setText(tabla.getString(2));
+           }   
+        }
+        catch(ClassNotFoundException e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        catch(SQLException e1){
+            JOptionPane.showMessageDialog(null, e1);
+           }
+          catch(Exception e2){
+          JOptionPane.showMessageDialog(null, e2);
+          }
+        if (sw==0) {
+              JOptionPane.showMessageDialog(null, "***no existe el registro*** ");
+              
+     
+        
+        }
+}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
