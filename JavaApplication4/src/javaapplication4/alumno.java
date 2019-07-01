@@ -7,7 +7,7 @@ public class alumno extends javax.swing.JFrame {
 
     public alumno() {
         initComponents();       
-        this.setTitle("Turno del Docente");
+        this.setTitle("Alumno");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
     }

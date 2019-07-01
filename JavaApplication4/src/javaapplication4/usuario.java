@@ -16,7 +16,7 @@ public class usuario extends javax.swing.JFrame {
      */
     public usuario() {
         initComponents();
-        this.setTitle("Logeo");
+        this.setTitle("Usuario");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
     }
@@ -392,6 +392,7 @@ public class usuario extends javax.swing.JFrame {
         nuevo();// TODO add your handling code here:
     }//GEN-LAST:event_btnnuevoActionPerformed
 
+
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
@@ -400,6 +401,10 @@ public class usuario extends javax.swing.JFrame {
     menupri men=new menupri();
     men.setVisible(true);
     dispose();// TODO add your handling code here:
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton1ActionPerformed
         public void nuevo(){
         jTextField1.setText("");

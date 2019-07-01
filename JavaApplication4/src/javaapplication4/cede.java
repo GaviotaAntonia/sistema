@@ -16,6 +16,9 @@ public class cede extends javax.swing.JFrame {
      */
     public cede() {
         initComponents();
+        this.setTitle("Cede");
+        this.setLocale(null);
+        this.setLocationRelativeTo(null);
     }
 
     /**
