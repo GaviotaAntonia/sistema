@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-06-2019 a las 23:38:55
+-- Tiempo de generación: 01-07-2019 a las 15:45:25
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -276,7 +276,7 @@ CREATE TABLE `turno docente` (
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `usuario` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `contraseña` blob NOT NULL
+  `contraseña` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
