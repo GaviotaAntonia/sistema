@@ -10,6 +10,7 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -116,6 +117,11 @@ public class mes extends javax.swing.JFrame {
 
         btnbuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         btnmodificar.setBackground(new java.awt.Color(255, 255, 255));
         btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
@@ -249,7 +255,7 @@ public class mes extends javax.swing.JFrame {
         jMenu1.add(menuguardar);
 
         menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        menuconsulta.setText("Consulta");
+        menuconsulta.setText("Reporte");
         menuconsulta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menuconsultaMouseClicked(evt);
@@ -353,7 +359,7 @@ public class mes extends javax.swing.JFrame {
     }//GEN-LAST:event_menubuscarMouseClicked
 
     private void menubuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubuscarActionPerformed
-      // TODO add your handling code here:
+consultar();      // TODO add your handling code here:
     }//GEN-LAST:event_menubuscarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -381,6 +387,10 @@ public class mes extends javax.swing.JFrame {
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
      borrar();   // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+ consultar();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscarActionPerformed
         public void nuevo(){
             jTextField1.setText("");
             jTextField2.setText("");
@@ -442,6 +452,44 @@ catch(Exception e2){
           JOptionPane.showMessageDialog (null, e2);
       }
     }
+        public void consultar(){
+    int sw=0;
+        try{
+         Class.forName("com.mysql.jdbc.Driver");
+         String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+         Connection con;//conecta los datos a la base de datos.
+         java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
+         ResultSet tabla;
+         con= DriverManager.getConnection(cadena);
+         String  id_mes=jTextField1.getText();
+         String sql=" select * from mes " 
+              + "where id_mes = " + id_mes+";";
+           stmt=con.prepareStatement(sql);
+          //System.out.println(sql);
+          tabla=stmt.executeQuery(); 
+           while (tabla.next()) // 
+           {
+               sw=1;
+               jTextField2.setText(tabla.getString(2));
+           }   
+        }
+        catch(ClassNotFoundException e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        catch(SQLException e1){
+            JOptionPane.showMessageDialog(null, e1);
+           }
+          catch(Exception e2){
+          JOptionPane.showMessageDialog(null, e2);
+          }
+        if (sw==0) {
+              JOptionPane.showMessageDialog(null, "***no existe el registro*** ");
+              
+     
+        
+        }
+}
     /**
      * @param args the command line arguments
      */
