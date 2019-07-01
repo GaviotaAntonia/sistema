@@ -145,13 +145,7 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-  String nulo ="";
-        if (jTextField1.getText().equals(nulo)){
-            JOptionPane.showMessageDialog
-            (null,"***El Usuario es requerido***");
-        } else {
-            jTextField2.requestFocusInWindow();
-        }          // TODO add your handling code here:
+          // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnabrirsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabrirsesionActionPerformed

@@ -379,18 +379,19 @@ public class sexo extends javax.swing.JFrame {
     }//GEN-LAST:event_btngrabarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-     borrar();        // TODO add your handling code here:
+     borrar();
+     // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
      consultar();        // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscarActionPerformed
-public void nuevo(){
+    public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
         jTextField1.requestFocusInWindow();
 }
-public void grabar(){
+    public void grabar(){
     
 try{
     Class.forName("com.mysql.jdbc.Driver");
@@ -418,7 +419,7 @@ catch(Exception e2){
     JOptionPane.showMessageDialog(null, e2);
 }
  }
-public void borrar(){
+    public void borrar(){
     try{ 
           Class.forName("com.mysql.jdbc.Driver");
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
@@ -431,8 +432,10 @@ public void borrar(){
       int sw = stmt.executeUpdate();
       if (sw!=0) { 
           JOptionPane.showMessageDialog (null, "Registro borrado");
+          nuevo();
       }
      }
+    
     catch(ClassNotFoundException e)
     {  
         JOptionPane.showMessageDialog (null, e);
@@ -446,7 +449,7 @@ public void borrar(){
           JOptionPane.showMessageDialog (null, e2);
       }
     }
-public void consultar(){
+    public void consultar(){
     int sw=0;
         try{
          Class.forName("com.mysql.jdbc.Driver");
@@ -484,7 +487,7 @@ public void consultar(){
         
         }
 }
-public void modificar(){
+    public void modificar(){
 
       try{ 
           Class.forName("com.mysql.jdbc.Driver");
