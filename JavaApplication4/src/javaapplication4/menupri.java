@@ -46,6 +46,7 @@ public class menupri extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         menusexo = new javax.swing.JMenuItem();
         menustatus = new javax.swing.JMenuItem();
+        menumateria = new javax.swing.JMenuItem();
         menutice = new javax.swing.JMenuItem();
         menuturnodoc = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -265,6 +266,14 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu5.add(menustatus);
 
+        menumateria.setText("Materia");
+        menumateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menumateriaActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menumateria);
+
         menutice.setText("Tipo de certificado");
         menutice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -458,6 +467,12 @@ public class menupri extends javax.swing.JFrame {
     dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btncerrarsesionActionPerformed
 
+    private void menumateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumateriaActionPerformed
+        materia mat=new materia();
+        mat.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_menumateriaActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -511,6 +526,7 @@ public class menupri extends javax.swing.JFrame {
     private javax.swing.JMenuItem menudocente;
     private javax.swing.JMenuItem menuestado;
     private javax.swing.JMenuItem menugrupo;
+    private javax.swing.JMenuItem menumateria;
     private javax.swing.JMenuItem menumes;
     private javax.swing.JMenuItem menusalon;
     private javax.swing.JMenuItem menusexo;
