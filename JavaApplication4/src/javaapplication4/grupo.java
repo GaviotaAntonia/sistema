@@ -322,19 +322,19 @@ public class grupo extends javax.swing.JFrame {
     }//GEN-LAST:event_menuconsultaActionPerformed
 
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
-       // TODO add your handling code here:
+       modificar();// TODO add your handling code here:
     }//GEN-LAST:event_menumodificarMouseClicked
 
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
-              // TODO add your handling code here:
+              modificar();// TODO add your handling code here:
     }//GEN-LAST:event_menumodificarActionPerformed
 
     private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked
-       // TODO add your handling code here:
+       consultar();// TODO add your handling code here:
     }//GEN-LAST:event_menubuscarMouseClicked
 
     private void menubuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubuscarActionPerformed
-      // TODO add your handling code here:
+    consultar();  // TODO add your handling code here:
     }//GEN-LAST:event_menubuscarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
@@ -372,35 +372,32 @@ modificar();        // TODO add your handling code here:
         jTextField1.requestFocusInWindow();
     }
     public void grabar(){
-
-    
-try{
-    Class.forName("com.mysql.jdbc.Driver");
-    String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
-    Connection con =DriverManager.getConnection(cadena);
-    PreparedStatement stmt=null;
-    String id_grupo=jTextField1.getText();
-    String grupo=jTextField2.getText();
-    
-    String sql="insert into grupo values(";
-    sql+=id_grupo+","+"\""+grupo+"\")";
-    stmt=con.prepareStatement(sql);
-    int sw=stmt.executeUpdate();
-    if(sw!=0){ JOptionPane.showMessageDialog(null,"Registro de alta con exito!");
-    nuevo();
+            try{
+                Class.forName("com.mysql.jdbc.Driver");
+                String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+                Connection con =DriverManager.getConnection(cadena);
+                PreparedStatement stmt=null;
+                String id_grupo=jTextField1.getText();
+                String grupo=jTextField2.getText();
+                String sql="insert into grupo values(";
+                sql+=id_grupo+","+"\""+grupo+"\")";
+                stmt=con.prepareStatement(sql);
+                int sw=stmt.executeUpdate();
+                if(sw!=0){
+                    JOptionPane.showMessageDialog(null,"Registro de alta con exito!");
+                    nuevo();
+                }
+            }
+            catch(ClassNotFoundException e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+            catch(SQLException e1){
+                JOptionPane.showMessageDialog(null, e1);
+            }
+            catch(Exception e2){
+               JOptionPane.showMessageDialog(null, e2);
+            }
     }
-}
-catch(ClassNotFoundException e){
-    JOptionPane.showMessageDialog(null, e);
-}
-catch(SQLException e1){
-    JOptionPane.showMessageDialog(null, e1);
-}
-catch(Exception e2){
-    JOptionPane.showMessageDialog(null, e2);
-}
- }
-
     public void borrar(){
     try{ 
           Class.forName("com.mysql.jdbc.Driver");
@@ -429,7 +426,6 @@ catch(Exception e2){
           JOptionPane.showMessageDialog (null, e2);
       }
     }
-
     public void modificar(){
 
       try{ 
