@@ -17,14 +17,24 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Comunidad Escolar"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
             </Property>
+            <Property name="horizontalTextPosition" type="int" value="10"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menualumno">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="actionCommand" type="java.lang.String" value="alumnos"/>
                 <Property name="label" type="java.lang.String" value="Alumnos"/>
               </Properties>
@@ -35,6 +45,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menudocente">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Docente"/>
               </Properties>
               <Events>
@@ -44,6 +60,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menudirecto">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Director"/>
               </Properties>
               <Events>
@@ -53,6 +75,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuusuario">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Usuario"/>
               </Properties>
               <Events>
@@ -64,6 +92,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Agenda"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
@@ -72,6 +103,12 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menudia">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="D&#xed;a"/>
               </Properties>
               <Events>
@@ -81,6 +118,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menumes">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Mes"/>
               </Properties>
               <Events>
@@ -90,6 +133,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menucal">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Calendario"/>
               </Properties>
               <Events>
@@ -101,6 +150,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Instalaciones"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
@@ -109,6 +161,12 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menucede">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cede"/>
               </Properties>
               <Events>
@@ -117,6 +175,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menusalon">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Sal&#xf3;n"/>
               </Properties>
               <Events>
@@ -125,6 +189,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menugrupo">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Grupo"/>
               </Properties>
               <Events>
@@ -133,6 +203,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menubol">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Boleta"/>
               </Properties>
               <Events>
@@ -143,6 +219,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Direccion"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
@@ -151,6 +230,12 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menucolo">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Colonia"/>
               </Properties>
               <Events>
@@ -159,6 +244,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuestado">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Estado"/>
               </Properties>
               <Events>
@@ -169,6 +260,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu5">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Informacion"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
@@ -177,6 +271,12 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menusexo">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Sexo"/>
               </Properties>
               <Events>
@@ -185,6 +285,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menustatus">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Status"/>
               </Properties>
               <Events>
@@ -193,6 +299,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menutice">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Tipo de certificado"/>
               </Properties>
               <Events>
@@ -201,6 +313,12 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuturnodoc">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Turno docente"/>
               </Properties>
               <Events>
@@ -211,6 +329,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu6">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Ayuda"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
@@ -219,6 +340,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuayuda">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="MS Reference Sans Serif" size="12" style="0"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconos/ayuda.png"/>
                 </Property>
@@ -277,7 +401,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="765" max="32767" attributes="0"/>
+                  <EmptySpace pref="755" max="32767" attributes="0"/>
                   <Component id="btncerrarsesion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -296,8 +420,11 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btncerrarsesion">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="0"/>
+              <Font name="MS PGothic" size="14" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/iconos/cerrarsesion.png"/>

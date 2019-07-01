@@ -62,10 +62,10 @@ public class salon extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Salon");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("MS Reference Sans Serif", 2, 14)); // NOI18N
         jLabel2.setText("id_salon:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("MS Reference Sans Serif", 2, 14)); // NOI18N
         jLabel3.setText("Salon");
 
         btnnuevo.setBackground(new java.awt.Color(255, 255, 255));
@@ -198,8 +198,13 @@ public class salon extends javax.swing.JFrame {
                 .addContainerGap(150, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Acciones");
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jMenu1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenu1.setText("Acciones");
+        jMenu1.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
+
+        menunuevo.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menunuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limpiar.png"))); // NOI18N
         menunuevo.setText("Nuevo");
         menunuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -209,6 +214,7 @@ public class salon extends javax.swing.JFrame {
         });
         jMenu1.add(menunuevo);
 
+        menuguardar.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menuguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
         menuguardar.setText("Agregar");
         menuguardar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -223,6 +229,7 @@ public class salon extends javax.swing.JFrame {
         });
         jMenu1.add(menuguardar);
 
+        menuconsulta.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
         menuconsulta.setText("Consulta");
         menuconsulta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -237,6 +244,7 @@ public class salon extends javax.swing.JFrame {
         });
         jMenu1.add(menuconsulta);
 
+        menumodificar.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
         menumodificar.setText("Modificar");
         menumodificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -251,6 +259,7 @@ public class salon extends javax.swing.JFrame {
         });
         jMenu1.add(menumodificar);
 
+        menubuscar.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
         menubuscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -267,8 +276,11 @@ public class salon extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu6.setBackground(new java.awt.Color(255, 255, 255));
         jMenu6.setText("Ayuda");
+        jMenu6.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
+        menuayuda.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menuayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ayuda.png"))); // NOI18N
         menuayuda.setText("Ayuda");
         jMenu6.add(menuayuda);

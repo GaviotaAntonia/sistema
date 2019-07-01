@@ -1,5 +1,4 @@
 package javaapplication4;
-
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -56,7 +55,8 @@ public class menupri extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        btncerrarsesion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btncerrarsesion.setBackground(new java.awt.Color(255, 255, 255));
+        btncerrarsesion.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         btncerrarsesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrarsesion.png"))); // NOI18N
         btncerrarsesion.setText("Cerrar Sesion");
         btncerrarsesion.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +70,7 @@ public class menupri extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(765, Short.MAX_VALUE)
+                .addContainerGap(755, Short.MAX_VALUE)
                 .addComponent(btncerrarsesion)
                 .addContainerGap())
         );
@@ -86,9 +86,13 @@ public class menupri extends javax.swing.JFrame {
         jMenuBar1.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
         jMenuBar1.setPreferredSize(new java.awt.Dimension(550, 30));
 
+        jMenu1.setBackground(new java.awt.Color(255, 255, 255));
         jMenu1.setText("Comunidad Escolar");
         jMenu1.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
+        jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
+        menualumno.setBackground(new java.awt.Color(255, 255, 255));
+        menualumno.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menualumno.setActionCommand("alumnos");
         menualumno.setLabel("Alumnos");
         menualumno.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -103,6 +107,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu1.add(menualumno);
 
+        menudocente.setBackground(new java.awt.Color(255, 255, 255));
+        menudocente.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menudocente.setText("Docente");
         menudocente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -116,6 +122,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu1.add(menudocente);
 
+        menudirecto.setBackground(new java.awt.Color(255, 255, 255));
+        menudirecto.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menudirecto.setText("Director");
         menudirecto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -129,6 +137,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu1.add(menudirecto);
 
+        menuusuario.setBackground(new java.awt.Color(255, 255, 255));
+        menuusuario.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menuusuario.setText("Usuario");
         menuusuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -144,9 +154,12 @@ public class menupri extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setBackground(new java.awt.Color(255, 255, 255));
         jMenu2.setText("Agenda");
         jMenu2.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
+        menudia.setBackground(new java.awt.Color(255, 255, 255));
+        menudia.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menudia.setText("Día");
         menudia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -160,6 +173,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu2.add(menudia);
 
+        menumes.setBackground(new java.awt.Color(255, 255, 255));
+        menumes.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menumes.setText("Mes");
         menumes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -173,6 +188,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu2.add(menumes);
 
+        menucal.setBackground(new java.awt.Color(255, 255, 255));
+        menucal.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menucal.setText("Calendario");
         menucal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -188,9 +205,12 @@ public class menupri extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setBackground(new java.awt.Color(255, 255, 255));
         jMenu3.setText("Instalaciones");
         jMenu3.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
+        menucede.setBackground(new java.awt.Color(255, 255, 255));
+        menucede.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menucede.setText("Cede");
         menucede.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,6 +219,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu3.add(menucede);
 
+        menusalon.setBackground(new java.awt.Color(255, 255, 255));
+        menusalon.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menusalon.setText("Salón");
         menusalon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +229,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu3.add(menusalon);
 
+        menugrupo.setBackground(new java.awt.Color(255, 255, 255));
+        menugrupo.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menugrupo.setText("Grupo");
         menugrupo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +239,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu3.add(menugrupo);
 
+        menubol.setBackground(new java.awt.Color(255, 255, 255));
+        menubol.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menubol.setText("Boleta");
         menubol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,9 +251,12 @@ public class menupri extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setBackground(new java.awt.Color(255, 255, 255));
         jMenu4.setText("Direccion");
         jMenu4.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
+        menucolo.setBackground(new java.awt.Color(255, 255, 255));
+        menucolo.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menucolo.setText("Colonia");
         menucolo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,6 +265,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu4.add(menucolo);
 
+        menuestado.setBackground(new java.awt.Color(255, 255, 255));
+        menuestado.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menuestado.setText("Estado");
         menuestado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,9 +277,12 @@ public class menupri extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu5.setBackground(new java.awt.Color(255, 255, 255));
         jMenu5.setText("Informacion");
         jMenu5.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
+        menusexo.setBackground(new java.awt.Color(255, 255, 255));
+        menusexo.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menusexo.setText("Sexo");
         menusexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,6 +291,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu5.add(menusexo);
 
+        menustatus.setBackground(new java.awt.Color(255, 255, 255));
+        menustatus.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menustatus.setText("Status");
         menustatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,6 +301,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu5.add(menustatus);
 
+        menutice.setBackground(new java.awt.Color(255, 255, 255));
+        menutice.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menutice.setText("Tipo de certificado");
         menutice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,6 +311,8 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu5.add(menutice);
 
+        menuturnodoc.setBackground(new java.awt.Color(255, 255, 255));
+        menuturnodoc.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menuturnodoc.setText("Turno docente");
         menuturnodoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,9 +323,11 @@ public class menupri extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
+        jMenu6.setBackground(new java.awt.Color(255, 255, 255));
         jMenu6.setText("Ayuda");
         jMenu6.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
+        menuayuda.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 12)); // NOI18N
         menuayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ayuda.png"))); // NOI18N
         menuayuda.setText("Ayuda");
         jMenu6.add(menuayuda);

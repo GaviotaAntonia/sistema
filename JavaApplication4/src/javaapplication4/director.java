@@ -1,8 +1,6 @@
 package javaapplication4;
-
 import java.awt.Image;
 import java.awt.Toolkit;
-
 public class director extends javax.swing.JFrame {
 
     public director() {
@@ -76,43 +74,43 @@ public class director extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setIconImage(getIconImage());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel1.setText("Matricula");
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel2.setText("Nombre");
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel3.setText("Apellido paterno");
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel4.setText("Apellido materno");
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel5.setText("Telefono");
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel6.setText("Correo Elctronico");
+        jLabel6.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        jLabel6.setText("Correo Electronico");
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel7.setText("Colonia");
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel8.setText("Calle");
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel9.setText("Número");
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel10.setText("Codigo postal");
 
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel11.setText("Sexo");
 
-        jLabel12.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel12.setText("Edad");
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel13.setText("Horario");
 
         label1.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
@@ -160,7 +158,9 @@ public class director extends javax.swing.JFrame {
         btngrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
 
         jMenu1.setText("Acciones");
+        jMenu1.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
+        menunuevo.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menunuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limpiar.png"))); // NOI18N
         menunuevo.setText("Nuevo");
         menunuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +170,7 @@ public class director extends javax.swing.JFrame {
         });
         jMenu1.add(menunuevo);
 
+        menuguardar.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menuguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
         menuguardar.setText("Agregar");
         menuguardar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -184,6 +185,7 @@ public class director extends javax.swing.JFrame {
         });
         jMenu1.add(menuguardar);
 
+        menuconsulta.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
         menuconsulta.setText("Consulta");
         menuconsulta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,6 +200,7 @@ public class director extends javax.swing.JFrame {
         });
         jMenu1.add(menuconsulta);
 
+        menumodificar.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
         menumodificar.setText("Modificar");
         menumodificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -212,6 +215,7 @@ public class director extends javax.swing.JFrame {
         });
         jMenu1.add(menumodificar);
 
+        menubuscar.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
         menubuscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -229,7 +233,9 @@ public class director extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu6.setText("Ayuda");
+        jMenu6.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
+        menuayuda.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         menuayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ayuda.png"))); // NOI18N
         menuayuda.setText("Ayuda");
         jMenu6.add(menuayuda);
@@ -243,7 +249,7 @@ public class director extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(288, Short.MAX_VALUE)
+                .addContainerGap(341, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(jLabel11)
@@ -258,7 +264,7 @@ public class director extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel13)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -385,7 +391,7 @@ public class director extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         pack();

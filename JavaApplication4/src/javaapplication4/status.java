@@ -84,8 +84,10 @@ public class status extends javax.swing.JFrame {
         label3.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
         label3.setText("nombre del usuario");
 
+        jLabel1.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel1.setText("id_status");
 
+        jLabel2.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jLabel2.setText("status");
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +128,7 @@ public class status extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField1)
                     .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap(332, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -189,8 +191,13 @@ public class status extends javax.swing.JFrame {
                     .addContainerGap(520, Short.MAX_VALUE)))
         );
 
-        jMenu1.setText("Acciones");
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jMenu1.setText("Acciones");
+        jMenu1.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
+
+        menunuevo.setBackground(new java.awt.Color(255, 255, 255));
+        menunuevo.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         menunuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limpiar.png"))); // NOI18N
         menunuevo.setText("Nuevo");
         menunuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -200,6 +207,8 @@ public class status extends javax.swing.JFrame {
         });
         jMenu1.add(menunuevo);
 
+        menuguardar.setBackground(new java.awt.Color(255, 255, 255));
+        menuguardar.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         menuguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
         menuguardar.setText("Agregar");
         menuguardar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -214,6 +223,8 @@ public class status extends javax.swing.JFrame {
         });
         jMenu1.add(menuguardar);
 
+        menuconsulta.setBackground(new java.awt.Color(255, 255, 255));
+        menuconsulta.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
         menuconsulta.setText("Consulta");
         menuconsulta.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -228,6 +239,8 @@ public class status extends javax.swing.JFrame {
         });
         jMenu1.add(menuconsulta);
 
+        menumodificar.setBackground(new java.awt.Color(255, 255, 255));
+        menumodificar.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
         menumodificar.setText("Modificar");
         menumodificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -242,6 +255,8 @@ public class status extends javax.swing.JFrame {
         });
         jMenu1.add(menumodificar);
 
+        menubuscar.setBackground(new java.awt.Color(255, 255, 255));
+        menubuscar.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
         menubuscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -258,8 +273,12 @@ public class status extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu6.setBackground(new java.awt.Color(255, 255, 255));
         jMenu6.setText("Ayuda");
+        jMenu6.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
+        menuayuda.setBackground(new java.awt.Color(255, 255, 255));
+        menuayuda.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         menuayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ayuda.png"))); // NOI18N
         menuayuda.setText("Ayuda");
         jMenu6.add(menuayuda);
