@@ -23,6 +23,7 @@ public class menupri extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         btncerrarsesion = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -53,6 +54,8 @@ public class menupri extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         btncerrarsesion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btncerrarsesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrarsesion.png"))); // NOI18N
         btncerrarsesion.setText("Cerrar Sesion");
@@ -62,6 +65,23 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(765, Short.MAX_VALUE)
+                .addComponent(btncerrarsesion)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(491, Short.MAX_VALUE)
+                .addComponent(btncerrarsesion)
+                .addContainerGap())
+        );
+
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
         jMenuBar1.setPreferredSize(new java.awt.Dimension(550, 30));
@@ -69,7 +89,8 @@ public class menupri extends javax.swing.JFrame {
         jMenu1.setText("Comunidad Escolar");
         jMenu1.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
-        menualumno.setText("Alumno");
+        menualumno.setActionCommand("alumnos");
+        menualumno.setLabel("Alumnos");
         menualumno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 menualumnoMouseClicked(evt);
@@ -265,6 +286,7 @@ public class menupri extends javax.swing.JFrame {
         jMenu6.setText("Ayuda");
         jMenu6.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
+        menuayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ayuda.png"))); // NOI18N
         menuayuda.setText("Ayuda");
         jMenu6.add(menuayuda);
 
@@ -276,17 +298,11 @@ public class menupri extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(754, Short.MAX_VALUE)
-                .addComponent(btncerrarsesion)
-                .addGap(21, 21, 21))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(491, Short.MAX_VALUE)
-                .addComponent(btncerrarsesion)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -483,6 +499,7 @@ public class menupri extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem menualumno;
     private javax.swing.JMenuItem menuayuda;
     private javax.swing.JMenuItem menubol;

@@ -128,9 +128,6 @@ public class usuario extends javax.swing.JFrame {
 
         jLabel5.setText("Apellido");
 
-        jTextField4.setText("jTextField4");
-
-        jTextField5.setText("jTextField5");
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
