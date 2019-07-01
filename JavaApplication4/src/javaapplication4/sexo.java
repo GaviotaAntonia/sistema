@@ -447,8 +447,7 @@ public void borrar(){
       }
     }
 public void consultar(){
-int sw=0;
-        
+    int sw=0;
         try{
          Class.forName("com.mysql.jdbc.Driver");
          String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
@@ -459,25 +458,21 @@ int sw=0;
          String  id_sexo=jTextField1.getText();
          String sql=" select * from sexo " 
               + "where id_sexo = " + id_sexo+";";
-      
            stmt=con.prepareStatement(sql);
           //System.out.println(sql);
-           
-           tabla=stmt.executeQuery();
-           
+          tabla=stmt.executeQuery(); 
            while (tabla.next()) // 
            {
-               
                sw=1;
                jTextField2.setText(tabla.getString(2));
-           }
-         
-           
-           }catch(ClassNotFoundException e){
-           JOptionPane.showMessageDialog(null, e);
-           }
-           catch(SQLException e1){
-           JOptionPane.showMessageDialog(null, e1);
+           }   
+        }
+        catch(ClassNotFoundException e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        catch(SQLException e1){
+            JOptionPane.showMessageDialog(null, e1);
            }
           catch(Exception e2){
           JOptionPane.showMessageDialog(null, e2);
