@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-07-2019 a las 15:45:25
+-- Tiempo de generación: 02-07-2019 a las 00:29:45
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `dbdristribuidora`
+-- Base de datos: `dbdistribuida`
 --
 
 -- --------------------------------------------------------
@@ -247,17 +247,6 @@ CREATE TABLE `status` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipo certificado`
---
-
-CREATE TABLE `tipo certificado` (
-  `id_certificado` int(11) NOT NULL,
-  `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `turno docente`
 --
 
@@ -276,7 +265,10 @@ CREATE TABLE `turno docente` (
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `usuario` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `contraseña` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+  `contraseña` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `apellido_paterno` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `apellido_materno` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -399,12 +391,6 @@ ALTER TABLE `status`
   ADD PRIMARY KEY (`id_status`);
 
 --
--- Indices de la tabla `tipo certificado`
---
-ALTER TABLE `tipo certificado`
-  ADD PRIMARY KEY (`id_certificado`);
-
---
 -- Indices de la tabla `turno docente`
 --
 ALTER TABLE `turno docente`
@@ -499,12 +485,6 @@ ALTER TABLE `status`
   MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `tipo certificado`
---
-ALTER TABLE `tipo certificado`
-  MODIFY `id_certificado` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `turno docente`
 --
 ALTER TABLE `turno docente`
@@ -528,7 +508,7 @@ ALTER TABLE `alumno`
   ADD CONSTRAINT `alumno_ibfk_2` FOREIGN KEY (`id_status`) REFERENCES `status` (`id_status`),
   ADD CONSTRAINT `alumno_ibfk_4` FOREIGN KEY (`id_grupo`) REFERENCES `grupo` (`id_grupo`),
   ADD CONSTRAINT `alumno_ibfk_5` FOREIGN KEY (`id_especial`) REFERENCES `especial` (`id_mad`),
-  ADD CONSTRAINT `alumno_ibfk_6` FOREIGN KEY (`id_certificacion`) REFERENCES `tipo certificado` (`id_certificado`),
+  ADD CONSTRAINT `alumno_ibfk_6` FOREIGN KEY (`id_certificacion`) REFERENCES `tipo_certificado` (`id_certificado`),
   ADD CONSTRAINT `alumno_ibfk_7` FOREIGN KEY (`id_colonia`) REFERENCES `colonia` (`id_colonia`),
   ADD CONSTRAINT `alumno_ibfk_8` FOREIGN KEY (`id_horario`) REFERENCES `horario clase` (`id_horario`);
 

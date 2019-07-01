@@ -308,9 +308,7 @@ public class grupo extends javax.swing.JFrame {
     }//GEN-LAST:event_menuguardarMouseClicked
 
     private void menuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuguardarActionPerformed
-
        grabar();// TODO add your handling code here:
-
     }//GEN-LAST:event_menuguardarActionPerformed
 
     private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
@@ -326,7 +324,9 @@ public class grupo extends javax.swing.JFrame {
     }//GEN-LAST:event_menumodificarMouseClicked
 
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
-              modificar();// TODO add your handling code here:
+
+        modificar();
+
     }//GEN-LAST:event_menumodificarActionPerformed
 
     private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked
@@ -335,6 +335,7 @@ public class grupo extends javax.swing.JFrame {
 
     private void menubuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubuscarActionPerformed
     consultar();  // TODO add your handling code here:
+
     }//GEN-LAST:event_menubuscarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
@@ -342,7 +343,7 @@ public class grupo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-modificar();        // TODO add your handling code here:
+        modificar();        // TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -411,6 +412,7 @@ modificar();        // TODO add your handling code here:
              int sw = stmt.executeUpdate();
              if (sw!=0) { 
           JOptionPane.showMessageDialog (null, "Registro borrado");
+          nuevo();
       }
      }
     catch(ClassNotFoundException e)
@@ -457,6 +459,7 @@ modificar();        // TODO add your handling code here:
           JOptionPane.showMessageDialog (null, e2);
       }
 }
+    
     public void consultar(){
     int sw=0;
         try{
@@ -495,6 +498,7 @@ modificar();        // TODO add your handling code here:
         
         }
 }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -283,6 +283,11 @@ public class status extends javax.swing.JFrame {
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
         jMenuItem3.setText("Agregar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
@@ -291,10 +296,20 @@ public class status extends javax.swing.JFrame {
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
         jMenuItem5.setText("Modificar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem5);
 
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         jMenuItem6.setText("Buscar");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem6);
 
         jMenuBar1.add(jMenu1);
@@ -324,7 +339,7 @@ public class status extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+       nuevo();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
@@ -348,7 +363,7 @@ public class status extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevo1ActionPerformed
 
     private void btnmodificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificar1ActionPerformed
-        // TODO add your handling code here:
+       modificar();
     }//GEN-LAST:event_btnmodificar1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -364,6 +379,18 @@ public class status extends javax.swing.JFrame {
     private void btnbuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscar1ActionPerformed
        consultar();
     }//GEN-LAST:event_btnbuscar1ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+       consultar();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+       modificar();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        grabar();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
 public void nuevo(){
      jTextField1.setText("");    
@@ -413,6 +440,7 @@ public void borrar(){
       int sw = stmt.executeUpdate();
       if (sw!=0) { 
           JOptionPane.showMessageDialog (null, "Registro borrado");
+          nuevo();
       }
      }
     catch(ClassNotFoundException e)
@@ -473,6 +501,38 @@ int sw=0;
         }
 }
     
+public void modificar(){
+
+      try{ 
+          Class.forName("com.mysql.jdbc.Driver");
+      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+      Connection con; PreparedStatement stmt;  
+             con = DriverManager.getConnection (cadena);
+      String id_sexo = jTextField1.getText();
+      String sexo= jTextField2.getText();
+ 
+      String sql= " update sexo set ";
+           sql += "sexo= " +"\""+ sexo + "\"" + " where id_sexo =" +id_sexo+ " ; ";
+           
+    
+      JOptionPane.showMessageDialog (null, sql);
+      stmt = con.prepareStatement(sql);
+      int sw = stmt.executeUpdate();
+      if (sw!=0) { 
+          JOptionPane.showMessageDialog (null, "Registro modificado");
+      }
+     }
+      catch(ClassNotFoundException e){
+          JOptionPane.showMessageDialog (null, e); 
+      }
+    catch (SQLException e1) {
+        JOptionPane.showMessageDialog (null, e1);
+    }
+      catch (Exception e2) {
+          JOptionPane.showMessageDialog (null, e2);
+      }
+}
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
