@@ -3,6 +3,7 @@ package javaapplication4;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -87,9 +88,19 @@ public class horarioclase extends javax.swing.JFrame {
 
         btnbuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         btnconsulta.setBackground(new java.awt.Color(255, 255, 255));
         btnconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
@@ -320,13 +331,11 @@ public class horarioclase extends javax.swing.JFrame {
     }//GEN-LAST:event_menunuevoActionPerformed
 
     private void menuguardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuguardarMouseClicked
-        alumno nuevo=new alumno();
-        nuevo.setVisible(true);// TODO add your handling code here:
+        grabar();// TODO add your handling code here:
     }//GEN-LAST:event_menuguardarMouseClicked
 
     private void menuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuguardarActionPerformed
-        alumno nuevo=new alumno();
-        nuevo.setVisible(true); // TODO add your handling code here:
+       grabar(); // TODO add your handling code here:
     }//GEN-LAST:event_menuguardarActionPerformed
 
     private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
@@ -362,7 +371,7 @@ public class horarioclase extends javax.swing.JFrame {
     }//GEN-LAST:event_btngrabarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        // TODO add your handling code here:
+modificar();        // TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -370,7 +379,16 @@ public class horarioclase extends javax.swing.JFrame {
         ni.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-        public void nuevo(){
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+ consultar();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+ borrar();        // TODO add your handling code here:
+    }//GEN-LAST:event_btneliminarActionPerformed
+
+    public void nuevo(){
             jTextField1.setText("");
             jTextField2.setText("");
             jTextField3.setText("");
@@ -378,7 +396,7 @@ public class horarioclase extends javax.swing.JFrame {
             jTextField5.setText("");
             jTextField1.requestFocusInWindow();
         }
-        public void grabar(){
+    public void grabar(){
 
 try{
     Class.forName("com.mysql.jdbc.Driver");
@@ -392,8 +410,7 @@ try{
     String id_docente=jTextField5.getText();
        String sql="insert into horario values(";
     sql+=id_horarioclase+","+"\""+id_dia+"\",";
-    sql+="\""+id_materia+"\",";
-    sql+=hora+"\","+"\""+id_docente+"\")";
+    sql+=id_materia+","+"\""+hora+"\","+"\""+id_docente+"\")";
              JOptionPane.showMessageDialog (null, sql);
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
@@ -411,21 +428,21 @@ catch(Exception e2){
     JOptionPane.showMessageDialog(null, e2);
 }
 }
-        public void modificar(){
-try{ 
+    public void modificar(){
+        try{ 
           Class.forName("com.mysql.jdbc.Driver");
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
       Connection con; PreparedStatement stmt;  
              con = DriverManager.getConnection (cadena);
-     String id_horario=jTextField1.getText();
-    String id_dia=jTextField2.getText();
-    String id_materia=jTextField3.getText();
-    String hora=jTextField4.getText();
-    String id_docente=jTextField5.getText();
-      String sql= " update horario set ";
-      sql += "id_dia = " +  "\"" + id_dia + "\"," + "id_materia= "+  "\""+id_materia+ "\",";     
-      sql += "hora = " +  "\"" + hora+ "\",";
-      sql += "id_docente= " +"\""+ id_docente + "\"" + " where id_horario =" + id_horario+ " ; ";
+             String id_horarioclase=jTextField1.getText();
+             String id_dia=jTextField2.getText();
+             String id_materia=jTextField3.getText();
+             String hora=jTextField4.getText();
+             String id_docente=jTextField5.getText();
+             String sql= " update horario set ";
+             sql += "id_dia = " +  "\"" + id_dia + "\"," + "id_materia= "+  "\""+id_materia+ "\",";     
+             sql += "hora = " +  "\"" + hora + "\",";
+             sql += "id_docente= " +"\""+ id_docente + "\"" + " where id_horario =" + id_horarioclase+ " ; ";
              JOptionPane.showMessageDialog (null, sql);
       stmt = con.prepareStatement(sql);
       int sw = stmt.executeUpdate();
@@ -437,9 +454,77 @@ try{
         JOptionPane.showMessageDialog (null, e1); }
       catch (Exception e2) {
           JOptionPane.showMessageDialog (null, e2);}}
-    /**
-     * @param args the command line arguments
-     */
+    public void consultar(){
+        int sw=0;
+        try{
+         Class.forName("com.mysql.jdbc.Driver");
+         String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+         Connection con;//conecta los datos a la base de datos.
+         java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
+         ResultSet tabla;
+         con= DriverManager.getConnection(cadena);
+         String id_horario=jTextField1.getText();
+         String sql=" select * from horario " 
+              + "where id_horario = " + id_horario+";";
+         stmt=con.prepareStatement(sql);
+          // System.out.println(sql);
+           tabla=stmt.executeQuery();
+           
+           while (tabla.next()) // 
+           {
+               
+               sw=1;
+               
+               
+               jTextField2.setText(tabla.getString(2));     
+               jTextField3.setText(tabla.getString(3));
+               jTextField4.setText(tabla.getString(4));            
+               jTextField5.setText(tabla.getString(5)); 
+           }
+         
+           
+           }catch(ClassNotFoundException e){
+           JOptionPane.showMessageDialog(null, e);
+           }
+           catch(SQLException e1){
+           JOptionPane.showMessageDialog(null, e1);
+           }
+          catch(Exception e2){
+          JOptionPane.showMessageDialog(null, e2);
+          }
+        if (sw==0) {
+              JOptionPane.showMessageDialog(null, "***no existe el registro*** ");
+              
+     
+        
+        }
+
+
+
+}
+    public void borrar(){
+        try{ 
+          Class.forName("com.mysql.jdbc.Driver");
+          String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+          Connection con; PreparedStatement stmt;
+          con = DriverManager.getConnection (cadena);
+          String sql= " delete from horario where id_horario=";
+          sql += "\"" + jTextField1.getText() + "\";"; 
+          JOptionPane.showMessageDialog (null, sql);
+          stmt = con.prepareStatement(sql);
+          int sw = stmt.executeUpdate();
+          if (sw!=0) {
+              JOptionPane.showMessageDialog (null, "Registro borrado");
+              nuevo();
+          }
+        }catch(ClassNotFoundException e){ 
+            JOptionPane.showMessageDialog (null, e); }
+        catch (SQLException e1) { 
+            JOptionPane.showMessageDialog (null, e1); }
+        catch (Exception e2) { 
+          JOptionPane.showMessageDialog (null, e2);}
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

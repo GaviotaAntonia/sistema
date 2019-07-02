@@ -49,6 +49,7 @@ public class menupri extends javax.swing.JFrame {
         menumateria = new javax.swing.JMenuItem();
         menutice = new javax.swing.JMenuItem();
         menuturnodoc = new javax.swing.JMenuItem();
+        menuhorarioclase = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
 
@@ -290,6 +291,14 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu5.add(menuturnodoc);
 
+        menuhorarioclase.setText("Horario Clase");
+        menuhorarioclase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuhorarioclaseActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuhorarioclase);
+
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Ayuda");
@@ -473,6 +482,12 @@ public class menupri extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_menumateriaActionPerformed
 
+    private void menuhorarioclaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuhorarioclaseActionPerformed
+        horarioclase horo=new horarioclase();
+        horo.setVisible(true);
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_menuhorarioclaseActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -526,6 +541,7 @@ public class menupri extends javax.swing.JFrame {
     private javax.swing.JMenuItem menudocente;
     private javax.swing.JMenuItem menuestado;
     private javax.swing.JMenuItem menugrupo;
+    private javax.swing.JMenuItem menuhorarioclase;
     private javax.swing.JMenuItem menumateria;
     private javax.swing.JMenuItem menumes;
     private javax.swing.JMenuItem menusalon;
