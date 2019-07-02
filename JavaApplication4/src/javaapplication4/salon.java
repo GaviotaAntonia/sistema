@@ -326,8 +326,7 @@ public class salon extends javax.swing.JFrame {
     }//GEN-LAST:event_menuconsultaMouseClicked
 
     private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-        docente doc=new docente();
-        doc.setVisible(true);        // TODO add your handling code here:
+      consultar();        // TODO add your handling code here:
     }//GEN-LAST:event_menuconsultaActionPerformed
 
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
