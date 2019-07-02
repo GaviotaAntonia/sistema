@@ -238,6 +238,11 @@ public class sexo extends javax.swing.JFrame {
 
         menunuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limpiar.png"))); // NOI18N
         menunuevo.setText("Nuevo");
+        menunuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menunuevoActionPerformed(evt);
+            }
+        });
         jMenu1.add(menunuevo);
 
         menuguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
@@ -386,6 +391,10 @@ public class sexo extends javax.swing.JFrame {
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
      consultar();        // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void menunuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menunuevoActionPerformed
+nuevo();        // TODO add your handling code here:
+    }//GEN-LAST:event_menunuevoActionPerformed
     public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");

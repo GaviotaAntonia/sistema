@@ -343,7 +343,7 @@ public class horarioclase extends javax.swing.JFrame {
     }//GEN-LAST:event_menuconsultaMouseClicked
 
     private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-          // TODO add your handling code here:
+consultar();          // TODO add your handling code here:
     }//GEN-LAST:event_menuconsultaActionPerformed
 
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
@@ -351,7 +351,7 @@ public class horarioclase extends javax.swing.JFrame {
     }//GEN-LAST:event_menumodificarMouseClicked
 
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
-              // TODO add your handling code here:
+modificar();              // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarActionPerformed
 
     private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked
@@ -453,7 +453,8 @@ catch(Exception e2){
     catch (SQLException e1) {
         JOptionPane.showMessageDialog (null, e1); }
       catch (Exception e2) {
-          JOptionPane.showMessageDialog (null, e2);}}
+          JOptionPane.showMessageDialog (null, e2);}
+    }
     public void consultar(){
         int sw=0;
         try{
@@ -469,20 +470,14 @@ catch(Exception e2){
          stmt=con.prepareStatement(sql);
           // System.out.println(sql);
            tabla=stmt.executeQuery();
-           
            while (tabla.next()) // 
            {
-               
-               sw=1;
-               
-               
+               sw=1;   
                jTextField2.setText(tabla.getString(2));     
                jTextField3.setText(tabla.getString(3));
                jTextField4.setText(tabla.getString(4));            
                jTextField5.setText(tabla.getString(5)); 
-           }
-         
-           
+           } 
            }catch(ClassNotFoundException e){
            JOptionPane.showMessageDialog(null, e);
            }
@@ -494,9 +489,7 @@ catch(Exception e2){
           }
         if (sw==0) {
               JOptionPane.showMessageDialog(null, "***no existe el registro*** ");
-              
-     
-        
+
         }
 
 
