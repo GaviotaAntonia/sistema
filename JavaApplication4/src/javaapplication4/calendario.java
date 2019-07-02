@@ -122,9 +122,19 @@ public class calendario extends javax.swing.JFrame {
 
         btnbuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         btnconsulta.setBackground(new java.awt.Color(255, 255, 255));
         btnconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
@@ -406,7 +416,7 @@ public class calendario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        // TODO add your handling code here:
+        modificar();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -419,9 +429,20 @@ public class calendario extends javax.swing.JFrame {
         grabar();
     }//GEN-LAST:event_btngrabarActionPerformed
 
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        consultar();
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        borrar();
+    }//GEN-LAST:event_btneliminarActionPerformed
+
 public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
         jTextField1.requestFocusInWindow();}
 
 public void grabar(){
@@ -462,8 +483,8 @@ public void borrar(){
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
       Connection con; PreparedStatement stmt;
              con = DriverManager.getConnection (cadena);
-     String sql= " delete from tipo_certificado where id_certificado=";
-      sql += "\"" + jTextField1.getText() + "\";"; 
+     String sql= " delete from calendario where id_calendario=";
+      sql += "\"" + jTextField1.getText() + "\"" + "\"" + jTextField2.getText() + "\"" + "\"" + jTextField3.getText() + "\"" + "\"" + jTextField4.getText() + "\"" + "\"" + jTextField5.getText() + "\";"; 
       JOptionPane.showMessageDialog (null, sql);
       stmt = con.prepareStatement(sql);
       int sw = stmt.executeUpdate();
@@ -496,9 +517,9 @@ int sw=0;
          java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
          ResultSet tabla;
          con= DriverManager.getConnection(cadena);
-         String  id_certificado=jTextField1.getText();
-         String sql=" select * from tipo_certificado " 
-              + "where id_certificado = " + id_certificado+";";
+         String  id_calendario=jTextField1.getText();
+         String sql=" select * from calendario " 
+              + "where id_calendario = " + id_calendario+";";
       
            stmt=con.prepareStatement(sql);
           //System.out.println(sql);
@@ -510,6 +531,10 @@ int sw=0;
                
                sw=1;
                jTextField2.setText(tabla.getString(2));
+               jTextField3.setText(tabla.getString(3));
+               jTextField4.setText(tabla.getString(4));
+               jTextField5.setText(tabla.getString(5));
+               
            }
          
            
@@ -537,11 +562,14 @@ public void modificar(){
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
       Connection con; PreparedStatement stmt;  
              con = DriverManager.getConnection (cadena);
-      String id_sexo = jTextField1.getText();
-      String sexo= jTextField2.getText();
+      String id_calendario = jTextField1.getText();
+      String id_grupo= jTextField2.getText();
+      String id_dia = jTextField3.getText();
+      String id_materia= jTextField4.getText();
+      String horario = jTextField5.getText();
  
-      String sql= " update sexo set ";
-           sql += "sexo= " +"\""+ sexo + "\"" + " where id_sexo =" +id_sexo+ " ; ";
+      String sql= " update calendario set ";
+           sql += "id_grupo= " +"\""+ id_grupo + "\"" +  "id_dia= " +"\""+ id_dia + "\"" +  "id_materia= " +"\""+ id_materia + "\"" +  "horario= " +"\""+ horario + "\""  + " where id_calendario =" +id_calendario+ " ; ";
            
     
       JOptionPane.showMessageDialog (null, sql);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-07-2019 a las 15:57:48
+-- Tiempo de generación: 02-07-2019 a las 17:38:55
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -155,7 +155,7 @@ CREATE TABLE `docente` (
   `apellidopat` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `apellidomat` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `id_turno` int(11) NOT NULL,
-  `id_sex` int(11) NOT NULL,
+  `id_sexo` int(11) NOT NULL,
   `curp` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `id_colonia` int(11) NOT NULL,
   `calle` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
@@ -211,7 +211,7 @@ CREATE TABLE `grupo` (
 CREATE TABLE `horario` (
   `id_horario` int(11) NOT NULL,
   `id_dia` int(11) NOT NULL,
-  `id_mes` int(11) NOT NULL,
+  `id_materia` int(11) NOT NULL,
   `hora` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -381,9 +381,9 @@ ALTER TABLE `director`
 --
 ALTER TABLE `docente`
   ADD PRIMARY KEY (`id_docente`),
-  ADD KEY `id_turno` (`id_turno`,`id_sex`,`id_colonia`),
+  ADD KEY `id_turno` (`id_turno`,`id_sexo`,`id_colonia`),
   ADD KEY `id_salon` (`id_salon`),
-  ADD KEY `id_sex` (`id_sex`),
+  ADD KEY `id_sex` (`id_sexo`),
   ADD KEY `id_colonia` (`id_colonia`);
 
 --
@@ -411,8 +411,8 @@ ALTER TABLE `grupo`
 --
 ALTER TABLE `horario`
   ADD PRIMARY KEY (`id_horario`),
-  ADD KEY `id_dia` (`id_dia`,`id_mes`),
-  ADD KEY `id_mes` (`id_mes`);
+  ADD KEY `id_dia` (`id_dia`,`id_materia`),
+  ADD KEY `id_materia` (`id_materia`);
 
 --
 -- Indices de la tabla `materia`
@@ -626,7 +626,7 @@ ALTER TABLE `director`
 -- Filtros para la tabla `docente`
 --
 ALTER TABLE `docente`
-  ADD CONSTRAINT `docente_ibfk_1` FOREIGN KEY (`id_sex`) REFERENCES `sexo` (`id_sexo`),
+  ADD CONSTRAINT `docente_ibfk_1` FOREIGN KEY (`id_sexo`) REFERENCES `sexo` (`id_sexo`),
   ADD CONSTRAINT `docente_ibfk_3` FOREIGN KEY (`id_colonia`) REFERENCES `colonia` (`id_colonia`),
   ADD CONSTRAINT `docente_ibfk_4` FOREIGN KEY (`id_turno`) REFERENCES `turno_docente` (`id_turno`);
 
@@ -640,8 +640,8 @@ ALTER TABLE `especial`
 -- Filtros para la tabla `horario`
 --
 ALTER TABLE `horario`
-  ADD CONSTRAINT `horario_ibfk_1` FOREIGN KEY (`id_mes`) REFERENCES `mes` (`id_mes`),
-  ADD CONSTRAINT `horario_ibfk_2` FOREIGN KEY (`id_dia`) REFERENCES `dia` (`id_dia`);
+  ADD CONSTRAINT `horario_ibfk_2` FOREIGN KEY (`id_dia`) REFERENCES `dia` (`id_dia`),
+  ADD CONSTRAINT `horario_ibfk_3` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
