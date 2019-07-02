@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-07-2019 a las 17:38:55
+-- Tiempo de generación: 02-07-2019 a las 21:16:49
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -40,16 +40,14 @@ CREATE TABLE `alumno` (
   `correoelectronico` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `id_sexo` int(11) NOT NULL,
   `edad` int(11) NOT NULL,
-  `id_horario` int(11) NOT NULL,
   `curp` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `foto_archivo` longblob NOT NULL,
   `boleta` float NOT NULL,
   `id_status` int(11) NOT NULL,
   `id_especial` int(11) NOT NULL,
-  `id_grupo` int(11) NOT NULL,
-  `id_salon` int(11) NOT NULL,
   `id_certificacion` int(11) NOT NULL,
-  `id_detalle` int(11) NOT NULL
+  `id_detalle` int(11) NOT NULL,
+  `id_cede` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -92,6 +90,7 @@ CREATE TABLE `cede` (
 
 CREATE TABLE `colonia` (
   `id_colonia` int(11) NOT NULL,
+  `codigo_postal` int(11) NOT NULL,
   `colonia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `id_estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -319,13 +318,11 @@ ALTER TABLE `alumno`
   ADD PRIMARY KEY (`matricula`),
   ADD KEY `id_colonia` (`id_colonia`),
   ADD KEY `id_sexo` (`id_sexo`,`id_status`,`id_especial`),
-  ADD KEY `id_grupo` (`id_grupo`,`id_salon`,`id_certificacion`),
+  ADD KEY `id_grupo` (`id_certificacion`),
   ADD KEY `id_status` (`id_status`),
-  ADD KEY `id_salon` (`id_salon`),
   ADD KEY `id_especial` (`id_especial`),
-  ADD KEY `id_certificacion` (`id_certificacion`),
-  ADD KEY `id_horario` (`id_horario`),
-  ADD KEY `id_detalle` (`id_detalle`);
+  ADD KEY `id_detalle` (`id_detalle`),
+  ADD KEY `id_cede` (`id_cede`);
 
 --
 -- Indices de la tabla `calendario`
@@ -578,11 +575,9 @@ ALTER TABLE `usuario`
 ALTER TABLE `alumno`
   ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`id_sexo`) REFERENCES `sexo` (`id_sexo`),
   ADD CONSTRAINT `alumno_ibfk_2` FOREIGN KEY (`id_status`) REFERENCES `status` (`id_status`),
-  ADD CONSTRAINT `alumno_ibfk_4` FOREIGN KEY (`id_grupo`) REFERENCES `grupo` (`id_grupo`),
   ADD CONSTRAINT `alumno_ibfk_5` FOREIGN KEY (`id_especial`) REFERENCES `especial` (`id_mad`),
   ADD CONSTRAINT `alumno_ibfk_6` FOREIGN KEY (`id_certificacion`) REFERENCES `tipo_certificado` (`id_certificado`),
-  ADD CONSTRAINT `alumno_ibfk_7` FOREIGN KEY (`id_colonia`) REFERENCES `colonia` (`id_colonia`),
-  ADD CONSTRAINT `alumno_ibfk_8` FOREIGN KEY (`id_horario`) REFERENCES `horario` (`id_horario`);
+  ADD CONSTRAINT `alumno_ibfk_7` FOREIGN KEY (`id_colonia`) REFERENCES `colonia` (`id_colonia`);
 
 --
 -- Filtros para la tabla `calendario`
@@ -598,7 +593,8 @@ ALTER TABLE `calendario`
 ALTER TABLE `cede`
   ADD CONSTRAINT `cede_ibfk_1` FOREIGN KEY (`id_colonia`) REFERENCES `colonia` (`id_colonia`),
   ADD CONSTRAINT `cede_ibfk_2` FOREIGN KEY (`id_director`) REFERENCES `director` (`id_director`),
-  ADD CONSTRAINT `cede_ibfk_3` FOREIGN KEY (`id_salon`) REFERENCES `salon` (`id_salon`);
+  ADD CONSTRAINT `cede_ibfk_3` FOREIGN KEY (`id_salon`) REFERENCES `salon` (`id_salon`),
+  ADD CONSTRAINT `cede_ibfk_4` FOREIGN KEY (`id_cede`) REFERENCES `alumno` (`id_cede`);
 
 --
 -- Filtros para la tabla `colonia`
