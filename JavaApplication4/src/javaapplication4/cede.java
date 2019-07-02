@@ -9,9 +9,6 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 public class cede extends javax.swing.JFrame {
 
-    /**
-     * Creates new form cede
-     */
     public cede() {
         initComponents();
         this.setTitle("Cede");
@@ -406,11 +403,11 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_menunuevoActionPerformed
 
     private void menuguardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuguardarMouseClicked
-      // TODO add your handling code here:
+    grabar();  // TODO add your handling code here:
     }//GEN-LAST:event_menuguardarMouseClicked
 
     private void menuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuguardarActionPerformed
-       // TODO add your handling code here:
+grabar();       // TODO add your handling code here:
     }//GEN-LAST:event_menuguardarActionPerformed
 
     private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
@@ -418,7 +415,7 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_menuconsultaMouseClicked
 
     private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-               // TODO add your handling code here:
+consultar();               // TODO add your handling code here:
     }//GEN-LAST:event_menuconsultaActionPerformed
 
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
@@ -426,7 +423,7 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_menumodificarMouseClicked
 
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
-        // TODO add your handling code here:
+modificar();        // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarActionPerformed
 
     private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked
@@ -434,7 +431,7 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_menubuscarMouseClicked
 
     private void menubuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubuscarActionPerformed
-     // TODO add your handling code here:
+consultar();     // TODO add your handling code here:
     }//GEN-LAST:event_menubuscarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
