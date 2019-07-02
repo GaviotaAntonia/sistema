@@ -2,6 +2,12 @@ package javaapplication4;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class turnodoc extends javax.swing.JFrame {
     public turnodoc() {
@@ -75,6 +81,11 @@ public class turnodoc extends javax.swing.JFrame {
 
         btngrabar.setBackground(new java.awt.Color(255, 255, 255));
         btngrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
+        btngrabar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngrabarActionPerformed(evt);
+            }
+        });
 
         btnmodificar.setBackground(new java.awt.Color(255, 255, 255));
         btnmodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
@@ -312,53 +323,110 @@ public class turnodoc extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void menuguardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuguardarMouseClicked
-        alumno nuevo=new alumno();
-        nuevo.setVisible(true);// TODO add your handling code here:
+  
     }//GEN-LAST:event_menuguardarMouseClicked
 
     private void menuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuguardarActionPerformed
-        alumno nuevo=new alumno();
-        nuevo.setVisible(true); // TODO add your handling code here:
+ 
     }//GEN-LAST:event_menuguardarActionPerformed
 
     private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
-        docente doc=new docente();
-        doc.setVisible(true);// TODO add your handling code here:
+
     }//GEN-LAST:event_menuconsultaMouseClicked
 
     private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-        docente doc=new docente();
-        doc.setVisible(true);        // TODO add your handling code here:
+      
     }//GEN-LAST:event_menuconsultaActionPerformed
 
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
-        director dir= new director();
-        dir.setVisible(true);        // TODO add your handling code here:
+    
     }//GEN-LAST:event_menumodificarMouseClicked
 
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
-        director di=new director();
-        di.setVisible(true);        // TODO add your handling code here:
+ 
     }//GEN-LAST:event_menumodificarActionPerformed
 
     private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked
-        usuario usu=new usuario();
-        usu.setVisible(true);// TODO add your handling code here:
+
     }//GEN-LAST:event_menubuscarMouseClicked
 
     private void menubuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubuscarActionPerformed
-        usuario usu=new usuario();
-        usu.setVisible(true);// TODO add your handling code here:
+   
     }//GEN-LAST:event_menubuscarActionPerformed
 
     private void menunuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menunuevoActionPerformed
         nuevo();        // TODO add your handling code here:
     }//GEN-LAST:event_menunuevoActionPerformed
+
+    private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
+    grabar();        // TODO add your handling code here:
+    }//GEN-LAST:event_btngrabarActionPerformed
 public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
         jTextField3.setText("");
-        jTextField1.requestFocusInWindow();}
+        jTextField1.requestFocusInWindow();
+}
+ public void grabar(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+            Connection con =DriverManager.getConnection(cadena);
+            PreparedStatement stmt=null;
+            String id_turno_docente=jTextField1.getText();
+            String turnodoceente=jTextField2.getText();
+            String horario=jTextField3.getText();
+            String sql="insert into turnodocente values(";
+            sql+=id_turno_docente+","+"\""+turnodoceente+"\","+"\""+horario+"\")";
+            stmt=con.prepareStatement(sql);
+            int sw=stmt.executeUpdate();
+            if(sw!=0)
+            { 
+                
+           JOptionPane.showMessageDialog(null, "Registro dado de alta", "Registro de alta con exito!",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\Alejandro\\Desktop\\ING.HERRRA\\iconosBD\\listoagrega.png"));
+            nuevo();
+            }
+        }
+        catch(ClassNotFoundException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        catch(SQLException e1){
+            JOptionPane.showMessageDialog(null, e1);
+        }
+        catch(Exception e2){
+            JOptionPane.showMessageDialog(null, e2);
+        }
+    }
+ public void borrar(){
+    try{ 
+          Class.forName("com.mysql.jdbc.Driver");
+      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+      Connection con; PreparedStatement stmt;
+             con = DriverManager.getConnection (cadena);
+     String sql= " delete from turno docente where id_turno=";
+      sql += "\"" + jTextField1.getText() + "\";"; 
+      JOptionPane.showMessageDialog (null, sql);
+      stmt = con.prepareStatement(sql);
+      int sw = stmt.executeUpdate();
+      if (sw!=0) { 
+          JOptionPane.showMessageDialog (null, "Registro borrado");
+          nuevo();
+      }
+     }
+    catch(ClassNotFoundException e)
+    {  
+        JOptionPane.showMessageDialog (null, e);
+    }
+    catch (SQLException e1)
+    { 
+        JOptionPane.showMessageDialog (null, e1); 
+    }
+      catch (Exception e2)
+      {
+          JOptionPane.showMessageDialog (null, e2);
+      }
+    }
     /**
      * @param args the command line arguments
      */
