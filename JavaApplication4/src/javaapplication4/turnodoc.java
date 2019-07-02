@@ -373,11 +373,11 @@ public void nuevo(){
             String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
             Connection con =DriverManager.getConnection(cadena);
             PreparedStatement stmt=null;
-            String id_turno_docente=jTextField1.getText();
+            String id_turno=jTextField1.getText();
             String turnodoceente=jTextField2.getText();
             String horario=jTextField3.getText();
-            String sql="insert into turnodocente values(";
-            sql+=id_turno_docente+","+"\""+turnodoceente+"\","+"\""+horario+"\")";
+            String sql="insert into turno_docente values(";
+            sql+=id_turno+","+"\""+turnodoceente+"\","+"\""+horario+"\")";
             stmt=con.prepareStatement(sql);
             int sw=stmt.executeUpdate();
             if(sw!=0)
@@ -404,7 +404,7 @@ public void nuevo(){
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
       Connection con; PreparedStatement stmt;
              con = DriverManager.getConnection (cadena);
-     String sql= " delete from turno docente where id_turno=";
+     String sql= " delete from turno_docente where id_turno=";
       sql += "\"" + jTextField1.getText() + "\";"; 
       JOptionPane.showMessageDialog (null, sql);
       stmt = con.prepareStatement(sql);
