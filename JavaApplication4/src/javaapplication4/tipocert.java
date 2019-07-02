@@ -401,7 +401,7 @@ try{
     String id_certificado=jTextField1.getText();
     String nombre=jTextField2.getText();
     
-    String sql="insert into tipo_certificado values(";
+    String sql="insert into tipocertificado values(";
     sql+=id_certificado+","+"\""+nombre+"\")";
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
