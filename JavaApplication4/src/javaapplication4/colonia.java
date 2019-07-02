@@ -6,11 +6,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 public class colonia extends javax.swing.JFrame {
 
     public colonia() {
         initComponents();
+        cargarBD();
         
         this.setTitle("Colonia");
         this.setLocale(null);
@@ -46,6 +50,8 @@ public class colonia extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
+        cmbBD = new javax.swing.JComboBox<>();
+        cmbTables = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
@@ -133,6 +139,12 @@ public class colonia extends javax.swing.JFrame {
 
         jLabel4.setText("id_estado");
 
+        cmbTables.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbTablesMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -153,8 +165,11 @@ public class colonia extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(103, 103, 103)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                                    .addComponent(cmbBD, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbTables, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -179,7 +194,7 @@ public class colonia extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,7 +223,11 @@ public class colonia extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addComponent(cmbBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbTables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnmodificar)
@@ -380,6 +399,10 @@ grabar();      // TODO add your handling code here:
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
     borrar();        // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void cmbTablesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbTablesMouseClicked
+      cargarTablas(cmbBD.getSelectedItem().toString());
+    }//GEN-LAST:event_cmbTablesMouseClicked
 public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
@@ -448,7 +471,7 @@ public void modificar(){
           JOptionPane.showMessageDialog (null, e2);
       }
 }
- public void borrar(){
+public void borrar(){
     try{ 
           Class.forName("com.mysql.jdbc.Driver");
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
@@ -477,7 +500,7 @@ public void modificar(){
           JOptionPane.showMessageDialog (null, e2);
       }
     }
- public void consultar(){
+public void consultar(){
 int sw=0;
         
         try{
@@ -528,9 +551,57 @@ int sw=0;
 
 
 }
-    /**
-     * @param args the command line arguments
-     */
+
+public void cargarBD()
+{
+    try
+    {
+        Connection con=null;
+        Class.forName("com.mysql.jdbc.Driver");
+        con=DriverManager.getConnection("jdbc:mysql://localhost:3306","root","");
+        Statement st=con.createStatement();
+        ResultSet rs=st.executeQuery("show databases;");
+        cmbBD.removeAllItems();
+        while(rs.next())
+        {
+            cmbBD.addItem(rs.getString(1));
+        }
+        rs.close();
+        con.close();
+    }catch (ClassNotFoundException ex)
+    {
+        Logger.getLogger(colonia.class.getName()).log(Level.SEVERE,null,ex);
+    }catch (SQLException ex)
+    {
+        Logger.getLogger(colonia.class.getName()).log(Level.SEVERE,null,ex);
+    }
+}
+
+public void cargarTablas(String bd)
+{
+    try
+    {
+        Connection con=null;
+        Class.forName("com.mysql.jdbc.Driver");
+        con=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+bd,"root","");
+        Statement st=con.createStatement();
+        ResultSet rs=st.executeQuery("show tables;");
+        cmbTables.removeAllItems();
+        while(rs.next())
+        {
+            cmbTables.addItem(rs.getString(1));
+        }
+        rs.close();
+        con.close();
+    }catch (ClassNotFoundException ex)
+    {
+        Logger.getLogger(colonia.class.getName()).log(Level.SEVERE,null,ex);
+    }catch (SQLException ex)
+    {
+        Logger.getLogger(colonia.class.getName()).log(Level.SEVERE,null,ex);
+    }
+}
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -570,6 +641,8 @@ int sw=0;
     private javax.swing.JButton btngrabar;
     private javax.swing.JButton btnmodificar;
     private javax.swing.JButton btnnuevo;
+    private javax.swing.JComboBox<String> cmbBD;
+    private javax.swing.JComboBox<String> cmbTables;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
