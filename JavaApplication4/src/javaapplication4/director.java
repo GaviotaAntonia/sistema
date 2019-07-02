@@ -2,6 +2,12 @@ package javaapplication4;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class director extends javax.swing.JFrame {
 
@@ -99,7 +105,7 @@ public class director extends javax.swing.JFrame {
         jLabel6.setText("Correo Elctronico");
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel7.setText("Colonia");
+        jLabel7.setText("Id_Colonia");
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel8.setText("Calle");
@@ -111,7 +117,7 @@ public class director extends javax.swing.JFrame {
         jLabel10.setText("Codigo postal");
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel11.setText("Sexo");
+        jLabel11.setText("Id_Sexo");
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel12.setText("Edad");
@@ -156,12 +162,27 @@ public class director extends javax.swing.JFrame {
 
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         btnbuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         btngrabar.setBackground(new java.awt.Color(255, 255, 255));
         btngrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
+        btngrabar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngrabarActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel14.setText("Director");
@@ -171,7 +192,7 @@ public class director extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(jLabel11)
@@ -459,8 +480,20 @@ public class director extends javax.swing.JFrame {
         nuevo();        // TODO add your handling code here:
     }//GEN-LAST:event_btnnuevoActionPerformed
 
-    public void nuevo(){
-        jTextField1.setText("");
+    private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
+        grabar();
+    }//GEN-LAST:event_btngrabarActionPerformed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        consultar();
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        borrar();
+    }//GEN-LAST:event_btneliminarActionPerformed
+
+public void nuevo(){
+     jTextField1.setText("");    
         jTextField2.setText("");
         jTextField3.setText("");
         jTextField4.setText("");
@@ -473,9 +506,167 @@ public class director extends javax.swing.JFrame {
         jTextField11.setText("");
         jTextField12.setText("");
         jTextField13.setText("");
-        jTextField1.requestFocusInWindow();
-    }
+        jTextField1.requestFocusInWindow();}
+
+public void grabar(){
     
+try{
+    Class.forName("com.mysql.jdbc.Driver");
+    String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+    Connection con =DriverManager.getConnection(cadena);
+    PreparedStatement stmt=null;
+    String id_director=jTextField1.getText();
+    String nombre=jTextField2.getText();
+    String apellidopat=jTextField3.getText();
+    String apellidomat=jTextField4.getText();
+    String telefono=jTextField5.getText();
+    String correo=jTextField6.getText();
+    String id_colonia=jTextField7.getText();
+    String calle=jTextField8.getText();
+    String numero=jTextField9.getText();
+    String codigo_postal=jTextField10.getText();
+    String id_sexo=jTextField11.getText();
+    String edad=jTextField12.getText();
+    String horario=jTextField13.getText();
+    
+    String sql="insert into director values(";
+    sql+=id_director+","+"\""+nombre+"\","+"\""+apellidopat+"\","+"\""+apellidomat+"\","+"\""+telefono+"\","+"\""+correo+"\","+"\""+id_colonia+"\","+"\""+calle+"\"," +"\""+numero+"\"," +"\""+codigo_postal+"\"," +"\""+id_sexo+"\"," +"\""+edad+"\","  +"\""+horario+"\")";
+    stmt=con.prepareStatement(sql);
+    int sw=stmt.executeUpdate();
+    if(sw!=0){ JOptionPane.showMessageDialog(null,"Registro de alta con exito!");
+    nuevo();
+    }
+}
+catch(ClassNotFoundException e){
+    JOptionPane.showMessageDialog(null, e);
+}
+catch(SQLException e1){
+    JOptionPane.showMessageDialog(null, e1);
+}
+catch(Exception e2){
+    JOptionPane.showMessageDialog(null, e2);
+}
+ }
+
+public void borrar(){
+    try{ 
+          Class.forName("com.mysql.jdbc.Driver");
+      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+      Connection con; PreparedStatement stmt;
+             con = DriverManager.getConnection (cadena);
+     String sql= " delete from director where id_director=";
+      sql += "\"" + jTextField1.getText() + "\"" + "\"" + jTextField2.getText() + "\"" + "\"" + jTextField3.getText() + "\"" + "\"" + jTextField4.getText() + "\"" + "\"" + jTextField5.getText() + "\"" + "\"" + jTextField6.getText() + "\"" + "\"" + jTextField7.getText() + "\"" + "\"" + jTextField8.getText() + "\"" + "\"" + jTextField9.getText() + "\"" + "\"" + jTextField10.getText() + "\"" + "\"" + jTextField11.getText() + "\"" + "\"" + jTextField12.getText() + "\"" + "\"" + jTextField13.getText() + "\";"; 
+      JOptionPane.showMessageDialog (null, sql);
+      stmt = con.prepareStatement(sql);
+      int sw = stmt.executeUpdate();
+      if (sw!=0) { 
+          JOptionPane.showMessageDialog (null, "Registro borrado");
+          nuevo();
+      }
+     }
+    catch(ClassNotFoundException e)
+    {  
+        JOptionPane.showMessageDialog (null, e);
+    }
+    catch (SQLException e1)
+    { 
+        JOptionPane.showMessageDialog (null, e1); 
+    }
+      catch (Exception e2)
+      {
+          JOptionPane.showMessageDialog (null, e2);
+      }
+    }
+
+public void consultar(){
+int sw=0;
+        
+        try{
+         Class.forName("com.mysql.jdbc.Driver");
+         String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+         Connection con;//conecta los datos a la base de datos.
+         java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
+         ResultSet tabla;
+         con= DriverManager.getConnection(cadena);
+         String  id_director=jTextField1.getText();
+         String sql=" select * from director " 
+              + "where id_director = " + id_director+";";
+      
+           stmt=con.prepareStatement(sql);
+          //System.out.println(sql);
+           
+           tabla=stmt.executeQuery();
+           
+           while (tabla.next()) // 
+           {
+               
+               sw=1;
+               jTextField2.setText(tabla.getString(2));
+               jTextField3.setText(tabla.getString(3));
+               jTextField4.setText(tabla.getString(4));
+               jTextField5.setText(tabla.getString(5));
+               jTextField6.setText(tabla.getString(6));
+               jTextField7.setText(tabla.getString(7));
+               jTextField8.setText(tabla.getString(8));
+               jTextField9.setText(tabla.getString(9));
+               jTextField10.setText(tabla.getString(6));
+               jTextField11.setText(tabla.getString(7));
+               jTextField12.setText(tabla.getString(8));
+               jTextField13.setText(tabla.getString(9));
+           }
+         
+           
+           }catch(ClassNotFoundException e){
+           JOptionPane.showMessageDialog(null, e);
+           }
+           catch(SQLException e1){
+           JOptionPane.showMessageDialog(null, e1);
+           }
+          catch(Exception e2){
+          JOptionPane.showMessageDialog(null, e2);
+          }
+        if (sw==0) {
+              JOptionPane.showMessageDialog(null, "***no existe el registro*** ");
+              
+     
+        
+        }
+}
+
+public void modificar(){
+
+      try{ 
+          Class.forName("com.mysql.jdbc.Driver");
+      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+      Connection con; PreparedStatement stmt;  
+             con = DriverManager.getConnection (cadena);
+      String id_calendario = jTextField1.getText();
+      String id_grupo= jTextField2.getText();
+      String id_dia = jTextField3.getText();
+      String id_materia= jTextField4.getText();
+      String horario = jTextField5.getText();
+ 
+      String sql= " update calendario set ";
+           sql += "id_grupo= " +"\""+ id_grupo + "\"" +  "id_dia= " +"\""+ id_dia + "\"" +  "id_materia= " +"\""+ id_materia + "\"" +  "horario= " +"\""+ horario + "\""  + " where id_calendario =" +id_calendario+ " ; ";
+           
+    
+      JOptionPane.showMessageDialog (null, sql);
+      stmt = con.prepareStatement(sql);
+      int sw = stmt.executeUpdate();
+      if (sw!=0) { 
+          JOptionPane.showMessageDialog (null, "Registro modificado");
+      }
+     }
+      catch(ClassNotFoundException e){
+          JOptionPane.showMessageDialog (null, e); 
+      }
+    catch (SQLException e1) {
+        JOptionPane.showMessageDialog (null, e1);
+    }
+      catch (Exception e2) {
+          JOptionPane.showMessageDialog (null, e2);
+      }
+}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

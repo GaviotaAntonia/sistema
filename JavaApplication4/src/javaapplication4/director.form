@@ -138,7 +138,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="88" max="32767" attributes="0"/>
+                  <EmptySpace pref="73" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel12" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel11" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -357,7 +357,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="2"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Colonia"/>
+            <Property name="text" type="java.lang.String" value="Id_Colonia"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField7">
@@ -397,7 +397,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="2"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Sexo"/>
+            <Property name="text" type="java.lang.String" value="Id_Sexo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField11">
@@ -500,6 +500,9 @@
               <Image iconType="3" name="/iconos/eliminar.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnbuscar">
           <Properties>
@@ -510,6 +513,9 @@
               <Image iconType="3" name="/iconos/buscar.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnbuscarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btngrabar">
           <Properties>
@@ -520,6 +526,9 @@
               <Image iconType="3" name="/iconos/agregar.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btngrabarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>
