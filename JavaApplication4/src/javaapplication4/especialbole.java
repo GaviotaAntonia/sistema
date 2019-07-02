@@ -4,6 +4,7 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 public class especialbole extends javax.swing.JFrame {
@@ -100,6 +101,11 @@ public class especialbole extends javax.swing.JFrame {
 
         btnbuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
@@ -368,7 +374,8 @@ public class especialbole extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        // TODO add your handling code here:
+modificar();
+// TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -384,14 +391,19 @@ public class especialbole extends javax.swing.JFrame {
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
     grabar();        // TODO add your handling code here:
     }//GEN-LAST:event_btngrabarActionPerformed
-public void nuevo(){
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+       consultar(); // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscarActionPerformed
+    public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
         jTextField3.setText("");
         jTextField4.setText("");
+        jTextField5.setText("");
         jTextField1.requestFocusInWindow();
 }
-public void grabar(){
+    public void grabar(){
 
 try{
     Class.forName("com.mysql.jdbc.Driver");
@@ -422,7 +434,7 @@ catch(Exception e2){
     JOptionPane.showMessageDialog(null, e2);
 }
 }
- public void borrar(){
+    public void borrar(){
     try{ 
           Class.forName("com.mysql.jdbc.Driver");
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
@@ -451,9 +463,68 @@ catch(Exception e2){
           JOptionPane.showMessageDialog (null, e2);
       }
     }
-    /**
-     * @param args the command line arguments
-     */
+    public void consultar(){
+        int sw=0;
+        try{
+         Class.forName("com.mysql.jdbc.Driver");
+         String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+         Connection con;//conecta los datos a la base de datos.
+         java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
+         ResultSet tabla;
+         con= DriverManager.getConnection(cadena);
+         String id_mad=jTextField1.getText();
+         String sql=" select * from especial " 
+              + "where id_mad = " + id_mad+";";
+           stmt=con.prepareStatement(sql);
+          // System.out.println(sql);
+          tabla=stmt.executeQuery();
+          while (tabla.next()) // 
+           {
+            sw=1;
+            jTextField2.setText(tabla.getString(2));     
+            jTextField3.setText(tabla.getString(3));
+            jTextField4.setText(tabla.getString(4));            
+            jTextField5.setText(tabla.getString(5)); 
+           }
+          }catch(ClassNotFoundException e){
+           JOptionPane.showMessageDialog(null, e);
+           }
+           catch(SQLException e1){
+           JOptionPane.showMessageDialog(null, e1);
+           }
+          catch(Exception e2){
+          JOptionPane.showMessageDialog(null, e2);
+          }
+        if (sw==0) {
+              JOptionPane.showMessageDialog(null, "***no existe el registro*** ");        
+        }
+}
+    public void modificar(){
+        try{ 
+          Class.forName("com.mysql.jdbc.Driver");
+      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+      Connection con; PreparedStatement stmt;  
+             con = DriverManager.getConnection (cadena);
+             String id_mad=jTextField1.getText();
+             String id_alumno=jTextField2.getText();
+             String id_materia=jTextField3.getText();
+             String id_docente=jTextField4.getText();
+             String calificacion=jTextField5.getText();
+             String sql= " update especial set ";  
+             sql += "id_alumno= " +  "\"" + id_alumno+ "\","+"id_materia= " +  "\"" + id_materia+ "\",";
+             sql+="id_docente= " +  "\"" + id_docente + "\",";
+             sql += "calificacion= " +"\""+ calificacion + "\"" + " where id_mad =" + id_mad+ " ; ";
+             JOptionPane.showMessageDialog (null, sql);
+      stmt = con.prepareStatement(sql);
+      int sw = stmt.executeUpdate();
+      if (sw!=0) { 
+          JOptionPane.showMessageDialog (null, "Registro modificado");}
+     }catch(ClassNotFoundException e){  
+         JOptionPane.showMessageDialog (null, e); }
+    catch (SQLException e1) {
+        JOptionPane.showMessageDialog (null, e1); }
+      catch (Exception e2) {
+          JOptionPane.showMessageDialog (null, e2);}}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
