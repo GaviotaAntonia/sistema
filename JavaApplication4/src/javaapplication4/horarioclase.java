@@ -343,7 +343,7 @@ public class horarioclase extends javax.swing.JFrame {
     }//GEN-LAST:event_menuconsultaMouseClicked
 
     private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-          // TODO add your handling code here:
+consultar();          // TODO add your handling code here:
     }//GEN-LAST:event_menuconsultaActionPerformed
 
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
@@ -351,7 +351,7 @@ public class horarioclase extends javax.swing.JFrame {
     }//GEN-LAST:event_menumodificarMouseClicked
 
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
-              // TODO add your handling code here:
+modificar();              // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarActionPerformed
 
     private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked

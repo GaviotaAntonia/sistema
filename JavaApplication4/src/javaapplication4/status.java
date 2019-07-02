@@ -69,13 +69,13 @@ public class status extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        menunuevo = new javax.swing.JMenuItem();
+        menuagregar = new javax.swing.JMenuItem();
+        menuconsulta = new javax.swing.JMenuItem();
+        menumodificar = new javax.swing.JMenuItem();
+        menubuscar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuayuda = new javax.swing.JMenuItem();
 
         btngrabar.setBackground(new java.awt.Color(255, 255, 255));
         btngrabar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
@@ -272,53 +272,58 @@ public class status extends javax.swing.JFrame {
 
         jMenu1.setText("Acciones");
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/nuevo.png"))); // NOI18N
-        jMenuItem2.setText("Nuevo");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menunuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limpiar.png"))); // NOI18N
+        menunuevo.setText("Nuevo");
+        menunuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menunuevoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(menunuevo);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
-        jMenuItem3.setText("Agregar");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        menuagregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agregar.png"))); // NOI18N
+        menuagregar.setText("Agregar");
+        menuagregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                menuagregarActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(menuagregar);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        jMenuItem4.setText("Consulta");
-        jMenu1.add(jMenuItem4);
-
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
-        jMenuItem5.setText("Modificar");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
+        menuconsulta.setText("Consulta");
+        menuconsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                menuconsultaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem5);
+        jMenu1.add(menuconsulta);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
-        jMenuItem6.setText("Buscar");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
+        menumodificar.setText("Modificar");
+        menumodificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                menumodificarActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
+        jMenu1.add(menumodificar);
+
+        menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
+        menubuscar.setText("Buscar");
+        menubuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menubuscarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menubuscar);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Ayuda");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ayuda.png"))); // NOI18N
-        jMenuItem1.setText("Ayuda");
-        jMenu2.add(jMenuItem1);
+        menuayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/ayuda.png"))); // NOI18N
+        menuayuda.setText("Ayuda");
+        jMenu2.add(menuayuda);
 
         jMenuBar1.add(jMenu2);
 
@@ -338,9 +343,9 @@ public class status extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menunuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menunuevoActionPerformed
        nuevo();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_menunuevoActionPerformed
 
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
         grabar();   // TODO add your handling code here:
@@ -380,17 +385,21 @@ public class status extends javax.swing.JFrame {
        consultar();
     }//GEN-LAST:event_btnbuscar1ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void menubuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubuscarActionPerformed
        consultar();
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_menubuscarActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
        modificar();
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_menumodificarActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void menuagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuagregarActionPerformed
         grabar();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_menuagregarActionPerformed
+
+    private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
+consultar();        // TODO add your handling code here:
+    }//GEN-LAST:event_menuconsultaActionPerformed
 
 public void nuevo(){
      jTextField1.setText("");    
@@ -585,16 +594,16 @@ public void modificar(){
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private java.awt.Label label1;
     private java.awt.Label label2;
+    private javax.swing.JMenuItem menuagregar;
+    private javax.swing.JMenuItem menuayuda;
+    private javax.swing.JMenuItem menubuscar;
+    private javax.swing.JMenuItem menuconsulta;
+    private javax.swing.JMenuItem menumodificar;
+    private javax.swing.JMenuItem menunuevo;
     // End of variables declaration//GEN-END:variables
 }
