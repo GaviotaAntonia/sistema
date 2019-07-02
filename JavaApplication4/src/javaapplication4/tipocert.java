@@ -401,7 +401,7 @@ try{
     String id_certificado=jTextField1.getText();
     String nombre=jTextField2.getText();
     
-    String sql="insert into tipocertificado values(";
+    String sql="insert into tipo_certificado values(";
     sql+=id_certificado+","+"\""+nombre+"\")";
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
@@ -501,11 +501,11 @@ public void modificar(){
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
       Connection con; PreparedStatement stmt;  
              con = DriverManager.getConnection (cadena);
-      String id_sexo = jTextField1.getText();
+      String id_certificado = jTextField1.getText();
       String sexo= jTextField2.getText();
  
-      String sql= " update sexo set ";
-           sql += "sexo= " +"\""+ sexo + "\"" + " where id_sexo =" +id_sexo+ " ; ";
+      String sql= " update tipo_certificado set ";
+           sql += "id_certificado= " +"\""+ id_certificado + "\"" + " where id_certificado =" +id_certificado+ " ; ";
            
     
       JOptionPane.showMessageDialog (null, sql);
