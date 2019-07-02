@@ -4,6 +4,7 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 public class colonia extends javax.swing.JFrame {
@@ -98,9 +99,19 @@ public class colonia extends javax.swing.JFrame {
 
         btnbuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         btnconsulta.setBackground(new java.awt.Color(255, 255, 255));
         btnconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
@@ -309,10 +320,11 @@ public class colonia extends javax.swing.JFrame {
 
     private void menuguardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuguardarMouseClicked
 // TODO add your handling code here:
+grabar();
     }//GEN-LAST:event_menuguardarMouseClicked
 
     private void menuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuguardarActionPerformed
-      // TODO add your handling code here:
+grabar();      // TODO add your handling code here:
     }//GEN-LAST:event_menuguardarActionPerformed
 
     private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
@@ -320,23 +332,23 @@ public class colonia extends javax.swing.JFrame {
     }//GEN-LAST:event_menuconsultaMouseClicked
 
     private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-              // TODO add your handling code here:
+    consultar();          // TODO add your handling code here:
     }//GEN-LAST:event_menuconsultaActionPerformed
 
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
-               // TODO add your handling code here:
+       modificar();    // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarMouseClicked
 
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
-       // TODO add your handling code here:
+        modificar();       // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarActionPerformed
 
     private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked
-      
+      consultar();
     }//GEN-LAST:event_menubuscarMouseClicked
 
     private void menubuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubuscarActionPerformed
-       
+      consultar();
     }//GEN-LAST:event_menubuscarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
@@ -344,7 +356,7 @@ public class colonia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        
+    modificar();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -360,6 +372,14 @@ public class colonia extends javax.swing.JFrame {
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
         grabar();        // TODO add your handling code here:
     }//GEN-LAST:event_btngrabarActionPerformed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+    consultar();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+    borrar();        // TODO add your handling code here:
+    }//GEN-LAST:event_btneliminarActionPerformed
 public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
@@ -367,7 +387,7 @@ public void nuevo(){
         jTextField1.requestFocusInWindow();
 }
 public void grabar(){
-    
+
 try{
     Class.forName("com.mysql.jdbc.Driver");
     String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
@@ -375,9 +395,10 @@ try{
     PreparedStatement stmt=null;
     String id_colonia=jTextField1.getText();
     String colonia=jTextField2.getText();
-    
+    String id_estado=jTextField3.getText();
+
     String sql="insert into colonia values(";
-    sql+=id_colonia+","+"\""+colonia+"\")";
+    sql+=id_colonia+","+"\""+colonia+"\","+"\""+id_estado+"\")";
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
     if(sw!=0){ JOptionPane.showMessageDialog(null,"Registro de alta con exito!");
@@ -393,7 +414,7 @@ catch(SQLException e1){
 catch(Exception e2){
     JOptionPane.showMessageDialog(null, e2);
 }
- }
+}
 public void modificar(){
 
       try{ 
@@ -401,11 +422,13 @@ public void modificar(){
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
       Connection con; PreparedStatement stmt;  
              con = DriverManager.getConnection (cadena);
-      String id_giro = jTextField1.getText();
-      String giro= jTextField2.getText();
+      String id_colonia = jTextField1.getText();
+      String colonia= jTextField2.getText();
+      String id_estado=jTextField3.getText();
  
-      String sql= " update giroempre set ";
-           sql += "giroempre= " +"\""+ giro + "\"" + " where id_giro =" +id_giro+ " ; ";
+      String sql= " update colonia set ";   
+      sql += "id_estado= "+  "\""+id_estado+ "\",";
+      sql += "colonia= " +"\""+ colonia + "\"" + " where id_colonia =" + id_colonia+ " ; ";
            
     
       JOptionPane.showMessageDialog (null, sql);
@@ -454,6 +477,57 @@ public void modificar(){
           JOptionPane.showMessageDialog (null, e2);
       }
     }
+ public void consultar(){
+int sw=0;
+        
+        try{
+         Class.forName("com.mysql.jdbc.Driver");
+         String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+         Connection con;//conecta los datos a la base de datos.
+         java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
+         ResultSet tabla;
+         con= DriverManager.getConnection(cadena);
+         String id_colonia=jTextField1.getText();
+    
+    
+     String sql=" select * from colonia " 
+              + "where id_colonia = " + id_colonia+";";
+      
+           stmt=con.prepareStatement(sql);
+          // System.out.println(sql);
+           
+           tabla=stmt.executeQuery();
+           
+           while (tabla.next()) // 
+           {
+               
+               sw=1;
+               
+               
+               jTextField2.setText(tabla.getString(2));     
+               jTextField3.setText(tabla.getString(3));
+           }
+         
+           
+           }catch(ClassNotFoundException e){
+           JOptionPane.showMessageDialog(null, e);
+           }
+           catch(SQLException e1){
+           JOptionPane.showMessageDialog(null, e1);
+           }
+          catch(Exception e2){
+          JOptionPane.showMessageDialog(null, e2);
+          }
+        if (sw==0) {
+              JOptionPane.showMessageDialog(null, "***no existe el registro*** ");
+              
+     
+        
+        }
+
+
+
+}
     /**
      * @param args the command line arguments
      */
