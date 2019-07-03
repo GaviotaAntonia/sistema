@@ -19,14 +19,13 @@ public class formacolonia extends javax.swing.JFrame {
         this.setTitle("Colonia");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
-    }
-   @Override
+    }@Override
     public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("/iconos/zorrito.png"));
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
 
 
         return retValue;
-    
     }
 
     /**
@@ -67,6 +66,7 @@ public class formacolonia extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
