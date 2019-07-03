@@ -35,6 +35,7 @@ public class menupri extends javax.swing.JFrame {
         menudia = new javax.swing.JMenuItem();
         menumes = new javax.swing.JMenuItem();
         menucal = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         menucede = new javax.swing.JMenuItem();
         menusalon = new javax.swing.JMenuItem();
@@ -188,6 +189,14 @@ public class menupri extends javax.swing.JFrame {
             }
         });
         jMenu2.add(menucal);
+
+        jMenuItem2.setText("Detalle horario");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
 
@@ -503,6 +512,12 @@ public class menupri extends javax.swing.JFrame {
         dispose();   
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        detalle_horario hora=new detalle_horario();
+        hora.setVisible(true);
+        dispose();   
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -545,6 +560,7 @@ public class menupri extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem menualumno;
     private javax.swing.JMenuItem menuayuda;
