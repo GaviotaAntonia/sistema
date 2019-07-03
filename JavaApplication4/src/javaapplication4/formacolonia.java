@@ -1,31 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaapplication4;
-
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
-/**
- *
- * @author Alejandro
- */
 public class formacolonia extends javax.swing.JFrame {
 
-    /**
-     * Creates new form formacolonia
-     */
     public formacolonia() {
-        initComponents();
-         this.setTitle("Colonia");
+        initComponents();       
+        this.setTitle("Alumno");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
+    }
+   @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
+
+
+        return retValue;
+    
     }
 
     /**
@@ -54,6 +52,7 @@ public class formacolonia extends javax.swing.JFrame {
         btnmodificar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
+        cmbestado = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -75,7 +74,6 @@ public class formacolonia extends javax.swing.JFrame {
         jLabel2.setText("numero de usuario");
 
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salida32.png"))); // NOI18N
-        btnsalir.setActionCommand("");
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsalirActionPerformed(evt);
@@ -157,10 +155,12 @@ public class formacolonia extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
+                    .addComponent(cmbestado, 0, 287, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField1)
+                        .addComponent(jTextField2)
+                        .addComponent(jTextField3)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btneliminar)
@@ -208,7 +208,9 @@ public class formacolonia extends javax.swing.JFrame {
                         .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnbuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btneliminar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btneliminar)
+                    .addComponent(cmbestado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(170, Short.MAX_VALUE))
         );
 
@@ -318,7 +320,8 @@ public class formacolonia extends javax.swing.JFrame {
             int sw=stmt.executeUpdate();
             if(sw!=0)
             {
-                JOptionPane.showMessageDialog(null,"Registro de alta con exito!");
+                  JOptionPane.showMessageDialog(null, "Registro dado de alta con exito", "Acción completa",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\Alejandro\\Desktop\\ING.HERRRA\\iconosBD\\listoagrega.png"));
             nuevo();
             }
         }
@@ -464,6 +467,7 @@ public class formacolonia extends javax.swing.JFrame {
     private javax.swing.JButton btnmodificar;
     private javax.swing.JButton btnnuevo;
     private javax.swing.JButton btnsalir;
+    private javax.swing.JComboBox<String> cmbestado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

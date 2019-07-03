@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,8 +28,7 @@ public class sexo extends javax.swing.JFrame {
     }
        @Override
     public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
 
 
         return retValue;
@@ -414,8 +414,12 @@ try{
     sql+=id_sexo+","+"\""+sexo+"\")";
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
-    if(sw!=0){ JOptionPane.showMessageDialog(null,"Registro de alta con exito!");
+    if(sw!=0)
+    {
+        JOptionPane.showMessageDialog(null, "Registro dado de alta con exito", "Acción completa",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\Alejandro\\Desktop\\ING.HERRRA\\iconosBD\\listoagrega.png"));
     nuevo();
+    
     }
 }
 catch(ClassNotFoundException e){

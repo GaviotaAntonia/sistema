@@ -443,7 +443,7 @@ public class menupri extends javax.swing.JFrame {
     private void menucoloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucoloActionPerformed
     formacolonia forma=new formacolonia();
     forma.setVisible(true);
-    disable();
+    dispose();
     }//GEN-LAST:event_menucoloActionPerformed
 
     private void menuestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuestadoActionPerformed

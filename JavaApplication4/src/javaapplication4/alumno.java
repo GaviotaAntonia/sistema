@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class alumno extends javax.swing.JFrame {
@@ -18,8 +19,7 @@ public class alumno extends javax.swing.JFrame {
     }
    @Override
     public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
 
 
         return retValue;
@@ -76,10 +76,10 @@ public class alumno extends javax.swing.JFrame {
     
     String sql="insert into alumno values(";
     sql+=matricula+","+"\""+nombre+"\",";
-    sql+=apellidopat+","+"\""+apellidomat+"\",";
+    sql+="\""+apellidopat+"\","+"\""+apellidomat+"\",";
     sql+=id_colonia+","+"\""+calle+"\",";
     sql+=numero+","+"\""+codigopostal+"\",";
-    sql+=correoelectronico+","+"\""+id_sexo+"\",";
+    sql+="\""+correoelectronico+"\","+"\""+id_sexo+"\",";
     sql+=edad+","+"\""+curp+"\",";
     sql+=foto_archivo+","+"\""+boleta+"\",";
     sql+=id_status+","+"\""+id_especial+"\",";
@@ -87,7 +87,9 @@ public class alumno extends javax.swing.JFrame {
     sql+=id_detalle+","+"\""+id_cede+"\")";
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
-    if(sw!=0){ JOptionPane.showMessageDialog(null,"Registro de alta con exito!");
+    if(sw!=0){ 
+           JOptionPane.showMessageDialog(null, "Registro dado de alta con exito", "Acción completa",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\Alejandro\\Desktop\\ING.HERRRA\\iconosBD\\listoagrega.png"));
     nuevo();
     }
 }
@@ -389,7 +391,7 @@ catch(Exception e2){
         jLabel6.setText("Apellido materno");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel7.setText("Colonia");
+        jLabel7.setText("id_colonia");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel8.setText("calle");
