@@ -458,7 +458,6 @@ public void nuevo(){
         jTextField4.setText("");
         jTextField5.setText("");
         jTextField1.requestFocusInWindow();}
-
 public void grabar(){
     
 try{
@@ -492,7 +491,6 @@ catch(Exception e2){
     JOptionPane.showMessageDialog(null, e2);
 }
  }
-
 public void borrar(){
     try{ 
           Class.forName("com.mysql.jdbc.Driver");
@@ -522,7 +520,6 @@ public void borrar(){
           JOptionPane.showMessageDialog (null, e2);
       }
     }
-
 public void consultar(){
 int sw=0;
         
@@ -570,7 +567,6 @@ int sw=0;
         
         }
 }
-
 public void modificar(){
 
       try{ 
