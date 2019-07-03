@@ -184,14 +184,12 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="cmbdoc" pref="330" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField5" pref="330" max="32767" attributes="0"/>
-                                  <Component id="jTextField4" pref="330" max="32767" attributes="0"/>
-                                  <Component id="jTextField3" pref="330" max="32767" attributes="0"/>
-                                  <Component id="jTextField2" alignment="0" pref="330" max="32767" attributes="0"/>
-                                  <Component id="cmbdia" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="cmbmateria" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jTextField5" pref="330" max="32767" attributes="0"/>
+                              <Component id="jTextField4" pref="330" max="32767" attributes="0"/>
+                              <Component id="jTextField3" pref="330" max="32767" attributes="0"/>
+                              <Component id="jTextField2" alignment="0" pref="330" max="32767" attributes="0"/>
+                              <Component id="cmbdia" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cmbmateria" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
