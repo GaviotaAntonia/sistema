@@ -491,7 +491,10 @@ try{
     String id_salon=jTextField9.getText();
     
     String sql="insert into cede values(";
-    sql+=id_cede+","+"\""+nombrecede+"\","+"\""+id_colonia+"\","+"\""+calle+"\","+"\""+numero+"\","+"\""+codigo_postal+"\","+"\""+correo+"\","+"\""+id_director+"\","+"\""+id_salon+"\")";
+    sql+=id_cede+","+"\""+nombrecede+"\",";
+    sql+="\""+id_colonia+"\","+"\""+calle+"\",";
+    sql+="\""+numero+"\","+"\""+codigo_postal+"\",";
+    sql+="\""+correo+"\","+"\""+id_director+"\","+"\""+id_salon+"\")";
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
     if(sw!=0){
@@ -610,7 +613,7 @@ public void modificar(){
            sql += "id_grupo= " +"\""+ id_grupo + "\"" +  "id_dia= " +"\""+ id_dia + "\"" +  "id_materia= " +"\""+ id_materia + "\"" +  "horario= " +"\""+ horario + "\""  + " where id_calendario =" +id_calendario+ " ; ";
            
     
-      JOptionPane.showMessageDialog (null, sql);
+      //JOptionPane.showMessageDialog (null, sql);
       stmt = con.prepareStatement(sql);
       int sw = stmt.executeUpdate();
       if (sw!=0) { 
