@@ -532,7 +532,7 @@ public class director extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        // TODO add your handling code here:
+        modificar();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
@@ -683,10 +683,10 @@ int sw=0;
                jTextField7.setText(tabla.getString(7));
                jTextField8.setText(tabla.getString(8));
                jTextField9.setText(tabla.getString(9));
-               jTextField10.setText(tabla.getString(6));
-               jTextField11.setText(tabla.getString(7));
-               jTextField12.setText(tabla.getString(8));
-               jTextField13.setText(tabla.getString(9));
+               jTextField10.setText(tabla.getString(10));
+               jTextField11.setText(tabla.getString(11));
+               jTextField12.setText(tabla.getString(12));
+               jTextField13.setText(tabla.getString(13));
            }
          
            
@@ -714,14 +714,33 @@ public void modificar(){
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
       Connection con; PreparedStatement stmt;  
              con = DriverManager.getConnection (cadena);
-      String id_calendario = jTextField1.getText();
-      String id_grupo= jTextField2.getText();
-      String id_dia = jTextField3.getText();
-      String id_materia= jTextField4.getText();
-      String horario = jTextField5.getText();
+      String id_director = jTextField1.getText();
+      String nombre= jTextField2.getText();
+      String apellidopat = jTextField3.getText();
+      String apellidomat= jTextField4.getText();
+      String telefono = jTextField5.getText();
+      String correo= jTextField6.getText();
+      String id_colonia = jTextField7.getText();
+      String calle= jTextField8.getText();
+      String numero = jTextField9.getText();
+      String codigo_postal = jTextField10.getText();
+      String id_sexo= jTextField11.getText();
+      String edad = jTextField12.getText();
+      String horario = jTextField13.getText();
  
-      String sql= " update calendario set ";
-           sql += "id_grupo= " +"\""+ id_grupo + "\"" +  "id_dia= " +"\""+ id_dia + "\"" +  "id_materia= " +"\""+ id_materia + "\"" +  "horario= " +"\""+ horario + "\""  + " where id_calendario =" +id_calendario+ " ; ";
+      String sql= " update director set ";
+           sql += "nombre= "+  "\""+nombre+ "\",";
+        sql += "apellidopat= "+  "\""+apellidopat+ "\",";
+        sql += "apellidomat= "+  "\""+apellidomat+ "\",";
+        sql += "telefono= "+  "\""+telefono+ "\",";
+        sql += "correo= "+  "\""+correo+ "\",";
+        sql += "id_colonia= "+  "\""+id_colonia+ "\",";
+        sql += "calle= "+  "\""+calle+ "\",";
+        sql += "numero= "+  "\""+numero+ "\",";
+        sql += "codigo_postal= "+  "\""+codigo_postal+ "\",";
+        sql += "id_sexo= "+  "\""+id_sexo+ "\",";
+        sql += "edad= "+  "\""+edad+ "\",";
+        sql += "horario= " +"\""+ horario + "\"" + " where id_director=" + id_director+ " ; ";
            
     
       JOptionPane.showMessageDialog (null, sql);

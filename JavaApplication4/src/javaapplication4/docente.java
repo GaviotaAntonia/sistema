@@ -242,29 +242,32 @@ public class docente extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(42, 42, 42)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField5)
-                    .addComponent(jTextField6)
-                    .addComponent(jTextField7)
-                    .addComponent(jTextField8)
-                    .addComponent(jTextField9)
-                    .addComponent(jTextField10)
-                    .addComponent(jTextField11)
-                    .addComponent(jTextField12)
-                    .addComponent(jTextField14)
-                    .addComponent(jTextField13))
-                .addGap(70, 70, 70)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnagregar)
-                    .addComponent(btnnuevo)
-                    .addComponent(btnmodificar)
-                    .addComponent(jButton4)
-                    .addComponent(btnconsultar)
-                    .addComponent(jButton1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                                .addComponent(jTextField2)
+                                .addComponent(jTextField3)
+                                .addComponent(jTextField4)
+                                .addComponent(jTextField5)
+                                .addComponent(jTextField6)
+                                .addComponent(jTextField7)
+                                .addComponent(jTextField8)
+                                .addComponent(jTextField9)
+                                .addComponent(jTextField10)
+                                .addComponent(jTextField11)
+                                .addComponent(jTextField12))
+                            .addComponent(jTextField13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(70, 70, 70)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnagregar)
+                            .addComponent(btnnuevo)
+                            .addComponent(btnmodificar)
+                            .addComponent(jButton4)
+                            .addComponent(btnconsultar)
+                            .addComponent(jButton1)))
+                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -290,9 +293,7 @@ public class docente extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton1))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(3, 3, 3)))
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(16, 16, 16)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -339,19 +340,19 @@ public class docente extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(51, 63, Short.MAX_VALUE))
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Acciones");
@@ -631,11 +632,11 @@ int sw=0;
                jTextField7.setText(tabla.getString(7));
                jTextField8.setText(tabla.getString(8));
                jTextField9.setText(tabla.getString(9));
-               jTextField10.setText(tabla.getString(5));
-               jTextField11.setText(tabla.getString(6));
-               jTextField12.setText(tabla.getString(7));
-               jTextField13.setText(tabla.getString(8));
-               jTextField14.setText(tabla.getString(9));
+               jTextField10.setText(tabla.getString(10));
+               jTextField11.setText(tabla.getString(11));
+               jTextField12.setText(tabla.getString(12));
+               jTextField13.setText(tabla.getString(13));
+               jTextField14.setText(tabla.getString(14));
                
            }
          
@@ -664,14 +665,35 @@ int sw=0;
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
       Connection con; PreparedStatement stmt;  
              con = DriverManager.getConnection (cadena);
-      String id_calendario = jTextField1.getText();
-      String id_grupo= jTextField2.getText();
-      String id_dia = jTextField3.getText();
-      String id_materia= jTextField4.getText();
-      String horario = jTextField5.getText();
- 
-      String sql= " update calendario set ";
-           sql += "id_grupo= " +"\""+ id_grupo + "\"" +  "id_dia= " +"\""+ id_dia + "\"" +  "id_materia= " +"\""+ id_materia + "\"" +  "horario= " +"\""+ horario + "\""  + " where id_calendario =" +id_calendario+ " ; ";
+      String id_docente = jTextField1.getText();
+      String nombre= jTextField2.getText();
+      String apellidopat = jTextField3.getText();
+      String apellidomat= jTextField4.getText();
+      String id_turno = jTextField5.getText();
+      String id_sexo = jTextField6.getText();
+      String curp= jTextField7.getText();
+      String id_colonia = jTextField8.getText();
+      String calle= jTextField9.getText();
+      String numero = jTextField10.getText();
+      String codigo_postal= jTextField11.getText();
+      String correo = jTextField12.getText();
+      String telefono= jTextField13.getText();
+      String id_salon = jTextField14.getText();
+      
+      String sql= " update docente set ";
+        sql += "nombre= "+  "\""+nombre+ "\",";
+        sql += "apellidopat= "+  "\""+apellidopat+ "\",";
+        sql += "apellidomat= "+  "\""+apellidomat+ "\",";
+        sql += "id_turno= "+  "\""+id_turno+ "\",";
+        sql += "id_sexo= "+  "\""+id_sexo+ "\",";
+        sql += "curp= "+  "\""+curp+ "\",";
+        sql += "id_colonia= "+  "\""+id_colonia+ "\",";
+        sql += "calle= "+  "\""+calle+ "\",";
+        sql += "numero= "+  "\""+numero+ "\",";
+        sql += "codigo_postal= "+  "\""+codigo_postal+ "\",";
+        sql += "correo= "+  "\""+correo+ "\",";
+        sql += "telefono= "+  "\""+telefono+ "\",";
+        sql += "id_salon= " +"\""+ id_salon + "\"" + " where id_docente=" + id_docente+ " ; ";
            
     
       JOptionPane.showMessageDialog (null, sql);
