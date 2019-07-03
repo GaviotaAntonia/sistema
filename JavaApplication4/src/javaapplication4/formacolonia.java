@@ -6,20 +6,23 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 public class formacolonia extends javax.swing.JFrame {
 
     public formacolonia() {
-        initComponents();       
-        this.setTitle("Alumno");
+        initComponents();  
+        cargarBD();
+        this.setTitle("Colonia");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
     }
    @Override
     public Image getIconImage() {
-        Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("/iconos/zorrito.png"));
 
 
         return retValue;
@@ -134,6 +137,20 @@ public class formacolonia extends javax.swing.JFrame {
             }
         });
 
+        cmbestado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbestadoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cmbestadoMouseEntered(evt);
+            }
+        });
+        cmbestado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbestadoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -156,11 +173,10 @@ public class formacolonia extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cmbestado, 0, 287, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField1)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField3)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)))
+                    .addComponent(jTextField1)
+                    .addComponent(jTextField2)
+                    .addComponent(jTextField3)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btneliminar)
@@ -296,6 +312,40 @@ public class formacolonia extends javax.swing.JFrame {
         modificar();        // TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 
+    private void cmbestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbestadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbestadoActionPerformed
+
+    private void cmbestadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbestadoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbestadoMouseEntered
+
+    private void cmbestadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbestadoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbestadoMouseClicked
+  public void cargarBD(){
+           try
+            {
+                Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select estado from estado;");
+                cmbestado.removeAllItems();
+                while(rs.next())
+                {
+                    cmbestado.addItem(rs.getString(1));
+                }
+                rs.close();
+                con.close();
+            }catch (ClassNotFoundException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }catch (SQLException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        }
     public void nuevo(){
         jTextField1.setText("");
         jTextField2.setText("");

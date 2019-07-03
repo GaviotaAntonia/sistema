@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaapplication4;
-
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -14,19 +8,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-/**
- *
- * @author ARV
- */
 public class prueba_combo extends javax.swing.JFrame {
 
 
     public prueba_combo() {
         initComponents();
         cargarBD();
-        
-        
+
         this.setTitle("Prueba combo");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
