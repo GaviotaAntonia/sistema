@@ -603,14 +603,24 @@ public void modificar(){
       String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
       Connection con; PreparedStatement stmt;  
              con = DriverManager.getConnection (cadena);
-      String id_calendario = jTextField1.getText();
-      String id_grupo= jTextField2.getText();
-      String id_dia = jTextField3.getText();
-      String id_materia= jTextField4.getText();
-      String horario = jTextField5.getText();
- 
-      String sql= " update calendario set ";
-           sql += "id_grupo= " +"\""+ id_grupo + "\"" +  "id_dia= " +"\""+ id_dia + "\"" +  "id_materia= " +"\""+ id_materia + "\"" +  "horario= " +"\""+ horario + "\""  + " where id_calendario =" +id_calendario+ " ; ";
+      String id_cede = jTextField1.getText();
+      String nombrecede= jTextField2.getText();
+      String id_colonia = jTextField3.getText();
+      String calle= jTextField4.getText();
+      String numero=jTextField5.getText();
+      String codigopostal=jTextField6.getText();
+      String correo=jTextField7.getText();
+      String id_director=jTextField8.getText();
+      String id_salon=jTextField9.getText();
+      String sql= " update cede set "; 
+      sql += "nombrecede= "+  "\""+nombrecede+ "\",";
+      sql += "id_colonia= "+  "\""+id_colonia+ "\",";
+      sql += "calle= "+  "\""+calle+ "\",";
+      sql += "numero= "+  "\""+numero+ "\",";
+      sql += "codigopostal= "+  "\""+codigopostal+ "\",";
+      sql += "correo= "+  "\""+correo+ "\",";
+      sql += "id_director= "+  "\""+id_director+ "\",";
+      sql += "id_salon= " +"\""+ id_salon + "\"" + " where id_cede=" + id_cede+ " ; ";
            
     
       //JOptionPane.showMessageDialog (null, sql);
