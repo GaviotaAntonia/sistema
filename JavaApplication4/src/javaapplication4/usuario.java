@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -495,7 +496,9 @@ try{
     sql+=id_usuario+","+"\""+usuario+"\","+"\""+contraseña+"\","+"\""+nombre+"\","+"\""+apellido_paterno+"\","+"\""+apellido_materno+"\")";
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
-    if(sw!=0){ JOptionPane.showMessageDialog(null,"Registro de alta con exito!");
+    if(sw!=0){ 
+           JOptionPane.showMessageDialog(null, "Registro dado de alta con exito", "Acción completa",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\Alejandro\\Desktop\\ING.HERRRA\\iconosBD\\listoagrega.png"));
     nuevo();
     }
 }
