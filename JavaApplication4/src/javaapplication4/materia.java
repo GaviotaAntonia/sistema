@@ -268,6 +268,11 @@ public class materia extends javax.swing.JFrame {
 
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
+        menubuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menubuscarActionPerformed(evt);
+            }
+        });
         jMenu1.add(menubuscar);
 
         jMenuBar1.add(jMenu1);
@@ -337,6 +342,10 @@ consultar();        // TODO add your handling code here:
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
 modificar();        // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarActionPerformed
+
+    private void menubuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menubuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menubuscarActionPerformed
 
 public void nuevo(){
      jTextField1.setText("");    

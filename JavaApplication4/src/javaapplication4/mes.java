@@ -298,6 +298,11 @@ public class mes extends javax.swing.JFrame {
 
         menueliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
         menueliminar.setText("Eliminar");
+        menueliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menueliminarActionPerformed(evt);
+            }
+        });
         jMenu1.add(menueliminar);
 
         jMenuBar1.add(jMenu1);
@@ -391,6 +396,10 @@ modificar();        // TODO add your handling code here:
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
  consultar();        // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void menueliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menueliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menueliminarActionPerformed
         public void nuevo(){
             jTextField1.setText("");
             jTextField2.setText("");
