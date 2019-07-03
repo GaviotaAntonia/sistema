@@ -1,9 +1,6 @@
 package javaapplication4;
-
-
 import java.awt.Image;
 import java.awt.Toolkit;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -65,13 +62,7 @@ public class prueba_combo extends javax.swing.JFrame {
             }
         });
 
-
-        cmbTables.setMaximumRowCount(10);
-        cmbTables.setToolTipText("");
-        cmbTables.addMouseListener(new java.awt.event.MouseAdapter() {
-
         cmbFilas.addMouseListener(new java.awt.event.MouseAdapter() {
-
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cmbFilasMouseClicked(evt);
             }
