@@ -441,9 +441,9 @@ public class menupri extends javax.swing.JFrame {
     }//GEN-LAST:event_menugrupoActionPerformed
 
     private void menucoloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menucoloActionPerformed
-    colonia co=new colonia();
-    co.setVisible(true);
-    dispose();// TODO add your handling code here:
+    formacolonia forma=new formacolonia();
+    forma.setVisible(true);
+    disable();
     }//GEN-LAST:event_menucoloActionPerformed
 
     private void menuestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuestadoActionPerformed
