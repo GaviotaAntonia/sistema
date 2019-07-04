@@ -35,8 +35,9 @@ public class prueba_combo extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         cmbBD = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
         cmbFilas = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -46,17 +47,22 @@ public class prueba_combo extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        cmbFilas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbFilasMouseClicked(evt);
+            }
+        });
+        cmbFilas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbFilasActionPerformed(evt);
+            }
+        });
+
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salida32.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        cmbFilas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cmbFilasMouseClicked(evt);
             }
         });
 
@@ -73,7 +79,8 @@ public class prueba_combo extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cmbBD, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbFilas, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbFilas, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(100, 100, 100))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,7 +90,9 @@ public class prueba_combo extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(39, 39, 39)
                 .addComponent(cmbBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(18, 18, 18)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(cmbFilas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(92, Short.MAX_VALUE))
         );
@@ -120,6 +129,10 @@ public class prueba_combo extends javax.swing.JFrame {
         cargarFilas(cmbBD.getSelectedItem().toString());
     }//GEN-LAST:event_cmbFilasMouseClicked
 
+    private void cmbFilasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbFilasActionPerformed
+        cargarFilas(cmbBD.getSelectedItem().toString());
+    }//GEN-LAST:event_cmbFilasActionPerformed
+
     public void cargarBD() 
     {
         try
@@ -128,7 +141,7 @@ public class prueba_combo extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
             Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("show tables;");
+            ResultSet rs=st.executeQuery("select estado from estado  ;");
             cmbBD.removeAllItems();
             while(rs.next())
             {
@@ -151,7 +164,7 @@ public class prueba_combo extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
             Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select dia from dia;");
+            ResultSet rs=st.executeQuery("select estado from id_estado;");
             cmbFilas.removeAllItems();
             while(rs.next())
             {
@@ -206,5 +219,6 @@ public class prueba_combo extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
