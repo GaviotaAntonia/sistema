@@ -479,7 +479,8 @@ modificar();
       stmt = con.prepareStatement(sql);
       int sw = stmt.executeUpdate();
       if (sw!=0) { 
-          JOptionPane.showMessageDialog (null, "Registro modificado");
+           JOptionPane.showMessageDialog(null, "Registro Actualizado", "El Registro fue actualizado",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/dataact.png"));
       }
      }
       catch(ClassNotFoundException e){
