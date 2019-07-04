@@ -457,7 +457,7 @@ modificar();
           JOptionPane.showMessageDialog(null, e2);
           }
         if (sw==0) {
-              JOptionPane.showMessageDialog(null, "No existe registro", "El Registro no se encontro",
+            JOptionPane.showMessageDialog(null, "No existe registro", "El Registro no se encontro",
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/registronoencontrado.png"));
         }
 }
@@ -493,9 +493,6 @@ modificar();
           JOptionPane.showMessageDialog (null, e2);
       }
 }
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
