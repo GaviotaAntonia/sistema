@@ -434,11 +434,12 @@ modificar();
              con = DriverManager.getConnection (cadena);
      String sql= " delete from dia where id_dia=";
       sql += "\"" + jTextField1.getText() + "\";"; 
-      JOptionPane.showMessageDialog (null, sql);
+     // JOptionPane.showMessageDialog (null, sql);
       stmt = con.prepareStatement(sql);
       int sw = stmt.executeUpdate();
       if (sw!=0) { 
-          JOptionPane.showMessageDialog (null, "Registro borrado");
+           JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
           nuevo();
       }
      }
