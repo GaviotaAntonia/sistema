@@ -15,6 +15,8 @@ public class dia extends javax.swing.JFrame {
 
     public dia() {
         initComponents();
+        
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setTitle("Día");
         this.setLocale(null);
         this.setLocationRelativeTo(null);

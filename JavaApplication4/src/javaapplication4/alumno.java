@@ -24,6 +24,7 @@ public class alumno extends javax.swing.JFrame {
         this.setTitle("Alumno");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
           
     }
    @Override
