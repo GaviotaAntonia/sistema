@@ -31,6 +31,8 @@ public class alumno extends javax.swing.JFrame {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
         return retValue;
     }
+    
+    
      public void cargarcede(){
            try
             {
@@ -43,6 +45,7 @@ public class alumno extends javax.swing.JFrame {
                 while(rs.next())
                 {
                     cmdcede.addItem(rs.getString(1));
+                    traeridcedee();
                 }
                 rs.close();
                 con.close();
@@ -54,6 +57,21 @@ public class alumno extends javax.swing.JFrame {
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+            public void traeridcedee(){
+            try {
+         Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from cede where nombrecede='"+this.cmdcede.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField19.setText(String.valueOf(rs.getInt("id_cede")));
+     } catch (Exception e) {
+     } 
+       }
+     
+     
      public void cargardet(){
            try
             {
@@ -66,6 +84,7 @@ public class alumno extends javax.swing.JFrame {
                 while(rs.next())
                 {
                     cmbdeta.addItem(rs.getString(1));
+                    traeriddet();
                 }
                 rs.close();
                 con.close();
@@ -77,6 +96,21 @@ public class alumno extends javax.swing.JFrame {
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+            public void traeriddet(){
+            try {
+         Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from detalle_horario where id_detalle='"+this.cmbdeta.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField18.setText(String.valueOf(rs.getInt("id_estado")));
+     } catch (Exception e) {
+     } 
+       }
+     
+     
      public void cargarcer(){
            try
             {
@@ -89,6 +123,7 @@ public class alumno extends javax.swing.JFrame {
                 while(rs.next())
                 {
                     cmbcert.addItem(rs.getString(1));
+                    traeridcet();
                 }
                 rs.close();
                 con.close();
@@ -100,6 +135,21 @@ public class alumno extends javax.swing.JFrame {
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+            public void traeridcet(){
+            try {
+         Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from tipo_certificado where certificado='"+this.cmbcert.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField18.setText(String.valueOf(rs.getInt("id_certificado")));
+     } catch (Exception e) {
+     } 
+       }
+     
+     
      public void cargarespe(){
            try
             {
@@ -112,6 +162,7 @@ public class alumno extends javax.swing.JFrame {
                 while(rs.next())
                 {
                     cmbespe.addItem(rs.getString(1));
+                    traeridespe();
                 }
                 rs.close();
                 con.close();
@@ -123,6 +174,21 @@ public class alumno extends javax.swing.JFrame {
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+            public void traeridespe(){
+            try {
+         Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from especial where especial='"+this.cmbespe.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField16.setText(String.valueOf(rs.getInt("id_mad")));
+     } catch (Exception e) {
+     } 
+       }
+     
+     
      public void cargarsta(){
            try
             {
@@ -135,6 +201,7 @@ public class alumno extends javax.swing.JFrame {
                 while(rs.next())
                 {
                     cmbsta.addItem(rs.getString(1));
+                    traeridsta();
                 }
                 rs.close();
                 con.close();
@@ -146,6 +213,20 @@ public class alumno extends javax.swing.JFrame {
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+            public void traeridsta(){
+            try {
+         Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from status where status='"+this.cmbsta.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField15.setText(String.valueOf(rs.getInt("id_status")));
+     } catch (Exception e) {
+     } 
+       }
+     
      public void cargarsex(){
            try
             {
@@ -158,6 +239,7 @@ public class alumno extends javax.swing.JFrame {
                 while(rs.next())
                 {
                     cmbsex.addItem(rs.getString(1));
+                    traeridsex();
                 }
                 rs.close();
                 con.close();
@@ -169,6 +251,21 @@ public class alumno extends javax.swing.JFrame {
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+            public void traeridsex(){
+            try {
+         Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from sexo where sexo='"+this.cmbsex.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField10.setText(String.valueOf(rs.getInt("id_sexo")));
+     } catch (Exception e) {
+     } 
+       }
+            
+            
      public void cargarcol(){
            try
             {
@@ -181,6 +278,7 @@ public class alumno extends javax.swing.JFrame {
                 while(rs.next())
                 {
                     cmbcolonia.addItem(rs.getString(1));
+                    traeridcol();
                 }
                 rs.close();
                 con.close();
@@ -192,6 +290,19 @@ public class alumno extends javax.swing.JFrame {
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+            public void traeridcol(){
+            try {
+         Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from colonia where colonia='"+this.cmbcolonia.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField5.setText(String.valueOf(rs.getInt("id_colonia")));
+     } catch (Exception e) {
+     } 
+       }
      
      
    public void nuevo(){
@@ -622,6 +733,42 @@ catch(Exception e2){
             }
         });
 
+        cmbsex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbsexActionPerformed(evt);
+            }
+        });
+
+        cmbsta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbstaActionPerformed(evt);
+            }
+        });
+
+        cmbespe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbespeActionPerformed(evt);
+            }
+        });
+
+        cmbcert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbcertActionPerformed(evt);
+            }
+        });
+
+        cmbdeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbdetaActionPerformed(evt);
+            }
+        });
+
+        cmdcede.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdcedeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -651,12 +798,12 @@ catch(Exception e2){
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(cmbcolonia, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(cmbcolonia, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(38, 38, 38)
@@ -677,18 +824,19 @@ catch(Exception e2){
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(36, 36, 36)))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cmbsex, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cmbsex, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(45, 45, 45)
+                                .addGap(162, 162, 162)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1007,7 +1155,7 @@ borrar();        // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void cmbcoloniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbcoloniaActionPerformed
-        // TODO add your handling code here:
+traeridcol();        // TODO add your handling code here:
     }//GEN-LAST:event_cmbcoloniaActionPerformed
 
     private void cmbcoloniaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbcoloniaMouseClicked
@@ -1017,6 +1165,30 @@ borrar();        // TODO add your handling code here:
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
        borrar();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void cmbsexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbsexActionPerformed
+traeridsex();        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbsexActionPerformed
+
+    private void cmbstaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbstaActionPerformed
+traeridsta();        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbstaActionPerformed
+
+    private void cmbespeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbespeActionPerformed
+traeridespe();        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbespeActionPerformed
+
+    private void cmbdetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbdetaActionPerformed
+traeriddet();        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbdetaActionPerformed
+
+    private void cmdcedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdcedeActionPerformed
+traeridcedee();        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdcedeActionPerformed
+
+    private void cmbcertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbcertActionPerformed
+traeridcet();        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbcertActionPerformed
   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
