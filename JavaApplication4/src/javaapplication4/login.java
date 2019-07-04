@@ -152,7 +152,7 @@ public class login extends javax.swing.JFrame {
             menupri nuevo= new menupri();
             nuevo.setVisible(true);
             dispose();
-            JOptionPane.showMessageDialog(this,"Haz entrado como usuario");
+            JOptionPane.showMessageDialog(this,"Bienvenido usuario ");
     }//GEN-LAST:event_btnabrirsesionActionPerformed
 
     private void btnabrirsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnabrirsesionMouseClicked
@@ -165,11 +165,8 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-
-        // TODO add your handling code here:
-        
         System.exit(0);
-        
+
     }//GEN-LAST:event_btnsalirActionPerformed
 
 
