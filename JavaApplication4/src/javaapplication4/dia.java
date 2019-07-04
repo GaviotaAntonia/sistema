@@ -41,10 +41,11 @@ public class dia extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         btnnuevo = new javax.swing.JButton();
         btngrabar = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
@@ -52,7 +53,6 @@ public class dia extends javax.swing.JFrame {
         btneliminar = new javax.swing.JButton();
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
-        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
@@ -77,6 +77,14 @@ public class dia extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel3.setText("dia");
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salida32.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btnnuevo.setBackground(new java.awt.Color(255, 255, 255));
         btnnuevo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -124,14 +132,6 @@ public class dia extends javax.swing.JFrame {
 
         label2.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
         label2.setText("numero de usuario");
-
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salida32.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

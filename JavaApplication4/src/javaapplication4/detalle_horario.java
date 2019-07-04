@@ -25,10 +25,95 @@ public class detalle_horario extends javax.swing.JFrame {
      */
     public detalle_horario() {
         initComponents();
-        cargarturno();
-        cargaralumno();
-        cargargrupo();
-        cargarsalon();
+        this.cmbturno.removeAllItems();
+          try
+            {
+                Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select turno from turno_docente;");
+                while(rs.next())
+                {
+                    this.cmbturno.addItem(rs.getString("turno"));
+                    traeridturno();
+                }
+                rs.close();
+                con.close();
+            }catch (ClassNotFoundException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }catch (SQLException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        this.cmbalumno.removeAllItems();
+          try
+            {
+                Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select nombre from alumno;");
+                while(rs.next())
+                {
+                    this.cmbalumno.addItem(rs.getString("nombre"));
+                    traeridalumno();
+                }
+                rs.close();
+                con.close();
+            }catch (ClassNotFoundException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }catch (SQLException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            } 
+        this.cmbgrupo.removeAllItems();
+          try
+            {
+                Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select grupo from grupo;");
+                while(rs.next())
+                {
+                    this.cmbgrupo.addItem(rs.getString("grupo"));
+                    traeridgrupo();
+                }
+                rs.close();
+                con.close();
+            }catch (ClassNotFoundException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }catch (SQLException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }    
+        this.cmbsalon.removeAllItems();
+          try
+            {
+                Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select salon from salon;");
+                while(rs.next())
+                {
+                    this.cmbsalon.addItem(rs.getString("salon"));
+                    traeridsalon();
+                }
+                rs.close();
+                con.close();
+            }catch (ClassNotFoundException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }catch (SQLException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }  
+        
         
         this.setTitle("Detalle horario");
         this.setLocale(null);
@@ -158,16 +243,36 @@ public class detalle_horario extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel8.setText("id_salon");
 
+        cmbturno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbturnoActionPerformed(evt);
+            }
+        });
+
+        cmbalumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbalumnoActionPerformed(evt);
+            }
+        });
+
+        cmbgrupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbgrupoActionPerformed(evt);
+            }
+        });
+
+        cmbsalon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbsalonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -177,38 +282,42 @@ public class detalle_horario extends javax.swing.JFrame {
                         .addComponent(btnsalir))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField3)
+                                    .addComponent(jTextField5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbalumno, 0, 200, Short.MAX_VALUE)
+                                    .addComponent(cmbgrupo, 0, 200, Short.MAX_VALUE)
+                                    .addComponent(cmbsalon, 0, 200, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3))
-                                .addGap(46, 46, 46)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnagregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnmodificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnnuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cmbturno, 0, 109, Short.MAX_VALUE)
-                                    .addComponent(cmbalumno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(40, 40, 40)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cmbsalon, 0, 109, Short.MAX_VALUE)
-                                    .addComponent(cmbgrupo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbturno, 0, 200, Short.MAX_VALUE))
+                            .addComponent(jTextField1))
+                        .addGap(55, 55, 55)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnagregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnmodificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnnuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)))
                 .addGap(24, 24, 24))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,44 +328,47 @@ public class detalle_horario extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbturno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbalumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbgrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbsalon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(81, 81, 81))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnnuevo)
-                        .addComponent(jLabel4))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnagregar)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnmodificar)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btneliminar)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnbuscar)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbturno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbgrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbalumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbsalon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnagregar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnmodificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btneliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnbuscar)
+                        .addGap(69, 69, 69))))
         );
 
         jMenu1.setText("Acciones");
@@ -377,6 +489,22 @@ public class detalle_horario extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         modificar();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void cmbturnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbturnoActionPerformed
+        traeridturno();
+    }//GEN-LAST:event_cmbturnoActionPerformed
+
+    private void cmbalumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbalumnoActionPerformed
+        traeridalumno();
+    }//GEN-LAST:event_cmbalumnoActionPerformed
+
+    private void cmbgrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbgrupoActionPerformed
+       traeridgrupo();
+    }//GEN-LAST:event_cmbgrupoActionPerformed
+
+    private void cmbsalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbsalonActionPerformed
+       traeridsalon();
+    }//GEN-LAST:event_cmbsalonActionPerformed
 
     public void nuevo()
     {
@@ -536,104 +664,72 @@ public class detalle_horario extends javax.swing.JFrame {
         }
     }    
     
-    public void cargarturno()
+    public void traeridturno()
     {
-        try
+        try 
         {
             Connection con=null;
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
-            Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select id_turno from detalle_horario;");
-            cmbturno.removeAllItems();
-            while(rs.next())
-            {
-                cmbturno.addItem(rs.getString(1));
-            }
-            rs.close();
-            con.close();
-        }catch (ClassNotFoundException ex)
+            Statement s1t=con.createStatement();
+            ResultSet rs=s1t.executeQuery("select * from turno_docente where turno='"+this.cmbturno.getSelectedItem()+"'" );
+            rs.next();
+            //System.out.println(rs);
+            this.jTextField2.setText(String.valueOf(rs.getInt("id_turno")));
+        }catch (Exception e) 
         {
-            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-        }catch (SQLException ex)
-        {
-            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-        }
+        } 
     }
     
-    public void cargaralumno()
+    public void traeridalumno()
     {
-        try
+        try 
         {
             Connection con=null;
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
-            Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select id_alumno from detalle_horario;");
-            cmbalumno.removeAllItems();
-            while(rs.next())
-            {
-                cmbalumno.addItem(rs.getString(1));
-            }
-            rs.close();
-            con.close();
-        }catch (ClassNotFoundException ex)
+            Statement s1t=con.createStatement();
+            ResultSet rs=s1t.executeQuery("select * from alumno where nombre='"+this.cmbalumno.getSelectedItem()+"'" );
+            rs.next();
+            //System.out.println(rs);
+            this.jTextField3.setText(String.valueOf(rs.getInt("id_alumno")));
+        }catch (Exception e) 
         {
-            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-        }catch (SQLException ex)
-        {
-            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-        }
+        } 
     }
-    
-    public void cargargrupo()
+
+    public void traeridgrupo()
     {
-        try
+        try 
         {
             Connection con=null;
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
-            Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select id_grupo from detalle_horario;");
-            cmbgrupo.removeAllItems();
-            while(rs.next())
-            {
-                cmbgrupo.addItem(rs.getString(1));
-            }
-            rs.close();
-            con.close();
-        }catch (ClassNotFoundException ex)
+            Statement s1t=con.createStatement();
+            ResultSet rs=s1t.executeQuery("select * from grupo where grupo='"+this.cmbgrupo.getSelectedItem()+"'" );
+            rs.next();
+            //System.out.println(rs);
+            this.jTextField4.setText(String.valueOf(rs.getInt("id_grupo")));
+        }catch (Exception e) 
         {
-            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-        }catch (SQLException ex)
-        {
-            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-        }
+        } 
     }
-    
-    public void cargarsalon()
+
+    public void traeridsalon()
     {
-        try
+        try 
         {
             Connection con=null;
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
-            Statement st=con.createStatement();
-            ResultSet rs=st.executeQuery("select id_salon from detalle_horario;");
-            cmbsalon.removeAllItems();
-            while(rs.next())
-            {
-                cmbsalon.addItem(rs.getString(1));
-            }
-            rs.close();
-            con.close();
-        }catch (ClassNotFoundException ex)
+            Statement s1t=con.createStatement();
+            ResultSet rs=s1t.executeQuery("select * from salon where salon='"+this.cmbsalon.getSelectedItem()+"'" );
+            rs.next();
+            //System.out.println(rs);
+            this.jTextField5.setText(String.valueOf(rs.getInt("id_salon")));
+        }catch (Exception e) 
         {
-            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-        }catch (SQLException ex)
-        {
-            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-        }
+        } 
     }
     
     public static void main(String args[]) {

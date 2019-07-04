@@ -44,11 +44,12 @@ public class sexo extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         btnnuevo = new javax.swing.JButton();
         btngrabar = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
@@ -56,7 +57,6 @@ public class sexo extends javax.swing.JFrame {
         btneliminar = new javax.swing.JButton();
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
-        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
@@ -73,14 +73,22 @@ public class sexo extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1800, 720));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("Sexo");
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel2.setText("id_sexo:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel3.setText("sexo");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setText("Sexo");
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salida32.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btnnuevo.setBackground(new java.awt.Color(255, 255, 255));
         btnnuevo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -129,14 +137,6 @@ public class sexo extends javax.swing.JFrame {
 
         label2.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
         label2.setText("numero de usuario");
-
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salida32.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
