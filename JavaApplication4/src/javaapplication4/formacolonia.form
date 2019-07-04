@@ -33,20 +33,20 @@
                 <Property name="text" type="java.lang.String" value="Modificar"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iconos/buscar.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Buscar"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconos/eliminar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Eliminar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/iconos/buscar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -148,14 +148,12 @@
                       <Component id="jTextField4" pref="287" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="74" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btneliminar" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnmodificar" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnnuevo" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnagregar" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnbuscar" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnmodificar" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnnuevo" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnagregar" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnbuscar" max="32767" attributes="0"/>
+                      <Component id="btneliminar" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               </Group>
@@ -208,12 +206,12 @@
                       </Group>
                       <Component id="btnbuscar" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btneliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbestado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cmbestado" min="-2" max="-2" attributes="0"/>
+                      <Component id="btneliminar" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="170" max="32767" attributes="0"/>
+                  <EmptySpace pref="173" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

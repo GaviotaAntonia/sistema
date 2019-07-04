@@ -42,7 +42,6 @@ public class grupo extends javax.swing.JFrame {
         btnmodificar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
-        btnconsulta = new javax.swing.JButton();
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
         jButton1 = new javax.swing.JButton();
@@ -50,8 +49,8 @@ public class grupo extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
         menuguardar = new javax.swing.JMenuItem();
-        menuconsulta = new javax.swing.JMenuItem();
         menumodificar = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menubuscar = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
@@ -112,10 +111,6 @@ public class grupo extends javax.swing.JFrame {
             }
         });
 
-        btnconsulta.setBackground(new java.awt.Color(255, 255, 255));
-        btnconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        btnconsulta.setToolTipText("");
-
         label1.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
         label1.setText("nombre del usuario");
 
@@ -155,17 +150,15 @@ public class grupo extends javax.swing.JFrame {
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(36, 36, 36)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(2, 2, 2))
-                        .addComponent(btngrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnconsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btngrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41))
         );
         jPanel1Layout.setVerticalGroup(
@@ -199,14 +192,12 @@ public class grupo extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnnuevo)
                         .addGap(18, 18, 18)
-                        .addComponent(btnconsulta)
-                        .addGap(18, 18, 18)
                         .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnbuscar)
                         .addGap(18, 18, 18)
                         .addComponent(btngrabar)
-                        .addGap(20, 20, 20))))
+                        .addGap(63, 63, 63))))
         );
 
         jMenu1.setText("Acciones");
@@ -234,20 +225,6 @@ public class grupo extends javax.swing.JFrame {
         });
         jMenu1.add(menuguardar);
 
-        menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        menuconsulta.setText("Consulta");
-        menuconsulta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuconsultaMouseClicked(evt);
-            }
-        });
-        menuconsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuconsultaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menuconsulta);
-
         menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
         menumodificar.setText("Modificar");
         menumodificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -261,6 +238,15 @@ public class grupo extends javax.swing.JFrame {
             }
         });
         jMenu1.add(menumodificar);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        jMenuItem1.setText("Eliminar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
@@ -312,14 +298,6 @@ public class grupo extends javax.swing.JFrame {
        grabar();// TODO add your handling code here:
     }//GEN-LAST:event_menuguardarActionPerformed
 
-    private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
-      // TODO add your handling code here:
-    }//GEN-LAST:event_menuconsultaMouseClicked
-
-    private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-consultar();             // TODO add your handling code here:
-    }//GEN-LAST:event_menuconsultaActionPerformed
-
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
        modificar();// TODO add your handling code here:
     }//GEN-LAST:event_menumodificarMouseClicked
@@ -368,6 +346,10 @@ consultar();             // TODO add your handling code here:
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         consultar();
     }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        borrar();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
     public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
@@ -534,7 +516,6 @@ consultar();             // TODO add your handling code here:
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscar;
-    private javax.swing.JButton btnconsulta;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btngrabar;
     private javax.swing.JButton btnmodificar;
@@ -546,6 +527,7 @@ consultar();             // TODO add your handling code here:
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -553,7 +535,6 @@ consultar();             // TODO add your handling code here:
     private java.awt.Label label2;
     private javax.swing.JMenuItem menuayuda;
     private javax.swing.JMenuItem menubuscar;
-    private javax.swing.JMenuItem menuconsulta;
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;

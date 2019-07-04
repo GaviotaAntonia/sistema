@@ -65,8 +65,8 @@ public class tipocert extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
         menuguardar = new javax.swing.JMenuItem();
-        menuconsulta = new javax.swing.JMenuItem();
         menumodificar = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menubuscar = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
@@ -160,16 +160,19 @@ public class tipocert extends javax.swing.JFrame {
                                 .addGap(24, 24, 24)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(2, 2, 2))
-                                .addComponent(btngrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btngrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(20, 20, 20)))
                         .addGap(35, 35, 35))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
@@ -211,13 +214,13 @@ public class tipocert extends javax.swing.JFrame {
                         .addComponent(btnmodificar)
                         .addGap(18, 18, 18)
                         .addComponent(btnnuevo)
-                        .addGap(61, 61, 61)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnbuscar)
                         .addGap(18, 18, 18)
                         .addComponent(btngrabar)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Acciones");
@@ -245,20 +248,6 @@ public class tipocert extends javax.swing.JFrame {
         });
         jMenu1.add(menuguardar);
 
-        menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        menuconsulta.setText("Consulta");
-        menuconsulta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuconsultaMouseClicked(evt);
-            }
-        });
-        menuconsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuconsultaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menuconsulta);
-
         menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
         menumodificar.setText("Modificar");
         menumodificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -272,6 +261,15 @@ public class tipocert extends javax.swing.JFrame {
             }
         });
         jMenu1.add(menumodificar);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        jMenuItem1.setText("Eliminar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
@@ -322,16 +320,6 @@ public class tipocert extends javax.swing.JFrame {
         grabar();
     }//GEN-LAST:event_menuguardarActionPerformed
 
-    private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
-        docente doc=new docente();
-        doc.setVisible(true);// TODO add your handling code here:
-    }//GEN-LAST:event_menuconsultaMouseClicked
-
-    private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-        docente doc=new docente();
-        doc.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_menuconsultaActionPerformed
-
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
         director dir= new director();
         dir.setVisible(true);        // TODO add your handling code here:
@@ -379,6 +367,10 @@ public class tipocert extends javax.swing.JFrame {
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         consultar();
     }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        borrar();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
@@ -566,6 +558,7 @@ public void modificar(){
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -573,7 +566,6 @@ public void modificar(){
     private java.awt.Label label2;
     private javax.swing.JMenuItem menuayuda;
     private javax.swing.JMenuItem menubuscar;
-    private javax.swing.JMenuItem menuconsulta;
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;

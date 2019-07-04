@@ -66,7 +66,6 @@ public class director extends javax.swing.JFrame {
         btnsalir = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
         btnnuevo = new javax.swing.JButton();
-        btnconsulta = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         btngrabar = new javax.swing.JButton();
@@ -75,8 +74,8 @@ public class director extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
         menuguardar = new javax.swing.JMenuItem();
-        menuconsulta = new javax.swing.JMenuItem();
         menumodificar = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menubuscar = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
@@ -175,10 +174,6 @@ public class director extends javax.swing.JFrame {
             }
         });
 
-        btnconsulta.setBackground(new java.awt.Color(255, 255, 255));
-        btnconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        btnconsulta.setToolTipText("");
-
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
         btneliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -260,38 +255,39 @@ public class director extends javax.swing.JFrame {
                             .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btngrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnconsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(56, 56, 56))
+                                .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btngrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(55, 55, 55))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -342,19 +338,24 @@ public class director extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel9)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(28, 28, 28)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(btnmodificar)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnnuevo)
                                         .addGap(18, 18, 18)
-                                        .addComponent(btnconsulta)))
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnbuscar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btngrabar))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(31, 31, 31)
@@ -368,9 +369,7 @@ public class director extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(48, 48, 48)
-                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(24, 24, 24)
@@ -381,16 +380,11 @@ public class director extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel12))))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnbuscar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btngrabar))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel13)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(68, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Acciones");
@@ -418,20 +412,6 @@ public class director extends javax.swing.JFrame {
         });
         jMenu1.add(menuguardar);
 
-        menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        menuconsulta.setText("Consulta");
-        menuconsulta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuconsultaMouseClicked(evt);
-            }
-        });
-        menuconsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuconsultaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menuconsulta);
-
         menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
         menumodificar.setText("Modificar");
         menumodificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -445,6 +425,15 @@ public class director extends javax.swing.JFrame {
             }
         });
         jMenu1.add(menumodificar);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        jMenuItem1.setText("Eliminar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
@@ -501,14 +490,6 @@ public class director extends javax.swing.JFrame {
         grabar(); // TODO add your handling code here:
     }//GEN-LAST:event_menuguardarActionPerformed
 
-    private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
-       consultar();// TODO add your handling code here:
-    }//GEN-LAST:event_menuconsultaMouseClicked
-
-    private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-     consultar();        // TODO add your handling code here:
-    }//GEN-LAST:event_menuconsultaActionPerformed
-
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
      modificar();       // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarMouseClicked
@@ -562,6 +543,10 @@ public class director extends javax.swing.JFrame {
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField11ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        borrar();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 public void nuevo(){
      jTextField1.setText("");    
@@ -794,7 +779,6 @@ public void modificar(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscar;
-    private javax.swing.JButton btnconsulta;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btngrabar;
     private javax.swing.JButton btnmodificar;
@@ -817,6 +801,7 @@ public void modificar(){
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
@@ -835,7 +820,6 @@ public void modificar(){
     private java.awt.Label label2;
     private javax.swing.JMenuItem menuayuda;
     private javax.swing.JMenuItem menubuscar;
-    private javax.swing.JMenuItem menuconsulta;
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;

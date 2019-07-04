@@ -57,7 +57,6 @@ public class materia extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         btnmodificar = new javax.swing.JButton();
         btnnuevo = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         btnagregar = new javax.swing.JButton();
@@ -68,8 +67,8 @@ public class materia extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
         menuagregar = new javax.swing.JMenuItem();
-        menuconsulta = new javax.swing.JMenuItem();
         menumodificar = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menubuscar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
@@ -114,9 +113,6 @@ public class materia extends javax.swing.JFrame {
                 btnnuevoActionPerformed(evt);
             }
         });
-
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
 
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
@@ -184,8 +180,7 @@ public class materia extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnagregar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(btnbuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnmodificar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -218,15 +213,13 @@ public class materia extends javax.swing.JFrame {
                         .addComponent(btnmodificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnnuevo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btneliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnbuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnagregar)))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Acciones");
@@ -249,15 +242,6 @@ public class materia extends javax.swing.JFrame {
         });
         jMenu1.add(menuagregar);
 
-        menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        menuconsulta.setText("Consulta");
-        menuconsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuconsultaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menuconsulta);
-
         menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
         menumodificar.setText("Modificar");
         menumodificar.addActionListener(new java.awt.event.ActionListener() {
@@ -266,6 +250,10 @@ public class materia extends javax.swing.JFrame {
             }
         });
         jMenu1.add(menumodificar);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        jMenuItem1.setText("Eliminar");
+        jMenu1.add(jMenuItem1);
 
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
@@ -296,7 +284,7 @@ public class materia extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -335,10 +323,6 @@ public class materia extends javax.swing.JFrame {
     private void menunuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menunuevoActionPerformed
 nuevo();        // TODO add your handling code here:
     }//GEN-LAST:event_menunuevoActionPerformed
-
-    private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-consultar();        // TODO add your handling code here:
-    }//GEN-LAST:event_menuconsultaActionPerformed
 
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
 modificar();        // TODO add your handling code here:
@@ -530,7 +514,6 @@ public void modificar(){
     private javax.swing.JButton btnmodificar;
     private javax.swing.JButton btnnuevo;
     private javax.swing.JButton btnsalir;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -539,6 +522,7 @@ public void modificar(){
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -547,7 +531,6 @@ public void modificar(){
     private javax.swing.JMenuItem menuagregar;
     private javax.swing.JMenuItem menuayuda;
     private javax.swing.JMenuItem menubuscar;
-    private javax.swing.JMenuItem menuconsulta;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
     // End of variables declaration//GEN-END:variables

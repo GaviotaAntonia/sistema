@@ -78,7 +78,6 @@ public class docente extends javax.swing.JFrame {
         btnagregar = new javax.swing.JButton();
         btnnuevo = new javax.swing.JButton();
         btnmodificar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         btnconsultar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         cmbturno = new javax.swing.JComboBox<>();
@@ -89,8 +88,8 @@ public class docente extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
         menuguardar = new javax.swing.JMenuItem();
-        menuconsulta = new javax.swing.JMenuItem();
         menumodificar = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menubuscar = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
@@ -184,9 +183,6 @@ public class docente extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-
         btnconsultar.setBackground(new java.awt.Color(255, 255, 255));
         btnconsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         btnconsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -278,7 +274,6 @@ public class docente extends javax.swing.JFrame {
                         .addComponent(btnagregar)
                         .addComponent(btnnuevo)
                         .addComponent(btnmodificar)
-                        .addComponent(jButton4)
                         .addComponent(btnconsultar)
                         .addComponent(jButton1)))
                 .addGap(56, 56, 56))
@@ -298,9 +293,7 @@ public class docente extends javax.swing.JFrame {
                         .addComponent(btnnuevo)
                         .addGap(18, 18, 18)
                         .addComponent(btnmodificar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4)
-                        .addGap(11, 11, 11)
+                        .addGap(54, 54, 54)
                         .addComponent(btnconsultar))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -404,20 +397,6 @@ public class docente extends javax.swing.JFrame {
         });
         jMenu1.add(menuguardar);
 
-        menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        menuconsulta.setText("Consulta");
-        menuconsulta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuconsultaMouseClicked(evt);
-            }
-        });
-        menuconsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuconsultaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menuconsulta);
-
         menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
         menumodificar.setText("Modificar");
         menumodificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -431,6 +410,15 @@ public class docente extends javax.swing.JFrame {
             }
         });
         jMenu1.add(menumodificar);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        jMenuItem1.setText("Eliminar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
@@ -486,14 +474,6 @@ public class docente extends javax.swing.JFrame {
       grabar(); // TODO add your handling code here:
     }//GEN-LAST:event_menuguardarActionPerformed
 
-    private void menuconsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuconsultaMouseClicked
-      consultar();// TODO add your handling code here:
-    }//GEN-LAST:event_menuconsultaMouseClicked
-
-    private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-       consultar();       // TODO add your handling code here:
-    }//GEN-LAST:event_menuconsultaActionPerformed
-
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
        modificar();       // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarMouseClicked
@@ -535,6 +515,10 @@ public class docente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        borrar();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        borrar();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
      public void cargarsalon(){
            try
             {
@@ -874,7 +858,6 @@ int sw=0;
     private javax.swing.JComboBox<String> cmbssalon;
     private javax.swing.JComboBox<String> cmbturno;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -895,6 +878,7 @@ int sw=0;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
@@ -912,7 +896,6 @@ int sw=0;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JMenuItem menuayuda;
     private javax.swing.JMenuItem menubuscar;
-    private javax.swing.JMenuItem menuconsulta;
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;

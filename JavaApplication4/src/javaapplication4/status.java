@@ -59,7 +59,6 @@ public class status extends javax.swing.JFrame {
         btngrabar1 = new javax.swing.JButton();
         btnbuscar1 = new javax.swing.JButton();
         btneliminar1 = new javax.swing.JButton();
-        btnconsulta1 = new javax.swing.JButton();
         btnnuevo1 = new javax.swing.JButton();
         btnmodificar1 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
@@ -72,8 +71,8 @@ public class status extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
         menuagregar = new javax.swing.JMenuItem();
-        menuconsulta = new javax.swing.JMenuItem();
         menumodificar = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menubuscar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
@@ -148,10 +147,6 @@ public class status extends javax.swing.JFrame {
             }
         });
 
-        btnconsulta1.setBackground(new java.awt.Color(255, 255, 255));
-        btnconsulta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        btnconsulta1.setToolTipText("");
-
         btnnuevo1.setBackground(new java.awt.Color(255, 255, 255));
         btnnuevo1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnnuevo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/limpiar.png"))); // NOI18N
@@ -215,17 +210,15 @@ public class status extends javax.swing.JFrame {
                                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(btnmodificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(2, 2, 2))
-                        .addComponent(btngrabar1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnconsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnbuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnnuevo1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnmodificar1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btngrabar1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnbuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnnuevo1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
@@ -252,9 +245,7 @@ public class status extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnnuevo1)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnconsulta1)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btneliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnbuscar1)
@@ -268,7 +259,7 @@ public class status extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Acciones");
@@ -291,15 +282,6 @@ public class status extends javax.swing.JFrame {
         });
         jMenu1.add(menuagregar);
 
-        menuconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        menuconsulta.setText("Consulta");
-        menuconsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuconsultaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menuconsulta);
-
         menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
         menumodificar.setText("Modificar");
         menumodificar.addActionListener(new java.awt.event.ActionListener() {
@@ -308,6 +290,15 @@ public class status extends javax.swing.JFrame {
             }
         });
         jMenu1.add(menumodificar);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        jMenuItem1.setText("Eliminar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
@@ -398,9 +389,9 @@ public class status extends javax.swing.JFrame {
         grabar();
     }//GEN-LAST:event_menuagregarActionPerformed
 
-    private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
-consultar();        // TODO add your handling code here:
-    }//GEN-LAST:event_menuconsultaActionPerformed
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        borrar();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 public void nuevo(){
      jTextField1.setText("");    
@@ -581,7 +572,6 @@ public void modificar(){
     private javax.swing.JButton btnbuscar;
     private javax.swing.JButton btnbuscar1;
     private javax.swing.JButton btnconsulta;
-    private javax.swing.JButton btnconsulta1;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btneliminar1;
     private javax.swing.JButton btngrabar;
@@ -597,6 +587,7 @@ public void modificar(){
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -605,7 +596,6 @@ public void modificar(){
     private javax.swing.JMenuItem menuagregar;
     private javax.swing.JMenuItem menuayuda;
     private javax.swing.JMenuItem menubuscar;
-    private javax.swing.JMenuItem menuconsulta;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
     // End of variables declaration//GEN-END:variables
