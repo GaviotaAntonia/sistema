@@ -396,7 +396,9 @@ public class grupo extends javax.swing.JFrame {
              stmt = con.prepareStatement(sql);
              int sw = stmt.executeUpdate();
              if (sw!=0) { 
-          JOptionPane.showMessageDialog (null, "Registro borrado");
+                 
+           JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
           nuevo();
       }
      }
@@ -431,7 +433,9 @@ public class grupo extends javax.swing.JFrame {
       stmt = con.prepareStatement(sql);
       int sw = stmt.executeUpdate();
       if (sw!=0) { 
-          JOptionPane.showMessageDialog (null, "Registro modificado");
+          
+           JOptionPane.showMessageDialog(null, "Registro Actualizado", "El Registro fue actualizado",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/dataact.png"));
       }
      }
       catch(ClassNotFoundException e){
@@ -477,7 +481,9 @@ public class grupo extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(null, e2);
           }
         if (sw==0) {
-              JOptionPane.showMessageDialog(null, "***no existe el registro*** ");
+            
+            JOptionPane.showMessageDialog(null, "No existe registro", "El Registro no se encontro",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/registronoencontrado.png"));
               
      
         
