@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -609,6 +610,7 @@ public void modificar(){
           JOptionPane.showMessageDialog (null, e2);
       }
 }    
+
     
     /**
      * @param args the command line arguments
