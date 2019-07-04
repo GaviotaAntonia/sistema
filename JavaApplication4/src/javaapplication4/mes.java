@@ -26,6 +26,7 @@ public class mes extends javax.swing.JFrame {
      */
     public mes() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setTitle("Mes");
         this.setLocale(null);
         this.setLocationRelativeTo(null);

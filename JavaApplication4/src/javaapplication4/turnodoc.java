@@ -17,6 +17,7 @@ public class turnodoc extends javax.swing.JFrame {
     public turnodoc() {
         initComponents();
         cargarturno();
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setTitle("Turno del Docente");
         this.setLocale(null);
         this.setLocationRelativeTo(null);

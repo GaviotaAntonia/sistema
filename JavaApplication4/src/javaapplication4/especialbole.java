@@ -19,6 +19,8 @@ public class especialbole extends javax.swing.JFrame {
         cargardocente();
         this.setTitle("Boleta");
         this.setLocale(null);
+        
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
     }
    @Override

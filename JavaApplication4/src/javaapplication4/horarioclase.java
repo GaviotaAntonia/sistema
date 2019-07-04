@@ -18,6 +18,7 @@ public class horarioclase extends javax.swing.JFrame {
         cargadoc();
         this.setTitle("Horario Clase");
         this.setLocale(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
     }
 

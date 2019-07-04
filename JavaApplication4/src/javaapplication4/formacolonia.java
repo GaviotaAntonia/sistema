@@ -18,6 +18,8 @@ public class formacolonia extends javax.swing.JFrame {
         cargarBD();
         this.setTitle("Colonia");
         this.setLocale(null);
+        
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
     }@Override
     public Image getIconImage() {
