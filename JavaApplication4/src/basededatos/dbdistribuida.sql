@@ -4,6 +4,7 @@
 --
 -- Servidor: 127.0.0.1
 -- Tiempo de generación: 04-07-2019 a las 19:49:55
+-- Tiempo de generación: 04-07-2019 a las 21:31:10
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -75,13 +76,24 @@ CREATE TABLE `cede` (
   `nombrecede` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_estado` int(11) NOT NULL,
   `id_colonia` int(11) DEFAULT NULL,
+
   `calle` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+
+  `calle` varchar(50) NOT NULL,
+
   `numero` int(11) DEFAULT NULL,
   `codigo_postal` int(11) DEFAULT NULL,
   `correo` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_director` int(11) DEFAULT NULL,
   `id_salon` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `cede`
+--
+
+INSERT INTO `cede` (`id_cede`, `nombrecede`, `id_colonia`, `calle`, `numero`, `codigopostal`, `correo`, `id_director`, `id_salon`) VALUES
+(1, 'Coacalco', 1, 'mz g', 15458, 45581, 'ashihfd@', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -95,6 +107,16 @@ CREATE TABLE `colonia` (
   `colonia` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `id_estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+
+--
+-- Volcado de datos para la tabla `colonia`
+--
+
+INSERT INTO `colonia` (`id_colonia`, `colonia`, `codigo_postal`, `id_estado`) VALUES
+(1, 'San Rafael', 55719, 2),
+(2, 'sjas', 569562, 1),
+(100, 'Tultitlan', 55719, 3);
 
 -- --------------------------------------------------------
 
@@ -121,6 +143,22 @@ CREATE TABLE `dia` (
   `dia` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+
+--
+-- Volcado de datos para la tabla `dia`
+--
+
+INSERT INTO `dia` (`id_dia`, `dia`) VALUES
+(1, 'Luness'),
+(2, 'Martes'),
+(34, 'ds'),
+(44, '23'),
+(45, 'ert'),
+(54, 'ada'),
+(67, '56yh'),
+(1500, '840');
+
+
 -- --------------------------------------------------------
 
 --
@@ -142,6 +180,15 @@ CREATE TABLE `director` (
   `edad` int(11) NOT NULL,
   `horario` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+
+--
+-- Volcado de datos para la tabla `director`
+--
+
+INSERT INTO `director` (`id_director`, `nombre`, `apellidopat`, `apellidomat`, `telefono`, `correo`, `id_colonia`, `calle`, `numero`, `codigo-postal`, `id_sexo`, `edad`, `horario`) VALUES
+(1, 'wqw', 'ewe', 'sada', 23, 'faf', 1, 'dfs', 243, 324, 1, 12, '12'),
+(232, '23', 'sfs', 'fsfd', 456, 'dSDSAF', 1, 'HFD', 452, 222, 1, 12, '12');
 
 -- --------------------------------------------------------
 
@@ -191,6 +238,16 @@ CREATE TABLE `estado` (
   `estado` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`id_estado`, `estado`) VALUES
+(1, 'Aguascalientes'),
+(2, 'Zacatecas'),
+(3, 'Colima');
+
 -- --------------------------------------------------------
 
 --
@@ -212,8 +269,16 @@ CREATE TABLE `horario` (
   `id_horario` int(11) NOT NULL,
   `id_dia` int(11) NOT NULL,
   `id_materia` int(11) NOT NULL,
-  `hora` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+  `hora` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `id_docente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `horario`
+--
+
+INSERT INTO `horario` (`id_horario`, `id_dia`, `id_materia`, `hora`, `id_docente`) VALUES
+(1, 1, 1, '1', 1);
 
 -- --------------------------------------------------------
 
@@ -225,6 +290,15 @@ CREATE TABLE `materia` (
   `id_materia` int(11) NOT NULL,
   `materia` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `materia`
+--
+
+INSERT INTO `materia` (`id_materia`, `materia`) VALUES
+(1, 'Español'),
+(2, 'Matematicas');
+
 
 -- --------------------------------------------------------
 
@@ -247,6 +321,13 @@ CREATE TABLE `salon` (
   `id_salon` int(11) NOT NULL,
   `salon` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `salon`
+--
+
+INSERT INTO `salon` (`id_salon`, `salon`) VALUES
+(1, '12');
 
 -- --------------------------------------------------------
 
@@ -411,7 +492,8 @@ ALTER TABLE `grupo`
 ALTER TABLE `horario`
   ADD PRIMARY KEY (`id_horario`),
   ADD KEY `id_dia` (`id_dia`,`id_materia`),
-  ADD KEY `id_materia` (`id_materia`);
+  ADD KEY `id_materia` (`id_materia`),
+  ADD KEY `id_docente` (`id_docente`);
 
 --
 -- Indices de la tabla `materia`
@@ -471,11 +553,18 @@ ALTER TABLE `usuario`
 ALTER TABLE `alumno`
   MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT;
 
+  MODIFY `matricula` int(11) NOT NULL AUTO_INCREMENT;
+
+
 --
 -- AUTO_INCREMENT de la tabla `colonia`
 --
 ALTER TABLE `colonia`
+
   MODIFY `id_colonia` int(11) NOT NULL AUTO_INCREMENT;
+
+  MODIFY `id_colonia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_horario`
@@ -487,7 +576,11 @@ ALTER TABLE `detalle_horario`
 -- AUTO_INCREMENT de la tabla `dia`
 --
 ALTER TABLE `dia`
+
   MODIFY `id_dia` int(11) NOT NULL AUTO_INCREMENT;
+
+  MODIFY `id_dia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1501;
+
 
 --
 -- AUTO_INCREMENT de la tabla `director`
@@ -511,7 +604,11 @@ ALTER TABLE `especial`
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
+
   MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT;
+
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 
 --
 -- AUTO_INCREMENT de la tabla `grupo`
@@ -523,13 +620,17 @@ ALTER TABLE `grupo`
 -- AUTO_INCREMENT de la tabla `horario`
 --
 ALTER TABLE `horario`
-  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_horario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `materia`
 --
 ALTER TABLE `materia`
+
   MODIFY `id_materia` int(11) NOT NULL AUTO_INCREMENT;
+
+  MODIFY `id_materia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 
 --
 -- AUTO_INCREMENT de la tabla `mes`
@@ -641,7 +742,8 @@ ALTER TABLE `especial`
 --
 ALTER TABLE `horario`
   ADD CONSTRAINT `horario_ibfk_2` FOREIGN KEY (`id_dia`) REFERENCES `dia` (`id_dia`),
-  ADD CONSTRAINT `horario_ibfk_3` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`);
+  ADD CONSTRAINT `horario_ibfk_3` FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`),
+  ADD CONSTRAINT `horario_ibfk_4` FOREIGN KEY (`id_docente`) REFERENCES `docente` (`id_docente`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
