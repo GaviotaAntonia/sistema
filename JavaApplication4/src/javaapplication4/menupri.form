@@ -334,7 +334,11 @@
                   <Component id="btngrupo" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btncalendario" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace pref="363" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btncalendario1" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btncalendario2" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace pref="263" max="32767" attributes="0"/>
                   <Component id="btncerrarsesion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
@@ -353,6 +357,8 @@
                       <Component id="btngrupo" max="32767" attributes="0"/>
                       <Component id="btncalendario" max="32767" attributes="0"/>
                       <Component id="btncerrarsesion" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btncalendario1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btncalendario2" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="454" max="32767" attributes="0"/>
               </Group>
@@ -449,6 +455,28 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncalendarioActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btncalendario1">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/basededatos/iconosmismo/alumno.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Alumno"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncalendario1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btncalendario2">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/basededatos/iconosmismo/usuarios.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Usuarios"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncalendario2ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
