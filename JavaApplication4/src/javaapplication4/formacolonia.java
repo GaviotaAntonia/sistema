@@ -312,7 +312,7 @@ public class formacolonia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void cmbestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbestadoActionPerformed
-        // TODO add your handling code here:
+traerid();        // TODO add your handling code here:
     }//GEN-LAST:event_cmbestadoActionPerformed
 
     private void cmbestadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbestadoMouseEntered
@@ -334,6 +334,7 @@ public class formacolonia extends javax.swing.JFrame {
                 while(rs.next())
                 {
                     cmbestado.addItem(rs.getString(1));
+                    traerid();
                 }
                 rs.close();
                 con.close();
@@ -345,6 +346,19 @@ public class formacolonia extends javax.swing.JFrame {
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+         public void traerid(){
+            try {
+         Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from estado where estado='"+this.cmbestado.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField4.setText(String.valueOf(rs.getInt("id_estado")));
+     } catch (Exception e) {
+     } 
+       }
     public void nuevo(){
         jTextField1.setText("");
         jTextField2.setText("");

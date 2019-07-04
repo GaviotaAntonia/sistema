@@ -1,5 +1,4 @@
 package javaapplication4;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -136,6 +135,41 @@ public class horarioclase extends javax.swing.JFrame {
 
         label2.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
         label2.setText("numero de usuario");
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salida32.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel5.setText("id_materia");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel6.setText("hora");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel7.setText("Id_docente");
+
+        cmbdia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbdiaActionPerformed(evt);
+            }
+        });
+
+        cmbmateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbmateriaActionPerformed(evt);
+            }
+        });
+
+        cmbdoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbdocActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -389,6 +423,18 @@ modificar();        // TODO add your handling code here:
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         borrar();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void cmbdiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbdiaActionPerformed
+traeriddia();        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbdiaActionPerformed
+
+    private void cmbmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbmateriaActionPerformed
+traeridmat();        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbmateriaActionPerformed
+
+    private void cmbdocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbdocActionPerformed
+traeriddoc();        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbdocActionPerformed
    public void cargardia(){
            try
             {
@@ -401,6 +447,7 @@ modificar();        // TODO add your handling code here:
                 while(rs.next())
                 {
                     cmbdia.addItem(rs.getString(1));
+                    traeriddia();
                 }
                 rs.close();
                 con.close();
@@ -412,6 +459,21 @@ modificar();        // TODO add your handling code here:
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+         public void traeriddia(){
+            try {
+         Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from dia where dia='"+this.cmbdia.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField2.setText(String.valueOf(rs.getInt("id_dia")));
+     } catch (Exception e) {
+     } 
+       }
+         
+         
    public void cargamat(){
            try
             {
@@ -424,6 +486,7 @@ modificar();        // TODO add your handling code here:
                 while(rs.next())
                 {
                     cmbmateria.addItem(rs.getString(1));
+                    traeridmat();
                 }
                 rs.close();
                 con.close();
@@ -435,6 +498,21 @@ modificar();        // TODO add your handling code here:
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+         public void traeridmat(){
+            try {
+         Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from materia where materia='"+this.cmbmateria.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField3.setText(String.valueOf(rs.getInt("id_materia")));
+     } catch (Exception e) {
+     } 
+       }
+         
+         
    public void cargadoc(){
            try
             {
@@ -447,6 +525,7 @@ modificar();        // TODO add your handling code here:
                 while(rs.next())
                 {
                     cmbdoc.addItem(rs.getString(1));
+                    traeriddoc();
                 }
                 rs.close();
                 con.close();
@@ -458,6 +537,21 @@ modificar();        // TODO add your handling code here:
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+         public void traeriddoc(){
+            try {
+         Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from docente where apellidopat='"+this.cmbdoc.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField5.setText(String.valueOf(rs.getInt("id_docente")));
+     } catch (Exception e) {
+     } 
+       }
+   
+   
     public void nuevo(){
             jTextField1.setText("");
             jTextField2.setText("");
