@@ -199,14 +199,6 @@ public class docente extends javax.swing.JFrame {
             }
         });
 
-        cmbturno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cmbsexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cmbcolo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cmbssalon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -656,8 +648,9 @@ try{
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
     if(sw!=0){
-           JOptionPane.showMessageDialog(null, "Registro dado de alta con exito", "Acción completa",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\Alejandro\\Desktop\\ING.HERRRA\\iconosBD\\listoagrega.png"));
+                   
+           JOptionPane.showMessageDialog(null, "Registro dado de alta", "Registro de alta con exito!",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/listoagrega.png"));
     nuevo();
     }
 }

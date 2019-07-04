@@ -7,6 +7,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -14,6 +17,7 @@ public class director extends javax.swing.JFrame {
 
     public director() {
         initComponents();
+        cargarsex();
         this.setTitle("Director");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
@@ -70,6 +74,8 @@ public class director extends javax.swing.JFrame {
         btnbuscar = new javax.swing.JButton();
         btngrabar = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
+        cmbcolonia = new javax.swing.JComboBox<>();
+        cmbsex = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
@@ -102,7 +108,7 @@ public class director extends javax.swing.JFrame {
         jLabel5.setText("Telefono");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel6.setText("Correo Elctronico");
+        jLabel6.setText("Correo Electronico");
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel7.setText("Id_Colonia");
@@ -257,6 +263,21 @@ public class director extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(19, 19, 19)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btngrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbsex, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,6 +285,8 @@ public class director extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmbcolonia, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -334,7 +357,9 @@ public class director extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbcolonia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -365,7 +390,8 @@ public class director extends javax.swing.JFrame {
                         .addGap(49, 49, 49)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbsex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(48, 48, 48)
@@ -548,6 +574,52 @@ public class director extends javax.swing.JFrame {
         borrar();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+   public void cargarsex(){
+           try
+            {
+                Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select sexo from sexo;");
+                cmbsex.removeAllItems();
+                while(rs.next())
+                {
+                    cmbsex.addItem(rs.getString(1));
+                }
+                rs.close();
+                con.close();
+            }catch (ClassNotFoundException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }catch (SQLException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        }
+      public void cargarcol(){
+           try
+            {
+                Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select colonia from colonia;");
+                cmbcolonia.removeAllItems();
+                while(rs.next())
+                {
+                    cmbcolonia.addItem(rs.getString(1));
+                }
+                rs.close();
+                con.close();
+            }catch (ClassNotFoundException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }catch (SQLException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        }
 public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
@@ -563,7 +635,6 @@ public void nuevo(){
         jTextField12.setText("");
         jTextField13.setText("");
         jTextField1.requestFocusInWindow();}
-
 public void grabar(){
     
 try{
@@ -590,9 +661,9 @@ try{
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
     if(sw!=0){ 
-        
-           JOptionPane.showMessageDialog(null, "Registro dado de alta con exito", "Acción completa",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\Alejandro\\Desktop\\ING.HERRRA\\iconosBD\\listoagrega.png"));
+                   
+           JOptionPane.showMessageDialog(null, "Registro dado de alta", "Registro de alta con exito!",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/listoagrega.png"));
     nuevo();
     }
 }
@@ -606,7 +677,6 @@ catch(Exception e2){
     JOptionPane.showMessageDialog(null, e2);
 }
  }
-
 public void borrar(){
     try{ 
           Class.forName("com.mysql.jdbc.Driver");
@@ -784,6 +854,8 @@ public void modificar(){
     private javax.swing.JButton btnmodificar;
     private javax.swing.JButton btnnuevo;
     private javax.swing.JButton btnsalir;
+    private javax.swing.JComboBox<String> cmbcolonia;
+    private javax.swing.JComboBox<String> cmbsex;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

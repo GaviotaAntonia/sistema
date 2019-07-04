@@ -353,8 +353,9 @@ try{
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
     if(sw!=0){
-           JOptionPane.showMessageDialog(null, "Registro dado de alta con exito", "Acción completa",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\Alejandro\\Desktop\\ING.HERRRA\\iconosBD\\listoagrega.png"));
+                   
+           JOptionPane.showMessageDialog(null, "Registro dado de alta", "Registro de alta con exito!",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/listoagrega.png"));
     nuevo();
     }
 }

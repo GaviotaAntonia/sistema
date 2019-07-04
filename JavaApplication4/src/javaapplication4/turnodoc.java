@@ -398,8 +398,9 @@ consultar();
             if(sw!=0)
             { 
                 
+                           
            JOptionPane.showMessageDialog(null, "Registro dado de alta", "Registro de alta con exito!",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\Alejandro\\Desktop\\ING.HERRRA\\iconosBD\\listoagrega.png"));
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/listoagrega.png"));
             nuevo();
             }
         }

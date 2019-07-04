@@ -439,7 +439,6 @@ public void nuevo(){
         jTextField4.setText("");
         jTextField5.setText("");
         jTextField1.requestFocusInWindow();}
-
 public void grabar(){
     
 try{
@@ -458,8 +457,8 @@ try{
     stmt=con.prepareStatement(sql);
     int sw=stmt.executeUpdate();
     if(sw!=0){
-           JOptionPane.showMessageDialog(null, "Registro dado de alta con exito", "Acción completa",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("C:\\Users\\Alejandro\\Desktop\\ING.HERRRA\\iconosBD\\listoagrega.png"));
+                      
+           JOptionPane.showMessageDialog(null, "Registro dado de alta", "Registro de alta con exito!",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/listoagrega.png"));
     nuevo();
     }
 }
@@ -473,7 +472,6 @@ catch(Exception e2){
     JOptionPane.showMessageDialog(null, e2);
 }
  }
-
 public void borrar(){
     try{ 
           Class.forName("com.mysql.jdbc.Driver");
@@ -503,7 +501,6 @@ public void borrar(){
           JOptionPane.showMessageDialog (null, e2);
       }
     }
-
 public void consultar(){
 int sw=0;
         
@@ -551,7 +548,6 @@ int sw=0;
         
         }
 }
-
 public void modificar(){
 
       try{ 
