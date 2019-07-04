@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 public class salon extends javax.swing.JFrame {
     public salon() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
         
         this.setTitle("Salon");
         this.setLocale(null);

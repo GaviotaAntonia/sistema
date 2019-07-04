@@ -23,6 +23,7 @@ public class usuario extends javax.swing.JFrame {
      */
     public usuario() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setTitle("Usuario");
         this.setLocale(null);
         this.setLocationRelativeTo(null);

@@ -26,6 +26,7 @@ public class status extends javax.swing.JFrame {
      */
     public status() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setTitle("Status");
         this.setLocale(null);
         this.setLocationRelativeTo(null);

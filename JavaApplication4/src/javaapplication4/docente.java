@@ -15,6 +15,8 @@ public class docente extends javax.swing.JFrame {
 
     public docente() {
         initComponents();
+        
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.cmbturno.removeAllItems();
           try
             {
