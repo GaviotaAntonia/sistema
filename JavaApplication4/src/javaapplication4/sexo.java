@@ -54,7 +54,6 @@ public class sexo extends javax.swing.JFrame {
         btnmodificar = new javax.swing.JButton();
         btnbuscar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
-        btnconsulta = new javax.swing.JButton();
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
         jButton1 = new javax.swing.JButton();
@@ -63,9 +62,8 @@ public class sexo extends javax.swing.JFrame {
         menunuevo = new javax.swing.JMenuItem();
         menuguardar = new javax.swing.JMenuItem();
         menuconsulta = new javax.swing.JMenuItem();
-        menumodificar = new javax.swing.JMenuItem();
-        menubuscar = new javax.swing.JMenuItem();
         menueliminar = new javax.swing.JMenuItem();
+        menubuscar = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
 
@@ -126,10 +124,6 @@ public class sexo extends javax.swing.JFrame {
             }
         });
 
-        btnconsulta.setBackground(new java.awt.Color(255, 255, 255));
-        btnconsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/consulta.png"))); // NOI18N
-        btnconsulta.setToolTipText("");
-
         label1.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
         label1.setText("nombre del usuario");
 
@@ -182,9 +176,7 @@ public class sexo extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btngrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnconsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)))
                 .addGap(48, 48, 48))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -226,8 +218,7 @@ public class sexo extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(btnnuevo)
                                 .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(23, 23, 23)
-                            .addComponent(btnconsulta))
+                            .addGap(48, 48, 48))
                         .addComponent(btnmodificar)))
                 .addGap(18, 18, 18)
                 .addComponent(btnbuscar)
@@ -273,19 +264,9 @@ public class sexo extends javax.swing.JFrame {
         });
         jMenu1.add(menuconsulta);
 
-        menumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/modificar.png"))); // NOI18N
-        menumodificar.setText("Modificar");
-        menumodificar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menumodificarMouseClicked(evt);
-            }
-        });
-        menumodificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menumodificarActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menumodificar);
+        menueliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
+        menueliminar.setText("Eliminar");
+        jMenu1.add(menueliminar);
 
         menubuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/buscar.png"))); // NOI18N
         menubuscar.setText("Buscar");
@@ -300,10 +281,6 @@ public class sexo extends javax.swing.JFrame {
             }
         });
         jMenu1.add(menubuscar);
-
-        menueliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
-        menueliminar.setText("Eliminar");
-        jMenu1.add(menueliminar);
 
         jMenuBar1.add(jMenu1);
 
@@ -362,14 +339,6 @@ grabar();        // TODO add your handling code here:
     private void menuconsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuconsultaActionPerformed
 consultar();             // TODO add your handling code here:
     }//GEN-LAST:event_menuconsultaActionPerformed
-
-    private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
-             // TODO add your handling code here:
-    }//GEN-LAST:event_menumodificarMouseClicked
-
-    private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
-modificar();             // TODO add your handling code here:
-    }//GEN-LAST:event_menumodificarActionPerformed
 
     private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked
         // TODO add your handling code here:
@@ -569,7 +538,6 @@ catch(Exception e2){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnbuscar;
-    private javax.swing.JButton btnconsulta;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btngrabar;
     private javax.swing.JButton btnmodificar;
@@ -591,7 +559,6 @@ catch(Exception e2){
     private javax.swing.JMenuItem menuconsulta;
     private javax.swing.JMenuItem menueliminar;
     private javax.swing.JMenuItem menuguardar;
-    private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
     // End of variables declaration//GEN-END:variables
 }
