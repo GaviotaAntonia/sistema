@@ -20,6 +20,7 @@ public class calendario extends javax.swing.JFrame {
         this.setTitle("Calendario");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
     @Override
     public Image getIconImage() {

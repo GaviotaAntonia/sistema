@@ -321,12 +321,39 @@
                   <Component id="btncerrarsesion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btndocente" min="-2" pref="48" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btndirector" min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btncede" min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnsalon" min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnboleta" min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btngrupo" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btncalendario" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="491" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btndocente" min="-2" max="-2" attributes="0"/>
+                      <Component id="btndirector" min="-2" max="-2" attributes="0"/>
+                      <Component id="btncede" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnsalon" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnboleta" min="-2" max="-2" attributes="0"/>
+                      <Component id="btngrupo" min="-2" max="-2" attributes="0"/>
+                      <Component id="btncalendario" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="418" max="32767" attributes="0"/>
                   <Component id="btncerrarsesion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -347,6 +374,62 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncerrarsesionActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btndocente">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/basededatos/iconosmismo/docente.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Docente"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btndirector">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/basededatos/iconosmismo/director.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Director"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btncede">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/basededatos/iconosmismo/cede_1.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Cede"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnsalon">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/basededatos/iconosmismo/salon.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Salon"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btngrupo">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/basededatos/iconosmismo/boleta.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Boleta"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnboleta">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/basededatos/iconosmismo/grupo.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Grupo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btncalendario">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/basededatos/iconosmismo/calendario.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Calendario"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

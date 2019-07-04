@@ -25,6 +25,7 @@ public class detalle_horario extends javax.swing.JFrame {
      */
     public detalle_horario() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.cmbturno.removeAllItems();
           try
             {

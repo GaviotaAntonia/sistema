@@ -9,6 +9,7 @@ public class menupri extends javax.swing.JFrame {
         this.setTitle("Menu principal");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }@Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
@@ -25,6 +26,13 @@ public class menupri extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btncerrarsesion = new javax.swing.JButton();
+        btndocente = new javax.swing.JButton();
+        btndirector = new javax.swing.JButton();
+        btncede = new javax.swing.JButton();
+        btnsalon = new javax.swing.JButton();
+        btngrupo = new javax.swing.JButton();
+        btnboleta = new javax.swing.JButton();
+        btncalendario = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menualumno = new javax.swing.JMenuItem();
@@ -70,6 +78,27 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btndocente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/docente.png"))); // NOI18N
+        btndocente.setToolTipText("Docente");
+
+        btndirector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/director.png"))); // NOI18N
+        btndirector.setToolTipText("Director");
+
+        btncede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/cede_1.png"))); // NOI18N
+        btncede.setToolTipText("Cede");
+
+        btnsalon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/salon.png"))); // NOI18N
+        btnsalon.setToolTipText("Salon");
+
+        btngrupo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/boleta.png"))); // NOI18N
+        btngrupo.setToolTipText("Boleta");
+
+        btnboleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/grupo.png"))); // NOI18N
+        btnboleta.setToolTipText("Grupo");
+
+        btncalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/calendario.png"))); // NOI18N
+        btncalendario.setToolTipText("Calendario");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -78,11 +107,36 @@ public class menupri extends javax.swing.JFrame {
                 .addContainerGap(765, Short.MAX_VALUE)
                 .addComponent(btncerrarsesion)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btndocente, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btndirector, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btncede, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnsalon, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnboleta, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btngrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btncalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(491, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btndocente)
+                    .addComponent(btndirector)
+                    .addComponent(btncede)
+                    .addComponent(btnsalon)
+                    .addComponent(btnboleta)
+                    .addComponent(btngrupo)
+                    .addComponent(btncalendario))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 418, Short.MAX_VALUE)
                 .addComponent(btncerrarsesion)
                 .addContainerGap())
         );
@@ -566,7 +620,14 @@ dispose();// TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnboleta;
+    private javax.swing.JButton btncalendario;
+    private javax.swing.JButton btncede;
     private javax.swing.JButton btncerrarsesion;
+    private javax.swing.JButton btndirector;
+    private javax.swing.JButton btndocente;
+    private javax.swing.JButton btngrupo;
+    private javax.swing.JButton btnsalon;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

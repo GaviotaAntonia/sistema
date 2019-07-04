@@ -16,6 +16,8 @@ public class cede extends javax.swing.JFrame {
 
     public cede() {
         initComponents();
+        
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.cmbestado.removeAllItems();
           try
             {
