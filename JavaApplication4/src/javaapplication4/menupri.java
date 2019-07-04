@@ -68,8 +68,9 @@ public class menupri extends javax.swing.JFrame {
         setIconImage(getIconImage());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1800, 1600));
 
-        btncerrarsesion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btncerrarsesion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btncerrarsesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrarsesion.png"))); // NOI18N
         btncerrarsesion.setText("Cerrar Sesion");
         btncerrarsesion.addActionListener(new java.awt.event.ActionListener() {
@@ -80,33 +81,64 @@ public class menupri extends javax.swing.JFrame {
 
         btndocente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/docente.png"))); // NOI18N
         btndocente.setToolTipText("Docente");
+        btndocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndocenteActionPerformed(evt);
+            }
+        });
 
         btndirector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/director.png"))); // NOI18N
         btndirector.setToolTipText("Director");
+        btndirector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndirectorActionPerformed(evt);
+            }
+        });
 
         btncede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/cede_1.png"))); // NOI18N
         btncede.setToolTipText("Cede");
+        btncede.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncedeActionPerformed(evt);
+            }
+        });
 
         btnsalon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/salon.png"))); // NOI18N
         btnsalon.setToolTipText("Salon");
+        btnsalon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsalonActionPerformed(evt);
+            }
+        });
 
         btngrupo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/boleta.png"))); // NOI18N
         btngrupo.setToolTipText("Boleta");
+        btngrupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngrupoActionPerformed(evt);
+            }
+        });
 
         btnboleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/grupo.png"))); // NOI18N
         btnboleta.setToolTipText("Grupo");
+        btnboleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnboletaActionPerformed(evt);
+            }
+        });
 
         btncalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/calendario.png"))); // NOI18N
         btncalendario.setToolTipText("Calendario");
+        btncalendario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncalendarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(765, Short.MAX_VALUE)
-                .addComponent(btncerrarsesion)
-                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btndocente, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -122,23 +154,24 @@ public class menupri extends javax.swing.JFrame {
                 .addComponent(btngrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btncalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
+                .addComponent(btncerrarsesion)
+                .addGap(24, 24, 24))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btndocente)
-                    .addComponent(btndirector)
-                    .addComponent(btncede)
-                    .addComponent(btnsalon)
-                    .addComponent(btnboleta)
-                    .addComponent(btngrupo)
-                    .addComponent(btncalendario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 418, Short.MAX_VALUE)
-                .addComponent(btncerrarsesion)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btndocente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btndirector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btncede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnsalon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnboleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btngrupo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btncalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btncerrarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(454, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
@@ -397,11 +430,11 @@ public class menupri extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 898, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
         );
 
         pack();
@@ -586,6 +619,48 @@ public class menupri extends javax.swing.JFrame {
 obt.setVisible(true);
 dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void btndocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndocenteActionPerformed
+        docente doc=new docente();
+        doc.setVisible(true);
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btndocenteActionPerformed
+
+    private void btndirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndirectorActionPerformed
+        director dir=new director();
+        dir.setVisible(true);
+        dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_btndirectorActionPerformed
+
+    private void btncedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncedeActionPerformed
+        cede ce=new cede();
+        ce.setVisible(true);        // TODO add your handling code here:
+            dispose();
+    }//GEN-LAST:event_btncedeActionPerformed
+
+    private void btnsalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalonActionPerformed
+    salon sa=new salon();
+    sa.setVisible(true);// TODO add your handling code here:
+    dispose();
+    }//GEN-LAST:event_btnsalonActionPerformed
+
+    private void btnboletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnboletaActionPerformed
+    especialbole bol=new especialbole();
+    bol.setVisible(true);// TODO add your handling code here:
+    dispose();
+    }//GEN-LAST:event_btnboletaActionPerformed
+
+    private void btngrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrupoActionPerformed
+    grupo gr=new grupo();
+    gr.setVisible(true);// TODO add your handling code here:
+    dispose();
+    }//GEN-LAST:event_btngrupoActionPerformed
+
+    private void btncalendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalendarioActionPerformed
+        calendario cale=new calendario();
+        cale.setVisible(true);        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btncalendarioActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
