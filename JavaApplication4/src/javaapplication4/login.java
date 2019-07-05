@@ -158,11 +158,11 @@ public class login extends javax.swing.JFrame {
         String usuario=txtusuario.getText();
         String password=pass1.getText();
         if(usuario.equals("")){
-            JOptionPane.showMessageDialog(null,"debes de ingresar usuario ");
+            JOptionPane.showMessageDialog(null, "Insertar usuario o nombre de usuario incorreto", "Usuario invalido",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/iconos/usuarioinvalido.png"));
         }
         if(password.equals("")){
             
-            JOptionPane.showMessageDialog(null,"debes de ingresa la ocntraseña ");
+            JOptionPane.showMessageDialog(null, "Insertar Contraseña o la contraseña es incorreto", "Contraseña invalido",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/iconos/passwordinvalido.png"));
         }
         else{
             try {
@@ -171,8 +171,6 @@ public class login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, ex);
             }
         }
-
-        usuario();
 
     }//GEN-LAST:event_btnabrirsesionActionPerformed
 
@@ -202,6 +200,7 @@ public class login extends javax.swing.JFrame {
             Tipousuario=rs.getString("tipousuario");          
         }
         if (Tipousuario.equals("Administrador")) {
+            JOptionPane.showMessageDialog(null, "Bienvenido usuario", "Usuario valido",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/iconos/usuariovalido.png"));
            menupri me=new menupri();
            me.setVisible(true);
             dispose();
@@ -217,24 +216,7 @@ public class login extends javax.swing.JFrame {
         }}
 
 
-    public void usuario()
-    {
-        String user=txtusuario.getText();
-      String password=pass1.getText();
-      if(user.equals("")){
-          JOptionPane.showMessageDialog(null, "Insertar usuario o nombre de usuario incorreto", "Usuario invalido",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/iconos/usuarioinvalido.png"));
-      }
-      if(password.equals("")){
-          JOptionPane.showMessageDialog(null, "Insertar Contraseña o la contraseña es incorreto", "Contraseña invalido",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/iconos/passwordinvalido.png"));
-      }
-      if(user.equals("Admin")&&password.equals("123")){
-          JOptionPane.showMessageDialog(null, "Bienvenido usuario", "Usuario valido",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/iconos/usuariovalido.png"));
-          menupri menu=new menupri();
-          menu.setVisible(rootPaneCheckingEnabled);
-          dispose();
-      }
-    }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
