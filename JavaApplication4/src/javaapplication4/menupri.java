@@ -1,5 +1,4 @@
 package javaapplication4;
-
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -828,6 +827,7 @@ dispose();// TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new menupri().setVisible(true);
+                
             }
         });
     }

@@ -681,6 +681,8 @@ catch(Exception e2){
         jLabel7.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel7.setText("id_colonia");
 
+        jTextField5.setEnabled(false);
+
         jLabel8.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel8.setText("calle");
 
@@ -695,6 +697,8 @@ catch(Exception e2){
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel12.setText("id_sexo");
+
+        jTextField10.setEnabled(false);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel13.setText("edad");
