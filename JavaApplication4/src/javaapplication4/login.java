@@ -153,7 +153,17 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void btnabrirsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabrirsesionActionPerformed
-  
+      String user=txtusuario.getText();
+      String password=pass1.getText();
+      if(user.equals("")&&password.equals("")){
+          JOptionPane.showMessageDialog(null,"Agrega datos y contraseña");
+      }
+      if(user.equals("Admin")&&password.equals("123")){
+          menupri menu=new menupri();
+          menu.setVisible(rootPaneCheckingEnabled);
+          dispose();
+      }
+      
     }//GEN-LAST:event_btnabrirsesionActionPerformed
 
     private void btnabrirsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnabrirsesionMouseClicked
