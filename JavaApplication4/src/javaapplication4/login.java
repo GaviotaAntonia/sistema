@@ -4,7 +4,6 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
@@ -154,21 +153,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void btnabrirsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabrirsesionActionPerformed
-        try {
-            Connection con=null;
-                Class.forName("com.mysql.jdbc.Driver");
-                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
-                Statement s1t=con.createStatement();
-                
-                
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("error " +e);
-        }
-        
-        menupri nuevo= new menupri();
-            nuevo.setVisible(true);
-            dispose();
-            JOptionPane.showMessageDialog(this,"Bienvenido usuario" );
+  
     }//GEN-LAST:event_btnabrirsesionActionPerformed
 
     private void btnabrirsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnabrirsesionMouseClicked
@@ -176,7 +161,8 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnabrirsesionMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   
+        conexion con=new conexion();
+        con.conexion();   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
