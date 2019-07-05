@@ -1,5 +1,4 @@
 package javaapplication4;
-
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -9,6 +8,7 @@ public class menupri extends javax.swing.JFrame {
         this.setTitle("Menu principal");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
+        
         this.setExtendedState(MAXIMIZED_BOTH);
     }@Override
     public Image getIconImage() {
@@ -39,6 +39,8 @@ public class menupri extends javax.swing.JFrame {
         btncertificado = new javax.swing.JButton();
         btnturnodocente = new javax.swing.JButton();
         btnhorario = new javax.swing.JButton();
+        btnalumno = new javax.swing.JButton();
+        btnusuario = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menualumno = new javax.swing.JMenuItem();
@@ -85,6 +87,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btndocente.setBackground(new java.awt.Color(255, 255, 255));
         btndocente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/docente.png"))); // NOI18N
         btndocente.setToolTipText("Docente");
         btndocente.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +96,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btndirector.setBackground(new java.awt.Color(255, 255, 255));
         btndirector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/director.png"))); // NOI18N
         btndirector.setToolTipText("Director");
         btndirector.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +105,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btncede.setBackground(new java.awt.Color(255, 255, 255));
         btncede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/cede_1.png"))); // NOI18N
         btncede.setToolTipText("Cede");
         btncede.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +114,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btnsalon.setBackground(new java.awt.Color(255, 255, 255));
         btnsalon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/salon.png"))); // NOI18N
         btnsalon.setToolTipText("Salon");
         btnsalon.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +123,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btngrupo.setBackground(new java.awt.Color(255, 255, 255));
         btngrupo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/boleta.png"))); // NOI18N
         btngrupo.setToolTipText("Boleta");
         btngrupo.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +132,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btnboleta.setBackground(new java.awt.Color(255, 255, 255));
         btnboleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/grupo.png"))); // NOI18N
         btnboleta.setToolTipText("Grupo");
         btnboleta.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +141,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btncalendario.setBackground(new java.awt.Color(255, 255, 255));
         btncalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/calendario.png"))); // NOI18N
         btncalendario.setToolTipText("Calendario");
         btncalendario.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +150,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btndetallehorario.setBackground(new java.awt.Color(255, 255, 255));
         btndetallehorario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/detalle horario.png"))); // NOI18N
         btndetallehorario.setToolTipText("Detalle horario");
         btndetallehorario.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +159,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btnstatus.setBackground(new java.awt.Color(255, 255, 255));
         btnstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/status.png"))); // NOI18N
         btnstatus.setToolTipText("Status");
         btnstatus.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +168,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btnmateria.setBackground(new java.awt.Color(255, 255, 255));
         btnmateria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/materia.png"))); // NOI18N
         btnmateria.setToolTipText("Materia");
         btnmateria.addActionListener(new java.awt.event.ActionListener() {
@@ -165,6 +177,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btncertificado.setBackground(new java.awt.Color(255, 255, 255));
         btncertificado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/certificado.png"))); // NOI18N
         btncertificado.setToolTipText("Certificado");
         btncertificado.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +186,7 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btnturnodocente.setBackground(new java.awt.Color(255, 255, 255));
         btnturnodocente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/turno docente.png"))); // NOI18N
         btnturnodocente.setToolTipText("Turno docente");
         btnturnodocente.addActionListener(new java.awt.event.ActionListener() {
@@ -181,11 +195,30 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
+        btnhorario.setBackground(new java.awt.Color(255, 255, 255));
         btnhorario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/horario.png"))); // NOI18N
         btnhorario.setToolTipText("Horario");
         btnhorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnhorarioActionPerformed(evt);
+            }
+        });
+
+        btnalumno.setBackground(new java.awt.Color(255, 255, 255));
+        btnalumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/alumno.png"))); // NOI18N
+        btnalumno.setToolTipText("Alumno");
+        btnalumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnalumnoActionPerformed(evt);
+            }
+        });
+
+        btnusuario.setBackground(new java.awt.Color(255, 255, 255));
+        btnusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/usuarios.png"))); // NOI18N
+        btnusuario.setToolTipText("Usuarios");
+        btnusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnusuarioActionPerformed(evt);
             }
         });
 
@@ -216,11 +249,16 @@ public class menupri extends javax.swing.JFrame {
                     .addComponent(btnboleta, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btngrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btngrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btncalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btncalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
+                .addComponent(btnalumno, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
                 .addComponent(btncerrarsesion)
                 .addGap(24, 24, 24))
         );
@@ -229,14 +267,19 @@ public class menupri extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btndocente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btndirector, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btncede, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnsalon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnboleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btngrupo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btncalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btncerrarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btncerrarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btndocente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btndirector, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btncede, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnsalon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnboleta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btngrupo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btncalendario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnalumno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnusuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(1, 1, 1)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnturnodocente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -245,16 +288,18 @@ public class menupri extends javax.swing.JFrame {
                     .addComponent(btnstatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btndetallehorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnhorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(395, Short.MAX_VALUE))
+                .addContainerGap(394, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
         jMenuBar1.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
         jMenuBar1.setPreferredSize(new java.awt.Dimension(550, 30));
 
+        jMenu1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenu1.setText("Comunidad Escolar");
         jMenu1.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
+        menualumno.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menualumno.setActionCommand("alumnos");
         menualumno.setLabel("Alumnos");
         menualumno.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -269,6 +314,7 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu1.add(menualumno);
 
+        menudocente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menudocente.setText("Docente");
         menudocente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -282,6 +328,7 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu1.add(menudocente);
 
+        menudirecto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menudirecto.setText("Director");
         menudirecto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -295,6 +342,7 @@ public class menupri extends javax.swing.JFrame {
         });
         jMenu1.add(menudirecto);
 
+        menuusuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuusuario.setText("Usuario");
         menuusuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -310,6 +358,7 @@ public class menupri extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenu2.setText("Agenda");
         jMenu2.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
@@ -362,6 +411,7 @@ public class menupri extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenu3.setText("Instalaciones");
         jMenu3.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
@@ -399,6 +449,7 @@ public class menupri extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenu4.setText("Direccion");
         jMenu4.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
@@ -420,6 +471,7 @@ public class menupri extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenu5.setText("Informacion");
         jMenu5.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
@@ -473,6 +525,7 @@ public class menupri extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
+        jMenu6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jMenu6.setText("Ayuda");
         jMenu6.setFont(new java.awt.Font("MS PGothic", 0, 18)); // NOI18N
 
@@ -772,6 +825,18 @@ dispose();// TODO add your handling code here:
         dispose();   
     }//GEN-LAST:event_btndetallehorarioActionPerformed
 
+    private void btnalumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnalumnoActionPerformed
+        alumno alus=new alumno();
+        alus.setVisible(true); 
+        dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_btnalumnoActionPerformed
+
+    private void btnusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnusuarioActionPerformed
+        usuario usua=new usuario();
+        usua.setVisible(true);
+        dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_btnusuarioActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -800,11 +865,13 @@ dispose();// TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new menupri().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnalumno;
     private javax.swing.JButton btnboleta;
     private javax.swing.JButton btncalendario;
     private javax.swing.JButton btncede;
@@ -819,6 +886,7 @@ dispose();// TODO add your handling code here:
     private javax.swing.JButton btnsalon;
     private javax.swing.JButton btnstatus;
     private javax.swing.JButton btnturnodocente;
+    private javax.swing.JButton btnusuario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

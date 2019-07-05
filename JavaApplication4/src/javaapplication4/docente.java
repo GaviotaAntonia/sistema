@@ -240,8 +240,16 @@ public class docente extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel15.setText("Telefono");
 
+        jTextField5.setEnabled(false);
+
+        jTextField6.setEnabled(false);
+
+        jTextField8.setEnabled(false);
+
         jLabel16.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel16.setText("Id_salon");
+
+        jTextField14.setEnabled(false);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel17.setText("Docente");

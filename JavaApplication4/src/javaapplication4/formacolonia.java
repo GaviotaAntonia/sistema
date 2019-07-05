@@ -101,6 +101,8 @@ public class formacolonia extends javax.swing.JFrame {
             }
         });
 
+        jTextField4.setEnabled(false);
+
         btnsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/salida32.png"))); // NOI18N
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

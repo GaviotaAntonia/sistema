@@ -17,6 +17,11 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
             <Property name="text" type="java.lang.String" value="Comunidad Escolar"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
@@ -25,6 +30,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menualumno">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
                 <Property name="actionCommand" type="java.lang.String" value="alumnos"/>
                 <Property name="label" type="java.lang.String" value="Alumnos"/>
               </Properties>
@@ -35,6 +43,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menudocente">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Docente"/>
               </Properties>
               <Events>
@@ -44,6 +55,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menudirecto">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Director"/>
               </Properties>
               <Events>
@@ -53,6 +67,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuusuario">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="18" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Usuario"/>
               </Properties>
               <Events>
@@ -64,6 +81,11 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
             <Property name="text" type="java.lang.String" value="Agenda"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
@@ -109,6 +131,11 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
             <Property name="text" type="java.lang.String" value="Instalaciones"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
@@ -151,6 +178,11 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
             <Property name="text" type="java.lang.String" value="Direccion"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
@@ -177,6 +209,11 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu5">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
             <Property name="text" type="java.lang.String" value="Informacion"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
@@ -235,6 +272,11 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu6">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
             <Property name="text" type="java.lang.String" value="Ayuda"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="MS PGothic" size="18" style="0"/>
@@ -347,12 +389,18 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btngrupo" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="btnhorario" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="btnhorario" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btngrupo" min="-2" pref="44" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btncalendario" min="-2" pref="44" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btncalendario" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace pref="363" max="32767" attributes="0"/>
+                  <Component id="btnalumno" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnusuario" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace pref="263" max="32767" attributes="0"/>
                   <Component id="btncerrarsesion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
@@ -363,14 +411,21 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btndocente" max="32767" attributes="0"/>
-                      <Component id="btndirector" max="32767" attributes="0"/>
-                      <Component id="btncede" max="32767" attributes="0"/>
-                      <Component id="btnsalon" max="32767" attributes="0"/>
-                      <Component id="btnboleta" max="32767" attributes="0"/>
-                      <Component id="btngrupo" max="32767" attributes="0"/>
-                      <Component id="btncalendario" max="32767" attributes="0"/>
                       <Component id="btncerrarsesion" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="btndocente" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btndirector" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btncede" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnsalon" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnboleta" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btngrupo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btncalendario" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnalumno" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnusuario" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -381,7 +436,7 @@
                       <Component id="btndetallehorario" max="32767" attributes="0"/>
                       <Component id="btnhorario" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="395" max="32767" attributes="0"/>
+                  <EmptySpace pref="394" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -403,6 +458,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btndocente">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/docente.png"/>
             </Property>
@@ -414,6 +472,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btndirector">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/director.png"/>
             </Property>
@@ -425,6 +486,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btncede">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/cede_1.png"/>
             </Property>
@@ -436,6 +500,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnsalon">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/salon.png"/>
             </Property>
@@ -447,6 +514,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btngrupo">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/boleta.png"/>
             </Property>
@@ -458,6 +528,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnboleta">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/grupo.png"/>
             </Property>
@@ -469,6 +542,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btncalendario">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/calendario.png"/>
             </Property>
@@ -480,6 +556,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btndetallehorario">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/detalle horario.png"/>
             </Property>
@@ -491,6 +570,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnstatus">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/status.png"/>
             </Property>
@@ -502,6 +584,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnmateria">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/materia.png"/>
             </Property>
@@ -513,6 +598,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btncertificado">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/certificado.png"/>
             </Property>
@@ -524,6 +612,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnturnodocente">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/turno docente.png"/>
             </Property>
@@ -535,6 +626,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnhorario">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/basededatos/iconosmismo/horario.png"/>
             </Property>
@@ -542,6 +636,34 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnhorarioActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnalumno">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/basededatos/iconosmismo/alumno.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Alumno"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnalumnoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnusuario">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/basededatos/iconosmismo/usuarios.png"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Usuarios"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnusuarioActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
