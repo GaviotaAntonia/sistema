@@ -4,29 +4,28 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.ImageIcon;
+
 import javax.swing.JOptionPane;
-
 public class login extends javax.swing.JFrame {
-
     public login() {
         initComponents();
         this.setTitle("Logeo");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
-
-
+        
     }@Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
                 getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
-
-
         return retValue;
     }
-
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -93,7 +92,7 @@ public class login extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 89, Short.MAX_VALUE)
+                .addGap(0, 103, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
@@ -101,10 +100,10 @@ public class login extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtusuario, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                                     .addComponent(pass1)))
@@ -150,11 +149,31 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed
-          // TODO add your handling code here:
+     
+// TODO add your handling code here:
     }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void btnabrirsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabrirsesionActionPerformed
+
+        String usuario=txtusuario.getText();
+        String password=pass1.getText();
+        if(usuario.equals("")){
+            JOptionPane.showMessageDialog(null,"debes de ingresar usuario ");
+        }
+        if(password.equals("")){
+            
+            JOptionPane.showMessageDialog(null,"debes de ingresa la ocntraseña ");
+        }
+        else{
+            try {
+                logearse(usuario, password);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex);
+            }
+        }
+
         usuario();
+
     }//GEN-LAST:event_btnabrirsesionActionPerformed
 
     private void btnabrirsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnabrirsesionMouseClicked
@@ -167,9 +186,36 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-        System.exit(0);
-
+       dispose();
     }//GEN-LAST:event_btnsalirActionPerformed
+
+    public void logearse(String usuario, String password) throws SQLException{
+        String Tipousuario="";
+      try
+            {
+                Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select * from usuario where usuario='"+usuario+"'and contraseña='"+password+"'");
+                  while (rs.next()) {
+            Tipousuario=rs.getString("tipousuario");          
+        }
+        if (Tipousuario.equals("Administrador")) {
+           menupri me=new menupri();
+           me.setVisible(true);
+            dispose();
+        }
+        else{
+            
+        }
+        txtusuario.setText("");
+        pass1.setText("");
+        txtusuario.requestFocusInWindow();
+    }   catch (ClassNotFoundException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }}
+
 
     public void usuario()
     {
