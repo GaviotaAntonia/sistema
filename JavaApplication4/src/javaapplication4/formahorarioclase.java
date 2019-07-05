@@ -81,11 +81,18 @@ public class formahorarioclase extends javax.swing.JFrame {
 
         jLabel5.setText("id_dia");
 
+        jTextField2.setEnabled(false);
+        jTextField2.setFocusable(false);
+
         jLabel6.setText("id_materia");
 
         jLabel7.setText("hora");
 
         jLabel8.setText("id_docente");
+
+        jTextField3.setEnabled(false);
+
+        jTextField5.setEnabled(false);
 
         cmbdia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
