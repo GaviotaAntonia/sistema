@@ -33,17 +33,12 @@ public class menupri extends javax.swing.JFrame {
         btngrupo = new javax.swing.JButton();
         btnboleta = new javax.swing.JButton();
         btncalendario = new javax.swing.JButton();
-
-        btncalendario1 = new javax.swing.JButton();
-        btncalendario2 = new javax.swing.JButton();
-
         btndetallehorario = new javax.swing.JButton();
         btnstatus = new javax.swing.JButton();
         btnmateria = new javax.swing.JButton();
         btncertificado = new javax.swing.JButton();
         btnturnodocente = new javax.swing.JButton();
         btnhorario = new javax.swing.JButton();
-
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menualumno = new javax.swing.JMenuItem();
@@ -146,22 +141,13 @@ public class menupri extends javax.swing.JFrame {
             }
         });
 
-        btncalendario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/alumno.png"))); // NOI18N
-        btncalendario1.setToolTipText("Alumno");
-        btncalendario1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncalendario1ActionPerformed(evt);
-            }
-        });
-
-        btncalendario2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/usuarios.png"))); // NOI18N
-        btncalendario2.setToolTipText("Usuarios");
-        btncalendario2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncalendario2ActionPerformed(evt);
-
         btndetallehorario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/detalle horario.png"))); // NOI18N
         btndetallehorario.setToolTipText("Detalle horario");
+        btndetallehorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndetallehorarioActionPerformed(evt);
+            }
+        });
 
         btnstatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basededatos/iconosmismo/status.png"))); // NOI18N
         btnstatus.setToolTipText("Status");
@@ -200,7 +186,6 @@ public class menupri extends javax.swing.JFrame {
         btnhorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnhorarioActionPerformed(evt);
-
             }
         });
 
@@ -235,11 +220,7 @@ public class menupri extends javax.swing.JFrame {
                     .addComponent(btnhorario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btncalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btncalendario1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btncalendario2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 363, Short.MAX_VALUE)
                 .addComponent(btncerrarsesion)
                 .addGap(24, 24, 24))
         );
@@ -255,12 +236,6 @@ public class menupri extends javax.swing.JFrame {
                     .addComponent(btnboleta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btngrupo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btncalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-
-                    .addComponent(btncerrarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btncalendario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btncalendario2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(454, Short.MAX_VALUE))
-
                     .addComponent(btncerrarsesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -271,7 +246,6 @@ public class menupri extends javax.swing.JFrame {
                     .addComponent(btndetallehorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnhorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(395, Short.MAX_VALUE))
-
         );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
@@ -697,8 +671,8 @@ public class menupri extends javax.swing.JFrame {
     }//GEN-LAST:event_menumateriaActionPerformed
 
     private void menuhorarioclaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuhorarioclaseActionPerformed
-        formahorarioclase horos=new formahorarioclase();
-        horos.setVisible(true);
+        formahorarioclase horo=new formahorarioclase();
+        horo.setVisible(true);
         dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_menuhorarioclaseActionPerformed
 
@@ -762,14 +736,6 @@ dispose();// TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btncalendarioActionPerformed
 
-    private void btncalendario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalendario1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btncalendario1ActionPerformed
-
-    private void btncalendario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalendario2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btncalendario2ActionPerformed
-
     private void btnstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstatusActionPerformed
         status sta=new status();
         sta.setVisible(true);
@@ -795,10 +761,16 @@ dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btnturnodocenteActionPerformed
 
     private void btnhorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhorarioActionPerformed
-        horarioclase horo=new horarioclase();
+        formahorarioclase horo=new formahorarioclase();
         horo.setVisible(true);
         dispose();     
     }//GEN-LAST:event_btnhorarioActionPerformed
+
+    private void btndetallehorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndetallehorarioActionPerformed
+        detalle_horario hora=new detalle_horario();
+        hora.setVisible(true);
+        dispose();   
+    }//GEN-LAST:event_btndetallehorarioActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -835,8 +807,6 @@ dispose();// TODO add your handling code here:
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnboleta;
     private javax.swing.JButton btncalendario;
-    private javax.swing.JButton btncalendario1;
-    private javax.swing.JButton btncalendario2;
     private javax.swing.JButton btncede;
     private javax.swing.JButton btncerrarsesion;
     private javax.swing.JButton btncertificado;
