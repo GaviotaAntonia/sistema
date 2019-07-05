@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class login extends javax.swing.JFrame {
@@ -153,17 +154,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void btnabrirsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabrirsesionActionPerformed
-      String user=txtusuario.getText();
-      String password=pass1.getText();
-      if(user.equals("")&&password.equals("")){
-          JOptionPane.showMessageDialog(null,"Agrega datos y contraseña");
-      }
-      if(user.equals("Admin")&&password.equals("123")){
-          menupri menu=new menupri();
-          menu.setVisible(rootPaneCheckingEnabled);
-          dispose();
-      }
-      
+        usuario();
     }//GEN-LAST:event_btnabrirsesionActionPerformed
 
     private void btnabrirsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnabrirsesionMouseClicked
@@ -180,6 +171,24 @@ public class login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnsalirActionPerformed
 
+    public void usuario()
+    {
+        String user=txtusuario.getText();
+      String password=pass1.getText();
+      if(user.equals("")){
+          JOptionPane.showMessageDialog(null, "Insertar usuario o nombre de usuario incorreto", "Usuario invalido",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/iconos/usuarioinvalido.png"));
+      }
+      if(password.equals("")){
+          JOptionPane.showMessageDialog(null, "Insertar Contraseña o la contraseña es incorreto", "Contraseña invalido",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/iconos/passwordinvalido.png"));
+      }
+      if(user.equals("Admin")&&password.equals("123")){
+          JOptionPane.showMessageDialog(null, "Bienvenido usuario", "Usuario valido",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/iconos/usuariovalido.png"));
+          menupri menu=new menupri();
+          menu.setVisible(rootPaneCheckingEnabled);
+          dispose();
+      }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
