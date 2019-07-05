@@ -4,7 +4,10 @@ import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 public class login extends javax.swing.JFrame {
     public login() {
@@ -12,6 +15,7 @@ public class login extends javax.swing.JFrame {
         this.setTitle("Logeo");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
+        
     }@Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
@@ -141,22 +145,27 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed
-          // TODO add your handling code here:
+     
+// TODO add your handling code here:
     }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void btnabrirsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabrirsesionActionPerformed
-      String user=txtusuario.getText();
-      String password=pass1.getText();
-      if(user.equals("")&&password.equals(""))
-      {
-          JOptionPane.showMessageDialog(null,"Agrega datos y contraseña");
-      }
-      if(user.equals("Admin")&&password.equals("123"))
-      {
-          menupri menu=new menupri();
-          menu.setVisible(true);
-          dispose();
-      }   
+        String usuario=txtusuario.getText();
+        String password=pass1.getText();
+        if(usuario.equals("")){
+            JOptionPane.showMessageDialog(null,"debes de ingresar usuario ");
+        }
+        if(password.equals("")){
+            
+            JOptionPane.showMessageDialog(null,"debes de ingresa la ocntraseña ");
+        }
+        else{
+            try {
+                logearse(usuario, password);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex);
+            }
+        }
     }//GEN-LAST:event_btnabrirsesionActionPerformed
 
     private void btnabrirsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnabrirsesionMouseClicked
@@ -171,7 +180,32 @@ public class login extends javax.swing.JFrame {
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
        dispose();
     }//GEN-LAST:event_btnsalirActionPerformed
-
+    public void logearse(String usuario, String password) throws SQLException{
+        String Tipousuario="";
+      try
+            {
+                Connection con=null;
+                Class.forName("com.mysql.jdbc.Driver");
+                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select * from usuario where usuario='"+usuario+"'and contraseña='"+password+"'");
+                  while (rs.next()) {
+            Tipousuario=rs.getString("tipousuario");          
+        }
+        if (Tipousuario.equals("Administrador")) {
+           menupri me=new menupri();
+           me.setVisible(true);
+            dispose();
+        }
+        else{
+            
+        }
+        txtusuario.setText("");
+        pass1.setText("");
+        txtusuario.requestFocusInWindow();
+    }   catch (ClassNotFoundException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
