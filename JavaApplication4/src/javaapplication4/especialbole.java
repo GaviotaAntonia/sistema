@@ -20,7 +20,6 @@ public class especialbole extends javax.swing.JFrame {
         this.setTitle("Boleta");
         this.setLocale(null);
         
-        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
     }
    @Override
@@ -71,7 +70,6 @@ public class especialbole extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
-        setPreferredSize(new java.awt.Dimension(600, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1800, 720));
