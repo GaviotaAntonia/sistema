@@ -17,7 +17,6 @@ public class estado extends javax.swing.JFrame {
         this.setTitle("Estado");
         this.setLocale(null);
         
-        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
     }
    @Override

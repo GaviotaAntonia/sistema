@@ -17,7 +17,6 @@ public class director extends javax.swing.JFrame {
 
     public director() {
         
-        this.setExtendedState(MAXIMIZED_BOTH);
         initComponents();
         this.cmbcolonia.removeAllItems();
           try
