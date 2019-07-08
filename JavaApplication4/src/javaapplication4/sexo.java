@@ -22,7 +22,6 @@ public class sexo extends javax.swing.JFrame {
      */
     public sexo() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
         this.setTitle("Sexo");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
