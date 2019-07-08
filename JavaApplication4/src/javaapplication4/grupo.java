@@ -17,7 +17,6 @@ public class grupo extends javax.swing.JFrame {
         this.setTitle("Grupo");
         this.setLocale(null);
         
-        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
     }@Override
     public Image getIconImage() {

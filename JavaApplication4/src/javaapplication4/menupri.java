@@ -9,7 +9,6 @@ public class menupri extends javax.swing.JFrame {
         this.setLocale(null);
         this.setLocationRelativeTo(null);
         
-        this.setExtendedState(MAXIMIZED_BOTH);
     }@Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().

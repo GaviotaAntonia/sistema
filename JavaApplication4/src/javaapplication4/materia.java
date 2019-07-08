@@ -26,7 +26,6 @@ public class materia extends javax.swing.JFrame {
      */
     public materia() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
         this.setTitle("Materia");
         this.setLocale(null);
         this.setLocationRelativeTo(null);

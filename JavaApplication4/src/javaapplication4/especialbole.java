@@ -632,7 +632,7 @@ catch(Exception e2){
                 ResultSet rs=s1t.executeQuery("select * from alumno where nombre='"+this.cmbalumno.getSelectedItem()+"'" );
                 rs.next();
                 //System.out.println(rs);
-                this.jTextField2.setText(String.valueOf(rs.getInt("matricula")));
+                this.jTextField2.setText(String.valueOf(rs.getInt("id_alumno")));
      } catch (Exception e) {
      } 
        }

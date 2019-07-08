@@ -26,7 +26,6 @@ public class tipocert extends javax.swing.JFrame {
      */
     public tipocert() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
         this.setTitle("Tipo de Certificado");
         this.setLocale(null);
         this.setLocationRelativeTo(null);

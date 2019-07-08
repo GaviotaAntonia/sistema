@@ -172,12 +172,10 @@
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="btngrabar" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnbuscar" max="32767" attributes="0"/>
-                          <Component id="btneliminar" max="32767" attributes="0"/>
-                          <Component id="btnmodificar" max="32767" attributes="0"/>
-                          <Component id="btnnuevo" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="btnbuscar" max="32767" attributes="0"/>
+                      <Component id="btneliminar" max="32767" attributes="0"/>
+                      <Component id="btnmodificar" max="32767" attributes="0"/>
+                      <Component id="btnnuevo" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="57" max="32767" attributes="0"/>
               </Group>
