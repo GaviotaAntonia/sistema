@@ -7,11 +7,17 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 
-public class conexionsql1 {
+public class conexionsql1 
+{
 
     static Connection contacto = null;
+    public static String usuario;
+    public static String contraseña;
+    public static boolean status = false;
 
-    public static Connection getConexion() {
+    public static Connection getConexion() 
+    {
+        status = false;
         String url = "jdbc:sqlserver://DESKTOP-AHM3DOT\\SQLEXPRESS:1433;databaseName=dbdistribuida";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -21,10 +27,8 @@ public class conexionsql1 {
         }
         try 
         {
-            contacto = DriverManager.getConnection(url, "sa", "awdx123");
-            System.out.println(contacto);
-            
-            JOptionPane.showMessageDialog(null, "Conexion exitosa");
+            contacto = DriverManager.getConnection(url, conexionsql1.usuario, conexionsql1.contraseña);
+            status = true;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage(), "Error de conexion", JOptionPane.ERROR_MESSAGE);
             System.out.println("3");
@@ -32,4 +36,14 @@ public class conexionsql1 {
         return contacto;
     }
     
-   }
+    public static void setcuenta (String usuario, String contraseña)
+    {
+        conexionsql1.usuario = usuario;
+        conexionsql1.contraseña = contraseña;
+    }
+    
+    public static boolean getstatus()
+    {
+        return status;
+    }
+}
