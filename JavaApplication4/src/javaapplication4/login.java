@@ -1,6 +1,7 @@
 package javaapplication4;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -155,21 +156,16 @@ public class login extends javax.swing.JFrame {
 
     private void btnabrirsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabrirsesionActionPerformed
 
-        String usuario=txtusuario.getText();
-        String password=pass1.getText();
-        if(usuario.equals("")){
-            JOptionPane.showMessageDialog(null, "Insertar usuario o nombre de usuario incorreto", "Usuario invalido",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/iconos/usuarioinvalido.png"));
-        }
-        if(password.equals("")){
-            
-            JOptionPane.showMessageDialog(null, "Insertar Contraseña o la contraseña es incorreto", "Contraseña invalido",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/iconos/passwordinvalido.png"));
-        }
-        else{
-            try {
-                logearse(usuario, password);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, ex);
-            }
+        conexionsql1.setcuenta(txtusuario.getText(), pass1.getText());
+        conexionsql1.getConexion();
+        if (conexionsql1.getstatus())
+        {
+            menupri menu = new menupri();
+            menu.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario y contraseña incorrectos","Error de conexion",JOptionPane.ERROR_MESSAGE);
+            txtusuario.setText("");
+            pass1.setText("");
         }
 
     }//GEN-LAST:event_btnabrirsesionActionPerformed
@@ -179,8 +175,7 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnabrirsesionMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     conexionsql1 cone=new conexionsql1();
-     cone.getConexion();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
