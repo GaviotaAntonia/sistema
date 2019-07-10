@@ -1,30 +1,45 @@
+
 package javaapplication4;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.swing.ImageIcon;
+import java.sql.DriverManager;
+import java.sql.Connection;
 import javax.swing.JOptionPane;
-import javax.swing.Icon;
 
-public class conexion {
-    Connection con=null;
+public class conexionsql {
     
-    public Connection conexion(){
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
-           // System.out.println("conexion exitosa");
-           JOptionPane.showMessageDialog(null, "Conexion Exitosa", "Conexion Exitosa",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src\\iconos\\success.png"));
-        } 
-        catch (ClassNotFoundException| SQLException e) 
+    public static Connection getConnection()
+    {
+        Connection connection = null;
+        String bdName = "dbdistribuida";
+        String user = "sa";
+        String pass = "awdx123";
+        
+        try
         {
-            System.out.println("error de conexion"+e);
-            JOptionPane.showMessageDialog(null,"error"+e);
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String connections = "jdbc:sqlserver://DESKTOP-AHM3DOT\\SQLEXPRESS;databaseName="+bdName+";user="+user+";password="+pass+";";
+            connection = DriverManager.getConnection(connections);
+        }catch (ClassNotFoundException e)
+        {
+            System.out.println("Error: "+e.getMessage());
+        }catch (SQLException e)
+        {
+            System.out.println("Error: "+e.getMessage());
+        }catch (Exception e)
+        {
+            System.out.println("Error: "+e.getMessage());
         }
-     return con;
+        
+        return connection;
+        
     }
-
-    Connection getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public static void main(String[] args)
+    {
+        if(conexionsql.getConnection()!=null)
+        {
+            JOptionPane.showMessageDialog(null, "Conexion exitosa");
+        }
     }
+    
 }

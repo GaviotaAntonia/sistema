@@ -179,8 +179,8 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnabrirsesionMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        conexion con=new conexion();
-        con.conexion();   
+     conexionsql1 cone=new conexionsql1();
+     cone.getConexion();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
