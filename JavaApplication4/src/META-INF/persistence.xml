@@ -25,6 +25,7 @@
     <class>javaapplication4.Dia_1</class>
     <class>javaapplication4.Sexo_1</class>
     <class>javaapplication4.Mes_1</class>
+    <class>javaapplication4.Materia_1</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://DESKTOP-AHM3DOT\\SQLEXPRESS:1433;databaseName=dbdistribuida"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>
