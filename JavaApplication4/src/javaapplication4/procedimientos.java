@@ -5,11 +5,10 @@ import java.sql.SQLException;
 
 public class procedimientos {
     
-    public static void sexo(String a, String b)throws SQLException
+    public static void EliminarArticulo(int a)throws SQLException
     {
-        CallableStatement entrada = conexionsql.getConnection().prepareCall("(call sexo(?,?))");
-        entrada.setString(1, a);
-        entrada.setString(2, b);
+        CallableStatement entrada = conexionsql.getConnection().prepareCall("{call EntradaArticulo(?)}");
+        entrada.setInt(1, a);
         entrada.execute();
     }
     
