@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package javaapplication4;
 
 import java.awt.Image;
@@ -12,18 +8,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Alejandro
- */
 public class mes extends javax.swing.JFrame {
 
-    /**
-     * Creates new form mes
-     */
     public mes() {
         initComponents();
         this.setTitle("Mes");
@@ -358,7 +349,7 @@ modificar();        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
-     grabar();   // TODO add your handling code here:
+     grabar();
     }//GEN-LAST:event_btngrabarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -380,8 +371,8 @@ modificar();        // TODO add your handling code here:
         public void grabar(){
     
 try{
-    Class.forName("com.mysql.jdbc.Driver");
-    String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
+    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+    String cadena="jdbc:sqlserver://DESKTOP-AHM3DOT\\SQLEXPRESS:1433;databaseName=dbdistribuida";
     Connection con =DriverManager.getConnection(cadena);
     PreparedStatement stmt=null;
     String id_mes=jTextField1.getText();
