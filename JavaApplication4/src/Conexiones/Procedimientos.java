@@ -36,6 +36,50 @@ public class Procedimientos {
         entrada.execute();
     }
     
+    public static void EntradaGrupo(String a,String b) throws SQLException{
+        CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaGrupo(?,?)}");
+        entrada.setString(1, a);
+        entrada.setString(2, b);
+        entrada.execute();
+    }
+    
+    /*---- Buscar ----*/
+    
+    public static void buscamateria(int a)throws SQLException
+    {
+        CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call buscarmateria(?)}");
+        entrada.setInt(1, a);
+        entrada.execute();
+    }
+    
+    public static void BuscarMes(int a)throws SQLException
+    {
+        CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call BuscarMes(?)}");
+        entrada.setInt(1, a);
+        entrada.execute();
+    }
+    
+    public static void BuscarDia(int a)throws SQLException
+    {
+        CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call BuscarDia(?)}");
+        entrada.setInt(1, a);
+        entrada.execute();
+    }
+    
+    public static void BuscarSexo(int a)throws SQLException
+    {
+        CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call BuscarSexo(?)}");
+        entrada.setInt(1, a);
+        entrada.execute();
+    }
+    
+    public static void BuscarGrupo(int a)throws SQLException
+    {
+        CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call BuscarGrupo(?)}");
+        entrada.setInt(1, a);
+        entrada.execute();
+    }
+    
     /*---- Eliminar ----*/
     
     public static void Eliminarmateria(int a)throws SQLException
@@ -44,12 +88,6 @@ public class Procedimientos {
         entrada.setInt(1, a);
         entrada.execute();
     }
-     public static void buscamateria(int a)throws SQLException{
-        CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call buscarmateria(?)}");
-        entrada.setInt(1, a);
-        entrada.execute();
-    }
-
     
     public static void EliminarMes(int a)throws SQLException
     {
@@ -68,6 +106,13 @@ public class Procedimientos {
     public static void EliminarSexo(int a)throws SQLException
     {
         CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call EliminarSexo(?)}");
+        entrada.setInt(1, a);
+        entrada.execute();
+    }
+    
+    public static void EliminarGrupo(int a)throws SQLException
+    {
+        CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call EliminarGrupo(?)}");
         entrada.setInt(1, a);
         entrada.execute();
     }
