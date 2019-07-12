@@ -12,9 +12,9 @@ public class Procedimientos {
         entrada.execute();
     }
     
-    public static void EliminarArticulo(int a)throws SQLException
+    public static void Eliminarmateria(int a)throws SQLException
     {
-        CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call EntradaArticulo(?)}");
+        CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call Eliminarmateria(?)}");
         entrada.setInt(1, a);
         entrada.execute();
     }

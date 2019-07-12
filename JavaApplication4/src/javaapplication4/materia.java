@@ -346,11 +346,11 @@ public class materia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-  int row = jTable1.getSelectedRow();
+    int row = jTable1.getSelectedRow();
         int opc = JOptionPane.showConfirmDialog(this, "¿Estas seguro de eliminar el registro?","Pregunta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
         if(opc == JOptionPane.YES_OPTION){
             try{
-                Procedimientos.eliminarmateria(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+                Procedimientos.Eliminarmateria(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
             }catch (SQLException e){
             }
         }     
