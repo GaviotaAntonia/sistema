@@ -372,9 +372,9 @@ public class materia extends javax.swing.JFrame {
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
          try{
             PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update materia set materia='" + 
-                    jTextField2.getText() + "', materia='" + "' where id_materia='" + jTextField1.getText() + "'");
+                    jTextField2.getText() + "' where id_materia='" + jTextField1.getText() + "'");
                 pps.executeUpdate();
-                JOptionPane.showMessageDialog(null, "LOS DATOS HAN SIDO MODIFICADOS");
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
                 jTextField1.setText("");
                 jTextField2.setText("");
                 jTextField1.requestFocus();
