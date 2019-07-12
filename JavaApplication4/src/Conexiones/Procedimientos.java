@@ -18,6 +18,12 @@ public class Procedimientos {
         entrada.setInt(1, a);
         entrada.execute();
     }
+     public static void buscamateria(int a)throws SQLException{
+        CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call buscarmateria(?)}");
+        entrada.setInt(1, a);
+        entrada.execute();
+    }
+
     
 
 }
