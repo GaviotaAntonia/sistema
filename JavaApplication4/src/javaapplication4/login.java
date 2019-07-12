@@ -162,6 +162,7 @@ public class login extends javax.swing.JFrame {
         {
             menupri menu = new menupri();
             menu.setVisible(true);
+            dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Usuario y contraseña incorrectos","Error de conexion",JOptionPane.ERROR_MESSAGE);
             txtusuario.setText("");

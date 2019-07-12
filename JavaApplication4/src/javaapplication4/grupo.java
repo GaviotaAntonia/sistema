@@ -1,4 +1,5 @@
 package javaapplication4;
+import Conexiones.Procedimientos;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -6,10 +7,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import static javaapplication4.mes.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class grupo extends javax.swing.JFrame {
+    
+    static ResultSet res;
+    int coun;
 
     public grupo() {
         initComponents();
@@ -31,9 +38,15 @@ public class grupo extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
+        grupo_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT g FROM Grupo_1 g");
+        grupo_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : grupo_1Query.getResultList();
+        grupo_1Query1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT g FROM Grupo_1 g");
+        grupo_1List1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : grupo_1Query1.getResultList();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -148,17 +161,15 @@ public class grupo extends javax.swing.JFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Id_Grupo", "Grupo"
-            }
-        ));
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, grupo_1List1, jTable2);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idGrupo}"));
+        columnBinding.setColumnName("Id Grupo");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${grupo}"));
+        columnBinding.setColumnName("Grupo");
+        columnBinding.setColumnClass(String.class);
+        bindingGroup.addBinding(jTableBinding);
+
         jScrollPane2.setViewportView(jTable2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -333,6 +344,8 @@ public class grupo extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        bindingGroup.bind();
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -382,15 +395,70 @@ public class grupo extends javax.swing.JFrame {
     }//GEN-LAST:event_menunuevoActionPerformed
 
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
-    grabar();        // TODO add your handling code here:
+    if (jTextField1.getText().isEmpty()|| jTextField2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,"INGRESA TUS DATOS CORRECTOS");      
+        }
+        else{
+            try {
+                res=javaapplication4.conexionsql1.Consulta("Select count(mes)from mes where mes='"+jTextField2.getText()+"'");
+                try {
+                    while (res.next()) {                    
+                    coun=res.getInt(1);
+                    
+                    }
+            } catch (SQLException e) {
+            }
+                if (coun>=1) {
+                    JOptionPane.showMessageDialog(this,"este elemento ya existe");
+                }
+                else{
+                    Conexiones.Procedimientos.EntradaGrupo(jTextField1.getText(), jTextField2.getText());
+                    JOptionPane.showMessageDialog(this,"exito");
+                }
+                    } catch (SQLException ex) {
+                Logger.getLogger(materia.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_btngrabarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-    borrar();        // TODO add your handling code here:
+        int row = jTable1.getSelectedRow();
+        int opc = JOptionPane.showConfirmDialog(this, "¿Estas seguro de eliminar el registro?","Pregunta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if(opc == JOptionPane.YES_OPTION){
+            try{
+                Procedimientos.EliminarGrupo(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+            }catch (SQLException e){
+            }
+        }     
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        consultar();
+        if(jTextField1.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "META BIEN SUS DATOS", "Error", JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText("");
+            jTextField1.requestFocus();
+        } else {
+            try {
+                String b;
+                Procedimientos.BuscarGrupo(Integer.parseInt(jTextField1.getText()));
+                b = jTextField1.getText();
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField1.requestFocus();
+                jTextField2.requestFocus();
+                res = conexionsql1.Consulta("select * from grupo");
+                while(res.next()){
+                    if(res.getString(1).equals(b)){
+                        JOptionPane.showMessageDialog(null, "Datos Encontrados");
+                        jTextField1.setText(res.getString(1));
+                        jTextField2.setText(res.getString(2));
+                    }
+                }
+            }catch(SQLException e){
+          
+                JOptionPane.showMessageDialog(null, "Datos no Encontrados");
+            }
+        }
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -574,6 +642,11 @@ public class grupo extends javax.swing.JFrame {
     private javax.swing.JButton btngrabar;
     private javax.swing.JButton btnmodificar;
     private javax.swing.JButton btnnuevo;
+    private javax.persistence.EntityManager entityManager;
+    private java.util.List<javaapplication4.Grupo_1> grupo_1List;
+    private java.util.List<javaapplication4.Grupo_1> grupo_1List1;
+    private javax.persistence.Query grupo_1Query;
+    private javax.persistence.Query grupo_1Query1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -596,5 +669,6 @@ public class grupo extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
