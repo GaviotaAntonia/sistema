@@ -176,8 +176,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="cmbsex" min="-2" pref="164" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jTextField12" alignment="1" min="-2" pref="211" max="-2" attributes="0"/>
-                                  <Component id="jTextField11" alignment="1" min="-2" pref="211" max="-2" attributes="0"/>
+                                  <Component id="jTextField11" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
                                   <Component id="jTextField13" alignment="1" min="-2" pref="211" max="-2" attributes="0"/>
                                   <Component id="jTextField14" alignment="1" min="-2" pref="211" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
@@ -190,6 +189,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="cmbespe" min="-2" pref="164" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jTextField12" alignment="1" min="-2" pref="211" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jTextField17" min="-2" pref="41" max="-2" attributes="0"/>
@@ -207,7 +207,7 @@
                                   <Component id="cmdcede" min="-2" pref="164" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="62" max="32767" attributes="0"/>
+                          <EmptySpace pref="287" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btngrabar" max="32767" attributes="0"/>
                               <Component id="btnmodificar" alignment="0" max="32767" attributes="0"/>
@@ -334,13 +334,13 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -370,7 +370,6 @@
                               <Component id="jTextField17" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -385,9 +384,9 @@
                           <Component id="btnmodificar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnbuscar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="cmbdeta" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextField18" alignment="3" min="-2" max="-2" attributes="0"/>

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package javaapplication4;
 
 import java.awt.Image;
@@ -19,6 +15,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class detalle_horario extends javax.swing.JFrame {
+  static ResultSet res;
+    int coun;
 
     /**
      * Creates new form detalle_horario
@@ -467,7 +465,30 @@ public class detalle_horario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
-        grabar();
+          if (jTextField1.getText().isEmpty()|| jTextField2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,"INGRESA TUS DATOS CORRECTOS");      
+        }
+        else{
+             res=javaapplication4.conexionsql1.Consulta("Select count(detalle_horario)from detalle_horario where id_horario='"+jTextField2.getText()+"'");
+             try {
+                 while (res.next()) {
+                     coun=res.getInt(1);
+                     
+                 }
+             } catch (SQLException e) {
+             }
+             if (coun>=1) {
+                 JOptionPane.showMessageDialog(this,"este elemento ya existe");
+             }
+             else{
+                 try {
+                     Conexiones.Procedimientos.entradahorario(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText());
+                 } catch (SQLException ex) {
+                     Logger.getLogger(detalle_horario.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                 JOptionPane.showMessageDialog(this,"exito");
+             }
+        }
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
