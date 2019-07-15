@@ -414,5 +414,11 @@ public class Procedimientos {
         }
 
     
+        public static void eliminarhorario(int a)throws SQLException
+        {
+            CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call eliminarhorario(?)}");
+            entrada.setInt(1, a);
+            entrada.execute();
+        }
         
 }
