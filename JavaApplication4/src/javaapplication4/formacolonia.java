@@ -1,4 +1,5 @@
 package javaapplication4;
+import Conexiones.Procedimientos;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -9,9 +10,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javaapplication4.calendario.jTextField1;
+import static javaapplication4.calendario.jTextField2;
+import static javaapplication4.calendario.jTextField3;
+import static javaapplication4.calendario.jTextField4;
+import static javaapplication4.calendario.jTextField5;
+import static javaapplication4.turnodoc.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 public class formacolonia extends javax.swing.JFrame {
+    
+    static ResultSet res;
+    int coun;
 
     public formacolonia() {
         initComponents();  
@@ -37,7 +47,11 @@ public class formacolonia extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
+        coloniaQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM Colonia c");
+        coloniaList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : coloniaQuery.getResultList();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -60,6 +74,8 @@ public class formacolonia extends javax.swing.JFrame {
         btneliminar = new javax.swing.JButton();
         cmbestado = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -82,6 +98,12 @@ public class formacolonia extends javax.swing.JFrame {
         jLabel2.setText("numero de usuario");
 
         jLabel3.setText("Id_colonia:");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("colonia");
 
@@ -167,27 +189,50 @@ public class formacolonia extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel7.setText("Colonia");
 
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, coloniaList, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idColonia}"));
+        columnBinding.setColumnName("Id Colonia");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${colonia}"));
+        columnBinding.setColumnName("Colonia");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idEstado}"));
+        columnBinding.setColumnName("Id Estado");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${codigoPostal}"));
+        columnBinding.setColumnName("Codigo Postal");
+        columnBinding.setColumnClass(Integer.class);
+        bindingGroup.addBinding(jTableBinding);
+
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbestado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addGap(98, 98, 98)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                            .addComponent(jTextField2)
+                            .addComponent(jTextField3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbestado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnmodificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnnuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -248,8 +293,10 @@ public class formacolonia extends javax.swing.JFrame {
                         .addComponent(cmbestado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnbuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btneliminar)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btneliminar)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Acciones");
@@ -296,8 +343,10 @@ public class formacolonia extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -317,19 +366,95 @@ public class formacolonia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
-    grabar();  // TODO add your handling code here:
+         if (jTextField1.getText().isEmpty()|| jTextField2.getText().isEmpty()|| jTextField4.getText().isEmpty()|| jTextField3.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,"INGRESA TUS DATOS CORRECTOS");      
+        }
+        else{
+            try {
+                res=javaapplication4.conexionsql1.Consulta("Select count(colonia)from colonia where colonia='"+jTextField2.getText()+"'");
+                res=javaapplication4.conexionsql1.Consulta("Select count(id_estado)from colonia where id_estado='"+jTextField4.getText()+"'");
+                res=javaapplication4.conexionsql1.Consulta("Select count(codigo_postal)from colonia where codigo_postal='"+jTextField3.getText()+"'");
+                try {
+                    while (res.next()) {                    
+                    coun=res.getInt(1);
+                    
+                    }
+            } catch (SQLException e) {
+            }
+                if (coun>=1) {
+                    JOptionPane.showMessageDialog(this,"este elemento ya existe");
+                }
+                else{
+                    Conexiones.Procedimientos.EntradaColonia(jTextField1.getText(), jTextField2.getText() , jTextField4.getText(), jTextField3.getText());
+                    JOptionPane.showMessageDialog(this,"exito");
+                }
+                    } catch (SQLException ex) {
+                Logger.getLogger(materia.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-    borrar();        // TODO add your handling code here:
+    int row = jTable1.getSelectedRow();
+        int opc = JOptionPane.showConfirmDialog(this, "¿Estas seguro de eliminar el registro?","Pregunta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if(opc == JOptionPane.YES_OPTION){
+            try{
+                Procedimientos.EliminarColonia(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+            }catch (SQLException e){
+            }
+        }     
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        consultar();  // TODO add your handling code here:
+         if(jTextField1.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "META BIEN SUS DATOS", "Error", JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText("");
+            jTextField1.requestFocus();
+        } else {
+            try {
+                String b;
+                Procedimientos.BuscarColonia(Integer.parseInt(jTextField1.getText()));
+                b = jTextField1.getText();
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField4.setText("");
+                jTextField3.setText("");
+                jTextField1.requestFocus();
+                jTextField2.requestFocus();
+                jTextField4.requestFocus();
+                jTextField3.requestFocus();
+                res = conexionsql1.Consulta("select * from colonia");
+                while(res.next()){
+                    if(res.getString(1).equals(b)){
+                        JOptionPane.showMessageDialog(null, "Datos Encontrados");
+                        jTextField1.setText(res.getString(1));
+                        jTextField2.setText(res.getString(2));
+                        jTextField3.setText(res.getString(4));
+                        jTextField4.setText(res.getString(3));
+                    }
+                }
+            }catch(SQLException e){
+          
+                JOptionPane.showMessageDialog(null, "Datos no Encontrados");
+            }
+        }
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        modificar();        // TODO add your handling code here:
+        try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement(
+                    "update colonia set  colonia='" + jTextField2.getText() +
+                    "update codigo_postal set  colonia='" + jTextField4.getText() +
+                    "update id_estado  set  colonia='" + jTextField3.getText() + "' where id_colonia='" + jTextField1.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField4.setText("");
+                jTextField3.setText("");
+                jTextField1.requestFocus();
+            }catch(SQLException e){
+        }
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void cmbestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbestadoActionPerformed
@@ -343,12 +468,16 @@ traerid();        // TODO add your handling code here:
     private void cmbestadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbestadoMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbestadoMouseClicked
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
   public void cargarBD(){
            try
             {
                 Connection con=null;
-                Class.forName("com.mysql.jdbc.Driver");
-                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
                 Statement st=con.createStatement();
                 ResultSet rs=st.executeQuery("select estado from estado;");
                 cmbestado.removeAllItems();
@@ -370,8 +499,8 @@ traerid();        // TODO add your handling code here:
          public void traerid(){
             try {
          Connection con=null;
-                Class.forName("com.mysql.jdbc.Driver");
-                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
                 Statement s1t=con.createStatement();
                 ResultSet rs=s1t.executeQuery("select * from estado where estado='"+this.cmbestado.getSelectedItem()+"'" );
                 rs.next();
@@ -559,6 +688,9 @@ traerid();        // TODO add your handling code here:
     private javax.swing.JButton btnnuevo;
     private javax.swing.JButton btnsalir;
     private javax.swing.JComboBox<String> cmbestado;
+    private java.util.List<javaapplication4.Colonia> coloniaList;
+    private javax.persistence.Query coloniaQuery;
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -576,6 +708,8 @@ traerid();        // TODO add your handling code here:
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     public static javax.swing.JTextField jTextField1;
     public static javax.swing.JTextField jTextField2;
     public static javax.swing.JTextField jTextField3;
@@ -583,5 +717,6 @@ traerid();        // TODO add your handling code here:
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

@@ -381,7 +381,16 @@ public class grupo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        modificar();        // TODO add your handling code here:
+         try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update grupo set grupo='" + 
+                    jTextField2.getText() + "' where id_grupo='" + jTextField1.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField1.requestFocus();
+        }catch(SQLException e){
+        }
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

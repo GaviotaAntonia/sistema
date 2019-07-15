@@ -374,7 +374,16 @@ consultar();      // TODO add your handling code here:
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-modificar();        // TODO add your handling code here:
+        try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update mes set mes='" + 
+                    jTextField2.getText() + "' where id_mes='" + jTextField1.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField1.requestFocus();
+            }catch(SQLException e){
+        }
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
