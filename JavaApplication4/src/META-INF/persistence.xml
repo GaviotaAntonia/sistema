@@ -27,6 +27,14 @@
     <class>javaapplication4.Mes_1</class>
     <class>javaapplication4.Materia_1</class>
     <class>javaapplication4.Grupo_1</class>
+    <class>javaapplication4.TipoCertificado</class>
+    <class>javaapplication4.Estado_1</class>
+    <class>javaapplication4.Salon_1</class>
+    <class>javaapplication4.TurnoDocente</class>
+    <class>javaapplication4.Colonia</class>
+    <class>javaapplication4.Calendario_1</class>
+    <class>javaapplication4.Director_1</class>
+    <class>javaapplication4.Cede_1</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://DESKTOP-AHM3DOT\\SQLEXPRESS:1433;databaseName=dbdistribuida"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>
