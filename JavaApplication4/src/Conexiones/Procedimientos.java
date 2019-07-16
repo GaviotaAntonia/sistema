@@ -182,9 +182,9 @@ public class Procedimientos {
             entrada.setString(14, n);
             entrada.execute();
         }
-        public static void entradaalumno(String a,String b,String c,String d,String e,String f,String g,String h, String i,String j,String k,String l,String m, String n,String o,String p,String q, String r,String s) throws SQLException
+        public static void GrabarAlumno(String a,String b,String c,String d,String e,String f,String g,String h, String i,String j,String k,String l,String m, String n,String o,String q, String r,String s) throws SQLException
         {
-            CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call entradaalumno(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call GrabarAlumno(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
             entrada.setString(3, c);
@@ -200,7 +200,6 @@ public class Procedimientos {
             entrada.setString(13, m);
             entrada.setString(14, n);
             entrada.setString(15, o);
-            entrada.setString(16, p);
             entrada.setString(17, q);
             entrada.setString(18, r);
             entrada.setString(19, s);
