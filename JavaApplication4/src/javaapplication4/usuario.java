@@ -520,7 +520,16 @@ consultar();
     }//GEN-LAST:event_btngrabarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-        borrar();
+        int row = jTable2.getSelectedRow();
+        int opc = JOptionPane.showConfirmDialog(this, "¿Estas seguro de eliminar el registro?","Pregunta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if(opc == JOptionPane.YES_OPTION){
+       try {
+           Procedimientos.eliminarusuario(Integer.parseInt(jTable2.getValueAt(row, 0).toString()));
+           JOptionPane.showMessageDialog(null, "Registro eliminado con exito");
+       } catch (SQLException ex) {
+           Logger.getLogger(alumno.class.getName()).log(Level.SEVERE, null, ex);
+       }
+        }       
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
