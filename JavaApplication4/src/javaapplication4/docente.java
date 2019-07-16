@@ -12,98 +12,14 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 public class docente extends javax.swing.JFrame {
-
+    static ResultSet res;
+    int coun;
     public docente() {
         initComponents();
-        
-        this.cmbturno.removeAllItems();
-          try
-            {
-                Connection con=null;
-                Class.forName("com.mysql.jdbc.Driver");
-                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
-                Statement st=con.createStatement();
-                ResultSet rs=st.executeQuery("select turno from turno_docente;");
-                while(rs.next())
-                {
-                    this.cmbturno.addItem(rs.getString("turno"));
-                    traeridturno();
-                }
-                rs.close();
-                con.close();
-            }catch (ClassNotFoundException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }catch (SQLException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }
-        this.cmbcolonia.removeAllItems();
-          try
-            {
-                Connection con=null;
-                Class.forName("com.mysql.jdbc.Driver");
-                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
-                Statement st=con.createStatement();
-                ResultSet rs=st.executeQuery("select colonia from colonia;");
-                while(rs.next())
-                {
-                    this.cmbcolonia.addItem(rs.getString("colonia"));
-                    traeridcolonia();
-                }
-                rs.close();
-                con.close();
-            }catch (ClassNotFoundException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }catch (SQLException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            } 
-        this.cmbsexo.removeAllItems();
-          try
-            {
-                Connection con=null;
-                Class.forName("com.mysql.jdbc.Driver");
-                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
-                Statement st=con.createStatement();
-                ResultSet rs=st.executeQuery("select sexo from sexo;");
-                while(rs.next())
-                {
-                    this.cmbsexo.addItem(rs.getString("sexo"));
-                    traeridsexo();
-                }
-                rs.close();
-                con.close();
-            }catch (ClassNotFoundException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }catch (SQLException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }    
-        this.cmbsalon.removeAllItems();
-          try
-            {
-                Connection con=null;
-                Class.forName("com.mysql.jdbc.Driver");
-                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
-                Statement st=con.createStatement();
-                ResultSet rs=st.executeQuery("select salon from salon;");
-                while(rs.next())
-                {
-                    this.cmbsalon.addItem(rs.getString("salon"));
-                    traeridsalon();
-                }
-                rs.close();
-                con.close();
-            }catch (ClassNotFoundException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }catch (SQLException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }      
+        cargarsex();
+        cargarsal();
+        cargarcol();
+        cargarturno();
         this.setTitle("Docente");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
@@ -118,7 +34,104 @@ public class docente extends javax.swing.JFrame {
         return retValue;
     
     }
-
+    public void cargarsex(){
+           try
+            {
+                Connection con=null; 
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select sexo from sexo;");
+                cmbsexo.removeAllItems();
+                while(rs.next())
+                {
+                    cmbsexo.addItem(rs.getString(1));
+                    traeridsexo();
+                }
+                rs.close();
+                con.close();
+            }catch (ClassNotFoundException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }catch (SQLException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        }       
+    public void cargarcol(){
+           try
+            {
+                Connection con=null;
+                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select colonia from colonia;");
+                cmbcolonia.removeAllItems();
+                while(rs.next())
+                {
+                    cmbcolonia.addItem(rs.getString(1));
+                    traeridcolonia();
+                }
+                rs.close();
+                con.close();
+            }catch (ClassNotFoundException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }catch (SQLException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        }  
+    public void cargarsal(){
+           try
+            {
+                Connection con=null;
+                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select salon from salon;");
+                cmbsalon.removeAllItems();
+                while(rs.next())
+                {
+                    cmbsalon.addItem(rs.getString(1));
+                    traeridsalon();
+                }
+                rs.close();
+                con.close();
+            }catch (ClassNotFoundException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }catch (SQLException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        }
+    public void cargarturno(){
+           try
+            {
+                Connection con=null; 
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery("select turno from turno_docente;");
+                cmbturno.removeAllItems();
+                while(rs.next())
+                {
+                    cmbturno.addItem(rs.getString(1));
+                    traeridturno();
+                }
+                rs.close();
+                con.close();
+            }catch (ClassNotFoundException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }catch (SQLException ex)
+            {
+                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        }
+            
+            
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -704,7 +717,30 @@ public class docente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
-        grabar();
+     if (jTextField1.getText().isEmpty()|| jTextField2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,"INGRESA TUS DATOS CORRECTOS");      
+        }
+        else{
+             res=javaapplication4.conexionsql1.Consulta("Select count(nombre)from docente where id_docente='"+jTextField1.getText()+"'");
+             try {
+                 while (res.next()) {
+                     coun=res.getInt(1);
+                     
+                 }
+             } catch (SQLException e) {
+             }
+             if (coun>=1) {
+                 JOptionPane.showMessageDialog(this,"este elemento ya existe");
+             }
+             else{
+                 try {
+                     Conexiones.Procedimientos.entradadocente(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText(),jTextField7.getText(),jTextField8.getText(),jTextField9.getText(),jTextField10.getText(),jTextField11.getText(),jTextField12.getText(),jTextField13.getText(),jTextField14.getText());
+                 } catch (SQLException ex) {
+                     Logger.getLogger(alumno.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                 JOptionPane.showMessageDialog(this,"exito");
+             }
+        }
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btnsalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalidaActionPerformed
@@ -943,8 +979,9 @@ int sw=0;
         try 
         {
             Connection con=null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+            
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
             Statement s1t=con.createStatement();
             ResultSet rs=s1t.executeQuery("select * from turno_docente where turno='"+this.cmbturno.getSelectedItem()+"'" );
             rs.next();
@@ -960,8 +997,8 @@ int sw=0;
         try 
         {
             Connection con=null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
             Statement s1t=con.createStatement();
             ResultSet rs=s1t.executeQuery("select * from colonia where colonia='"+this.cmbcolonia.getSelectedItem()+"'" );
             rs.next();
@@ -977,8 +1014,8 @@ int sw=0;
         try 
         {
             Connection con=null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
             Statement s1t=con.createStatement();
             ResultSet rs=s1t.executeQuery("select * from sexo where sexo='"+this.cmbsexo.getSelectedItem()+"'" );
             rs.next();
@@ -994,8 +1031,9 @@ int sw=0;
         try 
         {
             Connection con=null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+            
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
             Statement s1t=con.createStatement();
             ResultSet rs=s1t.executeQuery("select * from salon where salon='"+this.cmbsalon.getSelectedItem()+"'" );
             rs.next();
