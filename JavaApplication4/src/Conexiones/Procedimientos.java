@@ -389,5 +389,11 @@ public class Procedimientos {
             entrada.setInt(1, a);
             entrada.execute();
         }
+             public static void eliminaalumno(int a)throws SQLException
+        {
+            CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call eliminaalumno(?)}");
+            entrada.setInt(1, a);
+            entrada.execute();
+        }
         
 }

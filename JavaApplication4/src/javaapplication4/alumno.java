@@ -1006,7 +1006,16 @@ public class alumno extends javax.swing.JFrame {
     }//GEN-LAST:event_btncerrarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-              // TODO add your handling code here:
+   int row = jTable1.getSelectedRow();
+        int opc = JOptionPane.showConfirmDialog(this, "¿Estas seguro de eliminar el registro?","Pregunta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if(opc == JOptionPane.YES_OPTION){
+       try {
+           Procedimientos.eliminaalumno(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+           JOptionPane.showMessageDialog(null, "Registro eliminado con exito");
+       } catch (SQLException ex) {
+           Logger.getLogger(alumno.class.getName()).log(Level.SEVERE, null, ex);
+       }
+        }                // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
@@ -1052,7 +1061,14 @@ public class alumno extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-      // TODO add your handling code here:
+       try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update alumno set nombre='" + 
+                    txtnombre.getText() + "' where matricula='" + txtmatricula.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+             
+        }catch(SQLException e){
+        }      // TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
