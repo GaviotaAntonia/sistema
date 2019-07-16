@@ -14,60 +14,49 @@ public class Procedimientos {
         entrada.setString(2, b);
         entrada.execute();
     }
-    
         public static void EntradaMes(String a,String b) throws SQLException{
         CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaMes(?,?)}");
         entrada.setString(1, a);
         entrada.setString(2, b);
         entrada.execute();
     }
-    
         public static void EntradaDia(String a,String b) throws SQLException{
         CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaDia(?,?)}");
         entrada.setString(1, a);
         entrada.setString(2, b);
         entrada.execute();
     }
-    
         public static void EntradaSexo(String a,String b) throws SQLException{
         CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaSexo(?,?)}");
         entrada.setString(1, a);
         entrada.setString(2, b);
         entrada.execute();
     }
-    
         public static void EntradaGrupo(String a,String b) throws SQLException{
         CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaGrupo(?,?)}");
         entrada.setString(1, a);
         entrada.setString(2, b);
         entrada.execute();
-    }
-    
+    }   
         public static void EntradaCertificado(String a,String b) throws SQLException{
         CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaCertificado(?,?)}");
         entrada.setString(1, a);
         entrada.setString(2, b);
         entrada.execute();
     }
-    
-        public static void EntradaEstado(String a,String b) throws SQLException
-        {
+        public static void EntradaEstado(String a,String b) throws SQLException{
             CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaEstado(?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
             entrada.execute();
         }
-    
-        public static void EntradaSalon(String a,String b) throws SQLException
-        {
+        public static void EntradaSalon(String a,String b) throws SQLException{
             CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaSalon(?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
             entrada.execute();
         }
-        
-        public static void EntradaTurno(String a,String b,String c,String d) throws SQLException
-        {
+        public static void EntradaTurno(String a,String b,String c,String d) throws SQLException{
             CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaTurno(?,?,?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
@@ -75,9 +64,7 @@ public class Procedimientos {
             entrada.setString(4, d);
             entrada.execute();
         }
-        
-        public static void EntradaColonia(String a,String b,String c,String d) throws SQLException
-        {
+        public static void EntradaColonia(String a,String b,String c,String d) throws SQLException{
             CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaColonia(?,?,?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
@@ -85,9 +72,7 @@ public class Procedimientos {
             entrada.setString(4, d);
             entrada.execute();
         }
-        
-        public static void EntradaCalendario(String a,String b,String c,String d,String e) throws SQLException
-        {
+        public static void EntradaCalendario(String a,String b,String c,String d,String e) throws SQLException{
             CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaCalendario(?,?,?,?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
@@ -96,9 +81,7 @@ public class Procedimientos {
             entrada.setString(5, e);
             entrada.execute();
         }
-        
-        public static void EntradaDirector(String a,String b,String c,String d,String e,String f,String g,String h,String i,String j,String k,String l,String m) throws SQLException
-        {
+        public static void EntradaDirector(String a,String b,String c,String d,String e,String f,String g,String h,String i,String j,String k,String l,String m) throws SQLException{
             CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaDirector(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
@@ -114,10 +97,8 @@ public class Procedimientos {
             entrada.setString(12, l);
             entrada.setString(13, m);
             entrada.execute();
-        }
-        
-        public static void EntradaCede(String a,String b,String c,String d,String e,String f,String g,String h,String i,String j) throws SQLException
-        {
+        }        
+        public static void EntradaCede(String a,String b,String c,String d,String e,String f,String g,String h,String i,String j) throws SQLException{
             CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaCede(?,?,?,?,?,?,?,?,?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
@@ -131,8 +112,7 @@ public class Procedimientos {
             entrada.setString(10, j);
             entrada.execute();
         }
-          public static void entradausuario(String a,String b,String c,String d,String e,String f,String g) throws SQLException
-        {
+        public static void entradausuario(String a,String b,String c,String d,String e,String f,String g) throws SQLException{
             CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call entradausuario(?,?,?,?,?,?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
@@ -143,8 +123,7 @@ public class Procedimientos {
             entrada.setString(7, g);
             entrada.execute();
         }
-           public static void entradahorario(String a,String b,String c,String d,String e) throws SQLException
-        {
+        public static void entradahorario(String a,String b,String c,String d,String e) throws SQLException{
             CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call entradahorario(?,?,?,?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
@@ -153,8 +132,7 @@ public class Procedimientos {
             entrada.setString(5, e);
             entrada.execute();
         }
-        public static void fhorario(String a,String b,String c,String d,String e) throws SQLException
-        {
+        public static void fhorario(String a,String b,String c,String d,String e) throws SQLException{
             CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call fhorario(?,?,?,?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
@@ -163,8 +141,7 @@ public class Procedimientos {
             entrada.setString(5, e);
             entrada.execute();
         }
-         public static void entradadocente(String a,String b,String c,String d,String e,String f,String g, String h, String i,String j,String k,String l,String m, String n) throws SQLException
-        {
+        public static void entradadocente(String a,String b,String c,String d,String e,String f,String g, String h, String i,String j,String k,String l,String m, String n) throws SQLException  {
             CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call entradadocente(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             entrada.setString(1, a);
             entrada.setString(2, b);
@@ -182,57 +159,49 @@ public class Procedimientos {
             entrada.setString(14, n);
             entrada.execute();
         }
-        public static void GrabarAlumno(String a,String b,String c,String d,String e,String f,String g,String h, String i,String j,String k,String l,String m, String n,String o,String q, String r,String s) throws SQLException
-        {
-            CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call GrabarAlumno(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
-            entrada.setString(1, a);
-            entrada.setString(2, b);
-            entrada.setString(3, c);
-            entrada.setString(4, d);
-            entrada.setString(5, e);
-            entrada.setString(6, f);
-            entrada.setString(7, g);
-            entrada.setString(8, h);
-            entrada.setString(9, i);
-            entrada.setString(10, j);
-            entrada.setString(11, k);
-            entrada.setString(12, l);
-            entrada.setString(13, m);
-            entrada.setString(14, n);
-            entrada.setString(15, o);
-            entrada.setString(17, q);
-            entrada.setString(18, r);
-            entrada.setString(19, s);
-            
-            
-            entrada.execute();
+        public static void GrabarAlumno(String a,String b,String c,String d, String e,String f,String g,String h,String i,String j,String k,String l,String m,String n,String o,String p,String q) throws SQLException{
+            CallableStatement entrada1=conexionsql1.getConexion().prepareCall("{call GrabarAlumno(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            entrada1.setString(1, a);
+            entrada1.setString(2, b);
+            entrada1.setString(3, c);
+            entrada1.setString(4, d); 
+            entrada1.setString(5, e);
+            entrada1.setString(6, f);
+            entrada1.setString(7, g);
+            entrada1.setString(8, h);
+            entrada1.setString(9, i);
+            entrada1.setString(10, j);
+            entrada1.setString(11, k);
+            entrada1.setString(12, l);
+            entrada1.setString(13, m);
+             entrada1.setString(14, n);
+            entrada1.setString(15, o);
+            entrada1.setString(16, p);
+            entrada1.setString(17, q);
+            entrada1.execute();
         }
                
     /*---- Buscar ----*/
     
-        public static void buscamateria(int a)throws SQLException
-        {
+        public static void buscamateria(int a)throws SQLException{
             CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call buscarmateria(?)}");
             entrada.setInt(1, a);
             entrada.execute();
         }
     
-        public static void BuscarMes(int a)throws SQLException
-        {
+        public static void BuscarMes(int a)throws SQLException{
             CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call BuscarMes(?)}");
             entrada.setInt(1, a);
             entrada.execute();
         }
     
-        public static void BuscarDia(int a)throws SQLException
-        {
+        public static void BuscarDia(int a)throws SQLException{
             CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call BuscarDia(?)}");
             entrada.setInt(1, a);
             entrada.execute();
         }
     
-        public static void BuscarSexo(int a)throws SQLException
-        {
+        public static void BuscarSexo(int a)throws SQLException{
             CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call BuscarSexo(?)}");
             entrada.setInt(1, a);
             entrada.execute();
@@ -304,6 +273,7 @@ public class Procedimientos {
         {
             CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call Buscaralum(?)}");
             entrada.setInt(1, a);
+            
             entrada.execute();
         }
      public static void buscarusua(int a)throws SQLException
