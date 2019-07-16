@@ -735,10 +735,12 @@ public class docente extends javax.swing.JFrame {
              else{
                  try {
                      Conexiones.Procedimientos.entradadocente(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText(),jTextField7.getText(),jTextField8.getText(),jTextField9.getText(),jTextField10.getText(),jTextField11.getText(),jTextField12.getText(),jTextField13.getText(),jTextField14.getText());
+                     
+                 JOptionPane.showMessageDialog(this,"exito");
                  } catch (SQLException ex) {
                      Logger.getLogger(alumno.class.getName()).log(Level.SEVERE, null, ex);
                  }
-                 JOptionPane.showMessageDialog(this,"exito");
+                 JOptionPane.showMessageDialog(this,"fallo");
              }
         }
     }//GEN-LAST:event_btnagregarActionPerformed
