@@ -35,6 +35,7 @@
     <class>javaapplication4.Calendario_1</class>
     <class>javaapplication4.Director_1</class>
     <class>javaapplication4.Cede_1</class>
+    <class>javaapplication4.Docente_1</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://DESKTOP-AHM3DOT\\SQLEXPRESS:1433;databaseName=dbdistribuida"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>
