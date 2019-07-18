@@ -739,6 +739,9 @@ public class cede extends javax.swing.JFrame {
         if(opc == JOptionPane.YES_OPTION){
             try{
                 Procedimientos.EliminarCede(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+                JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
+          nuevo();
             }catch (SQLException e){
             }
         }   

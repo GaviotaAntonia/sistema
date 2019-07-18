@@ -701,7 +701,7 @@ public class docente extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        borrar();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultarActionPerformed
@@ -739,8 +739,9 @@ public class docente extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(this,"exito");
                  } catch (SQLException ex) {
                      Logger.getLogger(alumno.class.getName()).log(Level.SEVERE, null, ex);
-                 }
+                     
                  JOptionPane.showMessageDialog(this,"fallo");
+                 }
              }
         }
     }//GEN-LAST:event_btnagregarActionPerformed

@@ -1,6 +1,6 @@
 package javaapplication4;
 import Conexiones.Procedimientos;
-import java.awt.Image;
+
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 public class alumno extends javax.swing.JFrame {
     static ResultSet res;
@@ -1010,7 +1012,9 @@ public class alumno extends javax.swing.JFrame {
            Procedimientos.eliminaalumno(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
            JOptionPane.showMessageDialog(null, "Registro eliminado con exito");
        } catch (SQLException ex) {
-           Logger.getLogger(alumno.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
+          nuevo();
        }
         }                // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarActionPerformed
