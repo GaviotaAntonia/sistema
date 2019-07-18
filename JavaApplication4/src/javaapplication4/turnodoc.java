@@ -494,7 +494,9 @@ consultar();
         int opc = JOptionPane.showConfirmDialog(this, "¿Estas seguro de eliminar el registro?","Pregunta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
         if(opc == JOptionPane.YES_OPTION){
             try{
-                Procedimientos.EliminarTurno(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+                Procedimientos.EliminarTurno(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
+          nuevo();
             }catch (SQLException e){
             }
         }     

@@ -527,7 +527,9 @@ consultar();
            Procedimientos.eliminarusuario(Integer.parseInt(jTable2.getValueAt(row, 0).toString()));
            JOptionPane.showMessageDialog(null, "Registro eliminado con exito");
        } catch (SQLException ex) {
-           Logger.getLogger(alumno.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
+          nuevo();
        }
         }       
     }//GEN-LAST:event_btneliminarActionPerformed
