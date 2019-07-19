@@ -1025,7 +1025,8 @@ public class alumno extends javax.swing.JFrame {
             txtmatricula.setText("");
             txtmatricula.requestFocus();
         } else {
-            try {
+            try 
+            {
                 String b;
                 Procedimientos.buscamateria(Integer.parseInt(txtmatricula.getText()));
                 b = txtmatricula.getText();
@@ -1054,9 +1055,9 @@ public class alumno extends javax.swing.JFrame {
 
                     }
                 }
-            }catch(SQLException e){
-
-                JOptionPane.showMessageDialog(null, "Datos no Encontrados");
+           }catch(SQLException e)
+           {
+               JOptionPane.showMessageDialog(null, "Datos no Encontrados");
             }
         }     // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscarActionPerformed

@@ -1,4 +1,5 @@
 package javaapplication4;
+import Conexiones.Procedimientos;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -12,6 +13,8 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 public class especialbole extends javax.swing.JFrame {
+    static ResultSet res;
+    int coun;
     public especialbole() {
         initComponents();
         cargaralumno();
@@ -34,7 +37,11 @@ public class especialbole extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
+        especialQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Especial e");
+        especialList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : especialQuery.getResultList();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -58,6 +65,8 @@ public class especialbole extends javax.swing.JFrame {
         cmbalumno = new javax.swing.JComboBox<>();
         cmbmateria = new javax.swing.JComboBox<>();
         cmbdocente = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menunuevo = new javax.swing.JMenuItem();
@@ -125,6 +134,11 @@ public class especialbole extends javax.swing.JFrame {
         btneliminar.setBackground(new java.awt.Color(255, 255, 255));
         btneliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/eliminar.png"))); // NOI18N
         btneliminar.setText(" Eliminar");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminarActionPerformed(evt);
+            }
+        });
 
         label1.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
         label1.setText("nombre del usuario");
@@ -182,6 +196,26 @@ public class especialbole extends javax.swing.JFrame {
             }
         });
 
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, especialList, jTable1);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idEspecial}"));
+        columnBinding.setColumnName("Id Especial");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${matricula}"));
+        columnBinding.setColumnName("Matricula");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idMateria}"));
+        columnBinding.setColumnName("Id Materia");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idDocente}"));
+        columnBinding.setColumnName("Id Docente");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${calificacion}"));
+        columnBinding.setColumnName("Calificacion");
+        columnBinding.setColumnClass(String.class);
+        bindingGroup.addBinding(jTableBinding);
+
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -238,6 +272,10 @@ public class especialbole extends javax.swing.JFrame {
                             .addComponent(btnbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btngrabar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(114, 114, 114))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,7 +328,9 @@ public class especialbole extends javax.swing.JFrame {
                         .addComponent(btnbuscar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btngrabar)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Acciones");
@@ -377,8 +417,10 @@ public class especialbole extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -427,11 +469,63 @@ modificar();
     }//GEN-LAST:event_menunuevoActionPerformed
 
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
-    grabar();        // TODO add your handling code here:
+   if (jTextField1.getText().isEmpty()|| jTextField2.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,"INGRESA TUS DATOS CORRECTOS");      
+        }
+        else{
+             res=javaapplication4.conexionsql1.Consulta("Select count(id_especial)from especial where id_especial='"+jTextField1.getText()+"'");
+             try {
+                 while (res.next()) {
+                     coun=res.getInt(1);
+                     
+                 }
+             } catch (SQLException e) {
+             }
+             if (coun>=1) {
+                 JOptionPane.showMessageDialog(this,"este elemento ya existe");
+             }
+             else{
+                 try {
+                     Conexiones.Procedimientos.grabarespe(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText());
+                 } catch (SQLException ex) {
+                     Logger.getLogger(detalle_horario.class.getName()).log(Level.SEVERE, null, ex);
+                 }
+                 JOptionPane.showMessageDialog(this,"exito");
+             }
+        }
+        
     }//GEN-LAST:event_btngrabarActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-       consultar(); // TODO add your handling code here:
+          if(jTextField1.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "META BIEN SUS DATOS", "Error", JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText("");
+            jTextField1.requestFocus();
+        } else {
+            try 
+            {
+                String b;
+                Procedimientos.buscaespe(Integer.parseInt(jTextField1.getText()));
+                b = jTextField1.getText();
+                res = conexionsql1.Consulta("select * from detalle_horario");
+                while(res.next()){
+                    if(res.getString(1).equals(b)){
+                        JOptionPane.showMessageDialog(null, "Datos Encontrados");
+                        jTextField1.setText(res.getString(1));
+                        jTextField2.setText(res.getString(2));
+                        jTextField3.setText(res.getString(3));
+                        jTextField4.setText(res.getString(4));
+                        jTextField5.setText(res.getString(5));
+
+                       
+
+                    }
+                }
+           }catch(SQLException e)
+           {
+               JOptionPane.showMessageDialog(null, "Datos no Encontrados");
+            }
+        }// TODO add your handling code here:
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -457,6 +551,21 @@ traeriddoc();        // TODO add your handling code here:
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+int row = jTable1.getSelectedRow();
+        int opc = JOptionPane.showConfirmDialog(this, "¿Estas seguro de eliminar el registro?","Pregunta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if(opc == JOptionPane.YES_OPTION){
+       try {
+           Procedimientos.eliminarespe(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+           JOptionPane.showMessageDialog(null, "Registro eliminado con exito");
+       } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
+          nuevo();
+       }
+        }          // TODO add your handling code here:
+    }//GEN-LAST:event_btneliminarActionPerformed
     public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
@@ -602,8 +711,8 @@ catch(Exception e2){
     try
     {
         Connection con=null;
-        Class.forName("com.mysql.jdbc.Driver");
-        con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
         Statement st=con.createStatement();
         ResultSet rs=st.executeQuery("select nombre from alumno;");
         cmbalumno.removeAllItems();
@@ -625,14 +734,13 @@ catch(Exception e2){
            public void traeridalumno(){
             try {
          Connection con=null;
-                Class.forName("com.mysql.jdbc.Driver");
-                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
                 Statement s1t=con.createStatement();
                 ResultSet rs=s1t.executeQuery("select * from alumno where nombre='"+this.cmbalumno.getSelectedItem()+"'" );
                 rs.next();
-                //System.out.println(rs);
-                this.jTextField2.setText(String.valueOf(rs.getInt("id_alumno")));
-     } catch (Exception e) {
+                jTextField2.setText(String.valueOf(rs.getInt("matricula")));
+     } catch (ClassNotFoundException | SQLException e) {
      } 
        }
            
@@ -641,8 +749,8 @@ catch(Exception e2){
     try
     {
         Connection con=null;
-        Class.forName("com.mysql.jdbc.Driver");
-        con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
         Statement st=con.createStatement();
         ResultSet rs=st.executeQuery("select materia from materia;");
         cmbmateria.removeAllItems();
@@ -664,8 +772,8 @@ catch(Exception e2){
         public void traeridmat(){
             try {
          Connection con=null;
-                Class.forName("com.mysql.jdbc.Driver");
-                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
                 Statement s1t=con.createStatement();
                 ResultSet rs=s1t.executeQuery("select * from materia where materia='"+this.cmbmateria.getSelectedItem()+"'" );
                 rs.next();
@@ -679,8 +787,8 @@ catch(Exception e2){
     try
     {
         Connection con=null;
-        Class.forName("com.mysql.jdbc.Driver");
-        con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
         Statement st=con.createStatement();
         ResultSet rs=st.executeQuery("select nombre from docente;");
         cmbdocente.removeAllItems();
@@ -702,8 +810,8 @@ catch(Exception e2){
            public void traeriddoc(){
             try {
          Connection con=null;
-                Class.forName("com.mysql.jdbc.Driver");
-                con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
                 Statement s1t=con.createStatement();
                 ResultSet rs=s1t.executeQuery("select * from docente where nombre='"+this.cmbdocente.getSelectedItem()+"'" );
                 rs.next();
@@ -733,6 +841,9 @@ catch(Exception e2){
     private javax.swing.JComboBox<String> cmbalumno;
     private javax.swing.JComboBox<String> cmbdocente;
     private javax.swing.JComboBox<String> cmbmateria;
+    private javax.persistence.EntityManager entityManager;
+    private java.util.List<javaapplication4.Especial> especialList;
+    private javax.persistence.Query especialQuery;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -745,6 +856,8 @@ catch(Exception e2){
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     public static javax.swing.JTextField jTextField1;
     public static javax.swing.JTextField jTextField2;
     public static javax.swing.JTextField jTextField3;
@@ -757,5 +870,6 @@ catch(Exception e2){
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

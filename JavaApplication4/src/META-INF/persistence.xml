@@ -40,6 +40,8 @@
     <class>javaapplication4.Usuario_1</class>
     <class>javaapplication4.Alumno_1</class>
     <class>javaapplication4.Status_1</class>
+    <class>javaapplication4.DetalleHorario</class>
+    <class>javaapplication4.Especial</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://DESKTOP-AHM3DOT\\SQLEXPRESS:1433;databaseName=dbdistribuida"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>
