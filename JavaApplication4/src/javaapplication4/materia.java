@@ -8,15 +8,17 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class materia extends javax.swing.JFrame {
     static ResultSet res;
     int coun;
-
+    static ResultSet res1;
     public materia() {
         initComponents();
         this.setTitle("Materia");
@@ -37,13 +39,9 @@ public class materia extends javax.swing.JFrame {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
         materia_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT m FROM Materia_1 m");
         materia_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : materia_1Query.getResultList();
-        materia_1Query1 = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT m FROM Materia_1 m");
-        materia_1List1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : materia_1Query1.getResultList();
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
@@ -69,12 +67,6 @@ public class materia extends javax.swing.JFrame {
         menubuscar = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuayuda = new javax.swing.JMenuItem();
-
-        label1.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
-        label1.setText("nombre del usuario");
-
-        label2.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
-        label2.setText("numero de usuario");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
@@ -149,7 +141,7 @@ public class materia extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
         jLabel5.setText("numero de usuario");
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, materia_1List1, jTable1);
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, materia_1List, jTable1);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idMateria}"));
         columnBinding.setColumnName("Id Materia");
         columnBinding.setColumnClass(Integer.class);
@@ -389,6 +381,7 @@ public class materia extends javax.swing.JFrame {
         if(opc == JOptionPane.YES_OPTION){
             try{
                 Procedimientos.Eliminarmateria(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+                cargartabla();
             }catch (SQLException e){
             }
         }     
@@ -405,7 +398,7 @@ public class materia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void menuagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuagregarActionPerformed
-      grabar();  // TODO add your handling code here:
+     // TODO add your handling code here:
     }//GEN-LAST:event_menuagregarActionPerformed
 
     private void menunuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menunuevoActionPerformed
@@ -423,71 +416,8 @@ public class materia extends javax.swing.JFrame {
 public void nuevo(){
      jTextField1.setText("");    
         jTextField2.setText("");
-        jTextField1.requestFocusInWindow();}
-
-    public void grabar(){
-    
-try{
-    Class.forName("com.mysql.jdbc.Driver");
-    String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
-    Connection con =DriverManager.getConnection(cadena);
-    PreparedStatement stmt=null;
-    String id_materia=jTextField1.getText();
-    String materia=jTextField2.getText();
-
-    
-    String sql="insert into materia values(";
-    sql+=id_materia+","+"\""+materia+"\")";
-    stmt=con.prepareStatement(sql);
-    int sw=stmt.executeUpdate();
-    if(sw!=0){
-                   
-           JOptionPane.showMessageDialog(null, "Registro dado de alta", "Registro de alta con exito!",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/listoagrega.png"));
-    nuevo();
-    }
+        jTextField1.requestFocusInWindow();
 }
-catch(ClassNotFoundException e){
-    JOptionPane.showMessageDialog(null, e);
-}
-catch(SQLException e1){
-    JOptionPane.showMessageDialog(null, e1);
-}
-catch(Exception e2){
-    JOptionPane.showMessageDialog(null, e2);
-}
- }
-
-    public void borrar(){
-    try{ 
-          Class.forName("com.mysql.jdbc.Driver");
-      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
-      Connection con; PreparedStatement stmt;
-             con = DriverManager.getConnection (cadena);
-     String sql= " delete from materia where materia=";
-      sql += "\"" + jTextField1.getText() + "\";"; 
-      JOptionPane.showMessageDialog (null, sql);
-      stmt = con.prepareStatement(sql);
-      int sw = stmt.executeUpdate();
-      if (sw!=0) {  JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
-          nuevo();
-      }
-     }
-    catch(ClassNotFoundException e)
-    {  
-        JOptionPane.showMessageDialog (null, e);
-    }
-    catch (SQLException e1)
-    { 
-        JOptionPane.showMessageDialog (null, e1); 
-    }
-      catch (Exception e2)
-      {
-          JOptionPane.showMessageDialog (null, e2);
-      }
-    }
-
     public void consultar(){
 int sw=0;
         
@@ -567,6 +497,22 @@ int sw=0;
       }
 }
     
+    public void cargartabla(){
+        DefaultTableModel modelo=(DefaultTableModel)jTable1.getModel();
+        modelo.setRowCount(0);
+        res1=conexionsql1.Consulta("Select * from materia");
+        try {
+            while (res1.next()) {                
+                Vector v= new Vector();
+                v.add(res.getInt(1));
+                v.add(res.getString(2));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -621,12 +567,8 @@ int sw=0;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private java.awt.Label label1;
-    private java.awt.Label label2;
     private java.util.List<javaapplication4.Materia_1> materia_1List;
-    private java.util.List<javaapplication4.Materia_1> materia_1List1;
     private javax.persistence.Query materia_1Query;
-    private javax.persistence.Query materia_1Query1;
     private javax.swing.JMenuItem menuagregar;
     private javax.swing.JMenuItem menuayuda;
     private javax.swing.JMenuItem menubuscar;

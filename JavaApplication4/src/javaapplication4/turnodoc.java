@@ -374,9 +374,8 @@ public class turnodoc extends javax.swing.JFrame {
         try{
             PreparedStatement pps = conexionsql1.getConexion().prepareStatement
             (
-                    "update turno set turno_docente='" + jTextField2.getText() + 
-                    "update docente set turno_docente='" + jTextField3.getText() +
-                    "update horario set turno_docente='" + jTextField4.getText() + "' where id_turno='" + jTextField1.getText() + "'"
+                    "update turno_docente set turno='" + jTextField2.getText() + "', docente='" + jTextField3.getText() +
+                            "', horario='" + jTextField4.getText() + "' where id_turno='" + jTextField1.getText() + "'"
             );
                 pps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
