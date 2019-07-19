@@ -11,9 +11,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javaapplication4.detalle_horario.res;
-import static javaapplication4.materia.res;
-import static javaapplication4.usuario.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -365,7 +362,7 @@ public class formahorarioclase extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"INGRESA TUS DATOS CORRECTOS");      
         }
         else{
-             res=javaapplication4.conexionsql1.Consulta("Select count(horario)from horario where horario='"+jTextField2.getText()+"'");
+             res=javaapplication4.conexionsql1.Consulta("Select count(id_horario)from horario where id_horario='"+jTextField1.getText()+"'");
              try {
                  while (res.next()) {
                      coun=res.getInt(1);
@@ -378,7 +375,7 @@ public class formahorarioclase extends javax.swing.JFrame {
              }
              else{
                  try {
-                     Conexiones.Procedimientos.fhorario(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText());
+                     Conexiones.Procedimientos.grabarhorario(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText());
                  } catch (SQLException ex) {
                      Logger.getLogger(usuario.class.getName()).log(Level.SEVERE, null, ex);
                  }
@@ -410,7 +407,10 @@ public class formahorarioclase extends javax.swing.JFrame {
                     if(res.getString(1).equals(b)){
                         JOptionPane.showMessageDialog(null, "Datos Encontrados");
                         jTextField1.setText(res.getString(1));
-                        jTextField2.setText(res.getString(2));
+                        jTextField2.setText(res.getString(2));                       
+                        jTextField3.setText(res.getString(3));
+                        jTextField4.setText(res.getString(2));
+                        jTextField5.setText(res.getString(3));
                     }
                 }
             }catch(SQLException e){
@@ -686,6 +686,8 @@ catch(Exception e2){
             try {
          Connection con=null;
          
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
                 Statement s1t=con.createStatement();
                 ResultSet rs=s1t.executeQuery("select * from docente where nombre='"+this.cmbdoc.getSelectedItem()+"'" );
                 rs.next();
