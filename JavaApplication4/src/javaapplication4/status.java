@@ -330,7 +330,16 @@ public class status extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevo1ActionPerformed
 
     private void btnmodificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificar1ActionPerformed
-       modificar();
+         try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update status set status='" + 
+                    jTextField2.getText() + "' where id_status='" + jTextField1.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField1.requestFocus();
+        }catch(SQLException e){
+        }
     }//GEN-LAST:event_btnmodificar1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

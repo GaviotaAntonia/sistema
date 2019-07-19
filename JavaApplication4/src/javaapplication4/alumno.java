@@ -1063,17 +1063,30 @@ public class alumno extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-       try{
-            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update alumno set nombre='" + txtnombre.getText() +"' apellidopat="+txtapepat.getText()+"' apellidomat= '"+txtapemat.getText()+"' id_colonia= '"+txtcolonia.getText()+"' calle='"+txtcalle.getText()+"'"+
-                    "numero='"+txtnumero.getText()+"' codigopostal="+txtcodigpostal.getText()+"' correo='"+txtcorreo.getText()+"'"+
-                    "id_sexo="+txtsexo.getText()+"' edad="+txtedad.getText()+"' curp='"+txtcurp.getText()+"' fotoarchivo="+txtfoto.getText()+
-                    "boleta='"+txtboleta.getText()+"' id_status='"+txtstatus.getText()+"' id_certificado='"+txtcodigpostal+"' id_cede='"+txtcede.getText()+
+              try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update alumno set nombre='" + txtnombre.getText() +
+                    "',  apellidopat='" + txtapepat.getText() +
+                    "', apellidomat='" + txtapemat.getText()+
+                    "', id_colonia='" + txtcolonia.getText() + 
+                    "',  calle='" + txtcalle.getText() +
+                    "',  numero='" + txtnumero.getText() +
+                    "', codigopostal='" + txtcodigpostal.getText()+
+                    "', correo='" + txtcorreo.getText() + 
+                    "',  id_sexo='" + txtsexo.getText() +
+                    "',  edad='" + txtedad.getText() + 
+                    "',  curp='" + txtcurp.getText() +
+                    "',  fotoarchivo='" + txtfoto.getText() +
+                    "',  boleta='" + txtboleta.getText() +
+                    "',  id_status='" + txtstatus.getText() + 
+                    "',  id_certificado='" + txtcerti.getText() +
+                    "',  id_cede='" + txtcede.getText() +
                     "' where matricula='" + txtmatricula.getText() + "'");
                 pps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
-             
-        }catch(SQLException e){
-        }      // TODO add your handling code here:
+               nuevo();
+            }catch(SQLException e){
+                System.out.println(e);
+        }    // TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed

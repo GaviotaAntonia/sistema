@@ -2,22 +2,6 @@
 
 <Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="java.awt.Label" name="label1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Century Gothic" size="24" style="2"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="nombre del usuario"/>
-      </Properties>
-    </Component>
-    <Component class="java.awt.Label" name="label2">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Century Gothic" size="14" style="2"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="numero de usuario"/>
-      </Properties>
-    </Component>
     <Component class="javax.persistence.EntityManager" name="entityManager">
       <Properties>
         <Property name="persistenceUnit" type="java.lang.String" value="DESKTOP-AHM3DOT\u005c\u005cSQLEXPRESS:1433;databaseName=dbdistribuidaPU" containsInvalidXMLChars="true"/>
@@ -35,24 +19,6 @@
       <Properties>
         <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
           <ComponentRef name="materia_1Query"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;javaapplication4.Materia_1&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.persistence.Query" name="materia_1Query1">
-      <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT m FROM Materia_1 m"/>
-        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="entityManager"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="java.util.List" name="materia_1List1">
-      <Properties>
-        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="materia_1Query1"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -444,7 +410,7 @@
                 </Property>
               </Properties>
               <BindingProperties>
-                <BindingProperty name="elements" source="materia_1List1" target="jTable1" targetPath="elements" updateStrategy="0" immediately="false">
+                <BindingProperty name="elements" source="materia_1List" target="jTable1" targetPath="elements" updateStrategy="0" immediately="false">
                   <Subbinding sourcePath="${idMateria}">
                     <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="Integer.class"/>
                   </Subbinding>

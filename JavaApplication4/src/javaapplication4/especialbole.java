@@ -454,7 +454,19 @@ modificar();
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-modificar();
+try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update especial set matricula ='" + jTextField2.getText() + "',  id_materia='" + jTextField3.getText() +
+                    "', id_docente='" + jTextField4.getText()+"', calificacion='" + jTextField5.getText() + "' where id_especial='" + jTextField1.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField4.setText("");
+                jTextField3.setText("");
+                jTextField1.requestFocus();
+            }catch(SQLException e){
+                System.out.println(e);
+        }
 // TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 

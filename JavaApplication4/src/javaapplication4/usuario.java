@@ -473,7 +473,20 @@ consultar();
     }//GEN-LAST:event_menubuscarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        modificar();
+         try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update usuario set usuario='" + jTextField2.getText() +
+                    "',  contraseña='" + psw1.getText() +
+                    "', nombre='" + jTextField3.getText()+
+                    "', apellido_paterno='" + jTextField4.getText() + 
+                    "',  apellido_materno='" + jTextField5.getText() +
+                    "',  tipo_usuario='" + jTextField6.getText() +
+                    "' where id_usuario='" + jTextField1.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+                nuevo();
+            }catch(SQLException e){
+                System.out.println(e);
+        }
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed

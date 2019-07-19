@@ -10,11 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javaapplication4.formacolonia.jTextField1;
-import static javaapplication4.formacolonia.jTextField2;
-import static javaapplication4.formacolonia.jTextField3;
-import static javaapplication4.formacolonia.jTextField4;
-import static javaapplication4.formacolonia.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -457,22 +452,19 @@ public class calendario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        try{
-            PreparedStatement pps = conexionsql1.getConexion().prepareStatement(
-                    "update id_grupo set  calendario='" + jTextField2.getText() +
-                    "update id_dia set  calendario='" + jTextField3.getText() +
-                    "update id_materia  set  calendario='" + jTextField4.getText() +
-                    "update horario  set calendario='" + jTextField5.getText() + "' where id_calendario='" + jTextField1.getText() + "'");
+    try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update calendario set  id_grupo='" + jTextField2.getText() + "',  id_dia='" + jTextField3.getText() +
+                    "', id_materia='" + jTextField4.getText()+"', horario='" + jTextField5.getText() + "' where id_calendario='" + jTextField1.getText() + "'");
                 pps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
                 jTextField1.setText("");
                 jTextField2.setText("");
-                jTextField3.setText("");
                 jTextField4.setText("");
-                jTextField5.setText("");
+                jTextField3.setText("");
                 jTextField1.requestFocus();
             }catch(SQLException e){
-        }
+                System.out.println(e);
+        } 
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -19,9 +19,6 @@ public class detalle_horario extends javax.swing.JFrame {
   static ResultSet res;
     int coun;
 
-    /**
-     * Creates new form detalle_horario
-     */
     public detalle_horario() {
         initComponents();
         this.cmbturno.removeAllItems();
@@ -584,7 +581,19 @@ public class detalle_horario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        modificar();
+        try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update detalle_horario set id_turno='" + jTextField2.getText() + "',  matricula='" + jTextField3.getText() +
+                    "', id_grupo='" + jTextField4.getText()+"', id_salon='" + jTextField5.getText() + "' where id_detalle='" + jTextField1.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField4.setText("");
+                jTextField3.setText("");
+                jTextField1.requestFocus();
+            }catch(SQLException e){
+                System.out.println(e);
+        } 
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -765,13 +774,12 @@ public class detalle_horario extends javax.swing.JFrame {
         }
     }    
     
-    public void traeridturno()
-    {
+    public void traeridturno(){
         try 
         {
             Connection con=null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
             Statement s1t=con.createStatement();
             ResultSet rs=s1t.executeQuery("select * from turno_docente where turno='"+this.cmbturno.getSelectedItem()+"'" );
             rs.next();
@@ -782,30 +790,27 @@ public class detalle_horario extends javax.swing.JFrame {
         } 
     }
     
-    public void traeridalumno()
-    {
+    public void traeridalumno(){
         try 
         {
             Connection con=null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
             Statement s1t=con.createStatement();
             ResultSet rs=s1t.executeQuery("select * from alumno where nombre='"+this.cmbalumno.getSelectedItem()+"'" );
             rs.next();
             //System.out.println(rs);
-            this.jTextField3.setText(String.valueOf(rs.getInt("id_alumno")));
+            this.jTextField3.setText(String.valueOf(rs.getInt("matricula")));
         }catch (Exception e) 
         {
         } 
     }
-
-    public void traeridgrupo()
-    {
+    public void traeridgrupo(){
         try 
         {
             Connection con=null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
             Statement s1t=con.createStatement();
             ResultSet rs=s1t.executeQuery("select * from grupo where grupo='"+this.cmbgrupo.getSelectedItem()+"'" );
             rs.next();
@@ -815,14 +820,12 @@ public class detalle_horario extends javax.swing.JFrame {
         {
         } 
     }
-
-    public void traeridsalon()
-    {
+    public void traeridsalon(){
         try 
         {
             Connection con=null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbdistribuida","root","");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
             Statement s1t=con.createStatement();
             ResultSet rs=s1t.executeQuery("select * from salon where salon='"+this.cmbsalon.getSelectedItem()+"'" );
             rs.next();

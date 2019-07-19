@@ -754,7 +754,27 @@ public class docente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnconsultarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        modificar();
+                try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update docente set nombre='" + jTextField2.getText() +
+                    "',  apellidopat='" + jTextField3.getText() +
+                    "', apellidomat='" + jTextField4.getText()+
+                    "', id_turno='" + jTextField5.getText() + 
+                    "',  id_sexo='" + jTextField6.getText() +
+                    "',  curp='" + jTextField7.getText() +
+                    "', id_colonia='" + jTextField8.getText()+
+                    "', calle='" + jTextField9.getText() + 
+                    "',  numero='" + jTextField10.getText() +
+                    "',  codigo_postal='" + jTextField11.getText() + 
+                    "',  correo='" + jTextField12.getText() +
+                    "',  telefono='" + jTextField13.getText() +
+                    "',  id_salon='" + jTextField14.getText() +
+                    "' where id_docente='" + jTextField1.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+               nuevo();
+            }catch(SQLException e){
+                System.out.println(e);
+        } 
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
