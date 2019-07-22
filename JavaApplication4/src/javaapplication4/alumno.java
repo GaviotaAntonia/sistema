@@ -1,6 +1,6 @@
 package javaapplication4;
 import Conexiones.Procedimientos;
-import java.awt.Image;
+
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +11,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 public class alumno extends javax.swing.JFrame {
     static ResultSet res;
@@ -1010,7 +1012,9 @@ public class alumno extends javax.swing.JFrame {
            Procedimientos.eliminaalumno(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
            JOptionPane.showMessageDialog(null, "Registro eliminado con exito");
        } catch (SQLException ex) {
-           Logger.getLogger(alumno.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
+          nuevo();
        }
         }                // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarActionPerformed
@@ -1021,7 +1025,8 @@ public class alumno extends javax.swing.JFrame {
             txtmatricula.setText("");
             txtmatricula.requestFocus();
         } else {
-            try {
+            try 
+            {
                 String b;
                 Procedimientos.buscamateria(Integer.parseInt(txtmatricula.getText()));
                 b = txtmatricula.getText();
@@ -1039,8 +1044,8 @@ public class alumno extends javax.swing.JFrame {
                         txtcodigpostal.setText(res.getString(8));
                         txtcorreo.setText(res.getString(9));
                         txtsexo.setText(res.getString(10));
-                        txtcurp.setText(res.getString(11));
-                        txtedad.setText(res.getString(12));
+                         txtedad.setText(res.getString(11));
+                        txtcurp.setText(res.getString(12));
                         txtfoto.setText(res.getString(13));
                         txtboleta.setText(res.getString(14));
                         txtstatus.setText(res.getString(15));
@@ -1050,9 +1055,9 @@ public class alumno extends javax.swing.JFrame {
 
                     }
                 }
-            }catch(SQLException e){
-
-                JOptionPane.showMessageDialog(null, "Datos no Encontrados");
+           }catch(SQLException e)
+           {
+               JOptionPane.showMessageDialog(null, "Datos no Encontrados");
             }
         }     // TODO add your handling code here:
     }//GEN-LAST:event_btnbuscarActionPerformed
@@ -1066,6 +1071,30 @@ public class alumno extends javax.swing.JFrame {
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "no esta ingresando");
         }      // TODO add your handling code here:
+              try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update alumno set nombre='" + txtnombre.getText() +
+                    "',  apellidopat='" + txtapepat.getText() +
+                    "', apellidomat='" + txtapemat.getText()+
+                    "', id_colonia='" + txtcolonia.getText() + 
+                    "',  calle='" + txtcalle.getText() +
+                    "',  numero='" + txtnumero.getText() +
+                    "', codigopostal='" + txtcodigpostal.getText()+
+                    "', correo='" + txtcorreo.getText() + 
+                    "',  id_sexo='" + txtsexo.getText() +
+                    "',  edad='" + txtedad.getText() + 
+                    "',  curp='" + txtcurp.getText() +
+                    "',  fotoarchivo='" + txtfoto.getText() +
+                    "',  boleta='" + txtboleta.getText() +
+                    "',  id_status='" + txtstatus.getText() + 
+                    "',  id_certificado='" + txtcerti.getText() +
+                    "',  id_cede='" + txtcede.getText() +
+                    "' where matricula='" + txtmatricula.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+               nuevo();
+            }catch(SQLException e){
+                System.out.println(e);
+        }    // TODO add your handling code here:
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed

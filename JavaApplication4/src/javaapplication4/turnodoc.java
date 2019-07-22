@@ -8,10 +8,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javaapplication4.mes.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -376,9 +374,8 @@ public class turnodoc extends javax.swing.JFrame {
         try{
             PreparedStatement pps = conexionsql1.getConexion().prepareStatement
             (
-                    "update turno set turno_docente='" + jTextField2.getText() + 
-                    "update docente set turno_docente='" + jTextField3.getText() +
-                    "update horario set turno_docente='" + jTextField4.getText() + "' where id_turno='" + jTextField1.getText() + "'"
+                    "update turno_docente set turno='" + jTextField2.getText() + "', docente='" + jTextField3.getText() +
+                            "', horario='" + jTextField4.getText() + "' where id_turno='" + jTextField1.getText() + "'"
             );
                 pps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
@@ -494,7 +491,9 @@ consultar();
         int opc = JOptionPane.showConfirmDialog(this, "¿Estas seguro de eliminar el registro?","Pregunta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
         if(opc == JOptionPane.YES_OPTION){
             try{
-                Procedimientos.EliminarTurno(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+                Procedimientos.EliminarTurno(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
+          nuevo();
             }catch (SQLException e){
             }
         }     

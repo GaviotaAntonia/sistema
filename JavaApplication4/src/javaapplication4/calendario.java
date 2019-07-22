@@ -10,11 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javaapplication4.formacolonia.jTextField1;
-import static javaapplication4.formacolonia.jTextField2;
-import static javaapplication4.formacolonia.jTextField3;
-import static javaapplication4.formacolonia.jTextField4;
-import static javaapplication4.formacolonia.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -459,17 +454,21 @@ public class calendario extends javax.swing.JFrame {
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         try{
             PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update calendario set  id_grupo='" + jTextField2.getText() + "' where id_calendario='" + jTextField1.getText() + "'");
+    try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update calendario set  id_grupo='" + jTextField2.getText() + "',  id_dia='" + jTextField3.getText() +
+                    "', id_materia='" + jTextField4.getText()+"', horario='" + jTextField5.getText() + "' where id_calendario='" + jTextField1.getText() + "'");
                 pps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
                 jTextField1.setText("");
                 jTextField2.setText("");
-                jTextField3.setText("");
                 jTextField4.setText("");
-                jTextField5.setText("");
+                jTextField3.setText("");
                 jTextField1.requestFocus();
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, e);
         }
+                System.out.println(e);
+        } 
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -552,6 +551,9 @@ public class calendario extends javax.swing.JFrame {
         if(opc == JOptionPane.YES_OPTION){
             try{
                 Procedimientos.EliminarCalendario(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+                JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
+          nuevo();
             }catch (SQLException e){
             }
         }   

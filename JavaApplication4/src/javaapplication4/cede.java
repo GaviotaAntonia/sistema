@@ -1,6 +1,5 @@
 package javaapplication4;
 import Conexiones.Procedimientos;
-import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -11,7 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javaapplication4.director.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 public class cede extends javax.swing.JFrame {
@@ -21,102 +19,172 @@ public class cede extends javax.swing.JFrame {
 
     public cede() {
         initComponents();
-        
-
-        this.cmbestado.removeAllItems();
-          try
-            {
-                Connection con=null;
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
-                Statement st=con.createStatement();
-                ResultSet rs=st.executeQuery("select estado from estado;");
-                while(rs.next())
-                {
-                    this.cmbestado.addItem(rs.getString("estado"));
-                    traeridestado();
-                }
-                rs.close();
-                con.close();
-            }catch (ClassNotFoundException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }catch (SQLException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }
-        this.cmbcolonia.removeAllItems();
-          try
-            {
-                Connection con=null;
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
-                Statement st=con.createStatement();
-                ResultSet rs=st.executeQuery("select colonia from colonia;");
-                while(rs.next())
-                {
-                    this.cmbcolonia.addItem(rs.getString("colonia"));
-                    traeridcolonia();
-                }
-                rs.close();
-                con.close();
-            }catch (ClassNotFoundException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }catch (SQLException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            } 
-        this.cmbdirector.removeAllItems();
-          try
-            {
-                Connection con=null;
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
-                Statement st=con.createStatement();
-                ResultSet rs=st.executeQuery("select nombre from director;");
-                while(rs.next())
-                {
-                    this.cmbdirector.addItem(rs.getString("nombre"));
-                    traeriddirector();
-                }
-                rs.close();
-                con.close();
-            }catch (ClassNotFoundException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }catch (SQLException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }    
-        this.cmbsalon.removeAllItems();
-          try
-            {
-                Connection con=null;
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
-                Statement st=con.createStatement();
-                ResultSet rs=st.executeQuery("select salon from salon;");
-                while(rs.next())
-                {
-                    this.cmbsalon.addItem(rs.getString("salon"));
-                    traeridsalon();
-                }
-                rs.close();
-                con.close();
-            }catch (ClassNotFoundException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }catch (SQLException ex)
-            {
-                Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
-            }      
-         
         this.setTitle("Cede");
         this.setLocale(null);
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null); 
+        cargarcolonia();
+        cargardirector();
+        cargarsalon();
+        cargarestado();
+        
     }
+    public void cargarcolonia(){
+    try
+    {
+        Connection con=null;
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+        Statement st=con.createStatement();
+        ResultSet rs=st.executeQuery("select colonia from colonia;");
+        cmbcolonia.removeAllItems();
+        while(rs.next())
+        {
+            cmbcolonia.addItem(rs.getString(1));
+            traeridcolonia();
+        }
+            rs.close();
+            con.close();
+        }catch (ClassNotFoundException ex)
+        {
+            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+        }catch (SQLException ex)
+        {
+            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+       public void traeridcolonia(){
+            try {
+         Connection con=null;
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from colonia where colonia='"+this.cmbcolonia.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField3.setText(String.valueOf(rs.getInt("id_colonia")));
+                
+                this.jTextField5.setText(String.valueOf(rs.getString("codigo_postal")));
+     } catch (Exception e) {
+     } 
+       }
     
+    public void cargardirector(){
+    try
+    {
+        Connection con=null;
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+        Statement st=con.createStatement();
+        ResultSet rs=st.executeQuery("select nombre from director;");
+        cmbdirector.removeAllItems();
+        while(rs.next())
+        {
+            cmbdirector.addItem(rs.getString(1));
+            traeridcolonia();
+        }
+            rs.close();
+            con.close();
+        }catch (ClassNotFoundException ex)
+        {
+            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+        }catch (SQLException ex)
+        {
+            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+       public void traeriddirector(){
+            try {
+         Connection con=null;
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from director where nombre='"+this.cmbdirector.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField7.setText(String.valueOf(rs.getInt("id_director")));
+     } catch (Exception e) {
+     } 
+       }
+    
+       
+    public void cargarsalon(){
+    try
+    {
+        Connection con=null;
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+        Statement st=con.createStatement();
+        ResultSet rs=st.executeQuery("select salon from salon;");
+        cmbsalon.removeAllItems();
+        while(rs.next())
+        {
+            cmbsalon.addItem(rs.getString(1));
+            traeridsalon();
+        }
+            rs.close();
+            con.close();
+        }catch (ClassNotFoundException ex)
+        {
+            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+        }catch (SQLException ex)
+        {
+            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+       public void traeridsalon(){
+            try {
+         Connection con=null;
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from salon where salon='"+this.cmbsalon.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField8.setText(String.valueOf(rs.getInt("id_salon")));
+     } catch (Exception e) {
+     } 
+       }
+       
+    
+    public void cargarestado(){
+    try
+    {
+        Connection con=null;
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+        Statement st=con.createStatement();
+        ResultSet rs=st.executeQuery("select estado from estado;");
+        cmbestado.removeAllItems();
+        while(rs.next())
+        {
+            cmbestado.addItem(rs.getString(1));
+            traerestado();
+        }
+            rs.close();
+            con.close();
+        }catch (ClassNotFoundException ex)
+        {
+            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+        }catch (SQLException ex)
+        {
+            Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
+        }
+    }
+       public void traerestado(){
+            try {
+         Connection con=null;
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
+                Statement s1t=con.createStatement();
+                ResultSet rs=s1t.executeQuery("select * from estado where estado='"+this.cmbestado.getSelectedItem()+"'" );
+                rs.next();
+                //System.out.println(rs);
+                this.jTextField9.setText(String.valueOf(rs.getInt("id_estado")));
+     } catch (Exception e) {
+     } 
+       }
+       
+       
     @Override
     public Image getIconImage() 
     {
@@ -155,8 +223,8 @@ public class cede extends javax.swing.JFrame {
         btneliminar = new javax.swing.JButton();
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtcede = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -293,8 +361,6 @@ public class cede extends javax.swing.JFrame {
             }
         });
 
-        jTextField10.setEnabled(false);
-
         cmbestado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbestadoActionPerformed(evt);
@@ -359,85 +425,94 @@ public class cede extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbcolonia, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbestado, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(48, 48, 48)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbsalon, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btngrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(139, 139, 139))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(cmbdirector, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnnuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnmodificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1026, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(btngrabar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnbuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 47, Short.MAX_VALUE))
+                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1026, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 139, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(105, 105, 105))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(39, 39, 39)
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cmbcolonia, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtcede, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                                            .addComponent(txtnombre)))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cmbdirector, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jTextField8)
+                                            .addGap(4, 4, 4)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cmbsalon, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cmbestado, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -453,60 +528,50 @@ public class cede extends javax.swing.JFrame {
                         .addComponent(btnsalir)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbestado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbcolonia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbdirector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbsalon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(btnnuevo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnmodificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btngrabar)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnbuscar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtcede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(cmbdirector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel11)
+                    .addComponent(cmbsalon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbcolonia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel4)
+                    .addComponent(cmbestado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnbuscar)
+                    .addComponent(btnnuevo)
+                    .addComponent(btnmodificar)
+                    .addComponent(btngrabar)
+                    .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         jMenu1.setText("Acciones");
@@ -591,7 +656,7 @@ public class cede extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         bindingGroup.bind();
@@ -604,11 +669,11 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_menunuevoActionPerformed
 
     private void menuguardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuguardarMouseClicked
-        grabar();  // TODO add your handling code here:
+          // TODO add your handling code here:
     }//GEN-LAST:event_menuguardarMouseClicked
 
     private void menuguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuguardarActionPerformed
-        grabar();       // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_menuguardarActionPerformed
 
     private void menumodificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menumodificarMouseClicked
@@ -616,7 +681,7 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_menumodificarMouseClicked
 
     private void menumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menumodificarActionPerformed
-        modificar();        // TODO add your handling code here:
+           // TODO add your handling code here:
     }//GEN-LAST:event_menumodificarActionPerformed
 
     private void menubuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menubuscarMouseClicked
@@ -632,7 +697,27 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        modificar();
+        try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update cede set nombre_cede='" + txtnombre.getText() +
+                    "',  id_colonia='" + jTextField3.getText() +
+                    "', numero='" + jTextField4.getText()+
+                    "', codigo_postal='" + jTextField5.getText() + 
+                    "',  correo='" + jTextField6.getText() +
+                    "', id_director='" + jTextField7.getText()+
+                    "', id_salon='" + jTextField8.getText() + 
+                    "', id_estado='" + jTextField7.getText()+
+                    "', calle='" + jTextField8.getText() + 
+                    "' where id_cede='" + txtcede.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+                txtcede.setText("");
+                txtnombre.setText("");
+                jTextField4.setText("");
+                jTextField3.setText("");
+                txtcede.requestFocus();
+            }catch(SQLException e){
+                System.out.println(e);
+        }
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
@@ -642,17 +727,17 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        if(jTextField1.getText().isEmpty()){
+        if(txtcede.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "META BIEN SUS DATOS", "Error", JOptionPane.ERROR_MESSAGE);
-            jTextField1.setText("");
-            jTextField1.requestFocus();
+            txtcede.setText("");
+            txtcede.requestFocus();
         } else {
             try {
                 String b;
-                Procedimientos.BuscarCede(Integer.parseInt(jTextField1.getText()));
-                b = jTextField1.getText();
-                jTextField1.setText("");
-                jTextField2.setText("");
+                Procedimientos.BuscarCede(Integer.parseInt(txtcede.getText()));
+                b = txtcede.getText();
+                txtcede.setText("");
+                txtnombre.setText("");
                 jTextField3.setText("");
                 jTextField4.setText("");
                 jTextField5.setText("");
@@ -661,8 +746,8 @@ public class cede extends javax.swing.JFrame {
                 jTextField8.setText("");
                 jTextField9.setText("");
                 jTextField10.setText("");
-                jTextField1.requestFocus();
-                jTextField2.requestFocus();
+                txtcede.requestFocus();
+                txtnombre.requestFocus();
                 jTextField3.requestFocus();
                 jTextField4.requestFocus();
                 jTextField5.requestFocus();
@@ -676,8 +761,8 @@ public class cede extends javax.swing.JFrame {
                 while(res.next()){
                     if(res.getString(1).equals(b)){
                         JOptionPane.showMessageDialog(null, "Datos Encontrados");
-                        jTextField1.setText(res.getString(1));
-                        jTextField2.setText(res.getString(2));
+                        txtcede.setText(res.getString(1));
+                        txtnombre.setText(res.getString(2));
                         jTextField3.setText(res.getString(3));
                         jTextField4.setText(res.getString(4));
                         jTextField5.setText(res.getString(5));
@@ -696,13 +781,13 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
-        if (jTextField1.getText().isEmpty()|| jTextField2.getText().isEmpty()|| jTextField4.getText().isEmpty()|| jTextField6.getText().isEmpty()|| jTextField7.getText().isEmpty()|| jTextField8.getText().isEmpty()||
+        if (txtcede.getText().isEmpty()|| txtnombre.getText().isEmpty()|| jTextField4.getText().isEmpty()|| jTextField6.getText().isEmpty()|| jTextField7.getText().isEmpty()|| jTextField8.getText().isEmpty()||
             jTextField9.getText().isEmpty()|| jTextField10.getText().isEmpty()|| jTextField3.getText().isEmpty()|| jTextField5.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,"INGRESA TUS DATOS CORRECTOS");      
         }
         else{
             try {
-                res=javaapplication4.conexionsql1.Consulta("Select count(nombre_cede)from cede where nombre_cede='"+jTextField2.getText()+"'");
+                res=javaapplication4.conexionsql1.Consulta("Select count(nombre_cede)from cede where nombre_cede='"+txtnombre.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(id_colonia)from cede where id_colonia='"+jTextField4.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(numero)from cede where numero='"+jTextField6.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(codigo_postal)from cede where codigo_postal='"+jTextField7.getText()+"'");
@@ -723,7 +808,7 @@ public class cede extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this,"este elemento ya existe");
                 }
                 else{
-                    Conexiones.Procedimientos.EntradaCede(jTextField1.getText(), jTextField2.getText(), jTextField4.getText(), jTextField6.getText(), jTextField7.getText(), jTextField8.getText(), jTextField9.getText()
+                    Conexiones.Procedimientos.EntradaCede(txtcede.getText(), txtnombre.getText(), jTextField4.getText(), jTextField6.getText(), jTextField7.getText(), jTextField8.getText(), jTextField9.getText()
                                                             , jTextField10.getText(), jTextField3.getText(), jTextField5.getText());
                     JOptionPane.showMessageDialog(this,"exito");
                 }
@@ -739,21 +824,24 @@ public class cede extends javax.swing.JFrame {
         if(opc == JOptionPane.YES_OPTION){
             try{
                 Procedimientos.EliminarCede(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+                JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
+          nuevo();
             }catch (SQLException e){
             }
         }   
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        borrar();
+       
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void cmbestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbestadoActionPerformed
-        traeridestado();
+      traerestado();
     }//GEN-LAST:event_cmbestadoActionPerformed
 
     private void cmbcoloniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbcoloniaActionPerformed
-        traeridcolonia();
+    traeridcolonia();
     }//GEN-LAST:event_cmbcoloniaActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
@@ -769,8 +857,8 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbsalonActionPerformed
 
 public void nuevo(){
-     jTextField1.setText("");    
-        jTextField2.setText("");
+     txtcede.setText("");    
+        txtnombre.setText("");
         jTextField3.setText("");
         jTextField4.setText("");
         jTextField5.setText("");
@@ -779,82 +867,8 @@ public void nuevo(){
         jTextField8.setText("");
         jTextField9.setText("");
         jTextField10.setText("");
-        jTextField1.requestFocusInWindow();}
+        txtcede.requestFocusInWindow();}
 
-public void grabar(){
-    
-try{
-    Class.forName("com.mysql.jdbc.Driver");
-    String cadena="jdbc:mysql://localhost/dbdistribuida?user=root&password=";
-    Connection con =DriverManager.getConnection(cadena);
-    PreparedStatement stmt=null;
-    String id_cede=jTextField1.getText();
-    String nombrecede=jTextField2.getText();
-    String id_estado=jTextField3.getText();
-    String id_colonia=jTextField4.getText();
-    String calle=jTextField5.getText();
-    String numero=jTextField6.getText();
-    String codigo_postal=jTextField7.getText();
-    String correo=jTextField8.getText();
-    String id_director=jTextField9.getText();
-    String id_salon=jTextField10.getText();
-    
-    String sql="insert into cede values(";
-    sql+=id_cede+","+"\""+nombrecede+"\","+"\""+id_estado+"\",";
-    sql+="\""+id_colonia+"\","+"\""+calle+"\",";
-    sql+="\""+numero+"\","+"\""+codigo_postal+"\",";
-    sql+="\""+correo+"\","+"\""+id_director+"\","+"\""+id_salon+"\")";
-    stmt=con.prepareStatement(sql);
-    int sw=stmt.executeUpdate();
-    if(sw!=0){
-                     
-           JOptionPane.showMessageDialog(null, "Registro dado de alta", "Registro de alta con exito!",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/listoagrega.png"));
-    nuevo();
-    }
-}
-catch(ClassNotFoundException e){
-    JOptionPane.showMessageDialog(null, e);
-}
-catch(SQLException e1){
-    JOptionPane.showMessageDialog(null, e1);
-}
-catch(Exception e2){
-    JOptionPane.showMessageDialog(null, e2);
-}
- }
-
-public void borrar(){
-    try{ 
-          Class.forName("com.mysql.jdbc.Driver");
-      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
-      Connection con; PreparedStatement stmt;
-             con = DriverManager.getConnection (cadena);
-     String sql= " delete from cede where id_cede=";
-      sql += "\"" + jTextField1.getText() + "\"" + "\"" + jTextField2.getText() + "\"" + "\"" + jTextField3.getText() + "\"" + "\"" + jTextField4.getText() + "\"" + "\"" + jTextField5.getText() + "\"" + "\"" + jTextField6.getText() + "\"" + "\"" + jTextField7.getText() + "\"" + "\"" + jTextField8.getText() + "\"" + "\"" + jTextField9.getText() + "\"" + "\"" + jTextField10.getText() + "\";"; 
-      JOptionPane.showMessageDialog (null, sql);
-      stmt = con.prepareStatement(sql);
-      int sw = stmt.executeUpdate();
-      if (sw!=0) {
-          
-           JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
-          nuevo();
-      }
-     }
-    catch(ClassNotFoundException e)
-    {  
-        JOptionPane.showMessageDialog (null, e);
-    }
-    catch (SQLException e1)
-    { 
-        JOptionPane.showMessageDialog (null, e1); 
-    }
-      catch (Exception e2)
-      {
-          JOptionPane.showMessageDialog (null, e2);
-      }
-    }
 
 public void consultar(){
 int sw=0;
@@ -866,7 +880,7 @@ int sw=0;
          java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
          ResultSet tabla;
          con= DriverManager.getConnection(cadena);
-         String  id_cede=jTextField1.getText();
+         String  id_cede=txtcede.getText();
          String sql=" select * from cede " 
               + "where id_cede = " + id_cede+";";
       
@@ -879,7 +893,7 @@ int sw=0;
            {
                
                sw=1;
-               jTextField2.setText(tabla.getString(2));
+               txtnombre.setText(tabla.getString(2));
                jTextField3.setText(tabla.getString(3));
                jTextField4.setText(tabla.getString(4));
                jTextField5.setText(tabla.getString(5));
@@ -908,116 +922,9 @@ int sw=0;
         }
 }
 
-public void modificar(){
+    
+ 
 
-      try{ 
-          Class.forName("com.mysql.jdbc.Driver");
-      String cadena = "jdbc:mysql://localhost/dbdistribuida?user=root&password=";
-      Connection con; PreparedStatement stmt;       
-      con = DriverManager.getConnection (cadena);   
-      String id_cede = jTextField1.getText();
-      String nombrecede= jTextField2.getText();
-      String id_estado = jTextField3.getText();
-      String id_colonia = jTextField4.getText();
-      String calle= jTextField5.getText();
-      String numero=jTextField6.getText();
-      String codigo_postal=jTextField7.getText();
-      String correo=jTextField8.getText();
-      String id_director=jTextField9.getText();
-      String id_salon=jTextField10.getText();
-      String sql= " update cede set "; 
-      sql += "nombrecede= "+  "\""+nombrecede+ "\",";
-      sql += "id_estado= "+  "\""+id_estado+ "\",";
-      sql += "id_colonia= "+  "\""+id_colonia+ "\",";
-      sql += "calle= "+  "\""+calle+ "\",";
-      sql += "numero= "+  "\""+numero+ "\",";
-      sql += "codigo_postal= "+  "\""+codigo_postal+ "\",";
-      sql += "correo= "+  "\""+correo+ "\",";
-      sql += "id_director= "+  "\""+id_director+ "\",";
-      sql += "id_salon= " +"\""+ id_salon + "\"" + " where id_cede=" + id_cede+ " ; ";
-           
-    
-      //JOptionPane.showMessageDialog (null, sql);
-      stmt = con.prepareStatement(sql);
-      int sw = stmt.executeUpdate();
-      if (sw!=0) { 
-           JOptionPane.showMessageDialog(null, "Registro Actualizado", "El Registro fue actualizado",
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/dataact.png"));
-      }
-     }
-      catch(ClassNotFoundException | SQLException | HeadlessException e){
-          JOptionPane.showMessageDialog (null, e); 
-      }
-}
-    
-    public void traeridestado()
-    {
-        try 
-        {
-            Connection con=null;
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
-            Statement s1t=con.createStatement();
-            ResultSet rs=s1t.executeQuery("select * from estado where estado='"+this.cmbestado.getSelectedItem()+"'" );
-            rs.next();
-            //System.out.println(rs);
-            this.jTextField3.setText(String.valueOf(rs.getInt("id_estado")));
-        }catch (Exception e) 
-        {
-        } 
-    }
-    
-    public void traeridcolonia()
-    {
-        try 
-        {
-            Connection con=null;
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
-            Statement s1t=con.createStatement();
-            ResultSet rs=s1t.executeQuery("select * from colonia where colonia='"+this.cmbcolonia.getSelectedItem()+"'" );
-            rs.next();
-            //System.out.println(rs);
-            this.jTextField4.setText(String.valueOf(rs.getInt("id_colonia")));
-        }catch (Exception e) 
-        {
-        } 
-    }
-
-    public void traeriddirector()
-    {
-        try 
-        {
-            Connection con=null;
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
-            Statement s1t=con.createStatement();
-            ResultSet rs=s1t.executeQuery("select * from director where nombre='"+this.cmbdirector.getSelectedItem()+"'" );
-            rs.next();
-            //System.out.println(rs);
-            this.jTextField9.setText(String.valueOf(rs.getInt("id_director")));
-        }catch (Exception e) 
-        {
-        } 
-    }
-
-    public void traeridsalon()
-    {
-        try 
-        {
-            Connection con=null;
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                con=DriverManager.getConnection("jdbc:sqlserver://DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuida","sa","awdx123");
-            Statement s1t=con.createStatement();
-            ResultSet rs=s1t.executeQuery("select * from salon where salon='"+this.cmbsalon.getSelectedItem()+"'" );
-            rs.next();
-            //System.out.println(rs);
-            this.jTextField10.setText(String.valueOf(rs.getInt("id_salon")));
-        }catch (Exception e) 
-        {
-        } 
-    }
-    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1062,9 +969,7 @@ public void modificar(){
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -1079,6 +984,8 @@ public void modificar(){
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
+    private javax.swing.JTextField txtcede;
+    private javax.swing.JTextField txtnombre;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

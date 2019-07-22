@@ -11,12 +11,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static javaapplication4.calendario.jTextField1;
-import static javaapplication4.calendario.jTextField2;
-import static javaapplication4.calendario.jTextField3;
-import static javaapplication4.calendario.jTextField4;
-import static javaapplication4.calendario.jTextField5;
-import static javaapplication4.calendario.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -153,7 +147,7 @@ public class director extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel1.setText("Matricula");
+        jLabel1.setText("ID_DIRECTOR");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel2.setText("Nombre");
@@ -627,22 +621,26 @@ public class director extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-            try{
-            PreparedStatement pps = conexionsql1.getConexion().prepareStatement(
-                    "update id_grupo set  calendario='" + jTextField2.getText() +
-                    "update id_dia set  calendario='" + jTextField3.getText() +
-                    "update id_materia  set  calendario='" + jTextField4.getText() +
-                    "update horario  set calendario='" + jTextField5.getText() + "' where id_calendario='" + jTextField1.getText() + "'");
+           try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update director set nombre='" + jTextField2.getText() +
+                    "',  apellidopat='" + jTextField3.getText() +
+                    "', apellidomat='" + jTextField4.getText()+
+                    "', telefono='" + jTextField5.getText() + 
+                    "',  correo='" + jTextField6.getText() +
+                    "',  id_colonia='" + jTextField7.getText() +
+                    "', calle='" + jTextField8.getText()+
+                    "', numero='" + jTextField9.getText() + 
+                    "',  codigo_postal='" + jTextField10.getText() +
+                    "',  id_sexo='" + jTextField11.getText() + 
+                    "',  edad='" + jTextField12.getText() +
+                    "',  hora='" + jTextField13.getText() +
+                    "' where id_director='" + jTextField1.getText() + "'");
                 pps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
-                jTextField1.setText("");
-                jTextField2.setText("");
-                jTextField3.setText("");
-                jTextField4.setText("");
-                jTextField5.setText("");
-                jTextField1.requestFocus();
+               nuevo();
             }catch(SQLException e){
-        }    
+                System.out.println(e);
+        } 
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
@@ -656,7 +654,7 @@ public class director extends javax.swing.JFrame {
         }
         else{
             try {
-                res=javaapplication4.conexionsql1.Consulta("Select count(nombre)from director where id_grupo='"+jTextField2.getText()+"'");
+                res=javaapplication4.conexionsql1.Consulta("Select count(nombre)from director where nombre='"+jTextField2.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(apellidopat)from director where apellidopat='"+jTextField3.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(apellidomat)from director where apellidomat='"+jTextField4.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(telefono)from director where telefono='"+jTextField5.getText()+"'");
@@ -757,6 +755,9 @@ public class director extends javax.swing.JFrame {
         if(opc == JOptionPane.YES_OPTION){
             try{
                 Procedimientos.EliminarDirector(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+                JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
+          nuevo();
             }catch (SQLException e){
             }
         }   

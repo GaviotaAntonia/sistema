@@ -1,4 +1,5 @@
 package javaapplication4;
+import Conexiones.Procedimientos;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -701,15 +702,79 @@ public class docente extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        borrar();
+    int row = jTable1.getSelectedRow();
+        int opc = JOptionPane.showConfirmDialog(this, "¿Estas seguro de eliminar el registro?","Pregunta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if(opc == JOptionPane.YES_OPTION){
+            try{
+                Procedimientos.eliminardocente(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));JOptionPane.showMessageDialog(null, "Registro eliminado de la Base de datos", "Registro eliminado exitosamente",
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
+          nuevo();
+            }catch (SQLException e){
+            }
+        }          
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultarActionPerformed
-        consultar();
+         if(jTextField1.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "META BIEN SUS DATOS", "Error", JOptionPane.ERROR_MESSAGE);
+            jTextField1.setText("");
+            jTextField1.requestFocus();
+        } else {
+            try 
+            {
+                String b;
+                Procedimientos.buscardocente(Integer.parseInt(jTextField1.getText()));
+                b = jTextField1.getText();
+                res = conexionsql1.Consulta("select * from docente");
+                while(res.next()){
+                    if(res.getString(1).equals(b)){
+                        JOptionPane.showMessageDialog(null, "Datos Encontrados");
+                         jTextField1.setText(res.getString(1));
+                        jTextField2.setText(res.getString(2));
+                        jTextField3.setText(res.getString(3));
+                        jTextField4.setText(res.getString(4));
+                        jTextField5.setText(res.getString(5));
+                        jTextField6.setText(res.getString(6));
+                        jTextField7.setText(res.getString(7));
+                        jTextField8.setText(res.getString(8));
+                        jTextField9.setText(res.getString(9));
+                        jTextField10.setText(res.getString(10));
+                        jTextField11.setText(res.getString(11));
+                        jTextField12.setText(res.getString(12));
+                        jTextField13.setText(res.getString(13));
+                        jTextField14.setText(res.getString(14));
+
+                    }
+                }
+           }catch(SQLException e)
+           {
+               JOptionPane.showMessageDialog(null, "Datos no Encontrados");
+            }
+        }     
     }//GEN-LAST:event_btnconsultarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        modificar();
+                try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update docente set nombre='" + jTextField2.getText() +
+                    "',  apellidopat='" + jTextField3.getText() +
+                    "', apellidomat='" + jTextField4.getText()+
+                    "', id_turno='" + jTextField5.getText() + 
+                    "',  id_sexo='" + jTextField6.getText() +
+                    "',  curp='" + jTextField7.getText() +
+                    "', id_colonia='" + jTextField8.getText()+
+                    "', calle='" + jTextField9.getText() + 
+                    "',  numero='" + jTextField10.getText() +
+                    "',  codigo_postal='" + jTextField11.getText() + 
+                    "',  correo='" + jTextField12.getText() +
+                    "',  telefono='" + jTextField13.getText() +
+                    "',  id_salon='" + jTextField14.getText() +
+                    "' where id_docente='" + jTextField1.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+               nuevo();
+            }catch(SQLException e){
+                System.out.println(e);
+        } 
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
@@ -739,8 +804,9 @@ public class docente extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(this,"exito");
                  } catch (SQLException ex) {
                      Logger.getLogger(alumno.class.getName()).log(Level.SEVERE, null, ex);
-                 }
+                     
                  JOptionPane.showMessageDialog(this,"fallo");
+                 }
              }
         }
     }//GEN-LAST:event_btnagregarActionPerformed

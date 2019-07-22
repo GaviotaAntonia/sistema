@@ -699,8 +699,8 @@ public class menupri extends javax.swing.JFrame {
     }//GEN-LAST:event_menusexoActionPerformed
 
     private void menustatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menustatusActionPerformed
-        status sta=new status();
-        sta.setVisible(true);
+        formaestatus staa=new formaestatus();
+        staa.setVisible(true);
         dispose();
     }//GEN-LAST:event_menustatusActionPerformed
 
@@ -789,7 +789,7 @@ dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btncalendarioActionPerformed
 
     private void btnstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstatusActionPerformed
-        status sta=new status();
+        formaestatus sta=new formaestatus();
         sta.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnstatusActionPerformed
