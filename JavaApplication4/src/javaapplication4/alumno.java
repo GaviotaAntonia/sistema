@@ -1044,8 +1044,8 @@ public class alumno extends javax.swing.JFrame {
                         txtcodigpostal.setText(res.getString(8));
                         txtcorreo.setText(res.getString(9));
                         txtsexo.setText(res.getString(10));
-                        txtcurp.setText(res.getString(11));
-                        txtedad.setText(res.getString(12));
+                         txtedad.setText(res.getString(11));
+                        txtcurp.setText(res.getString(12));
                         txtfoto.setText(res.getString(13));
                         txtboleta.setText(res.getString(14));
                         txtstatus.setText(res.getString(15));
