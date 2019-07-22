@@ -1063,6 +1063,14 @@ public class alumno extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+       try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update alumno set nombre='" + txtnombre.getText()+"' apellidopat='"+txtapepat.getText()+"' where matricula='" + txtmatricula.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+             
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "no esta ingresando");
+        }      // TODO add your handling code here:
               try{
             PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update alumno set nombre='" + txtnombre.getText() +
                     "',  apellidopat='" + txtapepat.getText() +

@@ -452,6 +452,8 @@ public class calendario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
+        try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update calendario set  id_grupo='" + jTextField2.getText() + "' where id_calendario='" + jTextField1.getText() + "'");
     try{
             PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update calendario set  id_grupo='" + jTextField2.getText() + "',  id_dia='" + jTextField3.getText() +
                     "', id_materia='" + jTextField4.getText()+"', horario='" + jTextField5.getText() + "' where id_calendario='" + jTextField1.getText() + "'");
@@ -463,6 +465,8 @@ public class calendario extends javax.swing.JFrame {
                 jTextField3.setText("");
                 jTextField1.requestFocus();
             }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
+        }
                 System.out.println(e);
         } 
     }//GEN-LAST:event_btnmodificarActionPerformed
@@ -535,10 +539,10 @@ public class calendario extends javax.swing.JFrame {
                     }
                 }
             }catch(SQLException e){
-          
-                JOptionPane.showMessageDialog(null, "Datos no Encontrados");
             }
         }
+          
+                JOptionPane.showMessageDialog(null, "Datos no Encontrados");
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
