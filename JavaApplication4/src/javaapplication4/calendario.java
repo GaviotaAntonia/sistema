@@ -458,11 +458,7 @@ public class calendario extends javax.swing.JFrame {
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         try{
-            PreparedStatement pps = conexionsql1.getConexion().prepareStatement(
-                    "update id_grupo set  calendario='" + jTextField2.getText() +
-                    "update id_dia set  calendario='" + jTextField3.getText() +
-                    "update id_materia  set  calendario='" + jTextField4.getText() +
-                    "update horario  set calendario='" + jTextField5.getText() + "' where id_calendario='" + jTextField1.getText() + "'");
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update calendario set  id_grupo='" + jTextField2.getText() + "' where id_calendario='" + jTextField1.getText() + "'");
                 pps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
                 jTextField1.setText("");
@@ -472,6 +468,7 @@ public class calendario extends javax.swing.JFrame {
                 jTextField5.setText("");
                 jTextField1.requestFocus();
             }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnmodificarActionPerformed
 
@@ -543,10 +540,10 @@ public class calendario extends javax.swing.JFrame {
                     }
                 }
             }catch(SQLException e){
-          
-                JOptionPane.showMessageDialog(null, "Datos no Encontrados");
             }
         }
+          
+                JOptionPane.showMessageDialog(null, "Datos no Encontrados");
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed

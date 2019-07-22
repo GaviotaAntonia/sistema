@@ -367,6 +367,7 @@ public class materia extends javax.swing.JFrame {
                 Logger.getLogger(materia.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        nuevo();
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
@@ -390,6 +391,7 @@ public class materia extends javax.swing.JFrame {
             try{
                 Procedimientos.Eliminarmateria(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
             }catch (SQLException e){
+                JOptionPane.showMessageDialog(jMenu1, e);
             }
         }     
     }//GEN-LAST:event_btneliminarActionPerformed

@@ -405,7 +405,9 @@ consultar();        // TODO add your handling code here:
         if(opc == JOptionPane.YES_OPTION){
             try{
                 Procedimientos.EliminarSexo(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
+                JOptionPane.showMessageDialog(null,"registro eliminado con exito");
             }catch (SQLException e){
+                JOptionPane.showMessageDialog(null, "no se pudo eliminar: "+e);
             }
         }     
     }//GEN-LAST:event_btneliminarActionPerformed
