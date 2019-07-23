@@ -19,21 +19,21 @@ public class conexionsql1
 
     public static Connection getConexion() 
     {
-        status = false;
         String url = "jdbc:sqlserver://DESKTOP-AHM3DOT\\SQLEXPRESS:1433;databaseName=dbdistribuida";
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, "No se pudo establecer  la conexion... revisar Driver" + e.getMessage(), "Error de Conexion", JOptionPane.ERROR_MESSAGE);
-           // System.out.println("1");
+           System.out.println("1");
         }
         try 
         {
             contacto = DriverManager.getConnection(url, conexionsql1.usuario, conexionsql1.contraseña);
             status = true;
+            System.out.print("2");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage(), "Error de conexion", JOptionPane.ERROR_MESSAGE);
-            //System.out.println("3");
+           System.out.println("3");
         }
         return contacto;
     }
