@@ -147,16 +147,16 @@ public class director extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel1.setText("ID_DIRECTOR");
+        jLabel1.setText("Id Director");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel2.setText("Nombre");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel3.setText("Apellido paterno");
+        jLabel3.setText("Apellido Paterno");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel4.setText("Apellido materno");
+        jLabel4.setText("Apellido Paterno");
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel5.setText("Telefono");
@@ -165,7 +165,7 @@ public class director extends javax.swing.JFrame {
         jLabel6.setText("Correo Electronico");
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel7.setText("Id_Colonia");
+        jLabel7.setText("Id Colonia");
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel8.setText("Calle");
@@ -174,10 +174,10 @@ public class director extends javax.swing.JFrame {
         jLabel9.setText("Número");
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel10.setText("Codigo postal");
+        jLabel10.setText("Codigo Postal");
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        jLabel11.setText("Id_Sexo");
+        jLabel11.setText("Id Sexo");
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel12.setText("Edad");

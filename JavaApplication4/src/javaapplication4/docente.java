@@ -225,43 +225,43 @@ public class docente extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Century Gothic", 2, 11)); // NOI18N
         jLabel2.setText("Numero de usuario");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel3.setText("Id_docente");
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel3.setText("Id Docente");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel4.setText("Nombre");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel5.setText("Apellido Paterno");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel6.setText("Apellido Materno");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel7.setText("Id_turno");
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel7.setText("Id Turno");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel8.setText("Id_Sexo");
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel8.setText("Id Sexo");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel9.setText("CURP");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel10.setText("Id_colonia");
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel10.setText("Id Colonia");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel11.setText("Calle");
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel12.setText("Numero");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel13.setText("Codigo postal");
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel13.setText("Codigo Postal");
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel14.setText("Correo");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel15.setText("Telefono");
 
         jTextField5.setEnabled(false);
@@ -270,8 +270,8 @@ public class docente extends javax.swing.JFrame {
 
         jTextField8.setEnabled(false);
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel16.setText("Id_salon");
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel16.setText("Id_Salon");
 
         jTextField14.setEnabled(false);
 
@@ -420,7 +420,7 @@ public class docente extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -516,7 +516,7 @@ public class docente extends javax.swing.JFrame {
                         .addComponent(btnconsultar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
+                        .addGap(158, 158, 158)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -560,7 +560,7 @@ public class docente extends javax.swing.JFrame {
                                                 .addComponent(jTextField5)
                                                 .addComponent(cmbturno)
                                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE))
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -574,8 +574,8 @@ public class docente extends javax.swing.JFrame {
                             .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbsalon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(210, 210, 210))
         );
 

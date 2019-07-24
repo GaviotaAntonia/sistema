@@ -362,7 +362,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="2"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="ID_DIRECTOR"/>
+            <Property name="text" type="java.lang.String" value="Id Director"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -378,7 +378,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="2"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Apellido paterno"/>
+            <Property name="text" type="java.lang.String" value="Apellido Paterno"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -386,7 +386,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="2"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Apellido materno"/>
+            <Property name="text" type="java.lang.String" value="Apellido Paterno"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -410,7 +410,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="2"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Id_Colonia"/>
+            <Property name="text" type="java.lang.String" value="Id Colonia"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -434,7 +434,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="2"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Codigo postal"/>
+            <Property name="text" type="java.lang.String" value="Codigo Postal"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
@@ -442,7 +442,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="18" style="2"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Id_Sexo"/>
+            <Property name="text" type="java.lang.String" value="Id Sexo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
