@@ -10,8 +10,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javaapplication4.mes.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 public class cede extends javax.swing.JFrame {
     
     static ResultSet res;
@@ -26,6 +28,7 @@ public class cede extends javax.swing.JFrame {
         cargardirector();
         cargarsalon();
         cargarestado();
+        CargarArticulo();
         
     }
     public void cargarcolonia(){
@@ -63,7 +66,7 @@ public class cede extends javax.swing.JFrame {
                 //System.out.println(rs);
                 this.jTextField3.setText(String.valueOf(rs.getInt("id_colonia")));
                 
-                this.jTextField4.setText(String.valueOf(rs.getString("codigo_postal")));
+                this.jTextField5.setText(String.valueOf(rs.getString("codigo_postal")));
      } catch (Exception e) {
      } 
        }
@@ -184,6 +187,29 @@ public class cede extends javax.swing.JFrame {
      } 
        }
        
+        public void CargarArticulo(){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        res = conexionsql1.Consulta("select * from cede");
+        try{
+            while(res.next()){
+                java.util.Vector v = new java.util.Vector();
+                v.add(res.getInt(1));
+                v.add(res.getString(2));
+                v.add(res.getString(3));
+                v.add(res.getString(4));
+                v.add(res.getString(5));
+                v.add(res.getString(6));
+                v.add(res.getString(7));
+                v.add(res.getString(8));
+                v.add(res.getString(9));
+                v.add(res.getString(10));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+        }catch (SQLException e){
+        }
+    }   
        
     @Override
     public Image getIconImage() 
@@ -196,7 +222,6 @@ public class cede extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
         cede_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM Cede_1 c");
@@ -223,8 +248,8 @@ public class cede extends javax.swing.JFrame {
         btneliminar = new javax.swing.JButton();
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
-        txtcede = new javax.swing.JTextField();
-        txtnombre = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -349,9 +374,14 @@ public class cede extends javax.swing.JFrame {
 
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setEnabled(false);
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
 
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField4.setEnabled(false);
+        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField5.setEnabled(false);
 
         jTextField7.setEnabled(false);
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
@@ -398,39 +428,14 @@ public class cede extends javax.swing.JFrame {
             }
         });
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, cede_1List1, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idCede}"));
-        columnBinding.setColumnName("Id Cede");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nombreCede}"));
-        columnBinding.setColumnName("Nombre Cede");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idColonia}"));
-        columnBinding.setColumnName("Id Colonia");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${numero}"));
-        columnBinding.setColumnName("Numero");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${codigoPostal}"));
-        columnBinding.setColumnName("Codigo Postal");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${correo}"));
-        columnBinding.setColumnName("Correo");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idDirector}"));
-        columnBinding.setColumnName("Id Director");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idSalon}"));
-        columnBinding.setColumnName("Id Salon");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idEstado}"));
-        columnBinding.setColumnName("Id Estado");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${calle}"));
-        columnBinding.setColumnName("Calle");
-        columnBinding.setColumnClass(String.class);
-        bindingGroup.addBinding(jTableBinding);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
+            },
+            new String [] {
+                "Id Cede", "Nombre Cede", "Id Colonia", "Numero", "Codigo Postal", "Correo", "Id Director", "Id Salon", "Id Estado", "Calle"
+            }
+        ));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -462,8 +467,8 @@ public class cede extends javax.swing.JFrame {
                                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(40, 40, 40)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                            .addComponent(jTextField4)))
+                                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                            .addComponent(jTextField5)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -472,8 +477,8 @@ public class cede extends javax.swing.JFrame {
                                         .addGap(39, 39, 39)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txtcede, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                                .addComponent(txtnombre))
+                                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                                .addComponent(jTextField2))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -530,13 +535,13 @@ public class cede extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtcede, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)
                             .addComponent(cmbdirector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -553,14 +558,14 @@ public class cede extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel4)
                             .addComponent(cmbestado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(btnnuevo)
@@ -662,8 +667,6 @@ public class cede extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -701,26 +704,26 @@ public class cede extends javax.swing.JFrame {
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
         try{
-            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update cede set nombre_cede='" + txtnombre.getText() +
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update cede set nombre_cede='" + jTextField2.getText() +
                     "',  id_colonia='" + jTextField3.getText() +
-                    "', numero='" + jTextField4.getText()+
-                    "', codigo_postal='" + jTextField5.getText() + 
+                    "', numero='" + jTextField5.getText()+
+                    "', codigo_postal='" + jTextField4.getText() + 
                     "',  correo='" + jTextField6.getText() +
                     "', id_director='" + jTextField9.getText()+
                     "', id_salon='" + jTextField8.getText() + 
                     "', id_estado='" + jTextField9.getText()+
                     "', calle='" + jTextField8.getText() + 
-                    "' where id_cede='" + txtcede.getText() + "'");
+                    "' where id_cede='" + jTextField1.getText() + "'");
                 pps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
-                txtcede.setText("");
-                txtnombre.setText("");
-                jTextField4.setText("");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField5.setText("");
                 jTextField3.setText("");
-                txtcede.requestFocus();
+                jTextField1.requestFocus();
             }catch(SQLException e){
                 System.out.println(e);
-        }
+        }CargarArticulo();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
@@ -730,30 +733,30 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-        if(txtcede.getText().isEmpty()){
+        if(jTextField1.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "META BIEN SUS DATOS", "Error", JOptionPane.ERROR_MESSAGE);
-            txtcede.setText("");
-            txtcede.requestFocus();
+            jTextField1.setText("");
+            jTextField1.requestFocus();
         } else {
             try {
                 String b;
-                Procedimientos.BuscarCede(Integer.parseInt(txtcede.getText()));
-                b = txtcede.getText();
-                txtcede.setText("");
-                txtnombre.setText("");
+                Procedimientos.BuscarCede(Integer.parseInt(jTextField1.getText()));
+                b = jTextField1.getText();
+                jTextField1.setText("");
+                jTextField2.setText("");
                 jTextField3.setText("");
-                jTextField4.setText("");
                 jTextField5.setText("");
+                jTextField4.setText("");
                 jTextField6.setText("");
                 jTextField9.setText("");
                 jTextField8.setText("");
                 jTextField9.setText("");
                 jTextField10.setText("");
-                txtcede.requestFocus();
-                txtnombre.requestFocus();
+                jTextField1.requestFocus();
+                jTextField2.requestFocus();
                 jTextField3.requestFocus();
-                jTextField4.requestFocus();
                 jTextField5.requestFocus();
+                jTextField4.requestFocus();
                 jTextField6.requestFocus();
                 jTextField9.requestFocus();
                 jTextField8.requestFocus();
@@ -764,11 +767,11 @@ public class cede extends javax.swing.JFrame {
                 while(res.next()){
                     if(res.getString(1).equals(b)){
                         JOptionPane.showMessageDialog(null, "Datos Encontrados");
-                        txtcede.setText(res.getString(1));
-                        txtnombre.setText(res.getString(2));
+                        jTextField1.setText(res.getString(1));
+                        jTextField2.setText(res.getString(2));
                         jTextField3.setText(res.getString(3));
-                        jTextField4.setText(res.getString(4));
-                        jTextField5.setText(res.getString(5));
+                        jTextField5.setText(res.getString(4));
+                        jTextField4.setText(res.getString(5));
                         jTextField6.setText(res.getString(6));
                         jTextField9.setText(res.getString(7));
                         jTextField8.setText(res.getString(8));
@@ -784,21 +787,21 @@ public class cede extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     private void btngrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabarActionPerformed
-        if (txtcede.getText().isEmpty()|| txtnombre.getText().isEmpty()|| jTextField4.getText().isEmpty()|| jTextField6.getText().isEmpty()|| jTextField9.getText().isEmpty()|| jTextField8.getText().isEmpty()||
-            jTextField9.getText().isEmpty()|| jTextField10.getText().isEmpty()|| jTextField3.getText().isEmpty()|| jTextField5.getText().isEmpty()) {
+        if (jTextField1.getText().isEmpty()|| jTextField2.getText().isEmpty()|| jTextField5.getText().isEmpty()|| jTextField6.getText().isEmpty()|| jTextField9.getText().isEmpty()|| jTextField8.getText().isEmpty()||
+            jTextField9.getText().isEmpty()|| jTextField10.getText().isEmpty()|| jTextField3.getText().isEmpty()|| jTextField4.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null,"INGRESA TUS DATOS CORRECTOS");      
         }
         else{
             try {
-                res=javaapplication4.conexionsql1.Consulta("Select count(nombre_cede)from cede where nombre_cede='"+txtnombre.getText()+"'");
-                res=javaapplication4.conexionsql1.Consulta("Select count(id_colonia)from cede where id_colonia='"+jTextField4.getText()+"'");
+                res=javaapplication4.conexionsql1.Consulta("Select count(nombre_cede)from cede where nombre_cede='"+jTextField2.getText()+"'");
+                res=javaapplication4.conexionsql1.Consulta("Select count(id_colonia)from cede where id_colonia='"+jTextField5.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(numero)from cede where numero='"+jTextField6.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(codigo_postal)from cede where codigo_postal='"+jTextField9.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(correo)from cede where correo='"+jTextField8.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(id_director)from cede where id_director='"+jTextField9.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(id_salon)from cede where id_salon='"+jTextField10.getText()+"'");
                 res=javaapplication4.conexionsql1.Consulta("Select count(id_estado)from cede where id_estado='"+jTextField3.getText()+"'");
-                res=javaapplication4.conexionsql1.Consulta("Select count(calle)from cede where calle='"+jTextField5.getText()+"'");
+                res=javaapplication4.conexionsql1.Consulta("Select count(calle)from cede where calle='"+jTextField4.getText()+"'");
 
                 try {
                     while (res.next()) {                    
@@ -811,14 +814,14 @@ public class cede extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this,"este elemento ya existe");
                 }
                 else{
-                    Conexiones.Procedimientos.EntradaCede(txtcede.getText(), txtnombre.getText(), jTextField4.getText(), jTextField6.getText(), jTextField9.getText(), jTextField8.getText(), jTextField9.getText()
-                                                            , jTextField10.getText(), jTextField3.getText(), jTextField5.getText());
+                    Conexiones.Procedimientos.EntradaCede(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText(), jTextField5.getText(), jTextField6.getText(), jTextField7.getText()
+                                                            , jTextField8.getText(), jTextField9.getText(), jTextField10.getText());
                     JOptionPane.showMessageDialog(this,"exito");
                 }
                     } catch (SQLException ex) {
                 Logger.getLogger(materia.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }CargarArticulo();
     }//GEN-LAST:event_btngrabarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -832,7 +835,7 @@ public class cede extends javax.swing.JFrame {
           nuevo();
             }catch (SQLException e){
             }
-        }   
+        }   CargarArticulo();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -867,18 +870,22 @@ public class cede extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
 
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
 public void nuevo(){
-     txtcede.setText("");    
-        txtnombre.setText("");
+     jTextField1.setText("");    
+        jTextField2.setText("");
         jTextField3.setText("");
-        jTextField4.setText("");
         jTextField5.setText("");
+        jTextField4.setText("");
         jTextField9.setText("");
         jTextField6.setText("");
         jTextField8.setText("");
         jTextField9.setText("");
         jTextField10.setText("");
-        txtcede.requestFocusInWindow();}
+        jTextField1.requestFocusInWindow();}
 
 
 public void consultar(){
@@ -891,7 +898,7 @@ int sw=0;
          java.sql.PreparedStatement stmt;//traduce las cadenas para mandarlas a la base de datos
          ResultSet tabla;
          con= DriverManager.getConnection(cadena);
-         String  id_cede=txtcede.getText();
+         String  id_cede=jTextField1.getText();
          String sql=" select * from cede " 
               + "where id_cede = " + id_cede+";";
       
@@ -904,10 +911,10 @@ int sw=0;
            {
                
                sw=1;
-               txtnombre.setText(tabla.getString(2));
+               jTextField2.setText(tabla.getString(2));
                jTextField3.setText(tabla.getString(3));
-               jTextField4.setText(tabla.getString(4));
-               jTextField5.setText(tabla.getString(5));
+               jTextField5.setText(tabla.getString(4));
+               jTextField4.setText(tabla.getString(5));
                jTextField9.setText(tabla.getString(6));
                jTextField6.setText(tabla.getString(7));
                jTextField8.setText(tabla.getString(8));
@@ -980,7 +987,9 @@ int sw=0;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -995,8 +1004,5 @@ int sw=0;
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
-    private javax.swing.JTextField txtcede;
-    private javax.swing.JTextField txtnombre;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
