@@ -15,9 +15,11 @@ import static javaapplication4.calendario.jTextField2;
 import static javaapplication4.calendario.jTextField3;
 import static javaapplication4.calendario.jTextField4;
 import static javaapplication4.calendario.jTextField5;
+import static javaapplication4.mes.res;
 import static javaapplication4.turnodoc.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 public class formacolonia extends javax.swing.JFrame {
     
     static ResultSet res;
@@ -26,11 +28,32 @@ public class formacolonia extends javax.swing.JFrame {
     public formacolonia() {
         initComponents();  
         cargarBD();
+        CargarArticulo();
         this.setTitle("Colonia");
         this.setLocale(null);
         
         this.setLocationRelativeTo(null);
-    }@Override
+    }
+    
+        public void CargarArticulo(){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        res = conexionsql1.Consulta("select * from colonia");
+        try{
+            while(res.next()){
+                java.util.Vector v = new java.util.Vector();
+                v.add(res.getInt(1));
+                v.add(res.getString(2));
+                v.add(res.getString(3));
+                v.add(res.getString(4));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+        }catch (SQLException e){
+        }
+    }
+    
+    @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
                 getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
@@ -47,7 +70,6 @@ public class formacolonia extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
         coloniaQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM Colonia c");
@@ -193,21 +215,14 @@ public class formacolonia extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel7.setText("Colonia");
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, coloniaList, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idColonia}"));
-        columnBinding.setColumnName("Id Colonia");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${colonia}"));
-        columnBinding.setColumnName("Colonia");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idEstado}"));
-        columnBinding.setColumnName("Id Estado");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${codigoPostal}"));
-        columnBinding.setColumnName("Codigo Postal");
-        columnBinding.setColumnClass(Integer.class);
-        bindingGroup.addBinding(jTableBinding);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
+            },
+            new String [] {
+                "Id Colonia", "Colonia", "Id Estado", "Codigo Postal"
+            }
+        ));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -354,8 +369,6 @@ public class formacolonia extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -399,7 +412,7 @@ public class formacolonia extends javax.swing.JFrame {
                     } catch (SQLException ex) {
                 Logger.getLogger(materia.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }CargarArticulo();
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -410,7 +423,7 @@ public class formacolonia extends javax.swing.JFrame {
                 Procedimientos.EliminarColonia(Integer.parseInt(jTable1.getValueAt(row, 0).toString()));
             }catch (SQLException e){
             }
-        }     
+        }CargarArticulo();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
@@ -461,7 +474,7 @@ public class formacolonia extends javax.swing.JFrame {
                 jTextField1.requestFocus();
             }catch(SQLException e){
                 System.out.println(e);
-        }
+        }CargarArticulo();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void cmbestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbestadoActionPerformed
@@ -724,6 +737,5 @@ traerid();        // TODO add your handling code here:
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

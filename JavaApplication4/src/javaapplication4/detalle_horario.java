@@ -14,6 +14,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javaapplication4.mes.res;
+import javax.swing.table.DefaultTableModel;
 
 public class detalle_horario extends javax.swing.JFrame {
   static ResultSet res;
@@ -21,6 +23,7 @@ public class detalle_horario extends javax.swing.JFrame {
 
     public detalle_horario() {
         initComponents();
+        CargarArticulo();
         this.cmbturno.removeAllItems();
           try
             {
@@ -116,6 +119,25 @@ public class detalle_horario extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
+        public void CargarArticulo(){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        res = conexionsql1.Consulta("select * from detalle_horario");
+        try{
+            while(res.next()){
+                java.util.Vector v = new java.util.Vector();
+                v.add(res.getInt(1));
+                v.add(res.getString(2));
+                v.add(res.getString(3));
+                v.add(res.getString(4));
+                v.add(res.getString(5));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+        }catch (SQLException e){
+        }
+    }
+    
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
@@ -128,7 +150,6 @@ public class detalle_horario extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
         detalleHorarioQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT d FROM DetalleHorario d");
@@ -224,25 +245,18 @@ public class detalle_horario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 2, 24)); // NOI18N
         jLabel1.setText("Nombre del usuario");
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, detalleHorarioList, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idDetalle}"));
-        columnBinding.setColumnName("Id Detalle");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idTurno}"));
-        columnBinding.setColumnName("Id Turno");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${matricula}"));
-        columnBinding.setColumnName("Matricula");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idGrupo}"));
-        columnBinding.setColumnName("Id Grupo");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idSalon}"));
-        columnBinding.setColumnName("Id Salon");
-        columnBinding.setColumnClass(Integer.class);
-        bindingGroup.addBinding(jTableBinding);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
+            },
+            new String [] {
+                "Id Detalle", "Id Turno", "Matricula", "Id Grupo", "Id Salon"
+            }
+        ));
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
         jLabel2.setText("Numero del usuario");
@@ -351,7 +365,7 @@ public class detalle_horario extends javax.swing.JFrame {
                     .addComponent(btnmodificar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnnuevo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(80, 80, 80))
         );
         jPanel1Layout.setVerticalGroup(
@@ -478,8 +492,6 @@ public class detalle_horario extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -502,7 +514,7 @@ public class detalle_horario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"INGRESA TUS DATOS CORRECTOS");      
         }
         else{
-             res=javaapplication4.conexionsql1.Consulta("Select count(detalle_horario)from detalle_horario where id_horario='"+jTextField2.getText()+"'");
+             res=javaapplication4.conexionsql1.Consulta("Select count(id_detalle)from detalle_horario where id_detalle='"+jTextField2.getText()+"'");
              try {
                  while (res.next()) {
                      coun=res.getInt(1);
@@ -521,7 +533,7 @@ public class detalle_horario extends javax.swing.JFrame {
                  }
                  JOptionPane.showMessageDialog(this,"exito");
              }
-        }
+        }CargarArticulo();
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -538,7 +550,7 @@ public class detalle_horario extends javax.swing.JFrame {
           nuevo();
             }catch (SQLException e){
             }
-        }  
+        }  CargarArticulo();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -594,7 +606,7 @@ public class detalle_horario extends javax.swing.JFrame {
                 jTextField1.requestFocus();
             }catch(SQLException e){
                 System.out.println(e);
-        } 
+        } CargarArticulo();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -908,6 +920,5 @@ public class detalle_horario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

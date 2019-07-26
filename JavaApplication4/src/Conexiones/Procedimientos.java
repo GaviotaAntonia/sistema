@@ -177,26 +177,27 @@ public class Procedimientos {
             entrada.setString(14, n);
             entrada.execute();
         }
-        public static void GrabarAlumno(String a,String b,String c,String d, String e,String f,String g,String h,String i,String j,String k,String l,String m,String n,String o,String p,String q) throws SQLException{
-            CallableStatement entrada1=conexionsql1.getConexion().prepareCall("{call GrabarAlumno(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
-            entrada1.setString(1, a);
-            entrada1.setString(2, b);
-            entrada1.setString(3, c);
-            entrada1.setString(4, d); 
-            entrada1.setString(5, e);
-            entrada1.setString(6, f);
-            entrada1.setString(7, g);
-            entrada1.setString(8, h);
-            entrada1.setString(9, i);
-            entrada1.setString(10, j);
-            entrada1.setString(11, k);
-            entrada1.setString(12, l);
-            entrada1.setString(13, m);
-             entrada1.setString(14, n);
-            entrada1.setString(15, o);
-            entrada1.setString(16, p);
-            entrada1.setString(17, q);
-            entrada1.execute();
+        
+        public static void EntradaAlumnos(String a,String b,String c,String d,String e,String f,String g, String h, String i,String j,String k,String l,String m, String n, String o, String p, String q) throws SQLException  {
+            CallableStatement entrada=conexionsql1.getConexion().prepareCall("{call EntradaAlumnos(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            entrada.setString(1, a);
+            entrada.setString(2, b);
+            entrada.setString(3, c);
+            entrada.setString(4, d);
+            entrada.setString(5, e);
+             entrada.setString(6, f);
+            entrada.setString(7, g);
+            entrada.setString(8, h);
+            entrada.setString(9, i);
+             entrada.setString(10, j);
+            entrada.setString(11, k);
+            entrada.setString(12, l);
+            entrada.setString(13, m);
+            entrada.setString(14, n);
+            entrada.setString(15, o);
+            entrada.setString(16, p);
+            entrada.setString(17, q);
+            entrada.execute();
         }
                
     /*---- Buscar ----*/
@@ -416,6 +417,12 @@ public class Procedimientos {
             entrada.execute();
         }
 
+        public static void EliminarHorarios(int a)throws SQLException
+        {
+            CallableStatement entrada = conexionsql1.getConexion().prepareCall("{call EliminarHorarios(?)}");
+            entrada.setInt(1, a);
+            entrada.execute();
+        }
     
         public static void eliminarhorario(int a)throws SQLException
         {

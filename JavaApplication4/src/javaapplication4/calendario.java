@@ -10,8 +10,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javaapplication4.mes.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class calendario extends javax.swing.JFrame {
     
@@ -23,10 +25,31 @@ public class calendario extends javax.swing.JFrame {
         cargargrupo();
         cargardia();
         cargarmateria();
+        CargarArticulo();
         this.setTitle("Calendario");
         this.setLocale(null);
         this.setLocationRelativeTo(null); 
    }
+    
+        public void CargarArticulo(){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        res = conexionsql1.Consulta("select * from calendario");
+        try{
+            while(res.next()){
+                java.util.Vector v = new java.util.Vector();
+                v.add(res.getInt(1));
+                v.add(res.getString(2));
+                v.add(res.getString(3));
+                v.add(res.getString(4));
+                v.add(res.getString(5));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+        }catch (SQLException e){
+        }
+    }
+    
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
@@ -40,7 +63,6 @@ public class calendario extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
         calendario_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT c FROM Calendario_1 c");
@@ -188,24 +210,14 @@ public class calendario extends javax.swing.JFrame {
             }
         });
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, calendario_1List, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idCalendario}"));
-        columnBinding.setColumnName("Id Calendario");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idGrupo}"));
-        columnBinding.setColumnName("Id Grupo");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idDia}"));
-        columnBinding.setColumnName("Id Dia");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idMateria}"));
-        columnBinding.setColumnName("Id Materia");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${horario}"));
-        columnBinding.setColumnName("Horario");
-        columnBinding.setColumnClass(String.class);
-        bindingGroup.addBinding(jTableBinding);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
+            },
+            new String [] {
+                "Id Calendario", "Id Grupo", "Id Dia", "Id Materia", "Horario"
+            }
+        ));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -407,8 +419,6 @@ public class calendario extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -417,7 +427,7 @@ public class calendario extends javax.swing.JFrame {
     }//GEN-LAST:event_menunuevoActionPerformed
 
     private void menuguardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuguardarMouseClicked
-        alumno nuevo=new alumno();
+        alumnos nuevo=new alumnos();
         nuevo.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_menuguardarMouseClicked
 
@@ -447,7 +457,20 @@ public class calendario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
- 
+          try{
+            PreparedStatement pps = conexionsql1.getConexion().prepareStatement("update calendario set  id_grupo='" + jTextField2.getText() + "',  id_dia='" + jTextField3.getText() +
+                    "', id_materia='" + jTextField4.getText()+"', horario='" + jTextField5.getText() + "' where id_calendario='" + jTextField1.getText() + "'");
+                pps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Los datos se modificaron exitosamente");
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
+                jTextField5.setText("");
+                jTextField1.requestFocus();
+            }catch(SQLException e){
+                System.out.println(e);
+        }CargarArticulo();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -483,7 +506,7 @@ public class calendario extends javax.swing.JFrame {
                     } catch (SQLException ex) {
                 Logger.getLogger(materia.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }CargarArticulo();
     }//GEN-LAST:event_btngrabarActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
@@ -535,7 +558,7 @@ public class calendario extends javax.swing.JFrame {
           nuevo();
             }catch (SQLException e){
             }
-        }   
+        }   CargarArticulo();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -901,6 +924,5 @@ public void cargarmateria(){
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

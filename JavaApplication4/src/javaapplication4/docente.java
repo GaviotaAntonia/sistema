@@ -10,8 +10,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javaapplication4.mes.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 public class docente extends javax.swing.JFrame {
     static ResultSet res;
     int coun;
@@ -21,6 +23,7 @@ public class docente extends javax.swing.JFrame {
         cargarsal();
         cargarcol();
         cargarturno();
+        CargarArticulo();
         this.setTitle("Docente");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
@@ -131,6 +134,34 @@ public class docente extends javax.swing.JFrame {
                 Logger.getLogger(prueba_combo.class.getName()).log(Level.SEVERE,null,ex);
             }
         }
+    
+        public void CargarArticulo(){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        res = conexionsql1.Consulta("select * from docente");
+        try{
+            while(res.next()){
+                java.util.Vector v = new java.util.Vector();
+                v.add(res.getInt(1));
+                v.add(res.getString(2));
+                v.add(res.getString(3));
+                v.add(res.getString(4));
+                v.add(res.getString(5));
+                v.add(res.getString(6));
+                v.add(res.getString(7));
+                v.add(res.getString(8));
+                v.add(res.getString(9));
+                v.add(res.getString(10));
+                v.add(res.getString(11));
+                v.add(res.getString(12));
+                v.add(res.getString(13));
+                v.add(res.getString(14));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+        }catch (SQLException e){
+        }
+    }
             
             
     /**
@@ -141,7 +172,6 @@ public class docente extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
         docente_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT d FROM Docente_1 d");
@@ -347,51 +377,14 @@ public class docente extends javax.swing.JFrame {
             }
         });
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, docente_1List1, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idDocente}"));
-        columnBinding.setColumnName("Id Docente");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nombre}"));
-        columnBinding.setColumnName("Nombre");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${apellidopat}"));
-        columnBinding.setColumnName("Apellidopat");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${apellidomat}"));
-        columnBinding.setColumnName("Apellidomat");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idTurno}"));
-        columnBinding.setColumnName("Id Turno");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idSexo}"));
-        columnBinding.setColumnName("Id Sexo");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${curp}"));
-        columnBinding.setColumnName("Curp");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idColonia}"));
-        columnBinding.setColumnName("Id Colonia");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${calle}"));
-        columnBinding.setColumnName("Calle");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${numero}"));
-        columnBinding.setColumnName("Numero");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${codigoPostal}"));
-        columnBinding.setColumnName("Codigo Postal");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${correo}"));
-        columnBinding.setColumnName("Correo");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefono}"));
-        columnBinding.setColumnName("Telefono");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idSalon}"));
-        columnBinding.setColumnName("Id Salon");
-        columnBinding.setColumnClass(Integer.class);
-        bindingGroup.addBinding(jTableBinding);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
+            },
+            new String [] {
+                "Id Docente", "Nombre", "Apellidopaterno", "Apellidomaterno", "Id Turno", "Id Sexo", "Curp", "Id Colonia", "Calle", "Numero", "Codigo Postal", "Correo", "Telefono", "Id Salon"
+            }
+        ));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -664,8 +657,6 @@ public class docente extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 765, Short.MAX_VALUE)
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -711,7 +702,7 @@ public class docente extends javax.swing.JFrame {
           nuevo();
             }catch (SQLException e){
             }
-        }          
+        }CargarArticulo();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultarActionPerformed
@@ -774,7 +765,7 @@ public class docente extends javax.swing.JFrame {
                nuevo();
             }catch(SQLException e){
                 System.out.println(e);
-        } 
+        }CargarArticulo();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
@@ -803,12 +794,12 @@ public class docente extends javax.swing.JFrame {
                      
                  JOptionPane.showMessageDialog(this,"exito");
                  } catch (SQLException ex) {
-                     Logger.getLogger(alumno.class.getName()).log(Level.SEVERE, null, ex);
+                     Logger.getLogger(alumnos.class.getName()).log(Level.SEVERE, null, ex);
                      
                  JOptionPane.showMessageDialog(this,"fallo");
                  }
              }
-        }
+        }CargarArticulo();
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btnsalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalidaActionPerformed
@@ -1204,6 +1195,5 @@ int sw=0;
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javaapplication4.mes.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -23,8 +24,27 @@ public class materia extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Materia");
         this.setLocale(null);
+        CargarArticulo();
         this.setLocationRelativeTo(null);
-    }@Override
+    }
+    
+        public void CargarArticulo(){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        res = conexionsql1.Consulta("select * from materia");
+        try{
+            while(res.next()){
+                java.util.Vector v = new java.util.Vector();
+                v.add(res.getInt(1));
+                v.add(res.getString(2));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+        }catch (SQLException e){
+        }
+    }
+    
+    @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
                 getImage(ClassLoader.getSystemResource("iconos/zorrito.png"));
@@ -37,7 +57,6 @@ public class materia extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
         materia_1Query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT m FROM Materia_1 m");
@@ -141,15 +160,14 @@ public class materia extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
         jLabel5.setText("numero de usuario");
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, materia_1List, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idMateria}"));
-        columnBinding.setColumnName("Id Materia");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${materia}"));
-        columnBinding.setColumnName("Materia");
-        columnBinding.setColumnClass(String.class);
-        bindingGroup.addBinding(jTableBinding);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
+            },
+            new String [] {
+                "Id Materia", "Materia"
+            }
+        ));
         jScrollPane2.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -300,8 +318,6 @@ public class materia extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -360,6 +376,7 @@ public class materia extends javax.swing.JFrame {
             }
         }
         nuevo();
+        CargarArticulo();
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
@@ -372,7 +389,7 @@ public class materia extends javax.swing.JFrame {
                 jTextField2.setText("");
                 jTextField1.requestFocus();
         }catch(SQLException e){
-        }
+        }CargarArticulo();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -386,7 +403,7 @@ public class materia extends javax.swing.JFrame {
             }catch (SQLException e){
                 JOptionPane.showMessageDialog(jMenu1, e);
             }
-        }     
+        }     CargarArticulo();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
@@ -576,6 +593,5 @@ int sw=0;
     private javax.swing.JMenuItem menubuscar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,8 +11,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javaapplication4.mes.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class turnodoc extends javax.swing.JFrame {
     
@@ -22,10 +24,30 @@ public class turnodoc extends javax.swing.JFrame {
     public turnodoc() {
         initComponents();
         cargardirector();
+        CargarArticulo();
         this.setTitle("Turno del Docente");
         this.setLocale(null);
         this.setLocationRelativeTo(null);
     }
+    
+        public void CargarArticulo(){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        res = conexionsql1.Consulta("select * from turno_docente");
+        try{
+            while(res.next()){
+                java.util.Vector v = new java.util.Vector();
+                v.add(res.getInt(1));
+                v.add(res.getString(2));
+                v.add(res.getString(3));
+                v.add(res.getString(4));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+        }catch (SQLException e){
+        }
+    }
+    
    @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
@@ -37,7 +59,6 @@ public class turnodoc extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
         turnoDocenteQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT t FROM TurnoDocente t");
@@ -161,21 +182,14 @@ public class turnodoc extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel5.setText("Docente");
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, turnoDocenteList, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idTurno}"));
-        columnBinding.setColumnName("Id Turno");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${turno}"));
-        columnBinding.setColumnName("Turno");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${docente}"));
-        columnBinding.setColumnName("Docente");
-        columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${horario}"));
-        columnBinding.setColumnName("Horario");
-        columnBinding.setColumnClass(String.class);
-        bindingGroup.addBinding(jTableBinding);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
+            },
+            new String [] {
+                "Id Turno", "Turno", "Docente", "Horario"
+            }
+        ));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -220,7 +234,7 @@ public class turnodoc extends javax.swing.JFrame {
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnnuevo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(btngrabar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btneliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -369,8 +383,6 @@ public class turnodoc extends javax.swing.JFrame {
 
         jPanel1.getAccessibleContext().setAccessibleDescription("");
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -393,7 +405,7 @@ public class turnodoc extends javax.swing.JFrame {
                 jTextField4.setText("");
                 jTextField1.requestFocus();
             }catch(SQLException e){
-        }
+        }CargarArticulo();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -456,7 +468,7 @@ consultar();
                     } catch (SQLException ex) {
                 Logger.getLogger(materia.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }CargarArticulo();
     }//GEN-LAST:event_btngrabarActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
@@ -504,7 +516,7 @@ consultar();
           nuevo();
             }catch (SQLException e){
             }
-        }     
+        }CargarArticulo();
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -750,6 +762,5 @@ consultar();
     private javax.swing.JMenuItem menunuevo;
     private java.util.List<javaapplication4.TurnoDocente> turnoDocenteList;
     private javax.persistence.Query turnoDocenteQuery;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

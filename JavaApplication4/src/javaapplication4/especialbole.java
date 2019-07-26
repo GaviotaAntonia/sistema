@@ -10,8 +10,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javaapplication4.mes.res;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 public class especialbole extends javax.swing.JFrame {
     static ResultSet res;
     int coun;
@@ -20,11 +22,32 @@ public class especialbole extends javax.swing.JFrame {
         cargaralumno();
         cargarmateria();
         cargardocente();
+        CargarArticulo();
         this.setTitle("Boleta");
         this.setLocale(null);
         
         this.setLocationRelativeTo(null);
     }
+    
+        public void CargarArticulo(){
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        res = conexionsql1.Consulta("select * from especial");
+        try{
+            while(res.next()){
+                java.util.Vector v = new java.util.Vector();
+                v.add(res.getInt(1));
+                v.add(res.getString(2));
+                v.add(res.getString(3));
+                v.add(res.getString(4));
+                v.add(res.getString(5));
+                modelo.addRow(v);
+                jTable1.setModel(modelo);
+            }
+        }catch (SQLException e){
+        }
+    }
+    
    @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
@@ -37,7 +60,6 @@ public class especialbole extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("DESKTOP-AHM3DOT\\\\SQLEXPRESS:1433;databaseName=dbdistribuidaPU").createEntityManager();
         especialQuery = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT e FROM Especial e");
@@ -196,24 +218,14 @@ public class especialbole extends javax.swing.JFrame {
             }
         });
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, especialList, jTable1);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idEspecial}"));
-        columnBinding.setColumnName("Id Especial");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${matricula}"));
-        columnBinding.setColumnName("Matricula");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idMateria}"));
-        columnBinding.setColumnName("Id Materia");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idDocente}"));
-        columnBinding.setColumnName("Id Docente");
-        columnBinding.setColumnClass(Integer.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${calificacion}"));
-        columnBinding.setColumnName("Calificacion");
-        columnBinding.setColumnClass(String.class);
-        bindingGroup.addBinding(jTableBinding);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
+            },
+            new String [] {
+                "Id Especial", "Matricula", "Id Materia", "Id Docente", "Calificacion"
+            }
+        ));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -413,8 +425,6 @@ public class especialbole extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -459,8 +469,7 @@ try{
                 jTextField1.requestFocus();
             }catch(SQLException e){
                 System.out.println(e);
-        }
-// TODO add your handling code here:
+        }CargarArticulo();
     }//GEN-LAST:event_btnmodificarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -497,7 +506,7 @@ try{
                  }
                  JOptionPane.showMessageDialog(this,"exito");
              }
-        }
+        }CargarArticulo();
         
     }//GEN-LAST:event_btngrabarActionPerformed
 
@@ -569,7 +578,7 @@ int row = jTable1.getSelectedRow();
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon("src/basededatos/eliminarbase.png"));
           nuevo();
        }
-        }          // TODO add your handling code here:
+        } CargarArticulo();
     }//GEN-LAST:event_btneliminarActionPerformed
     public void nuevo(){
      jTextField1.setText("");    
@@ -875,6 +884,5 @@ catch(Exception e2){
     private javax.swing.JMenuItem menuguardar;
     private javax.swing.JMenuItem menumodificar;
     private javax.swing.JMenuItem menunuevo;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
